@@ -22,6 +22,7 @@ Detailed prompt templates live in `./commands/`. Keep the skill harness-agnostic
 |---------|-------------|
 | `generate-web-diagram` | Generate an HTML diagram for any topic |
 | `generate-visual-plan` | Generate a visual implementation plan for a feature |
+| `generate-visual-lesson` | Generate a visual teaching page for a Sensei-style mentor response |
 | `generate-slides` | Generate a magazine-quality slide deck |
 | `diff-review` | Visual diff review with architecture comparison and code review |
 | `plan-review` | Compare a plan against the codebase with risk assessment |
