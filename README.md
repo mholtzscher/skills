@@ -17,6 +17,7 @@ Each skill lives in its own directory and is centered around a `SKILL.md` file, 
 | `librarian` | Research open-source libraries and inspect repository internals. |
 | `mermaid` | Guidance and validation tooling for Mermaid diagrams. |
 | `spec-planner` | Turn vague feature ideas into implementation-ready specs. |
+| `visual-explainer` | Generate self-contained HTML explainers, diagrams, diff reviews, and slide decks. |
 
 ## Repository layout
 
