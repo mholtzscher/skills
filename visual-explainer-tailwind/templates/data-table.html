@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="silk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Requirements Audit - Tailwind and daisyUI Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+  @theme {
+    --font-serif: "Instrument Serif", serif;
+    --font-mono: "JetBrains Mono", monospace;
+  }
+
+  @layer components {
+    .ve-shell { @apply min-h-screen bg-base-200 text-base-content; }
+    .ve-card { @apply card border border-base-content/10 bg-base-100 shadow-sm; }
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+</style>
+<script>
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', prefersDark ? 'night' : 'silk');
+</script>
+</head>
+<body class="ve-shell overflow-x-hidden">
+  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(190,24,93,0.12),transparent_25%),radial-gradient(circle_at_bottom_right,rgba(34,197,94,0.12),transparent_22%)]"></div>
+
+  <main class="relative mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 lg:px-10">
+    <header class="space-y-4">
+      <span class="badge badge-outline badge-primary font-mono">table reference</span>
+      <div class="space-y-2">
+        <h1 class="font-serif text-5xl tracking-tight">Requirements Audit</h1>
+        <p class="max-w-3xl font-mono text-xs uppercase tracking-[0.32em] text-base-content/50">victoria email vs implementation plan</p>
+      </div>
+      <p class="max-w-3xl text-lg leading-8 text-base-content/70">
+        Tailwind and daisyUI version of the comparison-table pattern: headline metrics first, sticky table header, readable status badges, and collapsible notes.
+      </p>
+    </header>
+
+    <section class="stats stats-vertical border border-base-content/10 bg-base-100 shadow-sm sm:stats-horizontal">
+      <div class="stat">
+        <div class="stat-title font-mono uppercase tracking-[0.22em]">Items Reviewed</div>
+        <div class="stat-value font-serif text-5xl">14</div>
+      </div>
+      <div class="stat">
+        <div class="stat-title font-mono uppercase tracking-[0.22em]">Match</div>
+        <div class="stat-value text-success">13</div>
+      </div>
+      <div class="stat">
+        <div class="stat-title font-mono uppercase tracking-[0.22em]">Gap</div>
+        <div class="stat-value text-error">1</div>
+      </div>
+      <div class="stat">
+        <div class="stat-title font-mono uppercase tracking-[0.22em]">Coverage</div>
+        <div class="stat-value text-primary">93%</div>
+      </div>
+    </section>
+
+    <div class="flex flex-wrap gap-2 text-xs font-mono">
+      <span class="badge badge-success badge-outline">Match</span>
+      <span class="badge badge-error badge-outline">Gap</span>
+      <span class="badge badge-warning badge-outline">Partial</span>
+    </div>
+
+    <section class="ve-card overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="table table-zebra table-pin-rows">
+          <thead class="bg-base-100 text-base-content">
+            <tr class="font-mono text-[0.7rem] uppercase tracking-[0.24em] text-base-content/55">
+              <th class="min-w-72">Request</th>
+              <th class="min-w-80">Plan</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="align-top">Template: <code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">yoth-special-edition</code> only</td>
+              <td class="align-top">Plan scopes everything to this template.</td>
+              <td class="align-top"><span class="badge badge-success badge-outline">Match</span></td>
+            </tr>
+            <tr>
+              <td class="align-top">EOD tomorrow, Tuesday AM launch</td>
+              <td class="align-top">Plan header uses the same schedule.</td>
+              <td class="align-top"><span class="badge badge-success badge-outline">Match</span></td>
+            </tr>
+            <tr>
+              <td class="align-top">Update BIS button label and popup text</td>
+              <td class="align-top">Button text and modal description are configurable from settings.</td>
+              <td class="align-top"><span class="badge badge-success badge-outline">Match</span></td>
+            </tr>
+            <tr>
+              <td class="align-top">Use Stoq API to trigger events</td>
+              <td class="align-top">Uses <code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">openInlineForm</code>, <code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">openModal</code>, and <code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">removeInlineForm</code>.</td>
+              <td class="align-top"><span class="badge badge-success badge-outline">Match</span></td>
+            </tr>
+            <tr>
+              <td class="align-top">Custom button text defaults to current behavior when blank</td>
+              <td class="align-top">Blank settings keep Stoq's default <code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">Notify Me</code> behavior.</td>
+              <td class="align-top"><span class="badge badge-success badge-outline">Match</span></td>
+            </tr>
+            <tr>
+              <td class="align-top">Merchant wants analytics event on modal open</td>
+              <td class="align-top">Plan mentions UI wiring but not event instrumentation.</td>
+              <td class="align-top"><span class="badge badge-error badge-outline">Gap</span></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="font-mono text-xs uppercase tracking-[0.22em] text-base-content/60">
+              <th>Summary</th>
+              <th>Single implementation gap: analytics event coverage</th>
+              <th><span class="badge badge-warning badge-outline">Needs follow-up</span></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <div class="collapse collapse-arrow border border-base-content/10 bg-base-100 shadow-sm">
+      <input type="checkbox" checked>
+      <div class="collapse-title text-sm font-semibold uppercase tracking-[0.2em] text-base-content/70">Review Notes</div>
+      <div class="collapse-content max-w-3xl space-y-3 text-sm leading-7 text-base-content/70">
+        <p><strong class="text-base-content">Pattern:</strong> lead with KPIs, then present the table, then tuck nuance into a collapsible block.</p>
+        <p><strong class="text-base-content">Why it works:</strong> readers understand the overall outcome before they parse row-level detail.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

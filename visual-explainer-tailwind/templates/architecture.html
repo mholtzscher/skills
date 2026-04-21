@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="winter">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architecture Diagram - Tailwind and daisyUI Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+  @theme {
+    --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
+  }
+
+  @layer components {
+    .ve-shell { @apply min-h-screen bg-base-200 text-base-content; }
+    .ve-card { @apply card border border-base-content/10 bg-base-100 shadow-sm; }
+    .ve-label { @apply text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-primary; }
+    .ve-chip { @apply badge badge-outline gap-2 rounded-full px-4 py-3 font-mono text-[0.7rem]; }
+    .ve-step { @apply rounded-box border border-base-content/10 bg-base-100 p-4 shadow-sm; }
+  }
+</style>
+<script>
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', prefersDark ? 'business' : 'winter');
+</script>
+</head>
+<body class="ve-shell overflow-x-hidden">
+  <div class="pointer-events-none absolute inset-0 opacity-70">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.14),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(245,158,11,0.12),transparent_24%)]"></div>
+    <div class="absolute inset-0 [background-image:linear-gradient(to_right,rgba(120,120,120,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(120,120,120,0.08)_1px,transparent_1px)] [background-size:28px_28px]"></div>
+  </div>
+
+  <main class="relative mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 lg:px-10">
+    <section class="ve-card border-primary/25 bg-base-100/92 shadow-xl backdrop-blur">
+      <div class="card-body gap-6">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-3xl space-y-4">
+            <span class="badge badge-primary badge-outline font-mono">reference template</span>
+            <div class="space-y-3">
+              <h1 class="text-4xl font-semibold tracking-tight sm:text-5xl">System Architecture</h1>
+              <p class="max-w-2xl text-lg leading-8 text-base-content/70">
+                Tailwind and daisyUI version of the architecture overview pattern: hero summary, labeled modules, pipeline steps, and a compact output surface.
+              </p>
+            </div>
+          </div>
+          <div class="stats stats-vertical border border-base-content/10 bg-base-200/70 shadow-none sm:stats-horizontal">
+            <div class="stat px-5 py-4">
+              <div class="stat-title font-mono text-[0.68rem] uppercase tracking-[0.22em]">Zones</div>
+              <div class="stat-value text-3xl text-primary">4</div>
+            </div>
+            <div class="stat px-5 py-4">
+              <div class="stat-title font-mono text-[0.68rem] uppercase tracking-[0.22em]">Outputs</div>
+              <div class="stat-value text-3xl text-secondary">3</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <span class="ve-chip"><span class="size-2 rounded-full bg-info"></span>Slack</span>
+          <span class="ve-chip"><span class="size-2 rounded-full bg-success"></span>GitHub</span>
+          <span class="ve-chip"><span class="size-2 rounded-full bg-warning"></span>Email</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider divider-primary font-mono text-xs uppercase tracking-[0.3em] text-base-content/45">incoming events</div>
+
+    <section class="ve-card">
+      <div class="card-body gap-5">
+        <div>
+          <p class="ve-label">Gateway Layer</p>
+          <h2 class="card-title text-2xl">Normalize and route first</h2>
+        </div>
+        <div class="grid gap-4 md:grid-cols-2">
+          <article class="rounded-box border border-info/20 bg-info/8 p-5">
+            <h3 class="font-semibold">Router</h3>
+            <p class="mt-2 text-sm leading-6 text-base-content/70">Routes inbound messages to the right workflow via <code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">resolveRoute()</code>.</p>
+          </article>
+          <article class="rounded-box border border-primary/20 bg-primary/8 p-5">
+            <h3 class="font-semibold">HTTP Server</h3>
+            <p class="mt-2 text-sm leading-6 text-base-content/70">Owns webhook endpoints, auth validation, and plugin route handlers.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider divider-secondary font-mono text-xs uppercase tracking-[0.3em] text-base-content/45">pipeline</div>
+
+    <section class="ve-card">
+      <div class="card-body gap-5">
+        <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p class="ve-label">Processing Pipeline</p>
+            <h2 class="card-title text-2xl">Sequence the expensive work</h2>
+          </div>
+          <div class="flex flex-wrap gap-2 text-xs font-mono">
+            <span class="badge badge-info badge-outline">No LLM</span>
+            <span class="badge badge-secondary badge-outline">LLM</span>
+            <span class="badge badge-warning badge-outline">Embedding</span>
+            <span class="badge badge-success badge-outline">Write</span>
+          </div>
+        </div>
+
+        <div class="grid gap-4 lg:grid-cols-4">
+          <article class="ve-step border-info/20 bg-info/8">
+            <p class="font-mono text-xs uppercase tracking-[0.22em] text-info">Step 0</p>
+            <h3 class="mt-2 font-semibold">Pre-filter</h3>
+            <p class="mt-2 text-sm text-base-content/70">Allowlist, bot detection, dedupe, and shape validation.</p>
+          </article>
+          <article class="ve-step border-secondary/20 bg-secondary/8">
+            <p class="font-mono text-xs uppercase tracking-[0.22em] text-secondary">Step 1</p>
+            <h3 class="mt-2 font-semibold">Relevance</h3>
+            <p class="mt-2 text-sm text-base-content/70">Cheap LLM gate before heavier processing.</p>
+          </article>
+          <article class="ve-step border-warning/20 bg-warning/10">
+            <p class="font-mono text-xs uppercase tracking-[0.22em] text-warning">Step 2</p>
+            <h3 class="mt-2 font-semibold">Embed</h3>
+            <p class="mt-2 text-sm text-base-content/70">Generate vectors for clustering and semantic search.</p>
+          </article>
+          <article class="ve-step border-success/20 bg-success/8">
+            <p class="font-mono text-xs uppercase tracking-[0.22em] text-success">Step 3</p>
+            <h3 class="mt-2 font-semibold">Cluster + Persist</h3>
+            <p class="mt-2 text-sm text-base-content/70">Attach trends, write records, publish downstream events.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider divider-accent font-mono text-xs uppercase tracking-[0.3em] text-base-content/45">stored and consumed</div>
+
+    <section class="grid gap-4 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
+      <article class="ve-card lg:col-span-1">
+        <div class="card-body gap-4">
+          <div>
+            <p class="ve-label">Database</p>
+            <h2 class="card-title text-xl">Stateful core</h2>
+          </div>
+          <div class="space-y-3 text-sm leading-6 text-base-content/70">
+            <div class="rounded-box border border-base-content/10 bg-base-200/70 p-4">
+              <p class="font-semibold text-base-content">feedback_items</p>
+              <p>Classification, source metadata, embeddings, cluster IDs.</p>
+            </div>
+            <div class="rounded-box border border-base-content/10 bg-base-200/70 p-4">
+              <p class="font-semibold text-base-content">clusters</p>
+              <p>Centroid vectors, trend rollups, severity summaries, ticket links.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="ve-card">
+        <div class="card-body">
+          <p class="ve-label">Agent Tools</p>
+          <ul class="space-y-2 text-sm text-base-content/70">
+            <li class="relative pl-4"><span class="absolute left-0 text-primary">›</span><code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">search</code> semantic lookup</li>
+            <li class="relative pl-4"><span class="absolute left-0 text-primary">›</span><code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">clusters</code> grouped trend view</li>
+            <li class="relative pl-4"><span class="absolute left-0 text-primary">›</span><code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">stats</code> aggregate metrics</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="ve-card">
+        <div class="card-body">
+          <p class="ve-label">Actions</p>
+          <ul class="space-y-2 text-sm text-base-content/70">
+            <li class="relative pl-4"><span class="absolute left-0 text-secondary">›</span>Create tickets from clusters</li>
+            <li class="relative pl-4"><span class="absolute left-0 text-secondary">›</span>Notify customers on ship</li>
+            <li class="relative pl-4"><span class="absolute left-0 text-secondary">›</span>Generate release notes</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="ve-card">
+        <div class="card-body">
+          <p class="ve-label">Dashboard</p>
+          <ul class="space-y-2 text-sm text-base-content/70">
+            <li class="relative pl-4"><span class="absolute left-0 text-accent">›</span>Metrics overview</li>
+            <li class="relative pl-4"><span class="absolute left-0 text-accent">›</span>Feedback stream</li>
+            <li class="relative pl-4"><span class="absolute left-0 text-accent">›</span>Natural-language query UI</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <div class="alert alert-warning border border-warning/25 bg-warning/10 text-sm shadow-sm">
+      <span><strong>Multi-tenant note.</strong> Each agent keeps an isolated database at <code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">{agentDir}/intelligence/feedback.db</code>.</span>
+    </div>
+  </main>
+</body>
+</html>

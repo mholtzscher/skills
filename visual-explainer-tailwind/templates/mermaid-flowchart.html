@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="business">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mermaid Flowchart - Tailwind and daisyUI Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Bricolage+Grotesque:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+  @theme {
+    --font-sans: "Bricolage Grotesque", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
+  }
+
+  @layer components {
+    .ve-shell { @apply min-h-screen bg-base-200 text-base-content; }
+    .ve-card { @apply card border border-base-content/10 bg-base-100 shadow-sm; }
+    .ve-label { @apply text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-info; }
+  }
+
+  .mermaid-canvas {
+    transform-origin: center center;
+  }
+
+  .mermaid-canvas svg {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: none;
+  }
+
+  .mermaid .label,
+  .mermaid text {
+    fill: currentColor !important;
+  }
+</style>
+<script>
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', prefersDark ? 'business' : 'corporate');
+</script>
+</head>
+<body class="ve-shell overflow-x-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.12),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.12),transparent_20%)]"></div>
+
+  <main class="relative mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 lg:px-10">
+    <header class="space-y-4">
+      <span class="badge badge-info badge-outline font-mono">mermaid reference</span>
+      <div class="space-y-3">
+        <h1 class="text-4xl font-semibold tracking-tight sm:text-5xl">Request Lifecycle</h1>
+        <p class="max-w-3xl text-lg leading-8 text-base-content/70">
+          Tailwind and daisyUI wrapper around Mermaid: use a structured card shell, utility-first layout, and a small zoom and pan controller instead of a bare <code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">pre.mermaid</code> block.
+        </p>
+      </div>
+    </header>
+
+    <section class="ve-card">
+      <div class="card-body gap-5">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p class="ve-label">System Flow</p>
+            <h2 class="card-title text-2xl">Mermaid with usable controls</h2>
+          </div>
+          <div class="join self-start lg:self-auto">
+            <button class="btn btn-sm join-item" id="zoom-out">-</button>
+            <button class="btn btn-sm join-item" id="reset-view">100%</button>
+            <button class="btn btn-sm join-item" id="zoom-in">+</button>
+            <button class="btn btn-sm join-item" id="open-diagram">Open</button>
+          </div>
+        </div>
+
+        <div id="viewport" class="cursor-grab overflow-hidden rounded-box border border-base-content/10 bg-base-200 p-4 active:cursor-grabbing">
+          <div id="canvas" class="mermaid-canvas min-h-[28rem] rounded-xl bg-base-100 p-4"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
+      <article class="ve-card">
+        <div class="card-body gap-4">
+          <p class="ve-label">Notes</p>
+          <ul class="space-y-2 text-sm leading-6 text-base-content/70">
+            <li class="relative pl-4"><span class="absolute left-0 text-info">›</span>Prefer <code class="rounded bg-base-300 px-1.5 py-0.5 font-mono text-xs">flowchart TD</code> for anything beyond a short linear path.</li>
+            <li class="relative pl-4"><span class="absolute left-0 text-info">›</span>Render into a controlled canvas so zoom and pan do not affect the rest of the page.</li>
+            <li class="relative pl-4"><span class="absolute left-0 text-info">›</span>Pair the diagram with short interpretation cards so the page still reads well before interaction.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="ve-card">
+        <div class="card-body gap-4">
+          <p class="ve-label">Legend</p>
+          <div class="space-y-3 text-sm text-base-content/70">
+            <div class="flex items-center gap-3"><span class="badge badge-info badge-outline">Input</span><span>Inbound request or event source</span></div>
+            <div class="flex items-center gap-3"><span class="badge badge-warning badge-outline">Decision</span><span>Cheap branch before deeper work</span></div>
+            <div class="flex items-center gap-3"><span class="badge badge-success badge-outline">Persist</span><span>State written for later consumers</span></div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script type="text/plain" id="diagram-source">flowchart TD
+    A["Client request"] --> B["Gateway"]
+    B --> C{"Relevant?"}
+    C -->|"No"| D["Discard"]
+    C -->|"Yes"| E["LLM classify"]
+    E --> F["Embed + enrich"]
+    F --> G["Cluster"]
+    G --> H["Persist"]
+    H --> I["Dashboard and tools"]
+  </script>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+    const isDark = document.documentElement.getAttribute('data-theme') === 'business';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'base',
+      securityLevel: 'loose',
+      flowchart: { useMaxWidth: false, htmlLabels: true, curve: 'basis' },
+      themeVariables: isDark ? {
+        background: '#00000000',
+        primaryColor: '#111827',
+        primaryBorderColor: '#38bdf8',
+        primaryTextColor: '#e5eef7',
+        lineColor: '#94a3b8',
+        tertiaryColor: '#0f172a',
+        fontFamily: 'Bricolage Grotesque, system-ui, sans-serif'
+      } : {
+        background: '#00000000',
+        primaryColor: '#ffffff',
+        primaryBorderColor: '#0284c7',
+        primaryTextColor: '#0f172a',
+        lineColor: '#475569',
+        tertiaryColor: '#f8fafc',
+        fontFamily: 'Bricolage Grotesque, system-ui, sans-serif'
+      }
+    });
+
+    const viewport = document.getElementById('viewport');
+    const canvas = document.getElementById('canvas');
+    const source = document.getElementById('diagram-source').textContent;
+
+    let scale = 1;
+    let x = 0;
+    let y = 0;
+    let dragging = false;
+    let startX = 0;
+    let startY = 0;
+
+    const applyTransform = () => {
+      canvas.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+    };
+
+    const render = async () => {
+      const { svg } = await mermaid.render('tailwind-daisyui-diagram', source);
+      canvas.innerHTML = svg;
+      applyTransform();
+    };
+
+    const reset = () => {
+      scale = 1;
+      x = 0;
+      y = 0;
+      applyTransform();
+    };
+
+    document.getElementById('zoom-in').addEventListener('click', () => {
+      scale = Math.min(2.4, scale + 0.15);
+      applyTransform();
+    });
+
+    document.getElementById('zoom-out').addEventListener('click', () => {
+      scale = Math.max(0.7, scale - 0.15);
+      applyTransform();
+    });
+
+    document.getElementById('reset-view').addEventListener('click', reset);
+
+    document.getElementById('open-diagram').addEventListener('click', () => {
+      const svg = canvas.querySelector('svg');
+      if (!svg) return;
+      const blob = new Blob([svg.outerHTML], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank', 'noopener,noreferrer');
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
+
+    viewport.addEventListener('pointerdown', (event) => {
+      if (scale <= 1) return;
+      dragging = true;
+      startX = event.clientX - x;
+      startY = event.clientY - y;
+      viewport.setPointerCapture(event.pointerId);
+    });
+
+    viewport.addEventListener('pointermove', (event) => {
+      if (!dragging) return;
+      x = event.clientX - startX;
+      y = event.clientY - startY;
+      applyTransform();
+    });
+
+    const stopDrag = (event) => {
+      if (!dragging) return;
+      dragging = false;
+      viewport.releasePointerCapture(event.pointerId);
+    };
+
+    viewport.addEventListener('pointerup', stopDrag);
+    viewport.addEventListener('pointercancel', stopDrag);
+
+    viewport.addEventListener('wheel', (event) => {
+      if (!(event.metaKey || event.ctrlKey)) return;
+      event.preventDefault();
+      scale = event.deltaY < 0 ? Math.min(2.4, scale + 0.1) : Math.max(0.7, scale - 0.1);
+      applyTransform();
+    }, { passive: false });
+
+    render();
+  </script>
+</body>
+</html>
