@@ -24,6 +24,8 @@ The following skills have been moved to `deprecated/` and are no longer actively
 | `index-knowledge` | Generate hierarchical `AGENTS.md` knowledge bases for repositories. |
 | `librarian` | Research open-source libraries and inspect repository internals. |
 | `mermaid` | Guidance and validation tooling for Mermaid diagrams. |
+| `prime-flow` | Phase-gated development workflow with domain modeling, Plannotator review, and hard approval gates. |
+| `spec-planner` | Turn vague feature ideas into implementation-ready specs. |
 | `visual-explainer` | Generate self-contained HTML explainers, diagrams, diff reviews, and slide decks. |
 
 ## Repository layout
