@@ -10,13 +10,18 @@ For scoped technical choices with clear options.
 **Why:** [1-2 sentences]
 **Trade-off:** [what we're giving up]
 **Revisit if:** [trigger conditions]
+
+### Implementation Impact
+- **Types:** [changes, or "No change" with reason]
+- **Interfaces:** [changes, or "No change" with reason]
+- **Project layout:** [changes, or "No change" with reason]
 ```
 
 ## Feature Plan (Implementation-Ready)
 
 For new feature development. **Complete enough for task decomposition.**
 
-```
+````
 ## Feature: [name]
 
 ### Problem Statement
@@ -37,11 +42,30 @@ For new feature development. **Complete enough for task decomposition.**
 ### Non-Goals (Explicit Exclusions)
 - [Thing people might assume is in scope but isn't]
 
-### Data Model
-[Types, schemas, state shapes that will exist or change]
+### Types
+[Define new and changed domain, API, persistence, event, and configuration
+shapes in the implementation language when known. Include fields, value types,
+constraints, and owning module.]
 
-### API/Interface Contract
-[Public interfaces between components—input/output/errors]
+```[language]
+[Concrete type definitions]
+```
+
+### Interfaces
+[Define component boundaries: function or method signatures, endpoints, events,
+inputs, outputs, errors, side effects, and compatibility requirements.]
+
+```[language]
+[Concrete interface definitions]
+```
+
+### Project Layout
+```text
+path/to/file.ext       # new|modify|move — responsibility
+path/to/package/       # new|modify|move — responsibility
+```
+
+[Explain package ownership and how each new type and interface maps to a path.]
 
 ### Acceptance Criteria
 - [ ] [Testable statement 1]
@@ -66,7 +90,7 @@ For new feature development. **Complete enough for task decomposition.**
 
 ### Success Metrics
 - [Measurable outcome]
-```
+````
 
 ## Architecture Decision Record (ADR)
 
@@ -84,6 +108,17 @@ For significant architecture decisions that need documentation.
 ### Decision
 [What we're doing]
 
+### Implementation Contract
+
+#### Types
+[Concrete definitions affected by the decision, or "No change" with reason]
+
+#### Interfaces
+[Concrete boundaries affected by the decision, or "No change" with reason]
+
+#### Project Layout
+[Proposed paths and module responsibilities, or "No change" with reason]
+
 ### Consequences
 - [+] [Benefit]
 - [-] [Drawback]
@@ -94,7 +129,7 @@ For significant architecture decisions that need documentation.
 
 For larger proposals needing broader review.
 
-```
+````
 ## RFC: [title]
 
 **Author:** [name]
@@ -110,6 +145,30 @@ For larger proposals needing broader review.
 ### Detailed Design
 [Technical details]
 
+### Types
+[Define concrete new and changed type definitions, constraints, and owning
+modules.]
+
+```[language]
+[Concrete type definitions]
+```
+
+### Interfaces
+[Define concrete signatures/protocols, inputs, outputs, errors, side effects,
+and compatibility requirements.]
+
+```[language]
+[Concrete interface definitions]
+```
+
+### Project Layout
+```text
+path/to/file.ext       # new|modify|move — responsibility
+path/to/package/       # new|modify|move — responsibility
+```
+
+[Map each new type and interface to its owning path and deliverable.]
+
 ### Alternatives Considered
 | Option | Pros | Cons | Why Not |
 |--------|------|------|---------|
@@ -119,7 +178,7 @@ For larger proposals needing broader review.
 
 ### Open Questions
 - [ ] [Question]
-```
+````
 
 ## Handoff Artifact
 
@@ -138,7 +197,7 @@ When spec is complete, produce final summary for task decomposition:
 1. **[D1]** (S) — [one-line description]
    - Depends on: -
    - Files likely touched: [paths]
-   
+
 2. **[D2]** (M) — [one-line description]
    - Depends on: D1
    - Files likely touched: [paths]
@@ -146,8 +205,14 @@ When spec is complete, produce final summary for task decomposition:
 ## Key Technical Decisions
 - [Decision]: [choice] because [reason]
 
-## Data Model
-[Copy from spec]
+## Types
+[Copy concrete type definitions and ownership from spec]
+
+## Interfaces
+[Copy concrete boundary definitions from spec]
+
+## Project Layout
+[Copy proposed file/package tree and responsibilities from spec]
 
 ## Acceptance Criteria
 1. [Criterion 1]
