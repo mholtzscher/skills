@@ -141,12 +141,15 @@ Every implementation-ready spec must make these three parts concrete:
 
 1. **Types** — Define new and changed domain, API, persistence, event, and configuration shapes, including constraints and ownership.
 2. **Interfaces** — Define boundaries between components: signatures or protocols, inputs, outputs, errors, side effects, and compatibility needs.
-3. **Project layout** — Show the proposed file/package tree, identify files to create or modify, and state each module's responsibility.
+3. **Project layout** — Show the proposed file/package tree as a nested directory tree, identify files to create or modify, and state each module's responsibility.
 
-Use the project's implementation language when known; otherwise use precise pseudocode. Include only relevant
-definitions, but do not replace them with prose such as "add a request object." If one part is unchanged or genuinely
-not applicable, say so and explain why instead of silently omitting it. Map each new type and interface to an owning
-path and deliverable.
+Use the project's implementation language when known; otherwise use precise pseudocode. For changes to existing code,
+show the implementation shape as focused unified `diff` blocks: enough surrounding context to locate the change, but no
+unrelated code. For entirely new files or definitions with no useful before-state, use a normal language-tagged code
+block. Include only relevant definitions, but do not replace them with prose such as "add a request object." Render
+project-layout changes as a nested `text` directory tree, marking each path as new, modify, or move and stating its
+responsibility. If one part is unchanged or genuinely not applicable, say so and explain why instead of silently
+omitting it. Map each new type and interface to an owning path and deliverable.
 
 Use appropriate template from [templates.md](./references/templates.md):
 

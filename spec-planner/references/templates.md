@@ -1,5 +1,20 @@
 # Output Templates
 
+## Implementation Shape Formatting
+
+Use focused unified `diff` blocks for types and interfaces that modify existing code. Include only enough unchanged context to locate the change. Use a normal language-tagged block only for wholly new files or definitions with no meaningful before-state.
+
+Show project-layout changes as a nested `text` directory tree. Mark every affected path as `new`, `modify`, or `move`, followed by its responsibility:
+
+```text
+src/
+├── api/
+│   └── widget_handler.go    # modify — validates and serves widget requests
+└── widgets/
+    ├── service.go           # new — owns widget creation rules
+    └── repository.go        # modify — persists widget records
+```
+
 ## Quick Decision
 
 For scoped technical choices with clear options.
@@ -47,22 +62,35 @@ For new feature development. **Complete enough for task decomposition.**
 shapes in the implementation language when known. Include fields, value types,
 constraints, and owning module.]
 
-```[language]
-[Concrete type definitions]
+```diff
+diff --git a/path/to/types.ext b/path/to/types.ext
+@@
+ existing context
++new or changed type definition
 ```
+
+[Use a `[language]` block instead when this is a wholly new definition.]
 
 ### Interfaces
 [Define component boundaries: function or method signatures, endpoints, events,
 inputs, outputs, errors, side effects, and compatibility requirements.]
 
-```[language]
-[Concrete interface definitions]
+```diff
+diff --git a/path/to/interface.ext b/path/to/interface.ext
+@@
+ existing context
++new or changed interface definition
 ```
+
+[Use a `[language]` block instead when this is a wholly new definition.]
 
 ### Project Layout
 ```text
-path/to/file.ext       # new|modify|move — responsibility
-path/to/package/       # new|modify|move — responsibility
+path/
+├── to/
+│   └── file.ext             # new|modify|move — responsibility
+└── package/
+    └── module.ext           # new|modify|move — responsibility
 ```
 
 [Explain package ownership and how each new type and interface maps to a path.]
@@ -149,22 +177,35 @@ For larger proposals needing broader review.
 [Define concrete new and changed type definitions, constraints, and owning
 modules.]
 
-```[language]
-[Concrete type definitions]
+```diff
+diff --git a/path/to/types.ext b/path/to/types.ext
+@@
+ existing context
++new or changed type definition
 ```
+
+[Use a `[language]` block instead when this is a wholly new definition.]
 
 ### Interfaces
 [Define concrete signatures/protocols, inputs, outputs, errors, side effects,
 and compatibility requirements.]
 
-```[language]
-[Concrete interface definitions]
+```diff
+diff --git a/path/to/interface.ext b/path/to/interface.ext
+@@
+ existing context
++new or changed interface definition
 ```
+
+[Use a `[language]` block instead when this is a wholly new definition.]
 
 ### Project Layout
 ```text
-path/to/file.ext       # new|modify|move — responsibility
-path/to/package/       # new|modify|move — responsibility
+path/
+├── to/
+│   └── file.ext             # new|modify|move — responsibility
+└── package/
+    └── module.ext           # new|modify|move — responsibility
 ```
 
 [Map each new type and interface to its owning path and deliverable.]
