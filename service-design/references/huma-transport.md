@@ -1,10 +1,10 @@
-# HTTP Transport with Chi and Huma
+# HTTP Transport with Echo and Huma
 
-Read this reference when constructing the Chi/Huma server, registering routes, defining transport models, writing handlers, or mapping HTTP errors.
+Read this reference when constructing the Echo/Huma server, registering routes, defining transport models, writing handlers, or mapping HTTP errors.
 
-## Centralize Chi and Huma construction
+## Centralize Echo and Huma construction
 
-Use Chi as the HTTP router and Huma as the API transport layer. Construct both in application assembly so modules depend on `huma.API` rather than Chi directly. Keep public Chi routes outside authenticated Huma groups, and make each route group's authentication policy explicit.
+Use Echo as the HTTP router and Huma as the API transport layer. Construct both in application assembly so modules depend on `huma.API` rather than Echo directly. Keep public Echo routes outside authenticated Huma groups, and make each route group's authentication policy explicit.
 
 ```go
 package app
@@ -13,8 +13,9 @@ import (
     "net/http"
 
     "github.com/danielgtaylor/huma/v2"
-    "github.com/danielgtaylor/huma/v2/adapters/humachi"
-    "github.com/go-chi/chi/v5"
+    "github.com/danielgtaylor/huma/v2/adapters/humaecho"
+    "github.com/labstack/echo/v4"
+    echomiddleware "github.com/labstack/echo/v4/middleware"
 
     "my-api/internal/modules/users"
     usersapi "my-api/internal/modules/users/api"
@@ -25,11 +26,11 @@ type Deps struct {
 }
 
 func NewServer(deps Deps) http.Handler {
-    router := chi.NewRouter()
-    router.Use(requestIDMiddleware)
-    router.Get("/healthz", healthHandler)
+    router := echo.New()
+    router.Use(echomiddleware.RequestID())
+    router.GET("/healthz", healthHandler)
 
-    api := humachi.New(router, huma.DefaultConfig("My API", "1.0.0"))
+    api := humaecho.New(router, huma.DefaultConfig("My API", "1.0.0"))
 
     usersGroup := huma.NewGroup(api, "/v1/users")
     usersGroup.UseMiddleware(authMiddleware)
@@ -40,7 +41,7 @@ func NewServer(deps Deps) http.Handler {
 }
 ```
 
-Keep the concrete Chi/Huma integration and cross-module policy at this composition seam. Product modules register their operations on the group they receive without knowing which router hosts the Huma API or inferring policy from URL prefixes.
+Keep the concrete Echo/Huma integration and cross-module policy at this composition seam. Product modules register their operations on the group they receive without knowing which Echo instance hosts the Huma API or inferring policy from URL prefixes.
 
 ## Module-owned registration
 
@@ -196,10 +197,10 @@ Do not make services return Huma errors. Preserve error identity with wrapping s
 
 ## Transport review checklist
 
-- Chi and Huma construction is centralized.
+- Echo and Huma construction is centralized.
 - Every module owns operation registration with stable IDs and summaries.
 - Application assembly applies explicit auth and metadata policy to groups.
-- Public Chi routes remain outside authenticated Huma groups.
+- Public Echo routes remain outside authenticated Huma groups.
 - Inputs and outputs are explicit transport types.
 - Handlers translate; services decide.
 - Domain errors become HTTP errors only at transport.

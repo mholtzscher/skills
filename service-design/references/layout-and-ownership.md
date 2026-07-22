@@ -94,11 +94,11 @@ Do not select product implementations or construct the application dependency gr
 
 ### `internal/app`
 
-Application assembly is the composition root. It loads application configuration, initializes infrastructure clients, selects concrete adapters, wires services and transports, constructs Chi/Huma, registers modules, and coordinates lifecycle behavior.
+Application assembly is the composition root. It loads application configuration, initializes infrastructure clients, selects concrete adapters, wires services and transports, constructs Echo/Huma, registers modules, and coordinates lifecycle behavior.
 
 Typical files:
 
-- `server.go`: Chi router, Huma API, middleware, route groups, module registration;
+- `server.go`: Echo router, Huma API, middleware, route groups, module registration;
 - `config.go`: application configuration and loading;
 - `lifecycle.go`: startup and shutdown coordination.
 

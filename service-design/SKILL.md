@@ -1,11 +1,11 @@
 ---
 name: service-design
-description: Apply a consistent blueprint when designing, scaffolding, reviewing, or refactoring modular Go services. Use whenever deciding product boundaries, package ownership, application assembly, HTTP transport organization, handler/service/repository seams, persistence, transactions, external providers, error mapping, API models, generated code, testing strategy, or whether a service has outgrown a flat layout—even if the user only asks to add an endpoint, repository, or provider. Includes concrete guidance for services using Chi, Huma, sqlc, goose, PostgreSQL, and pgx.
+description: Apply a consistent blueprint when designing, scaffolding, reviewing, or refactoring modular Go services. Use whenever deciding product boundaries, package ownership, application assembly, HTTP transport organization, handler/service/repository seams, persistence, transactions, external providers, error mapping, API models, generated code, testing strategy, or whether a service has outgrown a flat layout—even if the user only asks to add an endpoint, repository, or provider. Includes concrete guidance for services using Echo, Huma, sqlc, goose, PostgreSQL, and pgx.
 ---
 
 # Service Design
 
-Design services around clear product ownership, explicit dependency direction, and business behavior that is testable independently of delivery and infrastructure concerns. Treat the Chi/Huma HTTP stack, persistence tools such as sqlc, and external vendors as components within that design—not as the application architecture.
+Design services around clear product ownership, explicit dependency direction, and business behavior that is testable independently of delivery and infrastructure concerns. Treat the Echo/Huma HTTP stack, persistence tools such as sqlc, and external vendors as components within that design—not as the application architecture.
 
 ## Workflow
 
@@ -76,7 +76,7 @@ Do not add an interface solely because an implementation exists, because a mock 
 
 ### 6. Implement the affected layer
 
-- For HTTP transport implemented with Chi and Huma—including router construction, routes, handlers, groups, inputs/outputs, OpenAPI metadata, or HTTP error mapping—read [huma-transport.md](references/huma-transport.md).
+- For HTTP transport implemented with Echo and Huma—including router construction, routes, handlers, groups, inputs/outputs, OpenAPI metadata, or HTTP error mapping—read [huma-transport.md](references/huma-transport.md).
 - For migrations, queries, sqlc generation, repositories, pgx, or transactions, read [persistence.md](references/persistence.md).
 - For test placement or generated-code checks, read [testing.md](references/testing.md).
 
@@ -94,7 +94,7 @@ Before finishing, answer:
 2. Do handlers translate rather than decide business behavior?
 3. Do domain/public types avoid sqlc and vendor leakage?
 4. Does each module register its own operations?
-5. Is Chi/Huma construction centralized in application assembly?
+5. Is Echo/Huma construction centralized in application assembly?
 6. Are required dependencies passed explicitly, with concrete implementations selected only in application assembly?
 7. Is shared code truly domain-neutral and used by more than one owner?
 8. Did the change add only abstractions justified by current needs?
