@@ -4,7 +4,7 @@ Read this reference when constructing the Echo/Huma server, registering routes, 
 
 ## Centralize Echo and Huma construction
 
-Use Echo as the HTTP router and Huma as the API transport layer. Construct both in application assembly so modules depend on `huma.API` rather than Echo directly. Keep public Echo routes outside authenticated Huma groups, and make each route group's authentication policy explicit.
+Use Echo v5 as the HTTP router and Huma as the API transport layer. Construct both in application assembly so modules depend on `huma.API` rather than Echo directly. Keep public Echo routes outside authenticated Huma groups, and make each route group's authentication policy explicit.
 
 ```go
 package app
@@ -14,8 +14,8 @@ import (
 
     "github.com/danielgtaylor/huma/v2"
     "github.com/danielgtaylor/huma/v2/adapters/humaecho"
-    "github.com/labstack/echo/v4"
-    echomiddleware "github.com/labstack/echo/v4/middleware"
+    "github.com/labstack/echo/v5"
+    echomiddleware "github.com/labstack/echo/v5/middleware"
 
     "my-api/internal/modules/users"
     usersapi "my-api/internal/modules/users/api"
