@@ -49,10 +49,10 @@ For new feature development. **Complete enough for task decomposition.**
 [High-level approach in 2-3 paragraphs]
 
 ### Scope & Deliverables
-| Deliverable | Effort | Depends On |
-|-------------|--------|------------|
-| [D1]        | S/M/L  | -          |
-| [D2]        | S/M/L  | D1         |
+| Deliverable | Outcome | Effort | Owning Paths | Depends On | Acceptance |
+|-------------|---------|--------|--------------|------------|------------|
+| [D1] | [Concrete outcome] | S/M/L/XL | [file/package paths] | - | A1 |
+| [D2] | [Concrete outcome] | S/M/L/XL | [file/package paths] | D1 | A2 |
 
 ### Non-Goals (Explicit Exclusions)
 - [Thing people might assume is in scope but isn't]
@@ -96,8 +96,8 @@ path/
 [Explain package ownership and how each new type and interface maps to a path.]
 
 ### Acceptance Criteria
-- [ ] [Testable statement 1]
-- [ ] [Testable statement 2]
+- [ ] **A1:** [Testable statement 1]
+- [ ] **A2:** [Testable statement 2]
 
 ### Test Strategy
 | Layer | What | How |
@@ -235,13 +235,15 @@ When spec is complete, produce final summary for task decomposition:
 
 ## Deliverables (Ordered)
 
-1. **[D1]** (S) — [one-line description]
+1. **[D1]** (S) — [concrete outcome]
    - Depends on: -
-   - Files likely touched: [paths]
+   - Owning paths: [file/package paths]
+   - Acceptance: A1
 
-2. **[D2]** (M) — [one-line description]
+2. **[D2]** (M) — [concrete outcome]
    - Depends on: D1
-   - Files likely touched: [paths]
+   - Owning paths: [file/package paths]
+   - Acceptance: A2
 
 ## Key Technical Decisions
 - [Decision]: [choice] because [reason]
@@ -256,8 +258,8 @@ When spec is complete, produce final summary for task decomposition:
 [Copy proposed file/package tree and responsibilities from spec]
 
 ## Acceptance Criteria
-1. [Criterion 1]
-2. [Criterion 2]
+- **A1:** [Testable criterion 1]
+- **A2:** [Testable criterion 2]
 
 ## Open Items (Non-Blocking)
 - [Item] → Owner: [who]

@@ -151,6 +151,8 @@ project-layout changes as a nested `text` directory tree, marking each path as n
 responsibility. If one part is unchanged or genuinely not applicable, say so and explain why instead of silently
 omitting it. Map each new type and interface to an owning path and deliverable.
 
+Define each deliverable with a stable ID, a concrete outcome, owning file/package paths, dependencies, and references to its testable acceptance criteria. Include shared infrastructure and integration checks in those mappings so delegation does not leave required work unowned. Keep this information in the existing spec; the execution orchestrator decides agent assignments and scheduling, not the planner.
+
 Use appropriate template from [templates.md](./references/templates.md):
 
 - **Quick Decision** — Scoped technical choices
@@ -171,6 +173,7 @@ Run completeness check:
 | Scope bounded        | Every deliverable listed; non-goals explicit            |
 | Ambiguity resolved   | No "TBD" or "to be determined"                          |
 | Acceptance testable  | Each criterion pass/fail verifiable                     |
+| Deliverables traceable | Each ID maps to an outcome, owning paths, dependencies, and acceptance criteria |
 | Dependencies ordered | Clear what blocks what                                  |
 | Types concrete       | Fields, value types, constraints, and ownership defined |
 | Interfaces concrete  | Inputs, outputs, errors, and side effects defined       |
@@ -214,8 +217,10 @@ Implementation Shape:
 - Project layout: <paths created, moved, or modified>
 
 Deliverables (Ordered):
-1. [D1] (effort) — depends on: -
-2. [D2] (effort) — depends on: D1
+1. [D1] (effort) — [concrete outcome] — depends on: -
+   - Owning paths: [paths] | Acceptance: [A1]
+2. [D2] (effort) — [concrete outcome] — depends on: D1
+   - Owning paths: [paths] | Acceptance: [A2]
 
 Open Questions:
 - [ ] <if any remain> → Owner: [who]
