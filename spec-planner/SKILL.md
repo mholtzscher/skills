@@ -43,7 +43,7 @@ Phase: CLARIFY | Waiting for: answers to questions 1-4
 4. **Wait for responses**
 
 **IMPORTANT: Always use `ask_user_question` for clarifying questions.** Do NOT output questions as freeform text. The
-tool provides structured options and better UX. Example:
+tool provides structured options and better UX. Group up to 4 questions in one call, each with 2-4 options containing a label and description. Keep headers within 16 characters. The tool supplies the custom-answer row; do not add an "Other" option. Use `multiSelect: true` when several choices may apply. Example:
 
 ```
 ask_user_question({
@@ -94,13 +94,9 @@ ask_user_question({
 
 **After clarification, before planning:** Understand existing system.
 
-Run one boomerang pass per independent discovery area. Dispatch multiple passes together when they can be explored in parallel:
+Explore directly by default: use `find` for paths, `grep` for symbols and content, and `read` for relevant files. Identify key files, abstractions, patterns, integration points, types, interfaces, and project-layout constraints.
 
-```
-boomerang({
-  task: "Explore [area]. Return key files, abstractions, patterns, integration points, types, interfaces, and project-layout constraints."
-})
-```
+For delegated discovery, use `subagent` after discovering available agents with `subagent({ action: "list", capabilities: true })`. Follow the `pi-subagents` skill for bounded read-only discovery tasks. Compose multi-step or parallel delegation in one top-level async workflow and consume results before drafting; do not assume a particular agent name exists.
 
 | Target             | What to Find                                       |
 | ------------------ | -------------------------------------------------- |
@@ -111,13 +107,7 @@ boomerang({
 | Project layout     | Package boundaries, file ownership, and naming     |
 | Integration points | APIs, events, and data flows touched               |
 
-**If unfamiliar tech is involved**, use a boomerang pass that invokes Librarian:
-
-```
-boomerang({
-  task: "Use the Librarian skill to research [tech] for [use case]. Return the recommended approach, gotchas, and production patterns with source evidence."
-})
-```
+**If unfamiliar tech is involved**, use `web_search` with 2-4 varied queries and `fetch_content` for authoritative documentation. Use `get_search_content` to retrieve stored passages or `source_check` for evidence about a specific claim. Return the recommended approach, gotchas, and production patterns with source evidence; distinguish verified facts from assumptions.
 
 **Output:** Brief architecture summary before proposing solutions, including current type, interface, and project-layout constraints.
 

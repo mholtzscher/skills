@@ -26,35 +26,35 @@ Delegate when any of these apply:
 
 ## Spawn policy
 
-For delegated tasks, launch at least one real subagent with `Agent` before doing its assigned work. Describing delegation is not a substitute for launching an agent. Do not create agents solely to satisfy this rule for root-only tasks.
+For delegated tasks, launch at least one real subagent with `subagent` before doing its assigned work. Describing delegation is not a substitute for launching an agent. Do not create agents solely to satisfy this rule for root-only tasks.
 
 For each launch:
 
-1. Choose an exact `agent` type from the role table below.
-2. Prepare the role and bounded delegation contract as the initial `prompt`; do not assume the agent has the whole conversation.
-3. Set a concise task label in `description` and the current worktree's absolute path in `worktree_path`.
-4. Call `Agent` with `run_in_background: false` by default, batching independent calls as described below.
-5. Retain the returned agent ID when provided and inspect the result before integrating it or starting dependent work.
+1. Discover agents with `subagent({ action: "list", capabilities: true })`; choose an executable, non-disabled agent matching the role below (external runners must report `runner.available === true`).
+2. Prepare the role and bounded delegation contract as `task`; do not assume the agent has the whole conversation.
+3. Set the current worktree's absolute path in `cwd`.
+4. Call `subagent` with `{ agent, task, cwd }` for a single child; compose multi-step or parallel work as described below.
+5. Retain the returned run ID and output references and inspect the result before integrating it or starting dependent work.
 
-Keep agents in the current worktree with one writer per file or subsystem. Do not create or switch to additional worktrees unless isolation is necessary; explain that need first. Do not assign competing fixes unless the root explicitly requests alternative approaches.
+Keep one writer per cwd/worktree; isolate concurrent writers. Do not create or switch to additional worktrees unless isolation is necessary; explain that need first. Do not assign competing fixes unless the root explicitly requests alternative approaches.
 
-If launch fails or `Agent` is unavailable, report it and follow Blockers and failures rather than silently taking over.
+If launch fails or `subagent` is unavailable, report it and follow Blockers and failures rather than silently taking over.
 
 ## Role selection
 
-Logical roles belong in `prompt`; only the agent types below are valid `agent` values.
+Logical roles belong in `task`; choose actual `agent` names from discovery rather than assuming the role names are installed.
 
-| Logical role | `Agent.agent` | Scope and constraints |
-| --- | --- | --- |
-| explorer | `Explore` | Read-only mapping, tracing, and inspection. No file creation, edits, tests, or state-changing commands. |
-| worker | `general-purpose` | Bounded implementation and fixes within assigned file ownership. |
-| tester | `general-purpose` | Reproduction, validation, and test-gap analysis; add or edit tests only when authorized by the contract. |
-| reviewer | `reviewer` | Independent diff review for validated correctness, security, regression, project-rule, and maintainability findings. |
-| researcher | `general-purpose` | Verify external facts and compatibility using available tools and authoritative sources; report access limitations. |
+| Logical role | Scope and constraints |
+| --- | --- |
+| explorer | Read-only mapping, tracing, and inspection. No file creation, edits, tests, or state-changing commands. |
+| worker | Bounded implementation and fixes within assigned file ownership. |
+| tester | Reproduction, validation, and test-gap analysis; add or edit tests only when authorized by the contract. |
+| reviewer | Independent diff review for validated correctness, security, regression, project-rule, and maintainability findings. |
+| researcher | Verify external facts and compatibility using available tools and authoritative sources; report access limitations. |
 
 Give reviewers the diff or comparison baseline. They report findings only: no edits, builds, dependency installation, commits, or posted comments. Expect their `Findings` and `Summary` report; missing tests or speculative risks alone are not bugs.
 
-Use `general-purpose` for design advice beyond the reviewer's validated-diff scope. Agent-type instructions are not proof of enforced tool permissions.
+Choose a suitable discovered agent for design advice beyond the reviewer's validated-diff scope. Agent-type instructions are not proof of enforced tool permissions.
 
 ## Delegation contract
 
@@ -97,17 +97,13 @@ Resolve exceptions by correcting the implementation, assigning the missing depen
 
 ## Execution and parallelism
 
-Prefer foreground execution with `run_in_background: false`; consume the result returned by `Agent`.
+Use async execution by default. For multi-step or parallel delegation, use one top-level `subagent` call with `workflowScript` and `async: true`; launch children only inside it. Read the `pi-subagents` skill and `subagent({ action: "guide", topic: "workflows" })` for exact workflow syntax.
 
-For independent tasks, batch foreground calls in one `multi_tool_use.parallel` invocation. Each entry uses `recipient_name: "functions.Agent"` and includes `prompt`, `agent`, `description`, `worktree_path`, and `run_in_background: false` in `parameters`. The calls run concurrently and the batch returns their results. Never batch dependent tasks or writers with overlapping file ownership.
+Use `await runs.all([...])` for independent tasks and `await runs.run(key, { agent, task })` for dependent steps. Never batch dependent tasks or writers with overlapping ownership. Inspect results before starting dependent implementation; schedule ready work by actual dependencies.
 
-For example, prepare separate backend-explorer, frontend-explorer, and API-researcher contracts, then batch two `Explore` calls and one `general-purpose` call, all in the foreground. Inspect all three results before starting dependent implementation. Schedule ready work by actual dependencies rather than waiting for an unrelated subsystem to finish.
+Do useful independent root work without duplicating assignments, then yield for native completion notifications. Do not sleep or poll. `bg_wait` is for work without native notifications, not ordinary async subagents. Use `async: false` only when the parent must block, not for final reviews or gates.
 
-Use `run_in_background: true` only when the root has useful independent work to do while agents run. Do not duplicate their assigned work.
-
-There is no native blocking wait tool exposed here. Background agents deliver completion notifications; do not run `sleep`, shell wait loops, or repeated `AgentStatus` calls to fill the gap. Do not invent a wait tool. Without useful concurrent root work, choose foreground execution at launch.
-
-Use `AgentStatus` without arguments only to recover uncertain state or a missing notification, not for polling. Use `StopAgent` with `agent_id` to cancel obsolete or superseded work. Cancellation is not success: inspect partial changes and resolve any remaining scope.
+Use `subagent({ action: "status", id })` to recover uncertain state, not for polling, and `subagent({ action: "stop", id })` to cancel obsolete work. Cancellation is not success: inspect partial changes and resolve any remaining scope.
 
 ## Shared-worktree validation
 
@@ -135,7 +131,7 @@ Subagents should report back rather than expand scope when they encounter:
 - unexpected changes outside their scope or conflicts with another worker's ownership
 - acceptance criteria that require changes outside assigned ownership or cannot be met without a workaround that violates the contract
 
-The root resolves conflicts and chooses whether to narrow, clarify, retry, or reassign work. Inspect and report failures; never claim failed delegation succeeded. If a required worker fails repeatedly, the root may continue directly when reasonable, but must disclose the fallback.
+The root resolves conflicts and chooses whether to narrow, clarify, retry, or reassign work. Inspect and report failures; never claim failed delegation succeeded. For workflow, launch, runtime, or tooling infrastructure failures, stop and report the exact failure and run/worktree state, preserving any partial diff. Retry within the same protocol or obtain explicit owner approval before changing execution mode.
 
 ## Completion check
 
