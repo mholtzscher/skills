@@ -143,6 +143,8 @@ omitting it. Map each new type and interface to an owning path and deliverable.
 
 Define each deliverable with a stable ID, a concrete outcome, owning file/package paths, dependencies, and references to its testable acceptance criteria. Include shared infrastructure and integration checks in those mappings so delegation does not leave required work unowned. Keep this information in the existing spec; the execution orchestrator decides agent assignments and scheduling, not the planner.
 
+For each acceptance criterion, specify how an implementer can check it: the behavior or boundary to exercise, the expected result, and a concrete command or manual procedure when known. Cover the main success path and material failure or regression paths. Distinguish checks the implementer can run locally from those requiring external access or a deployed environment. Do not invent commands; mark unknown commands for discovery during implementation and explain what must be checked.
+
 Use appropriate template from [templates.md](./references/templates.md):
 
 - **Quick Decision** — Scoped technical choices
@@ -163,6 +165,7 @@ Run completeness check:
 | Scope bounded        | Every deliverable listed; non-goals explicit            |
 | Ambiguity resolved   | No "TBD" or "to be determined"                          |
 | Acceptance testable  | Each criterion pass/fail verifiable                     |
+| Validation traceable | Each acceptance criterion has a check; checks that cannot run locally are identified |
 | Deliverables traceable | Each ID maps to an outcome, owning paths, dependencies, and acceptance criteria |
 | Dependencies ordered | Clear what blocks what                                  |
 | Types concrete       | Fields, value types, constraints, and ownership defined |

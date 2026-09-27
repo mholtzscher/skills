@@ -99,11 +99,10 @@ path/
 - [ ] **A1:** [Testable statement 1]
 - [ ] **A2:** [Testable statement 2]
 
-### Test Strategy
-| Layer | What | How |
-|-------|------|-----|
-| Unit | [specific logic] | [approach] |
-| Integration | [boundaries] | [approach] |
+### Validation plan
+| Acceptance | Check | Expected result | How to run | Prerequisites |
+|------------|-------|-----------------|------------|---------------|
+| A1 | [Behavior or public boundary exercised] | [Observable pass/fail result] | [Command or manual procedure; if unknown, identify what to discover during implementation] | [None, or required access/environment] |
 
 ### Risks & Mitigations
 | Risk | Likelihood | Impact | Mitigation |
