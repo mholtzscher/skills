@@ -30,11 +30,11 @@ For delegated tasks, launch at least one real subagent with `subagent` before do
 
 For each launch:
 
-1. Discover agents with `subagent({ action: "list", capabilities: true })`; choose an executable, non-disabled agent matching the role below (external runners must report `runner.available === true`).
-2. Prepare the role and bounded delegation contract as `task`; do not assume the agent has the whole conversation.
-3. Set the current worktree's absolute path in `cwd`.
-4. Call `subagent` with `{ agent, task, cwd }` for a single child; compose multi-step or parallel work as described below.
-5. Retain the returned run ID and output references and inspect the result before integrating it or starting dependent work.
+1. Choose an available agent from the `subagent` tool description matching the role below.
+2. Prepare the role and bounded delegation contract as `prompt`; do not assume the agent has the whole conversation.
+3. Include the current worktree's absolute path in `prompt`.
+4. Call `subagent` with `{ agent, description, prompt }` for a single child; compose multi-step or parallel work as described below.
+5. Retain the returned `sessionID` and output and inspect the result before integrating it or starting dependent work.
 
 Keep one writer per cwd/worktree; isolate concurrent writers. Do not create or switch to additional worktrees unless isolation is necessary; explain that need first. Do not assign competing fixes unless the root explicitly requests alternative approaches.
 
@@ -42,7 +42,7 @@ If launch fails or `subagent` is unavailable, report it and follow Blockers and 
 
 ## Role selection
 
-Logical roles belong in `task`; choose actual `agent` names from discovery rather than assuming the role names are installed.
+Logical roles belong in `prompt`; choose actual `agent` names from the tool description rather than assuming the role names are installed.
 
 | Logical role | Scope and constraints |
 | --- | --- |
@@ -97,13 +97,13 @@ Resolve exceptions by correcting the implementation, assigning the missing depen
 
 ## Execution and parallelism
 
-Use async execution by default. For multi-step or parallel delegation, use one top-level `subagent` call with `workflowScript` and `async: true`; launch children only inside it. Read the `pi-subagents` skill and `subagent({ action: "guide", topic: "workflows" })` for exact workflow syntax.
+Use async execution by default. For multi-step or parallel delegation, use `subagent` calls with `background: true`.
 
-Use `await runs.all([...])` for independent tasks and `await runs.run(key, { agent, task })` for dependent steps. Never batch dependent tasks or writers with overlapping ownership. Inspect results before starting dependent implementation; schedule ready work by actual dependencies.
+Launch separate `subagent` calls for independent tasks and wait for results before calling `subagent` for dependent steps. Never batch dependent tasks or writers with overlapping ownership. Inspect results before starting dependent implementation; schedule ready work by actual dependencies.
 
-Do useful independent root work without duplicating assignments, then yield for native completion notifications. Do not sleep or poll. `bg_wait` is for work without native notifications, not ordinary async subagents. Use `async: false` only when the parent must block, not for final reviews or gates.
+Do useful independent root work without duplicating assignments, then yield for native completion notifications. Do not sleep or poll. Use `background: false` only when the parent must block, not for final reviews or gates.
 
-Use `subagent({ action: "status", id })` to recover uncertain state, not for polling, and `subagent({ action: "stop", id })` to cancel obsolete work. Cancellation is not success: inspect partial changes and resolve any remaining scope.
+The `subagent` tool has no status or stop action; use completion notifications for state and pass `sessionID` with `agent`, `description`, and `prompt` to continue a completed child session. Cancellation is not success: inspect partial changes and resolve any remaining scope.
 
 ## Shared-worktree validation
 

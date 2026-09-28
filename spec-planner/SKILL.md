@@ -39,14 +39,14 @@ Phase: CLARIFY | Waiting for: answers to questions 1-4
 
 1. **STOP.** Do not proceed to planning.
 2. Identify gaps in: scope, motivation, constraints, edge cases, success criteria, and expected implementation shape
-3. Ask 2-4 pointed questions that would change the approach. Use `ask_user_question`.
+3. Ask 2-4 pointed questions that would change the approach. Use `question`.
 4. **Wait for responses**
 
-**IMPORTANT: Always use `ask_user_question` for clarifying questions.** Do NOT output questions as freeform text. The
-tool provides structured options and better UX. Group up to 4 questions in one call, each with 2-4 options containing a label and description. Keep headers within 16 characters. The tool supplies the custom-answer row; do not add an "Other" option. Use `multiSelect: true` when several choices may apply. Example:
+**IMPORTANT: Always use `question` for clarifying questions.** Do NOT output questions as freeform text. The
+tool provides structured options and better UX. Group up to 4 questions in one call, each with 2-4 options containing a label and description. Keep headers within 16 characters. The tool supplies the custom-answer row; do not add an "Other" option. Use `multiple: true` when several choices may apply. Example:
 
 ```
-ask_user_question({
+question({
   questions: [{
     header: "Scope",
     question: "Which subsystems need detailed specs?",
@@ -64,7 +64,7 @@ ask_user_question({
         description: "Specify pub/sub behavior and event persistence."
       }
     ],
-    multiSelect: true
+    multiple: true
   }]
 })
 ```
@@ -94,9 +94,9 @@ ask_user_question({
 
 **After clarification, before planning:** Understand existing system.
 
-Explore directly by default: use `find` for paths, `grep` for symbols and content, and `read` for relevant files. Identify key files, abstractions, patterns, integration points, types, interfaces, and project-layout constraints.
+Explore directly by default: use `glob` for paths, `grep` for symbols and content, and `read` for relevant files. Identify key files, abstractions, patterns, integration points, types, interfaces, and project-layout constraints.
 
-For delegated discovery, use `subagent` after discovering available agents with `subagent({ action: "list", capabilities: true })`. Follow the `pi-subagents` skill for bounded read-only discovery tasks. Compose multi-step or parallel delegation in one top-level async workflow and consume results before drafting; do not assume a particular agent name exists.
+For delegated discovery, use `subagent` with `{ agent, description, prompt }` after checking available agents in its tool description. Put bounded read-only discovery tasks in `prompt`. Use separate `subagent` calls with `background: true` for independent tasks, wait for results before dependent steps, and consume results before drafting; do not assume a particular agent name exists.
 
 | Target             | What to Find                                       |
 | ------------------ | -------------------------------------------------- |
@@ -107,7 +107,7 @@ For delegated discovery, use `subagent` after discovering available agents with 
 | Project layout     | Package boundaries, file ownership, and naming     |
 | Integration points | APIs, events, and data flows touched               |
 
-**If unfamiliar tech is involved**, use `web_search` with 2-4 varied queries and `fetch_content` for authoritative documentation. Use `get_search_content` to retrieve stored passages or `source_check` for evidence about a specific claim. Return the recommended approach, gotchas, and production patterns with source evidence; distinguish verified facts from assumptions.
+**If unfamiliar tech is involved**, use `websearch` with 2-4 varied queries and `webfetch` for authoritative documentation. Use `read` to retrieve passages saved to a file or `webfetch` for source evidence about a specific claim. Return the recommended approach, gotchas, and production patterns with source evidence; distinguish verified facts from assumptions.
 
 **Output:** Brief architecture summary before proposing solutions, including current type, interface, and project-layout constraints.
 
