@@ -80,7 +80,9 @@ When the subject needs a richer visual or the user requests one, create a focuse
 
 ## Evaluate simplifications
 
-For each material simplification, answer:
+A simplification finding requires a concrete burden and a plausible alternative whose benefit justifies its cost and risk. If the scoped workflows have been assessed and no candidate meets that threshold, stop. Report that no worthwhile simplification was found within the inspected scope.
+
+Use the following questions to evaluate each material simplification. In the response, include the evidence and tradeoffs needed to judge the recommendation. Expand migration and verification details when they affect the decision or the user requests an implementation plan.
 
 - What rule, state, dependency, translation, or coordination step disappears, and which concrete code or configuration can be removed?
 - Where does its responsibility go, and who must understand or operate it afterward?
@@ -96,6 +98,8 @@ For a change review, assess the net effect against its base. Show complexity the
 
 ## Finish with a decision
 
-After the visual, give a short evidence-backed assessment of the important E, A, and ? items. Recommend what to preserve, what to simplify first, and what needs clarification. Prioritize by the burden removed, the reach of the benefit, and the cost and risk of changing it. Keeping the current design is a valid conclusion.
+After the visual, give a compact, prioritized recommendation. If worthwhile simplifications were found, present the highest-value ones in up to three short bullets. Otherwise, briefly explain why the current design is justified. Include unresolved facts only when they could change that conclusion. Each recommendation should name the burden removed, cite its evidence, and mention any decisive tradeoff. Refer to annotations already in the visual rather than explaining them again. Mention what to preserve when it could otherwise be mistaken for removable complexity. Keeping the current design is a valid conclusion.
+
+Expand only when additional findings materially change the decision or the user asks for a detailed assessment.
 
 End when the main findings have source evidence, proposed simplifications account for retained responsibilities, and unresolved requirements are explicit. Keep the response proportional to the scope. An assessment authorizes analysis and requested visual artifacts; implement refactors only when the user asks for them.
