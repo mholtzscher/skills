@@ -1,6 +1,6 @@
 ---
 name: agent-orchestrator
-description: Orchestrate complex coding work with the root agent as planner/integrator and subagents for exploration, implementation, testing, research, and independent review. Use for multi-file features, debugging across components, repo-wide changes, parallelizable workstreams, or whenever the user asks to delegate or use subagents. Do not use for trivial one-file edits or simple questions.
+description: Orchestrate coding work when independent workstreams or separate exploration, verification, or review context materially help, or when the user asks to delegate or use subagents. File count alone does not warrant delegation.
 ---
 
 # Agent Orchestrator
@@ -15,14 +15,15 @@ Before substantive repository work, classify the task as root-only or delegated.
 
 Delegate when any of these apply:
 
-- the task spans multiple files, modules, services, or components
 - there are two or more independent workstreams
 - substantial repository exploration benefits from separate context
 - implementation and verification benefit from separate context
-- debugging or inspection crosses components, modules, or services
+- cross-component debugging or inspection has a bounded question that benefits from separate context
 - external or version-specific facts need verification
 - independent post-change review is materially useful
 - the user explicitly asks for delegation, parallelism, agents, or subagents
+
+For tightly coupled changes, keep the root as the active implementation writer and delegate independent review or verification after integration. Multiple files alone do not justify splitting implementation. Before assigning a worker, identify useful independent work for the parent; if none exists, keep implementation with the root or yield immediately until the dependency is ready.
 
 ## Spawn policy
 
