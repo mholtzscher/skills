@@ -9,6 +9,7 @@ Each skill lives in its own directory and is centered around a `SKILL.md` file, 
 | Skill | Purpose |
 |---|---|
 | `atlassian-api` | Read-only Jira/Confluence access through bundled `curl` + `jq` helpers. |
+| `classify-code-review` | Route code reviews with the OpenCode SDLC classifiers, then verify findings against source. |
 | `conventional-commits` | Conventional commit guidance for commit messages. |
 | `go-test-effectiveness` | Design and review Go tests for meaningful fault detection. |
 | `service-design` | Blueprint for designing and refactoring modular Go services. |

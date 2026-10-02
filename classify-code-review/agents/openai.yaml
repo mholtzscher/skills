@@ -1,0 +1,4 @@
+interface:
+  display_name: "Classify Code Review"
+  short_description: "Route code reviews with bounded classifier evidence"
+  default_prompt: "Use $classify-code-review to review my current changes with the configured SDLC classifiers."
