@@ -8,7 +8,6 @@ Each skill lives in its own directory and is centered around a `SKILL.md` file, 
 
 | Skill | Purpose |
 |---|---|
-| `atlassian-api` | Read-only Jira/Confluence access through bundled `curl` + `jq` helpers. |
 | `classify-code-review` | Route code reviews with the OpenCode SDLC classifiers, then verify findings against source. |
 | `conventional-commits` | Conventional commit guidance for commit messages. |
 | `go-test-effectiveness` | Design and review Go tests for meaningful fault detection. |
@@ -22,6 +21,7 @@ The following skills have been moved to `deprecated/` and are no longer actively
 | Skill | Purpose |
 |---|---|
 | `atlas-cli` | Query Jira and Confluence through the `atlas` CLI. |
+| `atlassian-api` | Read-only Jira/Confluence access through bundled `curl` + `jq` helpers. |
 | `build-skill` | Reference kit for creating and validating new skills. |
 | `gradle` | Run Gradle tasks with concise, high-signal output. |
 | `index-knowledge` | Generate hierarchical `AGENTS.md` knowledge bases for repositories. |
@@ -30,6 +30,7 @@ The following skills have been moved to `deprecated/` and are no longer actively
 | `prime-flow` | Phase-gated development workflow with domain modeling, Plannotator review, and hard approval gates. |
 | `spec-planner` | Turn vague feature ideas into implementation-ready specs. |
 | `visual-explainer` | Generate self-contained HTML explainers, diagrams, diff reviews, and slide decks. |
+| `zellij-tasks` | Manage long-running terminal tasks in Zellij. |
 
 ## Repository layout
 
