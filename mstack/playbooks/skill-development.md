@@ -1,6 +1,6 @@
 # Author, evaluate, and reflect
 
-Use installed skill-creator and writing-for-agents when available. Keep authoring tools external; mstack vendors only its selected planning/explanation procedures.
+Use installed skill-creator and writing-for-agents when available. Keep general authoring tools external. For a project-specific skill that drives the app and proves behavior, use [verification-skill creation or maintenance](verification-skill.md).
 
 ## Author
 

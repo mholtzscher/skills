@@ -11,37 +11,39 @@ Select the matching playbook and follow its instructions. State the selected pat
 
 ## Playbooks
 
-| Request                                                     | Playbook                                            |
-| ----------------------------------------------------------- | --------------------------------------------------- |
-| New or changed behavior                                     | [Feature](playbooks/feature.md)                     |
-| Reported defect                                             | [Bug fix](playbooks/bug-fix.md)                     |
-| Behavior-preserving restructuring                           | [Refactoring](playbooks/refactoring.md)             |
-| Small implementation sketch or full spec                    | [Planning](playbooks/planning.md)                   |
-| Create an implementation-ready spec                         | [Full spec](playbooks/planning.md#full-spec)        |
-| Refine an existing proposal                                 | [Spec refinement](playbooks/planning.md#refine)     |
-| Implement an approved spec                                  | [Spec implementation](playbooks/spec-implement.md)  |
-| Read-only question or architecture explanation              | [Investigation](#investigation)                     |
-| Prototype or visual-parity work                             | [Prototype](playbooks/prototype.md)                 |
-| Performance fix or sustained metric improvement             | [Performance](playbooks/performance.md)             |
-| Live runtime symptom or captured trace                      | [Forensics](playbooks/forensics.md)                 |
-| Independent review or blast-radius analysis                 | [Review](playbooks/review.md)                       |
-| Architecture, competing designs, or partitioned exploration | [Exploration](playbooks/exploration.md)             |
-| Publish, rewrite, triage, fix feedback, or inspect checks   | [PR workflows](#pr-workflows)                       |
-| Explicit stack or merge                                     | [Advanced delivery](playbooks/advanced-delivery.md) |
-| Long active-session task or project-scale run               | [Autonomous run](playbooks/autonomous.md)           |
-| Resume prior work                                           | [Pickup](playbooks/continuity.md#pickup)            |
-| Hand off or pause work                                      | [Pause](playbooks/continuity.md#pause)              |
-| Author/evaluate a skill or capture workflow lessons         | [Skill development](playbooks/skill-development.md) |
-| Stress-test a proposal through questions                    | [Grilling](playbooks/grilling.md)                   |
-| Clarify domain terms or record a glossary/decision          | [Domain modeling](playbooks/domain-modeling.md)     |
-| Explain with a diagram or code-shape sketch                 | [Show me](playbooks/show-me.md)                     |
-| Assess essential and accidental complexity                  | [Show complexity](playbooks/show-complexity.md)     |
-| Reconstruct prior session context                           | [Recall](playbooks/continuity.md#recall)            |
-| Summarize progress in the current conversation              | [Catch up](playbooks/continuity.md#catch-up)        |
-| Clean up code                                               | [Code cleanup](playbooks/cleanup.md#code-cleanup)   |
-| Improve prose                                               | [Prose cleanup](playbooks/cleanup.md#prose-cleanup) |
-| Review comment value                                        | [Comments](playbooks/cleanup.md#comment-review)     |
-| Explain mstack usage or dependencies                        | [Help](playbooks/help.md)                           |
+| Request                                                     | Playbook                                             |
+| ----------------------------------------------------------- | ---------------------------------------------------- |
+| New or changed behavior                                     | [Feature](playbooks/feature.md)                      |
+| Reported defect                                             | [Bug fix](playbooks/bug-fix.md)                      |
+| Behavior-preserving restructuring                           | [Refactoring](playbooks/refactoring.md)              |
+| Small implementation sketch or full spec                    | [Planning](playbooks/planning.md)                    |
+| Create an implementation-ready spec                         | [Full spec](playbooks/planning.md#full-spec)         |
+| Refine an existing proposal                                 | [Spec refinement](playbooks/planning.md#refine)      |
+| Implement an approved spec                                  | [Spec implementation](playbooks/spec-implement.md)   |
+| Read-only question or architecture explanation              | [Investigation](#investigation)                      |
+| Prototype or visual-parity work                             | [Prototype](playbooks/prototype.md)                  |
+| Performance fix or sustained metric improvement             | [Performance](playbooks/performance.md)              |
+| Live runtime symptom or captured trace                      | [Forensics](playbooks/forensics.md)                  |
+| Independent review or blast-radius analysis                 | [Review](playbooks/review.md)                        |
+| Architecture, competing designs, or partitioned exploration | [Exploration](playbooks/exploration.md)              |
+| Publish, rewrite, triage, fix feedback, or inspect checks   | [PR workflows](#pr-workflows)                        |
+| Explicit stack or merge                                     | [Advanced delivery](playbooks/advanced-delivery.md)  |
+| Long active-session task or project-scale run               | [Autonomous run](playbooks/autonomous.md)            |
+| Resume prior work                                           | [Pickup](playbooks/continuity.md#pickup)             |
+| Hand off or pause work                                      | [Pause](playbooks/continuity.md#pause)               |
+| Author/evaluate a skill or capture workflow lessons         | [Skill development](playbooks/skill-development.md)  |
+| Create a project verification skill                         | [Create](playbooks/verification-skill.md#create)     |
+| Maintain a project verification skill                       | [Maintain](playbooks/verification-skill.md#maintain) |
+| Stress-test a proposal through questions                    | [Grilling](playbooks/grilling.md)                    |
+| Clarify domain terms or record a glossary/decision          | [Domain modeling](playbooks/domain-modeling.md)      |
+| Explain with a diagram or code-shape sketch                 | [Show me](playbooks/show-me.md)                      |
+| Assess essential and accidental complexity                  | [Show complexity](playbooks/show-complexity.md)      |
+| Reconstruct prior session context                           | [Recall](playbooks/continuity.md#recall)             |
+| Summarize progress in the current conversation              | [Catch up](playbooks/continuity.md#catch-up)         |
+| Clean up code                                               | [Code cleanup](playbooks/cleanup.md#code-cleanup)    |
+| Improve prose                                               | [Prose cleanup](playbooks/cleanup.md#prose-cleanup)  |
+| Review comment value                                        | [Comments](playbooks/cleanup.md#comment-review)      |
+| Explain mstack usage or dependencies                        | [Help](playbooks/help.md)                            |
 
 Mstack is the single entry point. Playbooks supply task procedures; principles guide decisions; roles name bounded assignments when delegating. Read playbooks as task instructions, with the shared rules already in context.
 

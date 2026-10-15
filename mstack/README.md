@@ -2,7 +2,7 @@
 
 Michael's explicitly invoked engineering workflows for OpenCode V2 and Pi. One entry point, `mstack`, routes planning, investigation, review, explanation, and PR requests to playbooks.
 
-Mstack is independently maintained. It adapts pstack's playbook/principle structure and selected workflows, incorporates agent-orchestrator, and vendors the planning/explanation procedures listed in [provenance](PROVENANCE.md). It does not depend on workflow-tools or a pstack installation.
+Mstack is independently maintained. It adapts pstack's playbook/principle structure and selected workflows, incorporates agent-orchestrator, and vendors the planning, explanation, and verification-skill procedures listed in [provenance](PROVENANCE.md). It does not depend on workflow-tools or a pstack installation.
 
 Playbooks provide task procedures, principles guide decisions, and roles are bounded assignments for delegated work. These terms are defined in the [glossary](GLOSSARY.md).
 
@@ -50,10 +50,13 @@ These are skill requests, not extension slash commands. Internal routing reads t
 | Advanced delivery  | Stack, ship, autonomous run                                                                                 |
 | Continuity         | [Recall, catch up, pickup, pause](playbooks/continuity.md)                                                  |
 | Skills and help    | Author, evaluate, reflect, help                                                                             |
+| App verification   | [Create or maintain a project verification skill and feature map](playbooks/verification-skill.md)          |
 
 Describe the task after `@mstack` or `/skill:mstack`; these are natural-language requests, not subcommands. Feature, bug-fix, refactoring, prototype, and visual-parity requests use the same entry point. The [main skill](SKILL.md) routes to the matching playbook.
 
 Standalone publication starts a read-only, 30-minute background watcher unless `--no-watch` or conversational guidance disables it. Coding tasks own CI repair instead. Feedback fixes use agreed triage outcomes, publish first, then react/resolve; their watcher is read-only. An immediate checks request never waits or repairs code.
+
+Use `@mstack create a verification skill for this app` or `/skill:mstack maintain this project's verification skill` to create or audit repeatable app-driving instructions and a feature map. New skills default to the project's `.agents/skills/verify-<app>/`. Creation proves one mapped feature end to end; maintenance covers every mapped feature and confines corrections to the verification skill directory. Both preserve evidence through cleanup, and implementation changes require approval.
 
 ## Dependencies
 
