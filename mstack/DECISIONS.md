@@ -102,7 +102,13 @@ Keep attribution out of this playbook's runtime instructions, as requested to av
 
 Accepted 2026-10-15. Restore the full spec-planner workflow and all four original references instead of the condensed full-spec procedure and short format/decision summaries. The approval explicitly includes phase reporting, effort estimates, and completeness checks. Retain philosophy, clarification/discovery detail, implementation contracts, scope control, templates, and the final handoff. Publish the restoration to PR #2. [E13](#e13-spec-planner-restoration).
 
-Keep mstack's sketch route, both approval gates, reuse of prior interview answers, explicit output paths, separate proposal-only existing-spec refinement, and OpenCode/Pi tool adaptations. Restore the four references with formatting changes only; preserve the separate domain-record resource. The complete adaptation list is in [provenance](PROVENANCE.md#spec-planner-source-fidelity) and [the source audit](SOURCE-AUDIT.md#spec-planner-restoration-adaptations). This approval restores spec-planner; the broader audit does not authorize all proposed restorations.
+Keep mstack's sketch route, both approval gates, reuse of prior interview answers, explicit output paths, separate proposal-only existing-spec refinement, and OpenCode/Pi tool adaptations. Restore the four references with formatting changes only; preserve the separate domain-record resource during this restoration (subsequently replaced by the full formats under D18). The complete adaptation list is in [provenance](PROVENANCE.md#spec-planner-source-fidelity) and [the source audit](SOURCE-AUDIT.md#spec-planner-restoration-adaptations). This approval restores spec-planner; the broader audit does not authorize all proposed restorations.
+
+### D18: Restore the remaining selected vendor procedures
+
+Accepted 2026-10-15. Restore show-complexity, grilling, and domain-modeling from their complete source bodies and supporting resources, and publish to PR #2. This supersedes their condensed implementations. Show-complexity regains its visual-selection table, worked comparison, and detailed evidence/assessment guidance. Grilling regains the whole-frontier round, recommendation-accepting question wording, and empty-frontier completion contract. Domain modeling regains the concrete examples, context layouts, and complete glossary/ADR formats. [E15](#e15-three-procedure-restoration).
+
+Retain host questions with conversational fallback, selective research delegation, prior-answer reuse, read-only investigation, and sketch/spec approval before implementation. Replace the condensed `domain-records.md` with `GLOSSARY-FORMAT.md` and `ADR-FORMAT.md`; update its callers. This replaces D17's temporary preservation of that separate summary, not its planning workflow. Keep attribution in maintenance/license files. [Provenance](PROVENANCE.md#three-procedure-source-fidelity) records every source adaptation. Other audit recommendations remain proposals.
 
 ## Upstream differences that are not new commitments
 
@@ -110,7 +116,7 @@ The original adaptation condensed pstack 0.15.21's 24 principles into 14. Severa
 
 These are observed coverage differences, not individually approved prohibitions or promises to port them later. The later consolidation passes preserved their source text; they did not restore detail omitted during the initial adaptation. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Evidence: comparison response `msg_13d4e9cff001zIpZUmIFkY8AAo` in the [design session](#sources), checked against the current bundle. Verification-skill creation/maintenance was a subsequently identified omission resolved by D14.
 
-The 2026-10-15 [integrated-source audit](SOURCE-AUDIT.md) extends that comparison to every selected vendor source, all 52 pstack skill entries (including 24 principles), its 23 nested playbooks, supporting resources, and workflow-tools' PR/spec instruction contracts. It records substantial additional losses separately from accepted host, approval, delegation, and delivery adaptations. Its restoration order is a recommendation, not an accepted change. [E14](#e14-all-integrated-skill-audit).
+The 2026-10-15 [integrated-source audit](SOURCE-AUDIT.md) extends that comparison to every selected vendor source, all 52 pstack skill entries (including 24 principles), its 23 nested playbooks, supporting resources, and workflow-tools' PR/spec instruction contracts. It records substantial additional losses separately from accepted host, approval, delegation, and delivery adaptations. D18 approves the subsequent three-procedure restoration; the remaining restoration order is a recommendation, not an accepted change. [E14](#e14-all-integrated-skill-audit).
 
 ## Validation and cutover snapshot
 
@@ -126,6 +132,8 @@ As of 2026-10-15, baseline commit `f26c267`:
 The D16 show-me restoration was checked on 2026-10-15 against upstream revision `bba9d13`: the installed source is byte-identical, and the restored body differs only by its documented packaging, host-opening, and formatting adaptations. All ten worked examples are retained. Bundle validation, formatting, links/anchors, and whitespace checks passed. These establish source fidelity; no fresh end-to-end artifact-generation evaluation was run.
 
 The D17 spec-planner restoration and broad source audit were checked on 2026-10-15 against bundle baseline `fbc0587` and planner source `57f95bb`: all four restored references are byte-identical to source, and the main-body differences match the documented adaptations. Sketch/depth and Approval/Refine sections are unchanged. The audit inventory accounts for 28 non-principle pstack skills, 24 principle skills, and 23 nested playbooks without missing or extra rows. Bundle validation covers one skill and 61 Markdown files; all 129 local fragment links resolve. Formatting and whitespace checks pass. Static planning-route walkthroughs were reviewed; no fresh independent agent execution was run, so the existing live-host and real-app evaluation gaps remain. No helper or validator code changed.
+
+The D18 three-procedure restoration was checked on 2026-10-15 against bundle baseline `9a0b6f7`: all three restored bodies and both domain formats match their sources after only documented adaptations and Markdown formatting. The show-complexity source is byte-identical to `57f95bb`; grilling/domain-modeling use the installed copies identified by SHA-256 in provenance. Planning changes only its domain-record routing link. Bundle validation covers one skill and 62 Markdown files; all 136 local fragment links resolve, and the restored formats are reachable. Formatting and whitespace checks pass. Six static scenario walkthroughs and direct cleanup passes are recorded in the audit; no independent behavioral execution or live-host check was run. Existing live delegation, watcher, and real-app gaps remain. No helper or validator code changed.
 
 Future verification should update this section with its date, target revision, commands/evidence, and remaining limits. No follow-up above is automatically authorized by this snapshot.
 
@@ -190,3 +198,7 @@ In the 2026-10-15 continuation, after the comparison of the full planner and its
 ### E14: All integrated-skill audit
 
 The subsequent request was “do this same audit for all the skills we integrated.” The resulting `SOURCE-AUDIT.md` records sources, destinations, missing instructions/examples/resources, deliberate adaptations, and proposed next restorations. It continues the already-approved spec-planner work; it is not blanket approval to change every audited workflow.
+
+### E15: Three-procedure restoration
+
+In the 2026-10-15 continuation, the recommendation was to restore show-complexity, grilling, and domain-modeling together next. The user answered “do those 3.” The acknowledged scope was full-source restoration with mstack's host and approval rules, validation, and an update to PR #2. This approval is preserved in the conversation checkpoint; no additional original message ID was recovered for this entry.

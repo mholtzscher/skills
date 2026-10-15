@@ -1,11 +1,73 @@
 # Domain modeling
 
-Adapted from Matt Pocock's domain-modeling skill.
+Actively build and sharpen the project's domain model as you design. This is the _active_ discipline: challenging terms, inventing edge-case scenarios, and writing the glossary and decisions down the moment they crystallise. (Merely _reading_ `GLOSSARY.md` for vocabulary is not this playbook: that's a one-line habit any playbook can do. This playbook is for when you're changing the model, not just consuming it.)
 
-Read `GLOSSARY-MAP.md` when present to find bounded contexts; otherwise inspect the current context's `GLOSSARY.md`. Challenge overloaded terms and conflicts with established language. Prefer one precise name per concept. Cross-check claims against actual code and test edge-case scenarios that expose ambiguous ownership or relationships.
+Use the [host's question tool](../SKILL.md#host-selection) for genuine domain decisions, with conversational fallback. Reuse settled answers from planning. The inline documentation updates below apply when the requested work includes modeling; in a read-only investigation, propose them instead. Preserve established repository organization and numbering, and record the decision's actual status.
 
-Use the host question tool for genuine domain decisions. Reuse settled answers from planning. When the requested work includes modeling, capture agreed terms as they crystallize in the appropriate glossary. Create a glossary lazily, not as a mandatory artifact for every task. In a read-only investigation, propose documentation changes rather than writing them.
+Read `GLOSSARY-MAP.md` when present to find bounded contexts; otherwise inspect the current context's `GLOSSARY.md`.
 
-A glossary contains domain concepts, not implementation notes or a task plan. Use the [record formats](../references/planning/domain-records.md).
+## File structure
 
-Offer an ADR only for a decision that is hard to reverse, surprising without context, and the result of a real tradeoff. A short explanation of what was chosen and why is usually sufficient. Preserve existing numbering and record the decision's actual status.
+Most repos have a single context:
+
+```
+/
+├── GLOSSARY.md
+├── docs/
+│   └── adr/
+│       ├── 0001-event-sourced-orders.md
+│       └── 0002-postgres-for-write-model.md
+└── src/
+```
+
+If a `GLOSSARY-MAP.md` exists at the root, the repo has multiple contexts. The map points to where each one lives:
+
+```
+/
+├── GLOSSARY-MAP.md
+├── docs/
+│   └── adr/                          ← system-wide decisions
+├── src/
+│   ├── ordering/
+│   │   ├── GLOSSARY.md
+│   │   └── docs/adr/                 ← context-specific decisions
+│   └── billing/
+│       ├── GLOSSARY.md
+│       └── docs/adr/
+```
+
+Create files lazily: only when you have something to write. If no `GLOSSARY.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
+
+## During the session
+
+### Challenge against the glossary
+
+When the user uses a term that conflicts with the existing language in `GLOSSARY.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y. Which is it?"
+
+### Sharpen fuzzy language
+
+When the user uses vague or overloaded terms, propose a precise canonical term. "You're saying 'account': do you mean the Customer or the User? Those are different things."
+
+### Discuss concrete scenarios
+
+When domain relationships are being discussed, stress-test them with specific scenarios. Invent scenarios that probe edge cases and force the user to be precise about the boundaries between concepts.
+
+### Cross-reference with code
+
+When the user states how something works, check whether the code agrees. If you find a contradiction, surface it: "Your code cancels entire Orders, but you just said partial cancellation is possible. Which is right?"
+
+### Update GLOSSARY.md inline
+
+When a term is resolved, update `GLOSSARY.md` right there. Don't batch these up: capture them as they happen. Use the format in [GLOSSARY-FORMAT.md](../references/planning/GLOSSARY-FORMAT.md).
+
+`GLOSSARY.md` should be totally devoid of implementation details. Do not treat `GLOSSARY.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
+
+### Offer ADRs sparingly
+
+Only offer to create an ADR when all three are true:
+
+1. **Hard to reverse**: the cost of changing your mind later is meaningful
+2. **Surprising without context**: a future reader will wonder "why did they do it this way?"
+3. **The result of a real trade-off**: there were genuine alternatives and you picked one for specific reasons
+
+If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](../references/planning/ADR-FORMAT.md).

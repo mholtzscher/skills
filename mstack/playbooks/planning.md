@@ -160,7 +160,7 @@ Use appropriate template from [templates.md](../references/planning/templates.md
 - **ADR** — Architecture decisions
 - **RFC** — Larger proposals
 
-Write the draft to the explicitly requested path, or default to `specs/<descriptive-name>.md`, and mark its approval state accurately. Creating the requested spec is permitted planning work. Use established repository conventions for durable ADRs and [domain records](../references/planning/domain-records.md) for glossary/decision-record work.
+Write the draft to the explicitly requested path, or default to `specs/<descriptive-name>.md`, and mark its approval state accurately. Creating the requested spec is permitted planning work. Use established repository conventions for durable ADRs and [domain modeling](domain-modeling.md) for glossary/decision-record work.
 
 **Transition:** Spec produced → REFINE
 

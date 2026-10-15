@@ -1,13 +1,33 @@
 # Grilling
 
-Adapted from Matt Pocock's grilling skill.
+Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it.
 
-Map the proposal as a design tree. Each decision unlocks dependent decisions. The current frontier contains only questions whose prerequisites are settled; do not ask the user to guess answers that depend on unresolved choices.
+Read the conversation and relevant code/docs first. Reuse answered questions and established constraints. Probe edge cases, cost of ownership, tradeoffs, and what would invalidate the preferred design.
 
-1. Read the conversation and relevant code/docs first. Reuse answered questions and established constraints.
-2. Find observable facts yourself. Delegate bounded research when it keeps bulky evidence out of the main conversation. Questions downstream of unfinished research wait; independent decisions can proceed.
-3. Ask the current frontier in manageable rounds using the host's structured question tool. Make each question a real choice, explain why it matters, and give a recommended answer with credible alternatives.
-4. After each round, update the decision tree. Probe edge cases, cost of ownership, tradeoffs, and what would invalidate the preferred design.
-5. When consequential branches are settled, restate the intended outcome and decisions in your own words. Ask the user to confirm the shared understanding.
+Work the tree in **rounds**. The **frontier** is every decision whose prerequisites are already settled: the questions you can ask _now_ without guessing at answers you haven't heard yet. Ask the whole frontier in one round: number each question and give your recommended answer. Then wait for the user's answers before the next round.
 
-The deliverable is agreement or a precise list of unresolved decisions. This interview does not authorize implementation. For a formal plan, hand the agreed decisions to [full-spec planning](planning.md#full-spec) without restarting the interview.
+Use the [host's structured question tool](../SKILL.md#host-selection) when available. Make each question a real choice, explain why it matters, and put the recommended answer first with credible alternatives. If the tool limits the number of questions per call, cover the same ready frontier in tool-sized batches within one logical round; dependent questions still belong to the next round.
+
+When no structured question tool is available, format a round like so:
+
+```
+❓ **Q1** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
+
+➡️ <your recommended answer>
+
+---
+
+❓ **Q2** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
+
+➡️ <your recommended answer>
+```
+
+Word each question so "yes" accepts your recommended answer.
+
+Each round the user answers reshapes the tree: settled decisions push the frontier outward and unblock questions that depended on them. Recompute the frontier and ask the next round. A question whose answer depends on another question still open in this round belongs to a _later_ round, not this one.
+
+Finding _facts_ is your job, never the user's. When a frontier question needs a fact from the environment (filesystem, tools, etc.), look it up directly or delegate bounded research through [orchestration](../references/orchestration.md); don't ask the user for anything you could look up yourself. When research is delegated, don't block on it: a running exploration is an unsettled prerequisite, so only the questions downstream of it wait for the sub-agent to report; ask the rest of the frontier now. The _decisions_ are the user's: put each to them and wait.
+
+The session is done when the frontier is empty: every branch of the design tree visited, nothing left silently assumed. Do not act on it until the user confirms you have reached a shared understanding.
+
+Restate the intended outcome and decisions for that confirmation. If the interview pauses before the frontier is empty, report the unresolved decisions instead of claiming completion. This interview does not authorize implementation. For a formal plan, hand the agreed decisions to [full-spec planning](planning.md#full-spec) without restarting the interview.
