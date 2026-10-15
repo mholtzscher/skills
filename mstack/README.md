@@ -76,6 +76,8 @@ The [host adapters](SKILL.md#host-selection) distinguish OpenCode and Pi tool co
 
 ## Development and validation
 
+Before modifying mstack, read the [maintainer instructions](AGENTS.md) and [decision record](DECISIONS.md). They preserve the approved tradeoffs, superseded approaches, and known validation gaps from the original design session; update the record when an accepted choice changes.
+
 From `mstack/scripts`:
 
 ```sh
