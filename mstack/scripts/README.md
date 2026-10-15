@@ -1,4 +1,6 @@
-# Read-only PR evidence CLI
+# Mstack script helpers
+
+## Read-only PR evidence CLI
 
 Requires Bun and an authenticated `gh` on PATH. There are no production dependencies, plugin imports, install hooks, GitHub mutations, or watcher processes. The script emits evidence on stdout; `gh` may cache downloaded logs on disk. Run from the repository/worktree whose current PR you want; the script path can be absolute.
 
@@ -60,3 +62,21 @@ bun test
 ```
 
 The lockfile pins development-only TypeScript/Bun types. Tests use fixture classification and a subprocess fake `gh`; they perform no live GitHub operations. Deterministic classification and the pure Actions-log summarizer are adapted from Michael Holtzscher's MIT-licensed `workflow-tools/pr/check-classification.ts` and `workflow-tools/pr/actions-log.ts` (copyright 2026 Michael Holtzscher; see the repository's `LICENSE`). Effect and plugin machinery are not included.
+
+## Decision-log append helper
+
+Requires Bun only, with no production package dependencies or `gh`. This helper writes the explicitly selected local file. Unlike the PR CLI, it is not read-only. Follow [Decision trail](../playbooks/decision-trail.md) for the canonical schema, storage, run attribution, corrections, audit, review, and publication boundaries.
+
+```sh
+bun /absolute/path/to/mstack/scripts/decision-log.ts <logfile> <phase> <decision> <why> <evidence> <result>
+```
+
+Use the installed script's absolute path from any working directory. Pass each cell as a separate quoted argument, including `''` for an empty cell. Relative log paths resolve from the caller's working directory. The template resolves relative to the installed script, not the working directory.
+
+The helper validates exactly six arguments and a nonblank file path before filesystem mutation. It creates parent directories, stamps UTC ISO8601 with milliseconds, and appends a row. New or empty files receive exactly one header from [the template](../references/decision-trail/decision-log-template.tsv). Each tab, CR, and LF becomes one space. A cell whose first character is `=`, `+`, `-`, or `@` gains a leading single quote to prevent spreadsheet formula evaluation. Other bytes and empty cells are preserved. Arguments and generated text are never executed.
+
+An existing nonempty file must begin with the exact template bytes and end with LF. An incompatible header, including Hillclimb's nine-field header, or an unterminated existing row is rejected without changing the file's bytes. The helper does not validate every existing row, task identity, evidence, phase semantics, permissions, provenance, or secrets. The caller must check these before selecting the path.
+
+All writes use append semantics, even on first use, rather than truncating a file after an existence check. One named caller must serialize appends. There is no lock, concurrent-writer guarantee, transaction, crash-atomicity guarantee, redaction service, permission enforcement, or restart scheduler. Header and final-byte checks are not a concurrency protocol. The helper neither edits ignore rules nor stages, commits, or publishes anything.
+
+Exit 0 means the append completed, not that the evidence or task passed. Exit 1 means invalid usage, an incompatible or unterminated existing file, or a filesystem/template failure. Errors are plain text on stderr; success emits no stdout. Invalid usage makes no filesystem changes. A later I/O failure can leave created directories, a new file, or a partial write, so inspect the actual artifact before retrying. The subprocess tests cover sequential CLI behavior, not concurrency or recovery after crashes.

@@ -62,8 +62,12 @@ Read the supplied handoff or relevant prior session. Reconstruct goal, approved 
 
 Confirm the next task and applicable authority when the handoff is incomplete or consequential choices remain. Resume the relevant playbook from its unmet acceptance criterion, not from the beginning of an already-approved interview.
 
+If the task has a decision trail, read its latest rows and follow [Decision trail](decision-trail.md) before appending. A pickup starts a new run and must identify the inherited rows rather than claiming them as its own.
+
 ## Pause
 
 Stop launching new work. Ask running children to checkpoint/stop only through actual host controls, and verify the response where supported. If the host cannot stop them, record their IDs, ownership, and unknown state explicitly; do not claim the pause is complete.
 
 Record goal, approvals, current branch/base/head, changed paths, child/process IDs, verification, published PR/check state, blockers, and the next concrete action. Use an existing task/spec record or a user-agreed handoff path. Preserve uncommitted work; do not commit or discard it merely to make a handoff tidy. Report what continues running and what the next operator must verify.
+
+If the task produced a decision trail, include its canonical path and evidence pointers in the handoff. Follow [Decision trail](decision-trail.md) for the owner audit and Attention status, naming unavailable transcript evidence and incomplete review.

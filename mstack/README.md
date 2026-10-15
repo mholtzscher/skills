@@ -49,6 +49,7 @@ These are skill requests, not extension slash commands. Internal routing reads t
 | Performance        | Performance fix, hillclimb, runtime/trace forensics                                                         |
 | Advanced delivery  | Stack, ship, autonomous run                                                                                 |
 | Continuity         | [Recall, catch up, pickup, pause](playbooks/continuity.md)                                                  |
+| Decision trail     | [Record, audit, and review decisions with evidence](playbooks/decision-trail.md)                            |
 | Skills and help    | Author, evaluate, reflect, help                                                                             |
 | App verification   | [Create or maintain a project verification skill and feature map](playbooks/verification-skill.md)          |
 
@@ -58,19 +59,22 @@ Standalone publication starts a read-only, 30-minute background watcher unless `
 
 Use `@mstack create a verification skill for this app` or `/skill:mstack maintain this project's verification skill` to create or audit repeatable app-driving instructions and a feature map. New skills default to the project's `.agents/skills/verify-<app>/`. Creation proves one mapped feature end to end; maintenance covers every mapped feature and confines corrections to the verification skill directory. Both preserve evidence through cleanup, and implementation changes require approval.
 
+Use `@mstack keep a decision trail for this run` or `/skill:mstack audit this decision trail` for a canonical append-only record of decisions and evidence. Long runs route to the same [procedure](playbooks/decision-trail.md). Trails stay in existing ignored storage or an explicit local path outside the worktree by default. Committing or publishing a sanitized trail requires explicit request or agreement. A read-only audit proposes corrections rather than appending them. Owner transcript audit and selective independent review have separate, honestly reported coverage. Every reply of a trail-producing run ends with Attention status. Hillclimb's nine-field experiment log remains separate, with evidence links when both are useful.
+
 ## Dependencies
 
 | Use                           | Requirement                                                         |
 | ----------------------------- | ------------------------------------------------------------------- |
 | Skills and planning           | Host file-reading tools; structured questions when available        |
 | PR evidence scripts           | Bun and authenticated `gh` on the execution machine                 |
+| Decision-log append helper    | Bun and an explicitly selected writable local path                  |
 | Publication                   | Git, `gh`, repository permissions, and project development tools    |
 | Delegation on OpenCode        | Available native subagent tool and configured roles                 |
 | Delegation on Pi              | A compatible installed `pi-subagents` extension                     |
 | Browser/terminal verification | Appropriate tools, optionally agent-browser/terminal-control skills |
 | Durable scheduling            | An actual host scheduler/launcher; mstack itself provides none      |
 
-The Bun helpers have no production package dependencies. [Script usage and development](scripts/README.md) documents JSON contracts, exit codes, and limits. Optional technical skills remain external. Missing optional delegation can fall back to direct work; explicit independence or scheduler requirements remain unmet until the capability exists or the user changes the requirement.
+The Bun helpers have no production package dependencies. [Script usage and development](scripts/README.md) documents the read-only PR JSON contracts and the local decision-log append interface, exit codes, and limits. The append helper normalizes TSV cells and rejects incompatible existing headers, but does not enforce ownership, validate evidence, lock shared writers, or schedule work. Optional technical skills remain external. Missing optional delegation can fall back to direct work; explicit independence or scheduler requirements remain unmet until the capability exists or the user changes the requirement.
 
 The [host adapters](SKILL.md#host-selection) distinguish OpenCode and Pi tool contracts. Instructions do not enforce sandbox permissions or promise background work survives a restart.
 

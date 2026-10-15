@@ -29,6 +29,7 @@ Select the matching playbook and follow its instructions. State the selected pat
 | Publish, rewrite, triage, fix feedback, or inspect checks   | [PR workflows](#pr-workflows)                        |
 | Explicit stack or merge                                     | [Advanced delivery](playbooks/advanced-delivery.md)  |
 | Long active-session task or project-scale run               | [Autonomous run](playbooks/autonomous.md)            |
+| Keep or audit a reviewable decision trail                   | [Decision trail](playbooks/decision-trail.md)        |
 | Resume prior work                                           | [Pickup](playbooks/continuity.md#pickup)             |
 | Hand off or pause work                                      | [Pause](playbooks/continuity.md#pause)               |
 | Author/evaluate a skill or capture workflow lessons         | [Skill development](playbooks/skill-development.md)  |
