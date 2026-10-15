@@ -48,9 +48,39 @@ Adaptations:
 - [Domain modeling](playbooks/domain-modeling.md) retains the full body with `skill` changed to `playbook`, relocated format links, and the existing mstack guidance for host questions, prior answers, reading the context map/glossary, read-only scope, repository conventions, and accurate decision status.
 - [Glossary format](references/planning/GLOSSARY-FORMAT.md) and [ADR format](references/planning/ADR-FORMAT.md) retain their full content. Changes are Markdown formatting and `skill` → `playbook` in the glossary reference. The condensed `domain-records.md` is retired; planning now routes to domain modeling. The richer spec-planner ADR template remains a separate planning resource.
 
+## Orchestration and explanation source fidelity
+
+[D19](DECISIONS.md#d19-restore-orchestration-and-explanation-evidence), accepted 2026-10-15, restores orchestration, How/Why evidence workflows, and the explicit PR incomplete-review stop rule.
+
+### Orchestration
+
+The source is `agent-orchestrator/SKILL.md` at repository revision `57f95bb94e4abaf6206f97188497958a7e81a1bc`, SHA-256 `e51311bd135792636543350e49c8363573f6653da3ddc17df3cc5ff5e32f8da5`. [Orchestration](references/orchestration.md) restores all five logical roles, the full invoice-explorer brief, milestone/dependency ownership, shared-state intermediate-failure guidance, public-boundary verification examples, handoff acceptance, escalation, and completion criteria.
+
+Adaptations replace skill discovery and fixed OpenCode syntax with a plain reference and the existing host adapters. Delegation, independent testing, and review remain selective; one writer owns coupled implementation. Optional unavailable delegation permits disclosed sound direct work, while explicitly required independence, diversity, parallel execution, or runtime capabilities remain unmet until satisfied or revised. Existing mstack guidance retains host-owned models, actual schema discovery, approved sketch/spec scope, parent-owned publication, richer dispatch/handoff evidence, isolated writers, and unknown-child-liveness handling. Attribution stays in maintenance/license files. All other substantive source guidance and the complete worked example are retained.
+
+### How and Why
+
+The source bodies and all fourteen reference files come from workflow-tools `pstack/upstream/skills/{how,why}/` at `3f83b1d5b6b7e82adf7639148403083b4ccb4a8d`. All sixteen inspected files match that snapshot. Source-body SHA-256 values: How `47cfe3e6fe55c49c3bdf8ad1b645dcd5fece8f0c36fd22d2e7221f9faa71f648`; Why `24e6ce55ed4a1cbc18f78ab87e10fcede635949f3b60a2a9a4002e3fe00f890b`. This is the pinned host-adapted pstack snapshot, not asserted byte-identical to raw Cursor upstream.
+
+[How](playbooks/explanation.md#how) and [Why](playbooks/explanation.md#why) retain their complete research, handoff, synthesis, and presentation guidance. The How explorer/explainer references and all twelve Why references are restored under `references/explanation/`, including the eight source-specific playbooks. Teach remains unchanged.
+
+Adaptations:
+
+- Skill metadata and headings become named sections behind mstack's single entry. Links point into the installed bundle; reference routing is conditional on the current investigation stage and relevant evidence source. Attribution stays in maintenance/license files.
+- Fixed model rules, named agents, mandatory explainer/synthesizer dispatch, and exhaustive per-category fanout become selective direct/delegated work through actual host capabilities. Narrow supported questions can finish directly. The same evidence/handoff and output requirements apply to direct research.
+- Source discovery does not presume Git, authenticated `gh`, a specific MCP, or an access mode is available. Relevant-source coverage distinguishes searched-empty, inaccessible, intentionally unsearched, and contradictory evidence. Existing history guidance, dates/supersession, citation checks, and read-only scope remain explicit.
+- Tool names and calls in source-specific recipes are examples to translate to discovered schemas. Search order, query strategies, evidence fields, and all fifteen fenced query/tool examples are retained. Warehouse table/column conventions require confirmation. Slack authentication changes are outside read-only investigation; Sentry Seer guidance permits reading existing analysis, with separate authority needed to launch a new stateful analysis.
+- Epistemics changes are formatting-only. Other reference changes adapt host/source access and selective research, repair local links and the synthesizer's placeholder citation URL, and apply Markdown formatting. The complete confidence, contradiction, negative-result, handoff, and answer structures remain.
+
+### PR incomplete-review stop
+
+The source rule is `PR_DIFF_REVIEW_INSTRUCTIONS` in workflow-tools `pr/metadata-prompts.ts`, shared by `pr/publication-prompts.ts`, at `3f83b1d5b6b7e82adf7639148403083b4ccb4a8d`. Inspected files are byte-identical to that revision; their SHA-256 values are `cacadec01280ea859b98f9192264da57d9f2e9a4647dcd31618e766b22fd25a9` and `6e44d96100af64beb629bfc85b2b4d0383d125ab0fef9e24a29e158066f679cb`, respectively.
+
+[Publication](playbooks/pull-requests.md#publish) now explicitly stops before commits, pushes, or PR writes if scoped diff review is incomplete. [Metadata rewriting](playbooks/pull-requests.md#rewrite-metadata) stops before title/body edits if its PR diff review is incomplete. Each reports the unreviewed scope. This translates the source's “stop before publishing” into each selected operation's mutation boundary; other PR permissions and behavior are preserved.
+
 ## Integrated-source audit
 
-The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52 pstack skill entries and 23 nested playbooks, the 24-to-14 principle consolidation, supporting resources, and workflow-tools' instruction contracts. Many initial adaptations are substantive summaries rather than faithful copies. The report distinguishes those losses from accepted policy changes and records the D18 restorations; its remaining proposed order is not implementation approval. Pstack comparisons use the pinned workflow-tools snapshot, which includes host adaptations, rather than claiming byte identity to raw Cursor upstream.
+The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52 pstack skill entries and 23 nested playbooks, the 24-to-14 principle consolidation, supporting resources, and workflow-tools' instruction contracts. Many initial adaptations are substantive summaries rather than faithful copies. The report distinguishes those losses from accepted policy changes and records the D18/D19 restorations; its remaining proposed order is not implementation approval. Pstack comparisons use the pinned workflow-tools snapshot, which includes host adaptations, rather than claiming byte identity to raw Cursor upstream.
 
 ## Deliberate changes
 

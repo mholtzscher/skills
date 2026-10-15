@@ -7,7 +7,7 @@ Select the requested operation and follow only that section, plus the procedures
 Read [PR targeting](../references/pr-targeting.md). Explicit publication authorizes scoped commits, push, and PR create/update. It does not authorize merging or unrelated changes.
 
 1. Inspect Git status, the intended base, complete scoped diff, and existing PR identity. Discover the default branch rather than assuming `main`. Preserve the current appropriate delivery branch and unrelated staged/unstaged/untracked work. If on the base branch, create an appropriate topic branch without discarding edits.
-2. Account for every scoped changed path, reading surrounding code where ownership or behavior needs context. A diff stat is not a review. If review is incomplete, report that before publication.
+2. Account for every scoped changed path, reading surrounding code where ownership or behavior needs context. A diff stat is not a review. If review is incomplete, report the unreviewed scope and stop before committing, pushing, or creating/updating the PR.
 3. Run relevant local verification and all [cleanup passes](cleanup.md#before-publication), unless already completed for this unchanged snapshot by the calling coding playbook. Reverify accepted changes.
 4. Commit only the relevant paths with truthful Conventional Commit subjects. Use coherent commits; avoid empty commits or broad staging that includes unrelated work. Push the intended topic branch without rewriting shared history.
 5. Update the unambiguous existing PR for this repository/head/base or create one. For a new PR, use the [visual metadata format](../references/pr-metadata.md). Preserve existing title/body unless rewriting was requested or the calling coding task authorizes an accurate update. Do not create duplicate PRs.
@@ -20,7 +20,7 @@ Report publication and watcher startup separately. A watcher failure does not un
 
 Read [PR targeting](../references/pr-targeting.md).
 
-1. Resolve the requested PR and inspect its full diff, current title/body, base/head, and relevant context. Use the PR snapshot, not unrelated local edits.
+1. Resolve the requested PR and inspect its full diff, current title/body, base/head, and relevant context. Use the PR snapshot, not unrelated local edits. If review is incomplete, report the unreviewed scope and stop before editing the title or body.
 2. Write both title and body using [visual metadata](../references/pr-metadata.md), correcting misleading scope rather than merely noting it.
 3. Run the [prose cleanup pass](cleanup.md#prose-cleanup) and verify any substantive claims against the diff and observed checks.
 4. Edit only the PR title/body, then verify both parsed published values.
