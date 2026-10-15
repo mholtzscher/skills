@@ -1,31 +1,122 @@
 # Show me
 
-Adapted from HumanLayer's show-me skill.
+Help the user understand the current topic of conversation visually. Skip the preamble and keep prose brief. Pick the smallest view that makes the key point clear.
 
-Skip the preamble. Pick the smallest view that makes the current point clear and place brief evidence beside it.
+- Show logic or an algorithm as pseudocode:
 
-| Question                          | Useful view                                        |
-| --------------------------------- | -------------------------------------------------- |
-| Logic or algorithm                | Pseudocode                                         |
-| Runtime control flow              | Call tree                                          |
-| UI ownership and state            | Component tree with important hooks and boundaries |
-| File/package responsibilities     | Shallow file tree                                  |
-| Component interaction or sequence | Mermaid with labeled relationships                 |
-| A change to an existing shape     | Focused diff of the relevant code, tree, or flow   |
+```text
+on(save)
+  if content is unchanged
+    return cached result
+  write new content
+  return fresh result
+```
 
-For example, when the evidence establishes the change:
+- Show runtime control flow as a call tree:
+
+```text
+submitForm
+  createSession
+    persistPrompt
+    launchAgent
+  navigateToSession
+```
+
+- Show UI structure as a component tree, including state and module boundaries that matter:
+
+```tsx
+<SessionPage> (apps/example/src/routes/session.tsx)
+  useSessionEvents()
+  <SessionToolbar>
+    <RunSkillButton> (packages/ui)
+```
+
+- Show file responsibility or a broad refactor as a shallow file tree:
+
+```text
+src/
+├── commands/       # parses user actions
+├── sessions/       # owns session state
+└── transport/      # sends API requests
+```
+
+- Show component interaction, control flow, or data flow with Mermaid:
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant UI
+    participant Daemon
+    User->>UI: choose command
+    UI->>Daemon: send expanded prompt
+    Daemon-->>UI: stream result
+```
+
+- Use `diff` when the point is what changes and the surrounding shape already exists. Match the diff shape to the topic.
+
+For a component change:
+
+```diff
+ <SessionPage>
+   useSessionEvents()
+   <SessionToolbar>
++    <RunSkillButton />
+   <SessionTimeline>
++    <SkillResultCard />
+```
+
+For a file-layout change:
+
+```diff
+ src/
+ ├── commands/
++│   └── show-me.ts       # expands the slash command
+ ├── sessions/
+-└── transport.ts
++└── transport/
++    ├── client.ts
++    └── stream.ts
+```
+
+For a call-tree or call-stack change:
+
+```diff
+ submitForm
+   createSession
+     persistPrompt
++    expandSkillMention
+     launchAgent
+-  navigateToSession
++  navigateToSession
++    subscribeToEvents
+```
+
+For a state or control-flow change:
 
 ```diff
  on(save)
 -  write content
 +  if content is unchanged
 +    return cached result
-+  write content
++  write new content
 +  invalidate cache
 ```
 
-Use the complete target block when most of it is new, the user needs a copyable definition, or omitted context would conceal ownership or ordering. Keep actual names and distinguish a proposal from observed behavior.
+- Show the whole block when most of it is new, when omitted context would hide ownership or order, or when the user needs a copyable target shape:
 
-For visual UI/layout comparisons or concepts too dense for a text diagram, use an available HTML/diagram specialist to create one focused, self-contained artifact. Use real product labels and data; show it with an available preview/review tool. If no preview tool exists, provide the artifact path and state that it has not been visually verified. An illustration does not substitute for a real screenshot when proving application behavior.
+```ts
+function expandSkill(command: string): string {
+  const skillName = command.slice(1);
+  return `use the ${skillName} skill`;
+}
+```
 
-Use several views only when each answers a different question. The deliverable is understanding of the current topic, not implementation of the illustrated change.
+- For a visual UI, layout, state comparison, or concept too dense for Mermaid, write one focused HTML file — a diagram, an infographic, or a short slide deck, whichever fits the point. Match the product's colors, type, spacing, and components; use real labels and data; support desktop and mobile. Then open it for the user:
+
+Use an available host preview or file-opening tool to open `path/to/show-me-{description}.html`. If opening is unavailable, provide the file path and say it has not been visually verified.
+
+### guidance
+
+Place each visual next to the short text it supports. Keep only the calls, files, props, states, and boundaries needed to answer the user's current question or the options to resolve the current discussion point.
+
+You may use one of these, you may use several, it is unlikely you will use all of them. Use your judgement and don't overwhelm the user.

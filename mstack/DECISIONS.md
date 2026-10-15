@@ -1,6 +1,6 @@
 # Mstack maintenance decisions
 
-Recorded 2026-10-15 from the original design session's user messages and completed question/answer records, including material before compaction. Cross-checked against the published bundle at `f26c267`. This is the durable record of design intent; [SKILL.md](SKILL.md) and its linked playbooks contain the executable instructions, and [PROVENANCE.md](PROVENANCE.md) identifies adapted sources.
+Initial record created 2026-10-15 from the original design session's user messages and completed question/answer records, including material before compaction, and cross-checked against the published bundle at `f26c267`. Later decisions cite their own approval evidence. This is the durable record of design intent; [SKILL.md](SKILL.md) and its linked playbooks contain the executable instructions, and [PROVENANCE.md](PROVENANCE.md) identifies adapted sources.
 
 The decisions below are accepted unless explicitly marked otherwise. Rationale summarizes the tradeoffs discussed; detailed implementation choices are identified as such rather than presented as separate user votes. Original approval records are indexed under [Sources](#sources). Earlier session history informed the discussion but does not override these choices.
 
@@ -92,6 +92,12 @@ The implemented adaptation defaults generated skills to project-local `.agents/s
 
 Keep this decision record and a short maintainer `AGENTS.md`, link them from the development guide, and make provenance refer to the committed record. The user approved this after asking how future sessions could recover context lost through compaction. Store decisions, rationale, source locators, and known gaps rather than a personal transcript dump. A repository-root pointer makes the maintainer instructions reachable when a session starts above `mstack/`. [E11](#e11-durable-maintenance-context).
 
+### D16: Restore show-me source fidelity
+
+Accepted 2026-10-15. Restore the complete show-me source body rather than summarizing its examples into a view-selection table. The condensed playbook had retained only one of ten worked examples and omitted the product-styling and desktop/mobile requirements. Keep the original examples and substantive guidance; limit adaptations to single-entry packaging, host-compatible file opening, and formatting. This supersedes the initial condensed show-me implementation while retaining D02's single entry and the shared approval rules.
+
+Keep attribution out of this playbook's runtime instructions, as requested to avoid confusing the agent. Source identity and license notices remain in [PROVENANCE.md](PROVENANCE.md#show-me-source-fidelity) and [LICENSE](LICENSE). The approval covers this show-me restoration and publication to PR #2; it does not authorize rewriting other vendored procedures. [E12](#e12-show-me-restoration).
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed pstack 0.15.21's 24 principles into 14. Several concrete prescriptions were shortened away, including the written premise/actor census, detailed exhaustive-matching/type-construction guidance, and a mandatory tool deliverable for nontrivial work. Full Orchestrate/Autopilot protocols and the dedicated worktree/simulator-cleanup workflow were not preserved.
@@ -108,6 +114,8 @@ As of 2026-10-15, baseline commit `f26c267`:
 - GitHub reported no checks for PR #2 at that head; required-check knowledge was unavailable. This is not evidence of passing required CI or merge gates.
 - Installation, global configuration cutover, and workflow-tools removal had not occurred. The PR was open and unmerged. Re-read live PR/installation state before acting; this is a dated observation, not the current-state authority.
 - The original six-chapter Inbox guided review predates the consolidations. Later messages attached revised files and linked the PR, but a refreshed complete guide had not been submitted. Use the committed files for the current design.
+
+The D16 show-me restoration was checked on 2026-10-15 against upstream revision `bba9d13`: the installed source is byte-identical, and the restored body differs only by its documented packaging, host-opening, and formatting adaptations. All ten worked examples are retained. Bundle validation, formatting, links/anchors, and whitespace checks passed. These establish source fidelity; no fresh end-to-end artifact-generation evaluation was run.
 
 Future verification should update this section with its date, target revision, commands/evidence, and remaining limits. No follow-up above is automatically authorized by this snapshot.
 
@@ -160,3 +168,7 @@ Completed questions in `msg_13c46ecc20013wMf4TooCQXcjg`: deprecate standalone or
 ### E11: Durable maintenance context
 
 `msg_13fb77dc4001r9KajOY1eIIlRc` asks to preserve this session's context and decisions, including before compaction. `msg_13fb974fd0013hItpGNdmoOztN` approves the proposed `DECISIONS.md`, maintainer `AGENTS.md`, provenance pointer, and update to PR #2.
+
+### E12: Show-me restoration
+
+`msg_140011a06001Yfyajy4S0mpm00` requests greater fidelity to the show-me source after identifying lost content. The subsequent structured answer selects “Restore full source (Recommended),” approving the complete body with minimal packaging/host-tool adaptations, decision/provenance updates, and publication to PR #2. `msg_14002cd4b001yxpv1kTUHKii0S` then requests removing attribution from the in-use instructions because it would confuse the agent.

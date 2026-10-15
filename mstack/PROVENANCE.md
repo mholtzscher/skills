@@ -14,6 +14,12 @@ Mstack is an independently maintained adaptation, not an upstream compatibility 
 
 Installer folder hashes identify installed content, not upstream Git commits. The source skill bodies and required references were adapted into mstack's own files rather than retained as an unmodified vendored subtree.
 
+## Show-me source fidelity
+
+On 2026-10-15, the condensed show-me playbook was replaced with the complete instruction body from [HumanLayer's source at `bba9d13`](https://github.com/humanlayer/skills/blob/bba9d13ab34f0a87f1cc33df4dd196372393ddfc/plugins/show-me/skills/show-me/SKILL.md). That revision is byte-identical to the installed source, SHA-256 `434a2346cc95e313b0d367d477dda2e23ba642dd2181757415a09500664af100`.
+
+[The playbook](playbooks/show-me.md) retains all ten worked examples, view-selection guidance, and HTML styling/responsiveness instructions. Differences from the source are limited to replacing skill frontmatter with a playbook title, adapting `Bash(open …)` to available host preview/file-opening tools with an unavailable-tool fallback, and formatter-added semicolons in the TypeScript example. Source attribution lives here and in [LICENSE](LICENSE), outside the agent-facing procedure. See [D16](DECISIONS.md#d16-restore-show-me-source-fidelity).
+
 ## Deliberate changes
 
 - Two planning paths, each requiring implementation approval; full specs remain first-class.
