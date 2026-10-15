@@ -122,9 +122,31 @@ Adaptations:
 - Keep/revert explicitly reconciles the source's two rules: genuine improvements must exceed noise and pass correctness gates; a correctness-preserving simplification may hold the metric without measurable regression and is labeled simplification, not speedup. Raw errors/work/output evidence matters, not merely printed counters.
 - Approved production improvements finish as one ordinary unmerged PR with scoped required-CI repair, replacing automatic stacked PRs. Measurement-only work ends with evidence; the one-primary-number PR rule preserves detailed run receipts in an authorized artifact.
 
+## Refactoring and visual-parity source fidelity
+
+[D22](DECISIONS.md#d22-restore-refactoring-proof-and-visual-parity-baselines), accepted 2026-10-15, restores both complete procedures from workflow-tools `pstack/upstream/skills/poteto-mode/playbooks/` at `3f83b1d5b6b7e82adf7639148403083b4ccb4a8d`. Both inspected files match that pinned host-adapted snapshot byte-for-byte, without claiming raw Cursor upstream identity.
+
+| Source file        | SHA-256                                                            |
+| ------------------ | ------------------------------------------------------------------ |
+| `refactoring.md`   | `3fc77b34b37818b3a5ffcfb31892ba0bff5ca39755e98532cbfbe72ebb1a7ce7` |
+| `visual-parity.md` | `a97395f76e6e23e737b144747697fc5d2916436ac568b5bff48105db9e47bd6f` |
+
+[Refactoring](playbooks/refactoring.md) retains all eight stages, the focused-to-medium scope, feature/bug separation, characterization/snapshot/equivalence choices, original-code pin, target layout/types/call graph, subtraction examples, every-caller migration, rename/string/prose/back-reference checks, real-artifact proof, reader-load acceptance/reversion, ordered green slices, and final report. [Visual parity](playbooks/prototype.md#visual-parity) retains all five stages, pre-migration state baselines, immutable harness/evidence, suspicious-baseline stop, shared-primitives-first order, component ownership, matching-surface image comparison, active-session iteration/scheduler limits, delivery, and report. No separate supporting resource files belong to these two source bodies.
+
+Adaptations:
+
+- Use existing plain playbooks and conditional bundle-local links. Source skill/principle names route to the relevant integrated procedures and consolidated principles. Attribution stays here and in [LICENSE](LICENSE). The original prototype paragraph remains byte-for-byte unchanged under its own heading.
+- Require sketch/spec approval before writing new pins, harnesses, or product changes; reuse existing approval and adequate executable coverage. The pin must run on the original before structure moves. Typecheck/lint remain insufficient proof; missing tools or unexecuted checks remain explicit gaps.
+- Preserve genuine supported external contracts while migrating all internal callers and deleting superseded internal paths in the same wave. Concrete reader-load reduction replaces a literal branch-deletion quota, consistent with D20; branch/invalid-state and subtraction diagnostics remain. Existing caller tracing and show-complexity routing remain available.
+- Local planning/exploration and selective host-configured delegation replace `figure-it-out`, mandatory `architect` fanout at every function boundary, fixed `poteto-agent`, and model-sheet setup. Scoped reverts protect unrelated work; ordered commits do not automatically rewrite published or user history.
+- The user explicitly selected an agreed visual contract instead of the source's unconditional zero-pixel requirement. Pixel-exact is the default; approved exceptions must be predefined before comparison and reported separately with raw differences. Zero unexplained pixels is required; nonzero raw evidence is never labeled pixel-exact. Post-hoc masks, tolerance changes, and baseline overwrites cannot manufacture a pass.
+- Frozen-baseline/harness protection remains. Legitimate approved migration reshaping is distinguished from unrelated restructuring to force a diff pass. A bad baseline or missing comparable driver stops the claim and requires clarification; an approved correction or materially revised contract begins a newly identified comparison with old evidence preserved.
+- State-matched real screenshots and interaction checks preserve the existing mstack visual contract. Actual browser/terminal/project drivers replace assumed host tooling. Shared primitives have an accepted owner-controlled phase before components; parallel worktrees are selective. Unattended/restart-surviving continuation still requires real scheduling.
+- Approved production work follows one ordinary unmerged PR with scoped CI repair and per-component evidence, replacing automatic PRs per component/batch. Baseline-only investigation and disposable prototypes do not authorize production implementation or publication.
+
 ## Integrated-source audit
 
-The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52 pstack skill entries and 23 nested playbooks, the 24-to-14 principle consolidation, supporting resources, and workflow-tools' instruction contracts. Many initial adaptations are substantive summaries rather than faithful copies. The report distinguishes those losses from accepted policy changes and records the D18–D21 restorations; its remaining proposed order is not implementation approval. Pstack comparisons use the pinned workflow-tools snapshot, which includes host adaptations, rather than claiming byte identity to raw Cursor upstream.
+The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52 pstack skill entries and 23 nested playbooks, the 24-to-14 principle consolidation, supporting resources, and workflow-tools' instruction contracts. Many initial adaptations are substantive summaries rather than faithful copies. The report distinguishes those losses from accepted policy changes and records the D18–D22 restorations; its remaining proposed order is not implementation approval. Pstack comparisons use the pinned workflow-tools snapshot, which includes host adaptations, rather than claiming byte identity to raw Cursor upstream.
 
 ## Deliberate changes
 
