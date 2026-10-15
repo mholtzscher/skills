@@ -78,9 +78,31 @@ The source rule is `PR_DIFF_REVIEW_INSTRUCTIONS` in workflow-tools `pr/metadata-
 
 [Publication](playbooks/pull-requests.md#publish) now explicitly stops before commits, pushes, or PR writes if scoped diff review is incomplete. [Metadata rewriting](playbooks/pull-requests.md#rewrite-metadata) stops before title/body edits if its PR diff review is incomplete. Each reports the unreviewed scope. This translates the source's “stop before publishing” into each selected operation's mutation boundary; other PR permissions and behavior are preserved.
 
+## Review and blast-radius source fidelity
+
+[D20](DECISIONS.md#d20-restore-review-and-blast-radius-evidence), accepted 2026-10-15, restores Review/interrogate and Blast radius from workflow-tools `pstack/upstream/skills/` at `3f83b1d5b6b7e82adf7639148403083b4ccb4a8d`. All six inspected source files match that snapshot byte-for-byte. This is the pinned host-adapted pstack snapshot, not a claim of raw Cursor upstream identity.
+
+| Source file                                     | SHA-256                                                            |
+| ----------------------------------------------- | ------------------------------------------------------------------ |
+| interrogate `SKILL.md`                          | `25341c393f515c1e1fa9bce668b7551e9f98c195113a460ff524d3c1f7f50cd9` |
+| interrogate `references/reviewer-prompt.md`     | `f6005cc2b535006fca97a96c5bfda49df57312eedf1ffd8d1aaaf3eb33817c25` |
+| interrogate `references/rubric.md`              | `0f9c6bdb0b96e26dbde5f6407f417e0c02f54080e7a1268d8994f3c3ec6c5ac0` |
+| interrogate `references/code-quality-review.md` | `79162fda183eafd40d51661fbb5e151c7ba250f89e506ba17f5bd135dcbd50a8` |
+| interrogate `references/lead-judgment.md`       | `6e5bdf5670eb34017692e9b6c546f36ac7552e6bb9f3f2f3429164fcc46a9361` |
+| blast-radius `SKILL.md`                         | `2e10745b97f5862323dcda3b29ca60d56b5c3c98e37020085d26b48efbe0a436` |
+
+[Review and blast radius](playbooks/review.md) restore the complete procedures and all four review references under `references/review/`. Adaptations preserve mstack's established permissions and the user's explicit evidence-led structural-review choice:
+
+- Plain sections and bundle-local references replace standalone discovery metadata. Attribution remains here and in [LICENSE](LICENSE). The ordinary review route remains available; callers select review or blast-radius scope rather than automatically running both.
+- Host-owned models, actual schema discovery, and selective delegation replace fixed models, Cursor model rules, compulsory fanout, and the automatic model-default repair PR. Requested diversity must be real or reported unmet. Attribution distinguishes actual known models from reviewer labels or direct lead findings; agreement is supporting signal, not proof.
+- Reviewers remain report-only. Structural suggestions and rubric recommendations propose changes rather than authorizing them. The lead verifies and deduplicates findings, preserves all four verdict buckets, and treats the source's five-item calibration as a noise check rather than a cap on valid findings.
+- All structural dimensions and examples remain, including the 1,000-line threshold. The user rejected presumptive blockers based on size or preferred design alone: these prompt investigation, and blockers need concrete maintainability or behavioral evidence tied to the actual goals and cost of change.
+- Blast radius retains all five proof levels, dependency/version/local-patch checks, timing/cross-language examples, confirmed/cleared risk separation, and runnable-proof deliverables. Existing scope/approval rules govern execution: new experiment code needs an approved sketch and an isolated disposable target; the lead or an authorized tester executes it, not a report-only reviewer. Missing execution or approval leaves the deciding fact explicitly unproven at the attained level, not silently upgraded from source inspection.
+- Mandatory arena dispatch becomes selective authorized independent research; relevant How/Why and prose-cleanup links are local. Findings do not authorize product fixes, external comments, publication, or merging.
+
 ## Integrated-source audit
 
-The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52 pstack skill entries and 23 nested playbooks, the 24-to-14 principle consolidation, supporting resources, and workflow-tools' instruction contracts. Many initial adaptations are substantive summaries rather than faithful copies. The report distinguishes those losses from accepted policy changes and records the D18/D19 restorations; its remaining proposed order is not implementation approval. Pstack comparisons use the pinned workflow-tools snapshot, which includes host adaptations, rather than claiming byte identity to raw Cursor upstream.
+The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52 pstack skill entries and 23 nested playbooks, the 24-to-14 principle consolidation, supporting resources, and workflow-tools' instruction contracts. Many initial adaptations are substantive summaries rather than faithful copies. The report distinguishes those losses from accepted policy changes and records the D18–D20 restorations; its remaining proposed order is not implementation approval. Pstack comparisons use the pinned workflow-tools snapshot, which includes host adaptations, rather than claiming byte identity to raw Cursor upstream.
 
 ## Deliberate changes
 
