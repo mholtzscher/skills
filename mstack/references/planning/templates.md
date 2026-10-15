@@ -1,0 +1,268 @@
+# Output Templates
+
+## Implementation Shape Formatting
+
+Use focused unified `diff` blocks for types and interfaces that modify existing code. Include only enough unchanged context to locate the change. Use a normal language-tagged block only for wholly new files or definitions with no meaningful before-state.
+
+Show project-layout changes as a nested `text` directory tree. Mark every affected path as `new`, `modify`, or `move`, followed by its responsibility:
+
+```text
+src/
+├── api/
+│   └── widget_handler.go    # modify — validates and serves widget requests
+└── widgets/
+    ├── service.go           # new — owns widget creation rules
+    └── repository.go        # modify — persists widget records
+```
+
+## Quick Decision
+
+For scoped technical choices with clear options.
+
+```
+## Decision: [choice]
+
+**Why:** [1-2 sentences]
+**Trade-off:** [what we're giving up]
+**Revisit if:** [trigger conditions]
+
+### Implementation Impact
+- **Types:** [changes, or "No change" with reason]
+- **Interfaces:** [changes, or "No change" with reason]
+- **Project layout:** [changes, or "No change" with reason]
+```
+
+## Feature Plan (Implementation-Ready)
+
+For new feature development. **Complete enough for task decomposition.**
+
+````
+## Feature: [name]
+
+### Problem Statement
+**Who:** [specific user/persona]
+**What:** [the problem they face]
+**Why it matters:** [business/user impact]
+**Evidence:** [how we know this is real]
+
+### Proposed Solution
+[High-level approach in 2-3 paragraphs]
+
+### Scope & Deliverables
+| Deliverable | Outcome | Effort | Owning Paths | Depends On | Acceptance |
+|-------------|---------|--------|--------------|------------|------------|
+| [D1] | [Concrete outcome] | S/M/L/XL | [file/package paths] | - | A1 |
+| [D2] | [Concrete outcome] | S/M/L/XL | [file/package paths] | D1 | A2 |
+
+### Non-Goals (Explicit Exclusions)
+- [Thing people might assume is in scope but isn't]
+
+### Types
+[Define new and changed domain, API, persistence, event, and configuration
+shapes in the implementation language when known. Include fields, value types,
+constraints, and owning module.]
+
+```diff
+diff --git a/path/to/types.ext b/path/to/types.ext
+@@
+ existing context
++new or changed type definition
+```
+
+[Use a `[language]` block instead when this is a wholly new definition.]
+
+### Interfaces
+[Define component boundaries: function or method signatures, endpoints, events,
+inputs, outputs, errors, side effects, and compatibility requirements.]
+
+```diff
+diff --git a/path/to/interface.ext b/path/to/interface.ext
+@@
+ existing context
++new or changed interface definition
+```
+
+[Use a `[language]` block instead when this is a wholly new definition.]
+
+### Project Layout
+```text
+path/
+├── to/
+│   └── file.ext             # new|modify|move — responsibility
+└── package/
+    └── module.ext           # new|modify|move — responsibility
+```
+
+[Explain package ownership and how each new type and interface maps to a path.]
+
+### Acceptance Criteria
+- [ ] **A1:** [Testable statement 1]
+- [ ] **A2:** [Testable statement 2]
+
+### Validation plan
+| Acceptance | Check | Expected result | How to run | Prerequisites |
+|------------|-------|-----------------|------------|---------------|
+| A1 | [Behavior or public boundary exercised] | [Observable pass/fail result] | [Command or manual procedure; if unknown, identify what to discover during implementation] | [None, or required access/environment] |
+
+### Risks & Mitigations
+| Risk | Likelihood | Impact | Mitigation |
+|------|------------|--------|------------|
+
+### Trade-offs Made
+| Chose | Over | Because |
+|-------|------|---------|
+
+### Open Questions
+- [ ] [Question] → Owner: [who decides]
+
+### Success Metrics
+- [Measurable outcome]
+````
+
+## Architecture Decision Record (ADR)
+
+For significant architecture decisions that need documentation.
+
+```
+## ADR: [title]
+
+**Status:** Proposed | Accepted | Deprecated | Superseded
+**Date:** [date]
+
+### Context
+[What forces are at play]
+
+### Decision
+[What we're doing]
+
+### Implementation Contract
+
+#### Types
+[Concrete definitions affected by the decision, or "No change" with reason]
+
+#### Interfaces
+[Concrete boundaries affected by the decision, or "No change" with reason]
+
+#### Project Layout
+[Proposed paths and module responsibilities, or "No change" with reason]
+
+### Consequences
+- [+] [Benefit]
+- [-] [Drawback]
+- [~] [Neutral observation]
+```
+
+## RFC (Request for Comments)
+
+For larger proposals needing broader review.
+
+````
+## RFC: [title]
+
+**Author:** [name]
+**Status:** Draft | In Review | Accepted | Rejected
+**Created:** [date]
+
+### Summary
+[1-2 paragraph overview]
+
+### Motivation
+[Why are we doing this?]
+
+### Detailed Design
+[Technical details]
+
+### Types
+[Define concrete new and changed type definitions, constraints, and owning
+modules.]
+
+```diff
+diff --git a/path/to/types.ext b/path/to/types.ext
+@@
+ existing context
++new or changed type definition
+```
+
+[Use a `[language]` block instead when this is a wholly new definition.]
+
+### Interfaces
+[Define concrete signatures/protocols, inputs, outputs, errors, side effects,
+and compatibility requirements.]
+
+```diff
+diff --git a/path/to/interface.ext b/path/to/interface.ext
+@@
+ existing context
++new or changed interface definition
+```
+
+[Use a `[language]` block instead when this is a wholly new definition.]
+
+### Project Layout
+```text
+path/
+├── to/
+│   └── file.ext             # new|modify|move — responsibility
+└── package/
+    └── module.ext           # new|modify|move — responsibility
+```
+
+[Map each new type and interface to its owning path and deliverable.]
+
+### Alternatives Considered
+| Option | Pros | Cons | Why Not |
+|--------|------|------|---------|
+
+### Migration/Rollout
+[How we get from here to there]
+
+### Open Questions
+- [ ] [Question]
+````
+
+## Handoff Artifact
+
+When spec is complete, produce final summary for task decomposition:
+
+```
+# [Feature Name] — Implementation Spec
+
+**Status:** Ready for task breakdown
+**Effort:** [total estimate]
+**Approved by:** [human who approved]
+**Date:** [date]
+
+## Deliverables (Ordered)
+
+1. **[D1]** (S) — [concrete outcome]
+   - Depends on: -
+   - Owning paths: [file/package paths]
+   - Acceptance: A1
+
+2. **[D2]** (M) — [concrete outcome]
+   - Depends on: D1
+   - Owning paths: [file/package paths]
+   - Acceptance: A2
+
+## Key Technical Decisions
+- [Decision]: [choice] because [reason]
+
+## Types
+[Copy concrete type definitions and ownership from spec]
+
+## Interfaces
+[Copy concrete boundary definitions from spec]
+
+## Project Layout
+[Copy proposed file/package tree and responsibilities from spec]
+
+## Acceptance Criteria
+- **A1:** [Testable criterion 1]
+- **A2:** [Testable criterion 2]
+
+## Open Items (Non-Blocking)
+- [Item] → Owner: [who]
+
+---
+*Spec approved for task decomposition.*
+```

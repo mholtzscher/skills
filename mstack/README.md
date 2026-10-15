@@ -78,6 +78,8 @@ The [host adapters](SKILL.md#host-selection) distinguish OpenCode and Pi tool co
 
 Before modifying mstack, read the [maintainer instructions](AGENTS.md) and [decision record](DECISIONS.md). They preserve the approved tradeoffs, superseded approaches, and known validation gaps from the original design session; update the record when an accepted choice changes.
 
+The [integrated-source audit](SOURCE-AUDIT.md) maps retained and missing source instructions, examples, and resources. Show-me and spec-planner have full-source restorations; several other integrated procedures remain condensed. Consult the audit and [provenance](PROVENANCE.md) before further restoration.
+
 From `mstack/scripts`:
 
 ```sh

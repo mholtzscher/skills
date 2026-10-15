@@ -98,11 +98,19 @@ Accepted 2026-10-15. Restore the complete show-me source body rather than summar
 
 Keep attribution out of this playbook's runtime instructions, as requested to avoid confusing the agent. Source identity and license notices remain in [PROVENANCE.md](PROVENANCE.md#show-me-source-fidelity) and [LICENSE](LICENSE). The approval covers this show-me restoration and publication to PR #2; it does not authorize rewriting other vendored procedures. [E12](#e12-show-me-restoration).
 
+### D17: Restore spec-planner source fidelity
+
+Accepted 2026-10-15. Restore the full spec-planner workflow and all four original references instead of the condensed full-spec procedure and short format/decision summaries. The approval explicitly includes phase reporting, effort estimates, and completeness checks. Retain philosophy, clarification/discovery detail, implementation contracts, scope control, templates, and the final handoff. Publish the restoration to PR #2. [E13](#e13-spec-planner-restoration).
+
+Keep mstack's sketch route, both approval gates, reuse of prior interview answers, explicit output paths, separate proposal-only existing-spec refinement, and OpenCode/Pi tool adaptations. Restore the four references with formatting changes only; preserve the separate domain-record resource. The complete adaptation list is in [provenance](PROVENANCE.md#spec-planner-source-fidelity) and [the source audit](SOURCE-AUDIT.md#spec-planner-restoration-adaptations). This approval restores spec-planner; the broader audit does not authorize all proposed restorations.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed pstack 0.15.21's 24 principles into 14. Several concrete prescriptions were shortened away, including the written premise/actor census, detailed exhaustive-matching/type-construction guidance, and a mandatory tool deliverable for nontrivial work. Full Orchestrate/Autopilot protocols and the dedicated worktree/simulator-cleanup workflow were not preserved.
 
 These are observed coverage differences, not individually approved prohibitions or promises to port them later. The later consolidation passes preserved their source text; they did not restore detail omitted during the initial adaptation. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Evidence: comparison response `msg_13d4e9cff001zIpZUmIFkY8AAo` in the [design session](#sources), checked against the current bundle. Verification-skill creation/maintenance was a subsequently identified omission resolved by D14.
+
+The 2026-10-15 [integrated-source audit](SOURCE-AUDIT.md) extends that comparison to every selected vendor source, all 52 pstack skill entries (including 24 principles), its 23 nested playbooks, supporting resources, and workflow-tools' PR/spec instruction contracts. It records substantial additional losses separately from accepted host, approval, delegation, and delivery adaptations. Its restoration order is a recommendation, not an accepted change. [E14](#e14-all-integrated-skill-audit).
 
 ## Validation and cutover snapshot
 
@@ -116,6 +124,8 @@ As of 2026-10-15, baseline commit `f26c267`:
 - The original six-chapter Inbox guided review predates the consolidations. Later messages attached revised files and linked the PR, but a refreshed complete guide had not been submitted. Use the committed files for the current design.
 
 The D16 show-me restoration was checked on 2026-10-15 against upstream revision `bba9d13`: the installed source is byte-identical, and the restored body differs only by its documented packaging, host-opening, and formatting adaptations. All ten worked examples are retained. Bundle validation, formatting, links/anchors, and whitespace checks passed. These establish source fidelity; no fresh end-to-end artifact-generation evaluation was run.
+
+The D17 spec-planner restoration and broad source audit were checked on 2026-10-15 against bundle baseline `fbc0587` and planner source `57f95bb`: all four restored references are byte-identical to source, and the main-body differences match the documented adaptations. Sketch/depth and Approval/Refine sections are unchanged. The audit inventory accounts for 28 non-principle pstack skills, 24 principle skills, and 23 nested playbooks without missing or extra rows. Bundle validation covers one skill and 61 Markdown files; all 129 local fragment links resolve. Formatting and whitespace checks pass. Static planning-route walkthroughs were reviewed; no fresh independent agent execution was run, so the existing live-host and real-app evaluation gaps remain. No helper or validator code changed.
 
 Future verification should update this section with its date, target revision, commands/evidence, and remaining limits. No follow-up above is automatically authorized by this snapshot.
 
@@ -172,3 +182,11 @@ Completed questions in `msg_13c46ecc20013wMf4TooCQXcjg`: deprecate standalone or
 ### E12: Show-me restoration
 
 `msg_140011a06001Yfyajy4S0mpm00` requests greater fidelity to the show-me source after identifying lost content. The subsequent structured answer selects “Restore full source (Recommended),” approving the complete body with minimal packaging/host-tool adaptations, decision/provenance updates, and publication to PR #2. `msg_14002cd4b001yxpv1kTUHKii0S` then requests removing attribution from the in-use instructions because it would confuse the agent.
+
+### E13: Spec-planner restoration
+
+In the 2026-10-15 continuation, after the comparison of the full planner and its four references, the user approved restoring the complete source workflow, including phase reporting, effort estimates, and completeness checks, and updating PR #2. The approval retained mstack's sketch/approval/host/path contracts and prior-answer reuse. This approval is preserved in the conversation checkpoint; no additional original message ID was recovered for this entry.
+
+### E14: All integrated-skill audit
+
+The subsequent request was “do this same audit for all the skills we integrated.” The resulting `SOURCE-AUDIT.md` records sources, destinations, missing instructions/examples/resources, deliberate adaptations, and proposed next restorations. It continues the already-approved spec-planner work; it is not blanket approval to change every audited workflow.

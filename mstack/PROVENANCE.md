@@ -20,6 +20,18 @@ On 2026-10-15, the condensed show-me playbook was replaced with the complete ins
 
 [The playbook](playbooks/show-me.md) retains all ten worked examples, view-selection guidance, and HTML styling/responsiveness instructions. Differences from the source are limited to replacing skill frontmatter with a playbook title, adapting `Bash(open …)` to available host preview/file-opening tools with an unavailable-tool fallback, and formatter-added semicolons in the TypeScript example. Source attribution lives here and in [LICENSE](LICENSE), outside the agent-facing procedure. See [D16](DECISIONS.md#d16-restore-show-me-source-fidelity).
 
+## Spec-planner source fidelity
+
+On 2026-10-15, the condensed full-spec section was replaced with the complete workflow from this repository's `spec-planner/SKILL.md` at `57f95bb94e4abaf6206f97188497958a7e81a1bc` (latest source-specific commit `f06103f0dca1dbe5bdc3001ca2e5af53f40d9d34`). The inspected source body and all four references are byte-identical to that baseline. Source body SHA-256: `8bfc676527065fc74e1fc29344a7f4ea4afc5ff6851a1aa896824cbeacf3f148`.
+
+[Full-spec planning](playbooks/planning.md#full-spec) retains the philosophy, phase diagram/reporting, clarification example and rules, discovery, concrete implementation contract, completeness checks, effort estimates, scope-control examples, and handoff. [Templates](references/planning/templates.md), [decision frameworks](references/planning/decision-frameworks.md), [estimation](references/planning/estimation.md), and [technical debt](references/planning/technical-debt.md) are restored in full, with Markdown formatting only. The former condensed `spec-format.md` and `decisions.md` are retired; the distinct domain-record reference remains.
+
+Adaptations preserve the existing sketch and proposal-only refinement routes, count earlier interview answers, use actual OpenCode/Pi tools with question fallback, honor explicit spec paths, write a reviewable draft before approval, and retain mstack's approval/implementation stopping conditions. Assigned final questions must be non-blocking. Attribution remains here and in the license. The exact adaptation list and remaining source-coverage gaps are in [SOURCE-AUDIT.md](SOURCE-AUDIT.md); approval is recorded in [D17](DECISIONS.md#d17-restore-spec-planner-source-fidelity).
+
+## Integrated-source audit
+
+The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52 pstack skill entries and 23 nested playbooks, the 24-to-14 principle consolidation, supporting resources, and workflow-tools' instruction contracts. Many initial adaptations are substantive summaries rather than faithful copies. The report distinguishes those losses from accepted policy changes; its proposed restoration order is not implementation approval. Pstack comparisons use the pinned workflow-tools snapshot, which includes host adaptations, rather than claiming byte identity to raw Cursor upstream.
+
 ## Deliberate changes
 
 - Two planning paths, each requiring implementation approval; full specs remain first-class.
