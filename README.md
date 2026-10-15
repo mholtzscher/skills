@@ -2,35 +2,38 @@
 
 A collection of reusable agent skills for coding and research workflows.
 
-Each skill lives in its own directory and is centered around a `SKILL.md` file, with optional supporting docs, scripts, or tools. The skills in this repo focus on planning, documentation, repository research, Atlassian access, and a few quality-of-life workflows for agents.
+Skills live in their own directories with a `SKILL.md` entry point and supporting resources. Mstack provides one entry point, task playbooks and principles, and executable helpers for OpenCode V2 and Pi.
 
 ## Included skills
 
-| Skill | Purpose |
-|---|---|
-| `classify-code-review` | Route code reviews with the OpenCode SDLC classifiers, then verify findings against source. |
-| `conventional-commits` | Conventional commit guidance for commit messages. |
-| `go-test-effectiveness` | Design and review Go tests for meaningful fault detection. |
-| `service-design` | Blueprint for designing and refactoring modular Go services. |
-| `spec-planner` | Turn vague feature ideas into implementation-ready specs. |
+| Skill                        | Purpose                                                                                                                |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| [`mstack`](mstack/README.md) | Personal engineering workflow bundle: approved sketches/specs, implementation, investigation, review, and PR delivery. |
+| `classify-code-review`       | Route code reviews with the OpenCode SDLC classifiers, then verify findings against source.                            |
+| `conventional-commits`       | Conventional commit guidance for commit messages.                                                                      |
+| `go-test-effectiveness`      | Design and review Go tests for meaningful fault detection.                                                             |
+| `service-design`             | Blueprint for designing and refactoring modular Go services.                                                           |
+| `show-complexity`            | Visualize essential and accidental complexity and evaluate worthwhile simplifications.                                 |
+| `spec-planner`               | Turn vague feature ideas into implementation-ready specs.                                                              |
 
 ## Deprecated skills
 
 The following skills have been moved to `deprecated/` and are no longer actively maintained:
 
-| Skill | Purpose |
-|---|---|
-| `atlas-cli` | Query Jira and Confluence through the `atlas` CLI. |
-| `atlassian-api` | Read-only Jira/Confluence access through bundled `curl` + `jq` helpers. |
-| `build-skill` | Reference kit for creating and validating new skills. |
-| `gradle` | Run Gradle tasks with concise, high-signal output. |
-| `index-knowledge` | Generate hierarchical `AGENTS.md` knowledge bases for repositories. |
-| `librarian` | Research open-source libraries and inspect repository internals. |
-| `mermaid` | Guidance and validation tooling for Mermaid diagrams. |
-| `prime-flow` | Phase-gated development workflow with domain modeling, Plannotator review, and hard approval gates. |
-| `spec-planner` | Turn vague feature ideas into implementation-ready specs. |
-| `visual-explainer` | Generate self-contained HTML explainers, diagrams, diff reviews, and slide decks. |
-| `zellij-tasks` | Manage long-running terminal tasks in Zellij. |
+| Skill                | Purpose                                                                                             |
+| -------------------- | --------------------------------------------------------------------------------------------------- |
+| `agent-orchestrator` | Standalone orchestration; maintained guidance is integrated into mstack.                            |
+| `atlas-cli`          | Query Jira and Confluence through the `atlas` CLI.                                                  |
+| `atlassian-api`      | Read-only Jira/Confluence access through bundled `curl` + `jq` helpers.                             |
+| `build-skill`        | Reference kit for creating and validating new skills.                                               |
+| `gradle`             | Run Gradle tasks with concise, high-signal output.                                                  |
+| `index-knowledge`    | Generate hierarchical `AGENTS.md` knowledge bases for repositories.                                 |
+| `librarian`          | Research open-source libraries and inspect repository internals.                                    |
+| `mermaid`            | Guidance and validation tooling for Mermaid diagrams.                                               |
+| `prime-flow`         | Phase-gated development workflow with domain modeling, Plannotator review, and hard approval gates. |
+| `spec-planner`       | Turn vague feature ideas into implementation-ready specs.                                           |
+| `visual-explainer`   | Generate self-contained HTML explainers, diagrams, diff reviews, and slide decks.                   |
+| `zellij-tasks`       | Manage long-running terminal tasks in Zellij.                                                       |
 
 ## Repository layout
 
@@ -47,6 +50,8 @@ Most skills follow this pattern:
 ## Using a skill
 
 Copy or symlink the skill directory you want into your agent's configured skills folder.
+
+For mstack, install the whole bundle directory as described in [its guide](mstack/README.md). Its entry point uses supporting resources that must stay alongside it. Install selected active skills rather than the entire repository, which also contains archived skills.
 
 Common locations include:
 

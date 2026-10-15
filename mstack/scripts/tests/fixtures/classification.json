@@ -1,0 +1,23 @@
+[
+  { "name": "unique required and advisory", "all": ["build", "lint"], "required": ["build"], "expected": ["required", "advisory"] },
+  {
+    "name": "duplicate all identities are local unknown",
+    "all": ["build", "lint", "build"],
+    "required": ["build"],
+    "expected": ["unknown", "advisory", "unknown"]
+  },
+  { "name": "duplicate required identities", "all": ["build", "lint"], "required": ["build", "build"], "expected": ["unknown", "advisory"] },
+  {
+    "name": "missing required identity invalidates entire snapshot",
+    "all": ["build", "lint"],
+    "required": ["build", "unseen"],
+    "expected": ["unknown", "unknown"],
+    "knowledge": "unavailable"
+  },
+  { "name": "empty required subset is not advisory", "all": ["build", "lint"], "required": [], "expected": ["unknown", "unknown"] },
+  { "name": "unavailable required subset", "all": ["build", "lint"], "required": null, "expected": ["unknown", "unknown"], "knowledge": "unavailable" },
+  { "name": "no checks is not a pass", "all": [], "required": [], "expected": [] },
+  { "name": "head changed", "all": ["build", "lint"], "required": ["build"], "changed": "headSha", "expected": ["unknown", "unknown"] },
+  { "name": "number changed", "all": ["build", "lint"], "required": ["build"], "changed": "number", "expected": ["unknown", "unknown"] },
+  { "name": "URL changed", "all": ["build", "lint"], "required": ["build"], "changed": "url", "expected": ["unknown", "unknown"] }
+]

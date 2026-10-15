@@ -1,0 +1,28 @@
+# Provenance and adaptations
+
+Mstack is an independently maintained adaptation, not an upstream compatibility layer. Source material was inspected and personalized on 2026-10-14. All included source licenses are MIT; notices are preserved in [LICENSE](LICENSE).
+
+| Source                                                                                                                                  | Revision/evidence                                                                               | Used for                                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Lauren Tan's pstack](https://github.com/cursor/plugins/tree/1dcc2bacde73ddd284803b7af28164d0436198fc/pstack)                           | pstack 0.15.21, commit `1dcc2bacde73ddd284803b7af28164d0436198fc`, as bundled in workflow-tools | Router/playbook/principle structure; how/why/teach, exploration/review, performance, continuity, reflection, prose cleanup, and advanced delivery concepts |
+| [Cursor Team Kit deslop](https://github.com/cursor/plugins/tree/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/cursor-team-kit/skills/deslop) | commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`                                               | Code-cleanup specialist                                                                                                                                    |
+| [Michael Holtzscher's skills](https://github.com/mholtzscher/skills)                                                                    | parent checkout `57f95bb`                                                                       | Integrated agent-orchestrator; vendored/adapted spec-planner and show-complexity                                                                           |
+| [Workflow tools](https://github.com/mholtzscher/opencode-plugins/tree/3f83b1d5b6b7e82adf7639148403083b4ccb4a8d/workflow-tools)          | commit `3f83b1d5b6b7e82adf7639148403083b4ccb4a8d`; `pr/` and `specs/`                           | Spec/PR contracts, visual metadata format, check classification, failure-log summarization, evidence collection                                            |
+| [HumanLayer show-me](https://github.com/humanlayer/skills/tree/main/plugins/show-me/skills/show-me)                                     | installed 2026-10-11; installer folder hash `362200ac2fb3c17b765049444e88de73767e6d08`          | Vendored/adapted visual explanation specialist                                                                                                             |
+| [Matt Pocock grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling)                                     | installed 2026-10-11; installer folder hash `28aceb4c9567b985cb47f7db88cf23c9f33af8b8`          | Vendored/adapted decision-tree interview                                                                                                                   |
+| [Matt Pocock domain-modeling](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling)                        | installed 2026-10-11; installer folder hash `ea30ee454ba264543dbe40737973b1a5afb9f0e6`          | Vendored/adapted domain modeling, glossary and ADR formats                                                                                                 |
+
+Installer folder hashes identify installed content, not upstream Git commits. The source skill bodies and required references were adapted into mstack's own files rather than retained as an unmodified vendored subtree.
+
+## Deliberate changes
+
+- Two planning paths, each requiring implementation approval; full specs remain first-class.
+- Selective delegation and one writer for coupled implementation, with separate OpenCode/Pi adapters and host-owned models.
+- Normal coding delivery publishes one PR and fixes required CI. Stacks and merging are explicit advanced workflows.
+- Independently selectable PR intents, agreed-feedback fixes, visual metadata plus verification, and bounded read-only publication watchers.
+- Explicit principle citations retained; heavyweight design/delegation triggers made contextual.
+- Mandatory code/prose/comment cleanup retained as distinct passes in one playbook. Comment review preserves useful non-obvious rationale and investigates uncertainty instead of defaulting to deletion.
+- One explicit-only `mstack` entry point in a layout both hosts can discover. Requests route to plain Markdown playbooks; former shortcut wrappers are removed. No plugin registration, Cursor mode, model sheet, Graphite dependency, or implied scheduler.
+- Bun scripts preserve useful deterministic mechanics with explicit targets and structured evidence. Plugin lifecycle, prompt injection machinery, and strict slash-command spec-path parsing are omitted.
+
+The source of truth for these choices is the user's confirmed mstack design conversation. Earlier September/October 2026 sessions supplied evidence to discuss, not authority to override current choices. Personal transcript content is not shipped with the bundle.
