@@ -26,15 +26,11 @@ When called during approved implementation/publication cleanup, apply accepted b
 
 ## Prose cleanup
 
-Adapted from pstack's unslop. Honor a caller's proposal-only scope.
+Edit text to remove AI patterns. Read the complete text and establish its intended audience. For every prose-cleanup invocation, read the [complete prose-pattern catalog](../references/cleanup/prose-patterns.md), scan the selected text against all 28 entries, then rewrite within the caller's authority. Preserve meaning and match the intended tone.
 
-Read the complete text and its intended audience. Preserve requirements, technical contracts, citations, uncertainty, and the author's meaning. Prefer plain words, active verbs, concrete mechanisms, short paragraphs, and one consistent name per concept.
+Apply the catalog's strict punctuation and style rules to selected editable prose. Rule 13 excludes em dashes and punctuation substitutes, including parentheses. Rule 14 permits colons before lists or examples, not as mid-sentence connectors. These are editing rules, not permission to alter exact quotations, code, commands, citations, catalog examples, or structured technical notation. Keep those literal. Rule 33 does not remove syntax arrows in genuine diagrams or code. Preserve requirements, technical contracts, confidence, legitimate epistemic hedges, and the author's meaning. Keep tables and diagrams when they explain something rather than decorate it. Report substantive ambiguity instead of silently choosing a new requirement.
 
-Remove unsupported attributions, vague promotional claims, ceremonial introductions, sycophancy, repetitive summaries, forced lists, needless metaphors, and chatbot closers. Replace "serves as" with "is" when nothing is lost. State the chosen behavior directly rather than defining it through an unsolicited contrast. Reduce decorative formatting and dense punctuation.
-
-Keep enough explanation for the reader to understand the cause and tradeoff. Do not compress away articles, turn prose into cryptic symbol strings, or remove a hedge that represents a real evidence gap. Tables, code diffs, and arrows remain useful when they genuinely explain structure.
-
-Apply edits only within the caller's authority. In spec refinement, present the proposed wording first and wait. In publication, check the PR title/body and commit prose before it is written remotely. Report substantive ambiguity rather than silently choosing a new requirement.
+Honor proposal-only and review-only scope. Present proposed wording and wait when the caller requires agreement, including spec refinement. During approved implementation or publication cleanup, apply accepted in-scope prose edits without changing technical meaning. Check scoped PR titles, bodies, and commit prose before remote writes, but cleanup itself grants no permission to edit PR metadata, publish, or modify other files. Reuse prior approval only where it covers the selected work.
 
 ## Comment review
 

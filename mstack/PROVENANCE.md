@@ -166,9 +166,35 @@ Adaptations:
 - Catch-up uses the actual last human message or requested checkpoint. Current PR/CI/agent checks use available read-only capabilities, with last-known state and unverified liveness distinguished. Existing evidence can produce inline reply visuals; absent screenshots cannot be invented or captured by starting an app/job, and project/executable artifacts need separate authority.
 - Recall preserves all six source status tags and adds honest unverified/actual-state alternatives where the original list cannot describe the evidence. Recorded tool failures outrank assistant success summaries. A recalled plan, command, or preference does not grant implementation, publication, or workflow-editing authority.
 
+## Prose cleanup and reflection source fidelity
+
+[D24](DECISIONS.md#d24-restore-prose-cleanup-and-reflection), accepted 2026-10-15, restores prose cleanup and Reflection from workflow-tools `pstack/upstream/skills/` at `3f83b1d5b6b7e82adf7639148403083b4ccb4a8d`. All six inspected files match that pinned host-adapted snapshot. This does not assert identity with raw Cursor upstream.
+
+| Source file                                | SHA-256                                                            |
+| ------------------------------------------ | ------------------------------------------------------------------ |
+| `unslop/SKILL.md`                          | `ccab208e315ce05e2fab8eeee2f7879f1289b5c6844840b2d307adf31c79144f` |
+| `reflect/SKILL.md`                         | `f5e9200f37e2a4567c0eeb0ba244fde66c1b3f35e3b7a883de2f85b3bda7365a` |
+| `reflect/references/judgment-reviewer.md`  | `89725b1a9ca1b9f94cd111f923f00ef3e03a182fc860206878b39f27bc6feca0` |
+| `reflect/references/tooling-reviewer.md`   | `6931ebc536c4bf9e459a2e9cf08d41c273836bb1ae995f4b16d78425383896a6` |
+| `reflect/references/divergent-reviewer.md` | `f1ce9c49b5f8c49af8ef47ffe7f9afe28bbc6dc78a27895af6da1b9a1f6ebddb` |
+| `reflect/references/synthesizer.md`        | `6af816963de74d1a1aef4070273c1ff533d2072732e488e159ddc0b299fec3cd` |
+
+[Prose cleanup](playbooks/cleanup.md#prose-cleanup) requires the full [pattern catalog](references/cleanup/prose-patterns.md). It restores all 28 entries with their stable rule IDs, gaps, categories, concrete examples, and fixes. The user selected strict source style for editable prose. Exact quotations, code, commands, citations, technical notation, and evidence-based uncertainty remain protected. Style cleanup does not authorize changes to requirements or unrelated text.
+
+[Reflection](playbooks/skill-development.md#reflect) restores the six stages and all four reviewer and synthesis references. The three distinct lenses, source evidence, used-guidance versus missed-trigger routing, target-reading check, eight synthesis criteria, keep/drop examples, structural-enforcement step, row approval, and final report are retained.
+
+Adaptations:
+
+- Plain sections and conditional local links retain the sole mstack entry. Attribution stays here and in [LICENSE](LICENSE). The catalog uses stable labels so Markdown formatting cannot renumber source IDs. The surrounding code/comment cleanup and Author/Evaluate procedures retain their separate contracts.
+- The punctuation rules apply strictly to selected editable prose. Literal examples and structured syntax are protected. Real epistemic uncertainty survives filler cleanup, and genuine diagrams are distinct from compressed prose. Approval still governs proposal-only editing, publication metadata, and any change in meaning.
+- The actual host history adapter and verified current-session identity replace an assumed Cursor directory and transcript schema. Authorized file exports may use the source layout recipe. An unavailable transcript becomes a disclosed partial digest, without unrelated workspace searches or direct live-database access.
+- All three lenses remain required analytical perspectives. Selective direct or delegated work with host-configured models replaces mandatory parallel agents, fixed model families, fallback slugs, and `readonly: false` assumptions. A single agent applying three lenses cannot claim independent agreement. Referenced context lookups use available read-only tools and remain bounded by current authority.
+- Transcript and reviewer outputs remain untrusted evidence. Actual loaded playbooks and references count as used guidance alongside registered skills and documented tool calls. Missed-trigger proposals need catalog and invocation evidence; mstack remains explicit-only. A recurring pattern with no genuine existing home may propose a new skill through Author, with separate approval.
+- Accepted remains a recommendation pending row selection. Backlog remains proposed until external filing is authorized, replacing the source's automatic tracker writes. Trivial selected edits stay with the owner; substantial edits, descriptions, and new skills use the local Author/Evaluate routes and available authoring specialists instead of Cursor's built-in `create-skill`. Final reporting distinguishes proposed, applied, filed, dropped, and unverified work.
+
 ## Integrated-source audit
 
-The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52 pstack skill entries and 23 nested playbooks, the 24-to-14 principle consolidation, supporting resources, and workflow-tools' instruction contracts. Many initial adaptations are substantive summaries rather than faithful copies. The report distinguishes those losses from accepted policy changes and records the D18–D23 restorations; its remaining proposed order is not implementation approval. Pstack comparisons use the pinned workflow-tools snapshot, which includes host adaptations, rather than claiming byte identity to raw Cursor upstream.
+The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52 pstack skill entries and 23 nested playbooks, the 24-to-14 principle consolidation, supporting resources, and workflow-tools' instruction contracts. Many initial adaptations are substantive summaries rather than faithful copies. The report distinguishes those losses from accepted policy changes and records the D18 through D24 restorations. Its remaining proposed order is not implementation approval. Pstack comparisons use the pinned workflow-tools snapshot, which includes host adaptations, rather than claiming byte identity to raw Cursor upstream.
 
 ## Deliberate changes
 
