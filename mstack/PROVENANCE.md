@@ -62,7 +62,7 @@ Adaptations replace skill discovery and fixed OpenCode syntax with a plain refer
 
 The source bodies and all fourteen reference files come from workflow-tools `pstack/upstream/skills/{how,why}/` at `3f83b1d5b6b7e82adf7639148403083b4ccb4a8d`. All sixteen inspected files match that snapshot. Source-body SHA-256 values: How `47cfe3e6fe55c49c3bdf8ad1b645dcd5fece8f0c36fd22d2e7221f9faa71f648`; Why `24e6ce55ed4a1cbc18f78ab87e10fcede635949f3b60a2a9a4002e3fe00f890b`. This is the pinned host-adapted pstack snapshot, not asserted byte-identical to raw Cursor upstream.
 
-[How](playbooks/explanation.md#how) and [Why](playbooks/explanation.md#why) retain their complete research, handoff, synthesis, and presentation guidance. The How explorer/explainer references and all twelve Why references are restored under `references/explanation/`, including the eight source-specific playbooks. Teach remains unchanged.
+[How](playbooks/explanation.md#how) and [Why](playbooks/explanation.md#why) retain their complete research, handoff, synthesis, and presentation guidance. The How explorer/explainer references and all twelve Why references are restored under `references/explanation/`, including the eight source-specific playbooks. Teach was unchanged in D19 and is restored under D23 below.
 
 Adaptations:
 
@@ -144,9 +144,31 @@ Adaptations:
 - State-matched real screenshots and interaction checks preserve the existing mstack visual contract. Actual browser/terminal/project drivers replace assumed host tooling. Shared primitives have an accepted owner-controlled phase before components; parallel worktrees are selective. Unattended/restart-surviving continuation still requires real scheduling.
 - Approved production work follows one ordinary unmerged PR with scoped CI repair and per-component evidence, replacing automatic PRs per component/batch. Baseline-only investigation and disposable prototypes do not authorize production implementation or publication.
 
+## Teach, Catch-up, and Recall source fidelity
+
+[D23](DECISIONS.md#d23-restore-teach-catch-up-and-recall), accepted 2026-10-15, restores the complete bodies from workflow-tools `pstack/upstream/skills/` at `3f83b1d5b6b7e82adf7639148403083b4ccb4a8d`. All four inspected files below match that snapshot byte-for-byte. The comparison is against the host-adapted snapshot, not asserted raw Cursor upstream identity. The three restored source directories contain no supporting reference subtree.
+
+| Source file        | SHA-256                                                            |
+| ------------------ | ------------------------------------------------------------------ |
+| `teach/SKILL.md`   | `bd286e5a6290673be2cd28aef7af2ec7f1fb138e6bce156ea657368c7e7fc8a4` |
+| `ketchup/SKILL.md` | `3b00c552fdb236ecfce85184000814bf62d7c518aac3acd1ba7ea8e02d8f2196` |
+| `recall/SKILL.md`  | `d265b0e5b6dc5b89c0407f3387d24462c988e1990a37d5359735137908128c5a` |
+| `bro/SKILL.md`     | `aa329d0ceeeecb6822a7174ad76bb07a7826a3c52ceb6a588dec4138815084bb` |
+
+[Teach](playbooks/explanation.md#teach) restores all five steps, conversational/one-shot pacing, the A→B→C progressive-redraw example, spatial whiteboard-image recipe, virtualization density example, sentence-level style, and explanation-only reply. [Catch up](playbooks/continuity.md#catch-up) restores the real-user cutoff, live-state checks, older unresolved decisions, exact action count, self-owned work distinction, executive summaries with consequences, and before/after or options visuals. [Recall](playbooks/continuity.md#recall) restores scope/default window, timestamp-based retrieval, per-chat evidence schema, named-target shared-record sweep, live/full-transcript verification, capsule/thread/problem limits, source citations, and one next move. How/Why, Pickup/Pause, and both file preambles remain byte-identical to the prior bundle.
+
+Adaptations:
+
+- Keep the existing named sections and anchors behind one entry. Local How/Why and prose-cleanup procedures replace standalone skill invocation; Bro supplies Catch-up's plain-language voice with its restating step explicitly excluded, not a newly vendored workflow. Attribution remains here and in [LICENSE](LICENSE).
+- Actual host history tools/paths and update timestamps replace Cursor transcript directories and `ls -t` assumptions. Explicit seven-day/project/topic scoping, no silent truncation of “all,” exclusion of current/child/test noise, user-versus-assistant evidence, and privacy remain mandatory. Supplied capsules skip transcript mining while relevant state and evidence gaps are reconciled.
+- Selective direct or bounded delegated investigation with host-owned models replaces compulsory parallel How/Why invocation, cheap-model transcript fanout, and one investigator per source. Narrow Why coverage and adequate evidence reuse preserve confidence, source categories, and inaccessible/empty/unsearched distinctions. Named targets still require shared-record investigation, including “my work on X.”
+- Teaching remains read-only. Available authorized drawing/image tools retain the spatial recipe; unavailable generation is disclosed with inline-diagram or authorized show-me fallback. New code/HTML artifacts follow approval rules. Filler-hedge cleanup explicitly preserves evidence-based uncertainty; the source's concrete examples and sentence rules remain.
+- Catch-up uses the actual last human message or requested checkpoint. Current PR/CI/agent checks use available read-only capabilities, with last-known state and unverified liveness distinguished. Existing evidence can produce inline reply visuals; absent screenshots cannot be invented or captured by starting an app/job, and project/executable artifacts need separate authority.
+- Recall preserves all six source status tags and adds honest unverified/actual-state alternatives where the original list cannot describe the evidence. Recorded tool failures outrank assistant success summaries. A recalled plan, command, or preference does not grant implementation, publication, or workflow-editing authority.
+
 ## Integrated-source audit
 
-The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52 pstack skill entries and 23 nested playbooks, the 24-to-14 principle consolidation, supporting resources, and workflow-tools' instruction contracts. Many initial adaptations are substantive summaries rather than faithful copies. The report distinguishes those losses from accepted policy changes and records the D18–D22 restorations; its remaining proposed order is not implementation approval. Pstack comparisons use the pinned workflow-tools snapshot, which includes host adaptations, rather than claiming byte identity to raw Cursor upstream.
+The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52 pstack skill entries and 23 nested playbooks, the 24-to-14 principle consolidation, supporting resources, and workflow-tools' instruction contracts. Many initial adaptations are substantive summaries rather than faithful copies. The report distinguishes those losses from accepted policy changes and records the D18–D23 restorations; its remaining proposed order is not implementation approval. Pstack comparisons use the pinned workflow-tools snapshot, which includes host adaptations, rather than claiming byte identity to raw Cursor upstream.
 
 ## Deliberate changes
 
