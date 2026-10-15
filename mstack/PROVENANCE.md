@@ -214,9 +214,55 @@ Adaptations:
 - The user explicitly chose selective review instead of unconditional different-family review. Preserve every review diagnostic and the Attention section. Use actual host-configured independent reviewers when useful. Explicit independence or diversity cannot be simulated or silently replaced. Report known reviewer identity or missing metadata, actual findings, and unavailable coverage honestly.
 - Local prose cleanup and Encode lessons replace standalone source skill names. Prefer real repeatable evidence while retaining approval before new scripts or product changes. Publishing a trail uses the ordinary approved delivery path, with privacy checks and accurate evidence limits.
 
+## Consolidated-principle source fidelity
+
+[D26](DECISIONS.md#d26-restore-the-consolidated-principles), accepted 2026-10-15, compares all 24 `principle-*/SKILL.md` files in workflow-tools `pstack/upstream/skills/` at `3f83b1d5b6b7e82adf7639148403083b4ccb4a8d`. All inspected files match that pinned host-adapted snapshot. Each source directory contains only its skill file, with no additional resources. The comparison includes behavioral instructions in descriptions as well as bodies; it does not assert raw Cursor upstream identity.
+
+| Source name after `principle-`             | SHA-256                                                            |
+| ------------------------------------------ | ------------------------------------------------------------------ |
+| `attack-the-premise`                       | `c87bd7536f772f8a403ad8155535ee17a1bbec9a353156693eb3bb1520c87ae3` |
+| `boundary-discipline`                      | `62ac2862c2caa22dd14531f51c9c6bb445ceb198ca98a687e25b4d47c1f10a28` |
+| `build-the-lever`                          | `3434b0ad0c640c6f1d7960be7a8986c3bcdc14e26060360dec29903df60074ff` |
+| `encode-lessons-in-structure`              | `228963799189f481827d6f28065f278bc2008ffa37030b1234cbd5814d36b9e9` |
+| `exhaust-the-design-space`                 | `2de83d99f93f60ec6313455b0bc9aa9f0bfb93dd59f414f403691322db00d4db` |
+| `experience-first`                         | `58903529d733b1c1a7c9ccf127d45ef3c7d0d9f0b81164a4dc6b80efe6f2912b` |
+| `explain-the-number`                       | `cd5a25f9e7cf023627ccb470dc5faa97542f29b4319496a32b839a8e1e988047` |
+| `fix-root-causes`                          | `ba4cd38da1dcc8fe5432feb64457cba95594736a9b21b2ebf8f8c52aee068707` |
+| `foundational-thinking`                    | `864b827e8199d946ce58beca0f89c4ed4099ed6e426fb698a3aaa45de2a9eea2` |
+| `guard-the-context-window`                 | `af0b9dd70b43628ce4a59a4d332e9d9ad055084e460f430e7a757495c627e81a` |
+| `laziness-protocol`                        | `1be6e7a435f26a75a76eb848b9c3d611b9977d0f5822361753244da25ca3ca45` |
+| `make-operations-idempotent`               | `540738217c3da7bf513b9886924ad6a2bc77e58be867f5bd2e1831c74bf2ce70` |
+| `migrate-callers-then-delete-legacy-apis`  | `09978915a4a11990cf0a9a02d9c08cc59e0b7a04c5c24b83aa560fbe4146f75b` |
+| `minimize-reader-load`                     | `1ea2b7fef2391cae5844c4efdbd59031f775e8a52d06b7495d707229a200dcca` |
+| `model-the-domain`                         | `52c0d85e0c3827c41c18299b642657d7b47eaf77b7b31609e42e0df42b84c75f` |
+| `never-block-on-the-human`                 | `05030a7a083c337676f793881b4e93cd218e8f1dd676529f56e6ac1d3efb8d1f` |
+| `outcome-oriented-execution`               | `10eb91633aa570355ba4bb37088fcade2b22e498df7a58edc749e65bc5a78e2d` |
+| `prove-it-works`                           | `ec79a15025bac8d33d62011c54f3b612733fd2a024e623b531b3637aa75070e2` |
+| `redesign-from-first-principles`           | `170e0a658783e43fee8ec5a8c2422a4abb8f69cef621dd1819a95910b8207034` |
+| `separate-before-serializing-shared-state` | `05294b40448e927c5da1c7b6f5c6b9fed3744637e3833d2d948b9154a9dd00bb` |
+| `sequence-verifiable-units`                | `2ccbbacc56ace5afdfb8670cef19d7bd009fb2a0033b9a741cbdf2b6baf72187` |
+| `subtract-before-you-add`                  | `8c93bb9d1a7f38e2ef37655d93f0e790fa59903105af3d500cc8a663ebe45f3f` |
+| `test-behavior-not-implementation`         | `b2b73ba42920f9c3174ecdf808ec6e4591b3a9266ada9a05814f386004266d3a` |
+| `type-system-discipline`                   | `2e492cef34bb25a20b9115df61f9ef3a9837e3fda144ffda8079e5f45a1b72e8` |
+
+The existing [14-principle index](SKILL.md#principles) remains the route. [The per-source inventory](SOURCE-AUDIT.md#principles-all-24-source-leaves) maps restored details to their consolidated homes. Plain headings and local cross-links replace standalone discovery metadata and source names. Existing mstack-specific guidance remains. Source attribution stays here and in [LICENSE](LICENSE).
+
+Adaptations:
+
+- The user selected evidence-driven tool creation rather than the source's compulsory new artifact for every nontrivial task. Preserve hand-unit equivalence, safe reruns, concrete tool choices, deterministic processing before manual fan-out, and a protected delegate recipe. Existing tools can satisfy the need. New tools and enduring artifacts require the applicable scope and delivery authority; audit-trail publication remains D25's explicit agreement.
+- The user selected risk-based semantic types rather than branding every differently named primitive. Preserve the concrete illegal-state, sum-type, nonempty-list, time-range, exhaustive-match, authoritative-schema, and total-function examples. A valid duration must satisfy its contract. Brand identifiers when they prevent plausible confusion, and retain plain types where functions are already total. Language-specific examples remain examples, with external specialists used only when available and relevant.
+- The user selected declared migration phases. Planned, scoped, reversible breakage may occur inside an explicitly approved isolated phase, with checks retained and a green boundary/final gate. This reconciles the source's outcome-oriented rule with sequential verification. Ordinary delivery remains one PR. Verify the actual baseline rather than automatically rebasing or rewriting history; a red-test/fix story is not permission to publish accidentally failing commits.
+- The proceed-first principle remains explicitly rejected under D04. Source diagnostics, code examples, census work, prototypes, instrumentation, sibling fixes, structural enforcement, and artifact publication do not enlarge the selected task's authority. Reuse existing approval where it covers the work.
+- Restore the written premise and actor census before another shared-premise fix. Reuse or propose an appropriate census tool under the evidence-driven rule. An even census rules out the observed actor-concentration explanation, not every possible cause. Missing evidence remains a stop before another speculative fix. New-requirement redesign stays distinct from questioning an existing factual premise.
+- Root-cause guidance retains restart-state, sibling-pattern, and instrumentation examples. A long comment or defensive check prompts investigation; useful rationale and genuine boundary validation remain. Clearing persistent state requires ownership, preserved evidence, and authority rather than following a heuristic destructively.
+- Restore subtraction, time-boxed adapters, obsolete implementation-test removal, interface compression, state-scope hierarchy, and the 30-second reader diagnostic. Existing callers, real compatibility, behavior pins, exact examples, and substantive guidance must be inspected and preserved. File size, line count, and reader time alone do not create blockers. Prompt/reference cleanup follows scoped authority, not implicit permission to delete restored source material.
+- Concurrency and idempotency retain the per-actor state-file example, locks, sequential phases, single-writer control, compare-and-swap, live-session adoption, content-equivalent cleanup, PID-based stale-lock checks, scheduling, and crash-point questions. These describe systems being designed, not facilities provided by mstack. Verify actual identity and liveness, including PID-reuse limitations, before recovery; equivalent content alone does not authorize deletion.
+- Novel architecture and feel-sensitive product design retain the competing-prototype example without mandatory fan-out or candidate counts. Experience-first retains its concrete UI and core-loop checks. Budgets bound context and active work, without implying a scheduler. Measurement and evaluation guidance retains alternative explanations and trial questions without claiming unavailable model or runtime coverage.
+- Restore all weak-test examples, literal/mock-payload repairs, absence/presence pairing, and relation/type-test exceptions as fault-detection diagnostics. Legitimate negative tests and invariant/property checks remain valid. Structural lesson fixes replace redundant instructions only when they enforce the same constraint; judgment-dependent lessons retain prominent guidance and a concrete failure example.
+
 ## Integrated-source audit
 
-The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52 pstack skill entries and 23 nested playbooks, the 24-to-14 principle consolidation, supporting resources, and workflow-tools' instruction contracts. Many initial adaptations are substantive summaries rather than faithful copies. The report distinguishes those losses from accepted policy changes and records the D18 through D25 restorations. Its remaining proposed order is not implementation approval. Pstack comparisons use the pinned workflow-tools snapshot, which includes host adaptations, rather than claiming byte identity to raw Cursor upstream.
+The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52 pstack skill entries and 23 nested playbooks, the 24-to-14 principle consolidation, supporting resources, and workflow-tools' instruction contracts. Many initial adaptations were substantive summaries rather than faithful copies. The report distinguishes those losses from accepted policy changes and records the D18 through D26 restorations. Its remaining proposed order is not implementation approval. Pstack comparisons use the pinned workflow-tools snapshot, which includes host adaptations, rather than claiming byte identity to raw Cursor upstream.
 
 ## Deliberate changes
 
