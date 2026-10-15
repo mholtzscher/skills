@@ -22,7 +22,7 @@ Select the matching playbook and follow its instructions. State the selected pat
 | Implement an approved spec                                  | [Spec implementation](playbooks/spec-implement.md)   |
 | Read-only question or architecture explanation              | [Investigation](#investigation)                      |
 | Prototype or visual-parity work                             | [Prototype](playbooks/prototype.md)                  |
-| Performance fix or sustained metric improvement             | [Performance](playbooks/performance.md)              |
+| Performance measurements, fixes, or hillclimbing            | [Performance](playbooks/performance.md)              |
 | Live runtime symptom or captured trace                      | [Forensics](playbooks/forensics.md)                  |
 | Independent review or blast-radius analysis                 | [Review](playbooks/review.md)                        |
 | Architecture, competing designs, or partitioned exploration | [Exploration](playbooks/exploration.md)              |

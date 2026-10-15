@@ -100,9 +100,31 @@ The source rule is `PR_DIFF_REVIEW_INSTRUCTIONS` in workflow-tools `pr/metadata-
 - Blast radius retains all five proof levels, dependency/version/local-patch checks, timing/cross-language examples, confirmed/cleared risk separation, and runnable-proof deliverables. Existing scope/approval rules govern execution: new experiment code needs an approved sketch and an isolated disposable target; the lead or an authorized tester executes it, not a report-only reviewer. Missing execution or approval leaves the deciding fact explicitly unproven at the attained level, not silently upgraded from source inspection.
 - Mandatory arena dispatch becomes selective authorized independent research; relevant How/Why and prose-cleanup links are local. Findings do not authorize product fixes, external comments, publication, or merging.
 
+## Benchmarking and hillclimbing source fidelity
+
+[D21](DECISIONS.md#d21-restore-benchmarking-and-hillclimbing), accepted 2026-10-15, restores the benchmark checklist and Hillclimb procedure from workflow-tools `pstack/upstream/` at `3f83b1d5b6b7e82adf7639148403083b4ccb4a8d`. The inspected sources below match that snapshot byte-for-byte. This remains a comparison with the pinned host-adapted snapshot, not raw Cursor upstream identity.
+
+| Source path under `pstack/upstream/`         | SHA-256                                                            |
+| -------------------------------------------- | ------------------------------------------------------------------ |
+| `skills/benchmark-checklist/SKILL.md`        | `ba109e96c8f6c1c391baccf19e5d11e14370df7b3f2605e1572cd565a6c0fca0` |
+| `skills/poteto-mode/playbooks/hillclimb.md`  | `5dd57a846582818b04ed729d20e691dd417e03fbf7bd12f14c5a02c93844309c` |
+| `skills/poteto-mode/playbooks/perf-issue.md` | `f511391cb86ce44a29aa426c13c6eaafddaf99321f47eb8a4da2e756ee8682d4` |
+
+The [benchmark checklist](references/performance/benchmark-checklist.md) retains all seven questions, preflight, requested-ballpark exception, tuning/adoption caveat, physical-limit arithmetic, independent profiling, repeated interleaved comparisons, errors/work/output checks, end-to-end context, verdict rules, and the reporting example. [Hillclimb](playbooks/performance.md#hillclimb) restores the complete workload/harness/log/hypothesis/loop/plateau/stop/delivery sequence and final report. Its seven ordered performance mantras come from Perf issue step 2; this dependency is retained verbatim. The exact source log schema has **nine** fields: `id, hypothesis, change, before, after, delta, tests, verdict, note`.
+
+Adaptations:
+
+- Standalone discovery metadata becomes plain Markdown with conditional local links. Attribution remains here and in [LICENSE](LICENSE). The main route explicitly includes measurement requests; the measurement principle's existing prose is preserved with only a checklist pointer added.
+- One-off performance and measurement-only routes retain their existing authority. New harness/experimental/product code requires approval, and an approved bounded series covers its in-scope iterations. Actual available tools replace assumed capabilities; neither profiling nor load checks authorize installs, unrelated process termination, or environment changes.
+- The source's target/attempt-floor example is labeled an example. Agreed budget, scope, correctness, prerequisite failures, and user stops override the attempt floor; incomplete runs do not become success by relaxing the predicate. Invalidated harnesses pause comparison until an approved revision and comparable baseline are established.
+- Selective direct/delegated implementation and host-owned models replace compulsory `poteto-agent`, model-sheet setup, and automatic fanout. Concurrent writers remain isolated and shared measurements control contention. Actual scheduling is required for unattended/restart-surviving work, not ordinary active-session iteration.
+- The missing decision-log helper is replaced by the full local TSV contract. Use existing ignored storage or an outside-tree path without silently editing ignore/config files. Read the log before each attempt. Revert only owned attempt changes; preserve accepted wins and unrelated work.
+- Keep/revert explicitly reconciles the source's two rules: genuine improvements must exceed noise and pass correctness gates; a correctness-preserving simplification may hold the metric without measurable regression and is labeled simplification, not speedup. Raw errors/work/output evidence matters, not merely printed counters.
+- Approved production improvements finish as one ordinary unmerged PR with scoped required-CI repair, replacing automatic stacked PRs. Measurement-only work ends with evidence; the one-primary-number PR rule preserves detailed run receipts in an authorized artifact.
+
 ## Integrated-source audit
 
-The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52 pstack skill entries and 23 nested playbooks, the 24-to-14 principle consolidation, supporting resources, and workflow-tools' instruction contracts. Many initial adaptations are substantive summaries rather than faithful copies. The report distinguishes those losses from accepted policy changes and records the D18–D20 restorations; its remaining proposed order is not implementation approval. Pstack comparisons use the pinned workflow-tools snapshot, which includes host adaptations, rather than claiming byte identity to raw Cursor upstream.
+The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52 pstack skill entries and 23 nested playbooks, the 24-to-14 principle consolidation, supporting resources, and workflow-tools' instruction contracts. Many initial adaptations are substantive summaries rather than faithful copies. The report distinguishes those losses from accepted policy changes and records the D18–D21 restorations; its remaining proposed order is not implementation approval. Pstack comparisons use the pinned workflow-tools snapshot, which includes host adaptations, rather than claiming byte identity to raw Cursor upstream.
 
 ## Deliberate changes
 
