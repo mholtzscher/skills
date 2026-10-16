@@ -80,10 +80,7 @@ Mstack applies to the task for which it was invoked. The selected playbook deter
 
 ## Scope and approval
 
-For implementation, inspect first and choose one planning path by uncertainty, impact, and scope. Explain the choice briefly; the user can override it.
-
-- **Sketch:** show the intended behavior, affected code/data/file shape, and verification in a compact proposal. Wait for approval before implementation.
-- **Spec:** resolve consequential questions through dialogue, write a concrete implementation contract, and wait for approval before implementation.
+Implementation requires an approved sketch or full spec. Use [Planning](playbooks/planning.md) when a proposal is needed.
 
 Approval of an already-discussed sketch, spec, or feedback fix satisfies this gate. Reuse that agreement rather than restarting the interview. Reopen a decision when new evidence materially changes the agreed outcome. Read-only investigation, drafting the requested plan, and inspecting an existing diff do not require implementation approval. An experiment that writes code needs an approved sketch too; use an isolated, explicitly disposable target.
 

@@ -34,6 +34,8 @@ The agent chooses an implementation sketch or full spec based on uncertainty, im
 
 **Rejected:** showing a small sketch and proceeding automatically. The user's answer was “Approve every sketch.” Smaller work reduces planning depth, not user control. This intentionally replaces pstack's “Never Block on the Human” posture. [E3](#e3-planning-and-pr-contracts).
 
+On 2026-10-15, the user approved removing duplicated planning details from the entry's Scope and approval section with "let's do that". The entry retains the approval requirement and links to Planning for depth selection and proposal contents. Existing approval reuse, read-only and experiment boundaries, and publication authority remain in the shared rules.
+
 ### D05: Approved ordinary coding includes delivery
 
 Approved feature, bug-fix, refactoring, and spec-implementation work continues through verification, cleanup, one PR, and repair of required CI within scope. Ordinary delivery stops before merging. Stacked delivery and merging remain explicitly requested advanced operations.
@@ -248,6 +250,8 @@ The D28 restoration was reviewed and exercised on 2026-10-15 against baseline `e
 Final D28 packaging checks report one entry and 90 Markdown files, with 296 resolving local fragment links. All 25 playbooks, 14 principles, and the expanded verification reference are reachable. Formatting, whitespace, preserved 28/23/24-row inventories, and all four report hashes pass. Independent maintenance review found no material inaccuracies or prose-policy defects. D25's 74 helper tests and typecheck remain historical results for unchanged executable code.
 
 The entry-document annotation fixes were checked on 2026-10-15 against baseline `43d6392`. Bundle validation reports one entry and 90 Markdown files; all 295 local fragment links resolve, and all 25 playbooks and 14 principles remain reachable. Direct before/after comparison confirms unchanged discovery metadata, routing tables, approval rules, execution rules, and host selection. Help retains the on-demand installation guide, principle reading and material citations remain explicit, and the opening retains relative-link resolution. This was a direct prose and routing review, with no fresh independent behavioral evaluation or live-host check. No executable code changed.
+
+The planning-pointer cleanup was checked on 2026-10-15 against baseline `53ff3ae`. Bundle validation reports one entry and 90 Markdown files. The new link resolves; the planning playbook and all shared rules outside the approved passage are byte-identical to baseline. Verification was direct and static, with no fresh behavioral or live-host evaluation. No executable code changed.
 
 Future verification should update this section with its date, target revision, commands/evidence, and remaining limits. No follow-up above is automatically authorized by this snapshot.
 
