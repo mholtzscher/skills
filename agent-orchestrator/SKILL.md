@@ -45,13 +45,13 @@ If launch fails or `subagent` is unavailable, report it and follow Blockers and 
 
 Logical roles belong in `prompt`; choose actual `agent` names from the tool description rather than assuming the role names are installed.
 
-| Logical role | Scope and constraints |
-| --- | --- |
-| explorer | Read-only mapping, tracing, and inspection. No file creation, edits, tests, or state-changing commands. |
-| worker | Bounded implementation and fixes within assigned file ownership. |
-| tester | Reproduction, validation, and test-gap analysis; add or edit tests only when authorized by the contract. |
-| reviewer | Independent diff review for validated correctness, security, regression, project-rule, and maintainability findings. |
-| researcher | Verify external facts and compatibility using available tools and authoritative sources; report access limitations. |
+| Logical role | Scope and constraints                                                                                                |
+| ------------ | -------------------------------------------------------------------------------------------------------------------- |
+| explorer     | Read-only mapping, tracing, and inspection. No file creation, edits, tests, or state-changing commands.              |
+| worker       | Bounded implementation and fixes within assigned file ownership.                                                     |
+| tester       | Reproduction, validation, and test-gap analysis; add or edit tests only when authorized by the contract.             |
+| reviewer     | Independent diff review for validated correctness, security, regression, project-rule, and maintainability findings. |
+| researcher   | Verify external facts and compatibility using available tools and authoritative sources; report access limitations.  |
 
 Give reviewers the diff or comparison baseline. They report findings only: no edits, builds, dependency installation, commits, or posted comments. Expect their `Findings` and `Summary` report; missing tests or speculative risks alone are not bugs.
 

@@ -1,0 +1,136 @@
+---
+name: mstack
+description: Michael's engineering workflow bundle. Explicit entry point for planning, implementation, investigation, review, and PR delivery.
+disable-model-invocation: true
+license: MIT
+---
+
+# Mstack
+
+Select the matching playbook and follow its instructions. State the selected path briefly. Keep a checklist for substantial work, with completion conditions from that playbook. Load supporting playbooks only when needed. Resolve relative links from the containing file's location in the installed bundle.
+
+## Playbooks
+
+| Request                                                     | Playbook                                                                              |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| New or changed behavior                                     | [Feature](playbooks/feature/PLAYBOOK.md)                                              |
+| Reported defect                                             | [Bug fix](playbooks/bug-fix/PLAYBOOK.md)                                              |
+| Behavior-preserving restructuring                           | [Refactoring](playbooks/refactoring/PLAYBOOK.md)                                      |
+| Small implementation sketch or full spec                    | [Planning](playbooks/planning/PLAYBOOK.md)                                            |
+| Create an implementation-ready spec                         | [Full spec](playbooks/planning/PLAYBOOK.md#full-spec)                                 |
+| Refine an existing proposal                                 | [Spec refinement](playbooks/planning/PLAYBOOK.md#refine)                              |
+| Implement an approved spec                                  | [Spec implementation](playbooks/spec-implement/PLAYBOOK.md)                           |
+| Read-only question or architecture explanation              | [Investigation](#investigation)                                                       |
+| Prototype or visual-parity work                             | [Prototype](playbooks/prototype/PLAYBOOK.md)                                          |
+| Performance measurements, fixes, or hillclimbing            | [Performance](playbooks/performance/PLAYBOOK.md)                                      |
+| Live runtime symptom or captured trace                      | [Forensics](playbooks/forensics/PLAYBOOK.md)                                          |
+| Independent review or blast-radius analysis                 | [Review](playbooks/review/PLAYBOOK.md)                                                |
+| Architecture, competing designs, or partitioned exploration | [Exploration](playbooks/exploration/PLAYBOOK.md)                                      |
+| Publish, rewrite, triage, fix feedback, or inspect checks   | [PR workflows](#pr-workflows)                                                         |
+| Explicit stack or merge                                     | [Advanced delivery](playbooks/advanced-delivery/PLAYBOOK.md)                          |
+| Long active-session task or project-scale run               | [Autonomous run](playbooks/autonomous/PLAYBOOK.md)                                    |
+| Keep or audit a reviewable decision trail                   | [Decision trail](playbooks/decision-trail/PLAYBOOK.md)                                |
+| Resume prior work                                           | [Pickup](playbooks/continuity/PLAYBOOK.md#pickup)                                     |
+| Hand off or pause work                                      | [Pause](playbooks/continuity/PLAYBOOK.md#pause)                                       |
+| Author/evaluate a skill or capture workflow lessons         | [Skill development](playbooks/skill-development/PLAYBOOK.md)                          |
+| Create a project verification skill                         | [Create](playbooks/verification-skill/PLAYBOOK.md#create)                             |
+| Maintain a project verification skill                       | [Maintain](playbooks/verification-skill/PLAYBOOK.md#maintain)                         |
+| Stress-test a proposal through questions                    | [Grilling](playbooks/grilling/PLAYBOOK.md)                                            |
+| Clarify domain terms or record a glossary/decision          | [Domain modeling](playbooks/domain-modeling/PLAYBOOK.md)                              |
+| Explain with a diagram or code-shape sketch                 | [Show me](playbooks/show-me/PLAYBOOK.md)                                              |
+| Explain in HTML with large visuals and minimal text         | [Big pictures, little words](playbooks/show-me/PLAYBOOK.md#big-pictures-little-words) |
+| Assess essential and accidental complexity                  | [Show complexity](playbooks/show-complexity/PLAYBOOK.md)                              |
+| Reconstruct prior session context                           | [Recall](playbooks/continuity/PLAYBOOK.md#recall)                                     |
+| Summarize progress in the current conversation              | [Catch up](playbooks/continuity/PLAYBOOK.md#catch-up)                                 |
+| Clean up code                                               | [Code cleanup](playbooks/cleanup/PLAYBOOK.md#code-cleanup)                            |
+| Improve prose                                               | [Prose cleanup](playbooks/cleanup/PLAYBOOK.md#prose-cleanup)                          |
+| Review comment value                                        | [Comments](playbooks/cleanup/PLAYBOOK.md#comment-review)                              |
+| Explain mstack usage or dependencies                        | [Help](playbooks/help/PLAYBOOK.md)                                                    |
+
+Mstack is the single entry point. Playbooks supply task procedures; principles guide decisions; roles name bounded assignments when delegating. Read playbooks as task instructions, with the shared rules already in context.
+
+If no playbook fits, assemble the smallest task-specific checklist from the shared rules, with an explicit deliverable and stopping condition. Ask about consequential intent rather than inventing a broader mission.
+
+## Investigation
+
+Establish the question and the decision it informs. Remain read-only unless the user separately requests an artifact or implementation.
+
+- Runtime mechanics and ownership: use [how](playbooks/explanation/PLAYBOOK.md#how).
+- Design rationale and historical constraints: use [why](playbooks/explanation/PLAYBOOK.md#why).
+- A teaching conversation: use [teach](playbooks/explanation/PLAYBOOK.md#teach).
+- Essential versus accidental complexity: use [show-complexity](playbooks/show-complexity/PLAYBOOK.md).
+
+Trace the important path, inspect material failure cases, and cite the actual source. Delegate independent deep evidence gathering when useful. Stop once the question has a supported answer or a deciding fact is explicitly unavailable. Recommend a next action only when it follows from the findings; an investigation does not automatically become a prototype, refactor, or PR.
+
+## PR workflows
+
+Select the requested intent; these are independently selectable operations, not enforced stages.
+
+| Request                                  | Procedure                                                       |
+| ---------------------------------------- | --------------------------------------------------------------- |
+| Commit, push, create/update a PR         | [Publish](playbooks/pull-requests/PLAYBOOK.md#publish)          |
+| Rewrite title and description only       | [Rewrite](playbooks/pull-requests/PLAYBOOK.md#rewrite-metadata) |
+| Evaluate unresolved inline feedback      | [Triage](playbooks/pull-requests/PLAYBOOK.md#triage-feedback)   |
+| Apply agreed feedback and settle threads | [Fix](playbooks/pull-requests/PLAYBOOK.md#fix-agreed-feedback)  |
+| Inspect checks now                       | [Checks](playbooks/pull-requests/PLAYBOOK.md#inspect-checks)    |
+| Monitor after publication without edits  | [Watch](playbooks/pull-requests/PLAYBOOK.md#watch)              |
+
+# Mstack shared rules
+
+Mstack applies to the task for which it was invoked. The selected playbook determines the work and its completion condition. Reading another bundled file supplies guidance, not permission to start that file's workflow. Explicit user instructions and repository rules govern the task.
+
+## Scope and approval
+
+Implementation requires an approved sketch or full spec. Use [Planning](playbooks/planning/PLAYBOOK.md) when a proposal is needed.
+
+Approval of an already-discussed sketch, spec, or feedback fix satisfies this gate. Reuse that agreement rather than restarting the interview. Reopen a decision when new evidence materially changes the agreed outcome. Read-only investigation, drafting the requested plan, and inspecting an existing diff do not require implementation approval. An experiment that writes code needs an approved sketch too; use an isolated, explicitly disposable target.
+
+After implementation approval, coding playbooks authorize scoped commits, pushes, and PR creation/update, including fixes to required CI. Ordinary delivery is one PR and stops before merging. Stacked delivery and merging require explicit requests. Preserve unrelated work and the selected delivery branch. Missing access or a materially different outcome needs help, rather than a workaround that changes the goal.
+
+## Questions and communication
+
+Look up observable facts. Ask the user for product intent, preferences, or consequential tradeoffs. Use the host's structured question tool; give a recommendation and meaningful alternatives. If unavailable, ask the same focused questions in the conversation and wait. Use Plannotator/Inbox when requested or when an artifact benefits from that review surface, not as a mandatory dependency.
+
+Use focused diffs, trees, or pseudocode to explain proposed changes. Lead with the result or decision. Separate observed evidence, inference, and unresolved questions. Do not turn a brief explanation into a report of every tool call.
+
+## Principles
+
+Read only the relevant principle files below before applying them. In the response, cite each principle that materially changed a decision by name and link, explaining the specific choice it changed. A list of slogans is not evidence. Do not claim to have applied an unread principle. Principles guide decisions within the task's scope.
+
+| When deciding                                        | Read                                                         |
+| ---------------------------------------------------- | ------------------------------------------------------------ |
+| Core data, states, signatures, or ownership          | [Model the domain](principles/model-the-domain.md)           |
+| Validation, errors, framework or network adapters    | [Boundary discipline](principles/boundary-discipline.md)     |
+| Refactoring, abstraction, deletion, or reader burden | [Minimize reader load](principles/minimize-reader-load.md)   |
+| Integrating a requirement or repeating failed fixes  | [Question the premise](principles/question-the-premise.md)   |
+| User-visible behavior and product tradeoffs          | [Experience first](principles/experience-first.md)           |
+| Novel designs with consequential uncertainty         | [Explore alternatives](principles/explore-alternatives.md)   |
+| Declaring a task complete                            | [Prove it works](principles/prove-it-works.md)               |
+| Designing or judging tests                           | [Test behavior](principles/test-behavior.md)                 |
+| Benchmarks, performance claims, or eval scores       | [Explain the number](principles/explain-the-number.md)       |
+| Multi-step work, commits, migrations, or stacks      | [Verifiable units](principles/verifiable-units.md)           |
+| Parallel writers or shared mutable state             | [Separate ownership](principles/separate-ownership.md)       |
+| Large evidence, exploration, or handoffs             | [Guard context](principles/guard-context.md)                 |
+| Retryable commands and partial failure               | [Idempotent operations](principles/idempotent-operations.md) |
+| Recurring mistakes or repeated manual work           | [Encode lessons](principles/encode-lessons.md)               |
+
+## Execution and completion
+
+Read [orchestration](references/orchestration.md) when delegation or independent review is useful. Keep coupled implementation with one writer; delegate independent work and accept its evidence yourself. Use host-configured roles and models. Mstack has no model sheet or mandatory setup step.
+
+Read [host selection](#host-selection) before using host-specific questions, delegation, history, or review tooling. Tool schemas in the current session take precedence over documented examples. Skill instructions describe conduct; enforced permissions belong to the host.
+
+Verify the actual behavior at the relevant boundary. Report commands and outcomes, including unavailable or unrun checks. Compilation and an agent's completion message alone do not prove the requested behavior. Use [verification](references/verification.md) for implementation and review.
+
+Before publication, run all three [cleanup passes](playbooks/cleanup/PLAYBOOK.md#before-publication): code, prose, and comments. Apply accepted, behavior-preserving cleanup within scope and reverify affected behavior. Structural or semantic changes outside the approved design return to approval.
+
+When blocked, name the unmet requirement and preserve a resumable state. A failed optional delegate can be replaced by direct work where sound, with the loss of independence stated. An explicit independent-review or parallel-execution requirement remains blocked until satisfied or the user changes it.
+
+## Host selection
+
+Identify the host from its actual tools, not from the project being edited.
+
+- **OpenCode V2:** read [opencode.md](references/hosts/opencode.md).
+- **Pi:** read [pi.md](references/hosts/pi.md).
+
+The workflows share the same policy. These adapters supply tool syntax and capability limits. Use available file/search/shell tools for ordinary operations. Bun and authenticated `gh` run on the agent's execution machine, which may differ from the UI machine.
