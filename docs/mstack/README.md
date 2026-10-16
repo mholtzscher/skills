@@ -87,6 +87,8 @@ These are skill requests, not extension slash commands. Internal routing reads t
 
 Describe the task after `@mstack` or `/skill:mstack`; these are natural-language requests, not subcommands. Feature, bug-fix, refactoring, prototype, and visual-parity requests use the same entry point. The [main skill](../../mstack/SKILL.md) routes to the matching playbook.
 
+For an HTML-first explanation, use `@mstack big-pics-little-words explain this design` or `/skill:mstack big-pics-little-words explain this design`. [Big pictures, little words](../../mstack/playbooks/show-me/PLAYBOOK.md#big-pictures-little-words) is a mode within Show me. It uses large visuals and brief, newcomer-friendly text while retaining key details. General diagram and code-sketch requests keep Show me's smallest-useful-view choice.
+
 Standalone publication starts a read-only, 30-minute background watcher unless `--no-watch` or conversational guidance disables it. Coding tasks own CI repair instead. Feedback fixes use agreed triage outcomes, publish first, then react/resolve; their watcher is read-only. An immediate checks request never waits or repairs code.
 
 Use `@mstack create a verification skill for this app` or `/skill:mstack maintain this project's verification skill` to create or audit repeatable app-driving instructions and a feature map. New skills default to the project's `.agents/skills/verify-<app>/`. Creation proves one mapped feature end to end; maintenance covers every mapped feature and confines corrections to the verification skill directory. Both preserve evidence through cleanup, and implementation changes require approval.
