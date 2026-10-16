@@ -7,7 +7,7 @@ license: MIT
 
 # Mstack
 
-Select the matching playbook and follow its instructions. State the selected path briefly. Keep a checklist for substantial work, with completion conditions from that playbook. Load supporting playbooks only when needed.
+Select the matching playbook and follow its instructions. State the selected path briefly. Keep a checklist for substantial work, with completion conditions from that playbook. Load supporting playbooks only when needed. Resolve relative links from the containing file's location in the installed bundle.
 
 ## Playbooks
 
@@ -48,7 +48,7 @@ Select the matching playbook and follow its instructions. State the selected pat
 
 Mstack is the single entry point. Playbooks supply task procedures; principles guide decisions; roles name bounded assignments when delegating. Read playbooks as task instructions, with the shared rules already in context.
 
-If no playbook fits, assemble the smallest task-specific checklist from the shared rules, with an explicit deliverable and stopping condition. Ask about consequential intent rather than inventing a broader mission. Setup and dependency help live in the [bundle guide](README.md).
+If no playbook fits, assemble the smallest task-specific checklist from the shared rules, with an explicit deliverable and stopping condition. Ask about consequential intent rather than inventing a broader mission.
 
 ## Investigation
 
@@ -97,9 +97,7 @@ Use focused diffs, trees, or pseudocode to explain proposed changes. Lead with t
 
 ## Principles
 
-Consult the [principle index](#principles) for the task's relevant principles and read those leaf files before applying them. In the response, cite each principle that materially changed a decision and name the specific choice it changed. A list of slogans is not evidence. Do not claim to have applied an unread principle.
-
-Read only the leaves that apply. Cite a principle by name and link when it materially changes your choice, explaining that choice. These are contextual decision rules, not permission to expand scope.
+Read only the relevant principle files below before applying them. In the response, cite each principle that materially changed a decision by name and link, explaining the specific choice it changed. A list of slogans is not evidence. Do not claim to have applied an unread principle. Principles guide decisions within the task's scope.
 
 | When deciding                                        | Read                                                         |
 | ---------------------------------------------------- | ------------------------------------------------------------ |
@@ -140,7 +138,3 @@ Identify the host from its actual tools, not from the project being edited.
 The workflows share the same policy. These adapters supply tool syntax and capability limits. Use available file/search/shell tools for ordinary operations. Bun and authenticated `gh` run on the agent's execution machine, which may differ from the UI machine.
 
 Discover optional skills by their registered names and actual installed paths. Browser/terminal verification may use `agent-browser` or `terminal-control`; Go work may use `service-design` or `go-test-effectiveness`; skill authoring may use `skill-creator` and `writing-for-agents`. These are external specialists, not bundled dependencies required at startup. When a particular task requires an unavailable capability, report that gap.
-
-## Bundle paths
-
-Resolve links from the containing file, using the installed skill's absolute path. Install the whole bundle: `SKILL.md` uses `playbooks/`, `principles/`, `references/`, and `scripts/`. Load only the files needed for the current task.
