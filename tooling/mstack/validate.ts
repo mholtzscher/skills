@@ -5,15 +5,23 @@ export async function validateBundle(root: string) {
   root = await realpath(root);
   const files: string[] = [];
   const errors: string[] = [];
+  const playbookDirectories: string[] = [];
   async function walk(directory: string) {
     for (const entry of await readdir(directory, { withFileTypes: true })) {
       if (entry.name === "node_modules" || entry.name.startsWith(".")) continue;
       const path = join(directory, entry.name);
+      if (directory === join(root, "playbooks")) {
+        if (entry.isDirectory()) playbookDirectories.push(path);
+        else errors.push(`${relative(root, path)}: use a playbook folder with PLAYBOOK.md`);
+      }
       if (entry.isDirectory()) await walk(path);
       else if (entry.isFile() && entry.name.endsWith(".md")) files.push(path);
     }
   }
   await walk(root);
+  for (const directory of playbookDirectories) {
+    if (!files.includes(join(directory, "PLAYBOOK.md"))) errors.push(`${relative(root, directory)}: missing PLAYBOOK.md`);
+  }
   const skillFiles = files.filter((path) => basename(path) === "SKILL.md");
   const inside = (path: string) => {
     const rel = relative(root, path);
@@ -22,7 +30,8 @@ export async function validateBundle(root: string) {
   const layer = (path: string) => {
     const rel = relative(root, path);
     if (rel === "" || rel === "SKILL.md") return 0;
-    if (rel === "playbooks" || rel.startsWith(`playbooks${sep}`)) return 1;
+    const parts = rel.split(sep);
+    if (parts[0] === "playbooks" && (parts.length <= 2 || (parts.length === 3 && parts[2] === "PLAYBOOK.md"))) return 1;
     return 2;
   };
   if (skillFiles.length !== 1 || skillFiles[0] !== join(root, "SKILL.md")) errors.push("Bundle must have exactly one entry point at SKILL.md");

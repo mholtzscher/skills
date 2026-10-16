@@ -22,7 +22,7 @@ Mstack owns Michael's engineering workflow in this repository. Adapt pstack's pl
 
 Shared rules, the principle index, host selection, investigation guidance, and PR intent routing live in the main skill. Load only the selected playbooks and relevant principle leaves. Repeated directions to read already-loaded shared rules were removed because they added reads without context.
 
-Approved consolidations: code/prose/comments in [cleanup](../../mstack/playbooks/cleanup.md); recall/catch-up/pickup/pause in [continuity](../../mstack/playbooks/continuity.md); how/why/teach in [explanation](../../mstack/playbooks/explanation.md); sketch/spec-planner/refinement in [planning](../../mstack/playbooks/planning.md); six PR operations in [pull requests](../../mstack/playbooks/pull-requests.md). Named sections preserve each operation's permissions and stopping point. Spec implementation, finish delivery, grilling, and domain modeling remain separate procedures.
+Approved consolidations: code/prose/comments in [cleanup](../../mstack/playbooks/cleanup/PLAYBOOK.md); recall/catch-up/pickup/pause in [continuity](../../mstack/playbooks/continuity/PLAYBOOK.md); how/why/teach in [explanation](../../mstack/playbooks/explanation/PLAYBOOK.md); sketch/spec-planner/refinement in [planning](../../mstack/playbooks/planning/PLAYBOOK.md); six PR operations in [pull requests](../../mstack/playbooks/pull-requests/PLAYBOOK.md). Named sections preserve each operation's permissions and stopping point. Spec implementation, finish delivery, grilling, and domain modeling remain separate procedures.
 
 The user explicitly required exact text preservation during consolidation. Headings, relative links, and agreed terminology changed; substantive instruction rewriting was not part of that permission. This does not freeze wording forever: future intentional changes need their own scope. [E7](#e7-shared-context-consolidation), [E9](#e9-playbook-consolidation).
 
@@ -40,13 +40,13 @@ On 2026-10-15, the user approved removing duplicated planning details from the e
 
 Approved feature, bug-fix, refactoring, and spec-implementation work continues through verification, cleanup, one PR, and repair of required CI within scope. Ordinary delivery stops before merging. Stacked delivery and merging remain explicitly requested advanced operations.
 
-**Rejected:** making verified local changes the ordinary stopping point. The user chose “Publish ordinary coding too” and “Fix CI for coding tasks.” This authority belongs to approved coding; investigation, planning, review, and check snapshots retain their own completion conditions. See [scope and approval](../../mstack/SKILL.md#scope-and-approval) and [finish delivery](../../mstack/playbooks/finish-delivery.md). [E2](#e2-delegation-delivery-and-activation), [E3](#e3-planning-and-pr-contracts).
+**Rejected:** making verified local changes the ordinary stopping point. The user chose “Publish ordinary coding too” and “Fix CI for coding tasks.” This authority belongs to approved coding; investigation, planning, review, and check snapshots retain their own completion conditions. See [scope and approval](../../mstack/SKILL.md#scope-and-approval) and [finish delivery](../../mstack/playbooks/finish-delivery/PLAYBOOK.md). [E2](#e2-delegation-delivery-and-activation), [E3](#e3-planning-and-pr-contracts).
 
 ### D06: Preserve distinct PR intents and agreement boundaries
 
 Publish, rewrite metadata, triage feedback, fix agreed feedback, inspect checks, and watch are independently selectable operations. Triage is read-only until agreement. Feedback fixes must publish successfully before reactions or thread resolution. Monitoring after standalone publication or feedback fixes is read-only; coding tasks own required-CI repair. An immediate checks request does not become a waiting or repair loop.
 
-Keep the visual PR format: **Why the change**, **Special things to note**, a compact **Change outline**, and verification results. Explicit PR URLs/numbers are accepted. The [PR playbook](../../mstack/playbooks/pull-requests.md) implements these boundaries, including its bounded 30-minute publication watcher and opt-out; merging its files did not merge its permissions. [E3](#e3-planning-and-pr-contracts), [E5](#e5-vendoring-migration-and-review-surface), [E6](#e6-initial-implementation-approval), [E9](#e9-playbook-consolidation).
+Keep the visual PR format: **Why the change**, **Special things to note**, a compact **Change outline**, and verification results. Explicit PR URLs/numbers are accepted. The [PR playbook](../../mstack/playbooks/pull-requests/PLAYBOOK.md) implements these boundaries, including its bounded 30-minute publication watcher and opt-out; merging its files did not merge its permissions. [E3](#e3-planning-and-pr-contracts), [E5](#e5-vendoring-migration-and-review-surface), [E6](#e6-initial-implementation-approval), [E9](#e9-playbook-consolidation).
 
 ### D07: Delegate selectively; let hosts own models
 
@@ -62,7 +62,7 @@ Read relevant principle leaves and cite a principle when it materially changes a
 
 Code cleanup, prose cleanup, and dedicated comment review are mandatory before publication. They are distinct passes, not a requirement for three simultaneous writing agents. Independent report-only review is useful when available; the owner applies accepted changes within scope.
 
-Comment review preserves useful non-obvious rationale and investigates uncertain constraints before recommending deletion. **Rejected:** inheriting pstack's default-to-delete treatment of unresolved constraint comments. Encoding a real constraint in a type, test, or assertion is preferable when practical, but uncertainty alone is not evidence that a comment is worthless. See [cleanup](../../mstack/playbooks/cleanup.md). [E4](#e4-principles-cleanup-and-models), [E5](#e5-vendoring-migration-and-review-surface).
+Comment review preserves useful non-obvious rationale and investigates uncertain constraints before recommending deletion. **Rejected:** inheriting pstack's default-to-delete treatment of unresolved constraint comments. Encoding a real constraint in a type, test, or assertion is preferable when practical, but uncertainty alone is not evidence that a comment is worthless. See [cleanup](../../mstack/playbooks/cleanup/PLAYBOOK.md). [E4](#e4-principles-cleanup-and-models), [E5](#e5-vendoring-migration-and-review-surface).
 
 ### D10: Vendor selected procedures; keep specialists external
 
@@ -92,7 +92,7 @@ D29 narrows `mstack/` to runtime files. Maintenance records and development tool
 
 ### D14: Include verification-skill creation and maintenance
 
-The initial bundle had general verification guidance but omitted pstack's project verification-skill workflows. The user approved adding one [verification-skill playbook](../../mstack/playbooks/verification-skill.md) with Create and Maintain sections and the worked feature-map resources.
+The initial bundle had general verification guidance but omitted pstack's project verification-skill workflows. The user approved adding one [verification-skill playbook](../../mstack/playbooks/verification-skill/PLAYBOOK.md) with Create and Maintain sections and the worked feature-map resources.
 
 The implemented adaptation defaults generated skills to project-local `.agents/skills/verify-<app>/`, shared by OpenCode and Pi. Creation proves one mapped feature end to end. Maintenance covers every mapped feature against source and live behavior, confines corrections to the target skill directory, and reports clean, changed, or blocked. Both retain evidence through owned cleanup. Mstack approval gates and selective source-reading delegation replace upstream host/path and mandatory-delegation assumptions. These are the adaptation's implemented details; real-app evaluation remains a separate evidence gap. [E10](#e10-verification-skill-addition).
 
@@ -220,6 +220,14 @@ Preserve substantive rules and delegated context when removing backlinks. Host g
 
 This refines D03's conditional reading and D29's self-contained packaging. It does not require a strict directory tree, remove peer links, change approval or delivery authority, or restore deferred Arena content.
 
+### D31: Colocate playbooks and their owned references
+
+Accepted 2026-10-15. Give every playbook a `playbooks/<name>/PLAYBOOK.md` entry and place its owned prompts, templates, formats, and examples in that folder's `references/`. Simple playbooks contain just their entry. Keep cross-cutting guidance in root `references/` and retain `SKILL.md` as the sole discoverable entry. The user replied "let's do this!" to approve the proposed folder-per-playbook layout. [E28](#e28-playbook-folders).
+
+The implemented ownership map keeps host adapters, orchestration, history, verification, benchmarking, and the shared Why source catalog and epistemics at the runtime root. Explanation's investigator and synthesis prompts move beside Explanation; the domain formats move beside Domain modeling. The decision-log template belongs to Decision trail, with its helper's lookup updated to that location. These are ownership choices within the approved layout, not new workflow policies.
+
+Preserve substantive instructions, examples, permissions, stopping conditions, attribution, and license bytes. Rebase runtime and maintenance links and update executable resource paths together. D30's layers still apply. `PLAYBOOK.md` is a playbook entry, while nested references remain supporting material. Validation must reject their backlinks to any playbook or the skill entry while allowing peer composition and shared-resource links. This refines D02 and D29's packaging without changing workflow authority or the separate installation cutover.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed pstack 0.15.21's 24 principles into 14. Several concrete prescriptions were shortened away, including the written premise/actor census and detailed exhaustive-matching/type-construction guidance. D26 restores these diagnostics and examples, with explicit choices for evidence-driven tools, risk-based types, and declared migration phases. The source's mandatory tool deliverable and proceed-first policy are not restored. Full Orchestrate/Autopilot protocols and the dedicated worktree/simulator-cleanup workflow were not preserved.
@@ -278,6 +286,8 @@ The optional-specialist paragraph removal was checked on 2026-10-15 against base
 The D29 packaging move was checked on 2026-10-15 against baseline `5bcbaad`. Bundle validation reports one entry and 84 runtime Markdown files. Fresh typechecking and all 76 tests passed from `tooling/mstack`, including copied-runtime CLI execution and validator default-path checks. Ninety-two retained runtime files, including helper source and license, are byte-preserved. [Packaging evidence](SOURCE-AUDIT.md#d29-packaging-verification) records direct review, link checks, and limits. Fresh independent Help evaluation, live host discovery, and real GitHub execution from a copied installation remain untested. No installation or global cutover occurred.
 
 The D30 downward-link cleanup was checked on 2026-10-15 against baseline `6397a5a`. All 52 upward-link occurrences were removed or redirected. The new validator rejects that baseline with 50 distinct upward-link diagnostics and accepts the updated bundle with one entry and 84 Markdown files. Typechecking and all 86 tests passed, including rejection and peer-composition cases. All 48 fenced runtime examples are unchanged, and the entry, host adapters, helper code, license, and Arena body retain their bytes. [Link-flow evidence](SOURCE-AUDIT.md#d30-downward-link-verification) records caller/context review and remaining limits. The external skill-creator validator could not start because PyYAML is missing. No fresh independent behavioral evaluation or live host delegation was run.
+
+The D31 playbook-folder move was checked on 2026-10-15 against baseline `38ba3e1`. All 25 entries and 28 owned resources moved with their callers updated. The 84 runtime Markdown files preserve their wording apart from link targets and table spacing, and all 48 fenced examples retain their bytes. Typechecking and all 92 tests passed, including copied-runtime helper execution and nested-reference layer checks. [Folder-layout evidence](SOURCE-AUDIT.md#d31-playbook-folder-verification) records the complete file inventory, link/reachability checks, and direct review. The external Python validator remains blocked by missing PyYAML. Fresh behavioral-agent evaluation and live host discovery/delegation were not run; earlier workflow gaps remain.
 
 Future verification should update this section with its date, target revision, commands/evidence, and remaining limits. No follow-up above is automatically authorized by this snapshot.
 
@@ -396,3 +406,7 @@ The user asked whether provenance, decisions, and the glossary would be installe
 ### E27: Downward reading flow
 
 After D29 was published, the user requested downward links through the skill without upward links. An audit found 28 links back to `SKILL.md` and 24 from supporting material back to playbooks. The assistant proposed removing those reading dependencies, preserving rules and delegated context, and adding a validator check. The user selected **Keep peer links (Recommended)**, approving parent-backlink removal while retaining task-specific composition, shared-resource links, and valid `../` paths.
+
+### E28: Playbook folders
+
+After D30 was published, the user asked whether playbooks could be folders containing their references. The assistant proposed `playbooks/<name>/PLAYBOOK.md` with colocated owned references, shared guidance in root `references/`, no empty reference folders for simple playbooks, one discoverable `SKILL.md`, and validation that distinguishes entries from nested supporting material. The user replied "let's do this!", approving that proposal and its required link and helper-path updates.

@@ -26,6 +26,26 @@ Only `mstack/` is copied or symlinked during installation. Runtime links resolve
 
 Runtime reading flows from the entry to playbooks to supporting material. Peer playbooks may compose each other, and supporting resources may share references. Links back to the entry or from supporting material to playbooks are rejected by the validator. Relative `../` paths are valid when their targets belong to the same or a lower layer. Maintenance documents may link to any runtime layer.
 
+Each playbook has its own folder with a plain `PLAYBOOK.md` entry and any owned references:
+
+```text
+mstack/
+├── SKILL.md
+├── playbooks/
+│   ├── review/
+│   │   ├── PLAYBOOK.md
+│   │   └── references/
+│   │       ├── reviewer-prompt.md
+│   │       └── rubric.md
+│   └── bug-fix/
+│       └── PLAYBOOK.md
+├── principles/
+├── references/          Shared guidance
+└── scripts/
+```
+
+Host adapters, orchestration, history, verification, the benchmark checklist, and the shared Why source catalog and epistemics stay in root `references/`. Task-owned prompts, formats, and examples live beside their playbook. Simple playbooks contain only their entry. The validator distinguishes that entry from supporting files nested below it.
+
 ## Install the whole bundle
 
 Place or symlink the repository's `mstack/` directory under a shared skill root. For example, after deciding to install:
@@ -50,20 +70,20 @@ Mstack is explicit-only. Its internal playbooks are plain Markdown, so they do n
 
 These are skill requests, not extension slash commands. Internal routing reads the bundled files directly. An explicit spec path or PR URL/number is accepted; the current repository/PR and `specs/` are defaults, not restrictions.
 
-| Area               | Playbooks                                                                                                                            |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Planning and specs | [Sketch, full spec, refinement](../../mstack/playbooks/planning.md); [spec implementation](../../mstack/playbooks/spec-implement.md) |
-| PR operations      | [Publish, rewrite metadata, triage, fix agreed feedback, inspect checks, watch](../../mstack/playbooks/pull-requests.md)             |
-| Explanation        | [How, why, teach](../../mstack/playbooks/explanation.md)                                                                             |
-| Visuals and domain | Show me, show complexity, grilling, domain modeling                                                                                  |
-| Design and review  | Architecture, arena, swarm, review, blast radius                                                                                     |
-| Cleanup            | [Code, prose, comments](../../mstack/playbooks/cleanup.md)                                                                           |
-| Performance        | Performance fix, hillclimb, runtime/trace forensics                                                                                  |
-| Advanced delivery  | Stack, ship, autonomous run                                                                                                          |
-| Continuity         | [Recall, catch up, pickup, pause](../../mstack/playbooks/continuity.md)                                                              |
-| Decision trail     | [Record, audit, and review decisions with evidence](../../mstack/playbooks/decision-trail.md)                                        |
-| Skills and help    | Author, evaluate, reflect, help                                                                                                      |
-| App verification   | [Create or maintain a project verification skill and feature map](../../mstack/playbooks/verification-skill.md)                      |
+| Area               | Playbooks                                                                                                                                              |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Planning and specs | [Sketch, full spec, refinement](../../mstack/playbooks/planning/PLAYBOOK.md); [spec implementation](../../mstack/playbooks/spec-implement/PLAYBOOK.md) |
+| PR operations      | [Publish, rewrite metadata, triage, fix agreed feedback, inspect checks, watch](../../mstack/playbooks/pull-requests/PLAYBOOK.md)                      |
+| Explanation        | [How, why, teach](../../mstack/playbooks/explanation/PLAYBOOK.md)                                                                                      |
+| Visuals and domain | Show me, show complexity, grilling, domain modeling                                                                                                    |
+| Design and review  | Architecture, arena, swarm, review, blast radius                                                                                                       |
+| Cleanup            | [Code, prose, comments](../../mstack/playbooks/cleanup/PLAYBOOK.md)                                                                                    |
+| Performance        | Performance fix, hillclimb, runtime/trace forensics                                                                                                    |
+| Advanced delivery  | Stack, ship, autonomous run                                                                                                                            |
+| Continuity         | [Recall, catch up, pickup, pause](../../mstack/playbooks/continuity/PLAYBOOK.md)                                                                       |
+| Decision trail     | [Record, audit, and review decisions with evidence](../../mstack/playbooks/decision-trail/PLAYBOOK.md)                                                 |
+| Skills and help    | Author, evaluate, reflect, help                                                                                                                        |
+| App verification   | [Create or maintain a project verification skill and feature map](../../mstack/playbooks/verification-skill/PLAYBOOK.md)                               |
 
 Describe the task after `@mstack` or `/skill:mstack`; these are natural-language requests, not subcommands. Feature, bug-fix, refactoring, prototype, and visual-parity requests use the same entry point. The [main skill](../../mstack/SKILL.md) routes to the matching playbook.
 
@@ -71,7 +91,7 @@ Standalone publication starts a read-only, 30-minute background watcher unless `
 
 Use `@mstack create a verification skill for this app` or `/skill:mstack maintain this project's verification skill` to create or audit repeatable app-driving instructions and a feature map. New skills default to the project's `.agents/skills/verify-<app>/`. Creation proves one mapped feature end to end; maintenance covers every mapped feature and confines corrections to the verification skill directory. Both preserve evidence through cleanup, and implementation changes require approval.
 
-Use `@mstack keep a decision trail for this run` or `/skill:mstack audit this decision trail` for a canonical append-only record of decisions and evidence. Long runs route to the same [procedure](../../mstack/playbooks/decision-trail.md). Trails stay in existing ignored storage or an explicit local path outside the worktree by default. Committing or publishing a sanitized trail requires explicit request or agreement. A read-only audit proposes corrections rather than appending them. Owner transcript audit and selective independent review have separate, honestly reported coverage. Every reply of a trail-producing run ends with Attention status. Hillclimb's nine-field experiment log remains separate, with evidence links when both are useful.
+Use `@mstack keep a decision trail for this run` or `/skill:mstack audit this decision trail` for a canonical append-only record of decisions and evidence. Long runs route to the same [procedure](../../mstack/playbooks/decision-trail/PLAYBOOK.md). Trails stay in existing ignored storage or an explicit local path outside the worktree by default. Committing or publishing a sanitized trail requires explicit request or agreement. A read-only audit proposes corrections rather than appending them. Owner transcript audit and selective independent review have separate, honestly reported coverage. Every reply of a trail-producing run ends with Attention status. Hillclimb's nine-field experiment log remains separate, with evidence links when both are useful.
 
 ## Dependencies
 
@@ -114,7 +134,7 @@ bun tooling/mstack/validate.ts
 
 The validator defaults to this repository's `mstack/` directory from any working directory. Pass an explicit bundle path to validate a copied installation. Check Markdown with `bunx prettier --check 'mstack/**/*.md' 'docs/mstack/**/*.md'` and inspect maintenance-document links and heading fragments separately.
 
-The structural validator checks packaging, not agent behavior. Use [independent scenario evaluation](../../mstack/playbooks/skill-development.md) for workflow changes. Exercise actual host discovery before a cutover; live delegation and GitHub writes need their own scoped checks.
+The structural validator checks packaging, not agent behavior. Use [independent scenario evaluation](../../mstack/playbooks/skill-development/PLAYBOOK.md) for workflow changes. Exercise actual host discovery before a cutover; live delegation and GitHub writes need their own scoped checks.
 
 ## Migration
 

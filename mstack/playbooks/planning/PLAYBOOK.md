@@ -1,0 +1,287 @@
+# Planning
+
+Planning produces a proposal, not an implementation.
+
+For a new proposal, choose its depth, follow the sketch or full-spec section, then seek approval. For an existing spec, follow [refinement](#refine) only.
+
+## Choose depth
+
+1. Read the request, existing decisions, repository instructions, and relevant source. Explain the current behavior and ownership briefly.
+2. Choose **sketch** for a bounded, understood change with a clear validation path. Choose **spec** for consequential uncertainty, cross-boundary contracts, migration, or substantial scope. A one-line security change can still need a spec. Explain the choice and honor an explicit user selection.
+
+## Sketch
+
+For a sketch, show the intended behavior and a focused code/data/file diff, decisive tradeoff, and verification. Resolve consequential unknowns through the host question tool. Keep the sketch in conversation unless a file is useful or requested.
+
+## Full spec
+
+For a full spec, use [grilling](../grilling/PLAYBOOK.md) to settle open decisions and [domain-modeling](../domain-modeling/PLAYBOOK.md) when terminology matters. These build on one interview rather than asking the same questions again. The phases below apply to the full-spec path; the small-change path lives in [sketch](#sketch).
+
+Produce implementation-ready specs through rigorous dialogue and honest trade-off analysis.
+
+### Core Philosophy
+
+- **Dialogue over deliverables** — Plans emerge from discussion, not assumption
+- **Skeptical by default** — Requirements are incomplete until proven otherwise
+- **Second-order thinking** — Consider downstream effects and maintenance burden
+- **Implementation shape is part of the design** — Types, interfaces, and project layout make a proposal executable rather than aspirational
+
+### Workflow Phases
+
+```
+CLARIFY ──[user responds]──► DISCOVER ──[done]──► DRAFT ──[complete]──► REFINE ──[approved]──► DONE
+   │                            │                   │                      │
+   └──[still ambiguous]──◄──────┴───────────────────┴────[gaps found]──────┘
+```
+
+**State phase at end of every response while following the full-spec path:**
+
+```
+---
+Phase: CLARIFY | Waiting for: answers to questions 1-4
+```
+
+---
+
+### Phase 1: CLARIFY (Mandatory)
+
+**Hard rule:** No spec until user has responded to at least one round of questions. Read existing decisions first; an earlier clarification or grilling round in this conversation counts. Reuse settled answers rather than restarting the interview.
+
+1. **STOP.** Do not proceed to planning until that clarification requirement is met.
+2. Identify gaps in: scope, motivation, constraints, edge cases, success criteria, and expected implementation shape
+3. Ask 2-4 pointed questions that would change the approach. Use the host's structured question tool when available.
+4. **Wait for responses**
+
+**IMPORTANT: Use structured questions when the host exposes them.** On OpenCode, use `question`; on Pi, use the installed question extension's actual schema. If unavailable, ask the same focused questions in conversation and wait. For OpenCode, group up to 4 questions in one call, each with 2-4 options containing a label and description. Keep headers within 16 characters. The tool supplies the custom-answer row; do not add an "Other" option. Use `multiple: true` when several choices may apply. OpenCode example:
+
+```
+question({
+  questions: [{
+    header: "Scope",
+    question: "Which subsystems need detailed specs?",
+    options: [
+      {
+        label: "VCS layer",
+        description: "Specify the shared boundary between jj-lib and gix."
+      },
+      {
+        label: "Review workflow",
+        description: "Specify the local GitHub PR-style review workflow."
+      },
+      {
+        label: "Event system",
+        description: "Specify pub/sub behavior and event persistence."
+      }
+    ],
+    multiple: true
+  }]
+})
+```
+
+| Category       | Example                                                  |
+| -------------- | -------------------------------------------------------- |
+| Scope          | "Share where? Social media? Direct link? Embed?"         |
+| Motivation     | "What user problem are we actually solving?"             |
+| Constraints    | "Does this need to work with existing privacy settings?" |
+| Success        | "How will we know this worked?"                          |
+| Implementation | "Which types, boundaries, or modules will change?"       |
+
+**Escape prevention:** For a new interview, even if the request seems complete, ask 2+ clarifying questions. Skip only for mechanical requests (e.g., "rename X to Y"). An already-completed clarification round satisfies this requirement.
+
+**Anti-patterns to resist:**
+
+- "Just give me a rough plan" → Still needs scope questions
+- "I'll figure out the details" → Those details ARE the spec
+- Very long initial request → Longer ≠ clearer; probe assumptions
+
+**Transition:** User answered AND no new ambiguities → DISCOVER
+
+---
+
+### Phase 2: DISCOVER
+
+**After clarification, before planning:** Understand existing system.
+
+Explore directly by default using the host's file and search tools: on OpenCode, use `glob` for paths, `grep` for symbols and content, and `read` for relevant files; on Pi, use the available equivalents. Identify key files, abstractions, patterns, integration points, types, interfaces, and project-layout constraints.
+
+For delegated discovery, check available agents and the actual tool schema. Use [orchestration](../../references/orchestration.md) and the adapter for the current host, [OpenCode](../../references/hosts/opencode.md) or [Pi](../../references/hosts/pi.md). Assign bounded read-only discovery tasks. Launch independent tasks separately in the background where supported, wait for results before dependent steps, and consume results before drafting; do not assume a particular agent name exists.
+
+| Target             | What to Find                                       |
+| ------------------ | -------------------------------------------------- |
+| Affected area      | Files and modules that will change                 |
+| Existing patterns  | How similar features are implemented               |
+| Types              | Domain, API, persistence, and configuration shapes |
+| Interfaces         | Signatures, endpoints, events, errors, and callers |
+| Project layout     | Package boundaries, file ownership, and naming     |
+| Integration points | APIs, events, and data flows touched               |
+
+**If unfamiliar tech is involved**, use available web search with 2-4 varied queries and fetch authoritative documentation. Follow applicable tool/documentation policies and report unavailable research capabilities. Use file reading to retrieve passages saved to a file or fetch source evidence about a specific claim. Return the recommended approach, gotchas, and production patterns with source evidence; distinguish verified facts from assumptions.
+
+**Output:** Brief architecture summary before proposing solutions, including current type, interface, and project-layout constraints.
+
+**Transition:** System context understood → DRAFT
+
+---
+
+### Phase 3: DRAFT
+
+Apply planning framework from [decision-frameworks.md](references/decision-frameworks.md):
+
+1. **Problem Definition** — What are we solving? For whom? Cost of not solving?
+2. **Constraints Inventory** — Time, system, knowledge, scope ceiling
+3. **Solution Space** — Simplest → Balanced → Full engineering solution
+4. **Trade-off Analysis** — See table format in references
+5. **Recommendation** — One clear choice with reasoning
+
+#### Define the implementation contract
+
+Every implementation-ready spec must make these three parts concrete:
+
+1. **Types** — Define new and changed domain, API, persistence, event, and configuration shapes, including constraints and ownership.
+2. **Interfaces** — Define boundaries between components: signatures or protocols, inputs, outputs, errors, side effects, and compatibility needs.
+3. **Project layout** — Show the proposed file/package tree as a nested directory tree, identify files to create or modify, and state each module's responsibility.
+
+Use the project's implementation language when known; otherwise use precise pseudocode. For changes to existing code,
+show the implementation shape as focused unified `diff` blocks: enough surrounding context to locate the change, but no
+unrelated code. For entirely new files or definitions with no useful before-state, use a normal language-tagged code
+block. Include only relevant definitions, but do not replace them with prose such as "add a request object." Render
+project-layout changes as a nested `text` directory tree, marking each path as new, modify, or move and stating its
+responsibility. If one part is unchanged or genuinely not applicable, say so and explain why instead of silently
+omitting it. Map each new type and interface to an owning path and deliverable.
+
+Define each deliverable with a stable ID, a concrete outcome, owning file/package paths, dependencies, and references to its testable acceptance criteria. Include shared infrastructure and integration checks in those mappings so delegation does not leave required work unowned. Keep this information in the existing spec; the execution orchestrator decides agent assignments and scheduling, not the planner.
+
+For each acceptance criterion, specify how an implementer can check it: the behavior or boundary to exercise, the expected result, and a concrete command or manual procedure when known. Cover the main success path and material failure or regression paths. Distinguish checks the implementer can run locally from those requiring external access or a deployed environment. Do not invent commands; mark unknown commands for discovery during implementation and explain what must be checked.
+
+Use appropriate template from [templates.md](references/templates.md):
+
+- **Quick Decision** — Scoped technical choices
+- **Feature Plan** — New feature development
+- **ADR** — Architecture decisions
+- **RFC** — Larger proposals
+
+Write the draft to the explicitly requested path, or default to `specs/<descriptive-name>.md`, and mark its approval state accurately. Creating the requested spec is permitted planning work. Use established repository conventions for durable ADRs and [domain modeling](../domain-modeling/PLAYBOOK.md) for glossary/decision-record work.
+
+**Transition:** Spec produced → REFINE
+
+---
+
+### Phase 4: REFINE
+
+Run completeness check:
+
+| Criterion              | Check                                                                                |
+| ---------------------- | ------------------------------------------------------------------------------------ |
+| Scope bounded          | Every deliverable listed; non-goals explicit                                         |
+| Ambiguity resolved     | No "TBD" or "to be determined"                                                       |
+| Acceptance testable    | Each criterion pass/fail verifiable                                                  |
+| Validation traceable   | Each acceptance criterion has a check; checks that cannot run locally are identified |
+| Deliverables traceable | Each ID maps to an outcome, owning paths, dependencies, and acceptance criteria      |
+| Dependencies ordered   | Clear what blocks what                                                               |
+| Types concrete         | Fields, value types, constraints, and ownership defined                              |
+| Interfaces concrete    | Inputs, outputs, errors, and side effects defined                                    |
+| Layout explicit        | Proposed paths and module responsibilities shown                                     |
+| Shape traceable        | Types/interfaces map to paths and deliverables                                       |
+| Effort estimated       | Each deliverable has S/M/L/XL                                                        |
+| Risks identified       | At least 2 risks with mitigations                                                    |
+| Open questions         | Resolved OR assigned owner                                                           |
+
+**If any criterion fails:** Return to dialogue. "To finalize, I need clarity on: [failing criteria]."
+
+Present the written spec and its consequential choices, then wait for explicit approval. Assigned open questions must be non-blocking; unresolved implementation-contract choices return to clarification. Estimates express uncertainty rather than promises; use the [estimation guidance](references/estimation.md).
+
+**Transition:** All criteria pass + user approval → DONE
+
+---
+
+### Phase 5: DONE
+
+#### Final Output
+
+```
+=== Spec Complete ===
+
+Phase: DONE
+Type: <feature plan | architecture decision | refactoring | strategy>
+Effort: <S/M/L/XL>
+Status: Ready for task breakdown
+
+Discovery:
+- Explored: <areas investigated>
+- Key findings: <relevant architecture/patterns>
+
+Recommendation:
+<brief summary>
+
+Key Trade-offs:
+- <what we're choosing vs alternatives>
+
+Implementation Shape:
+- Types: <new or changed types>
+- Interfaces: <new or changed boundaries>
+- Project layout: <paths created, moved, or modified>
+
+Deliverables (Ordered):
+1. [D1] (effort) — [concrete outcome] — depends on: -
+   - Owning paths: [paths] | Acceptance: [A1]
+2. [D2] (effort) — [concrete outcome] — depends on: D1
+   - Owning paths: [paths] | Acceptance: [A2]
+
+Open Questions:
+- [ ] <if any remain> → Owner: [who]
+```
+
+#### Write Spec to File (MANDATORY)
+
+1. Derive filename from feature/decision name (kebab-case) when no path was supplied.
+2. Write or finalize the spec at the explicitly requested path, or default to `specs/<filename>.md`. Explicit paths may be nested or outside that directory.
+3. Confirm: `Spec written to: <actual path>`
+
+Suggest implementation only when ready; do not start it as a consequence of finishing the document. Follow [approval](#approval) for the selected task's stopping condition.
+
+---
+
+### Effort Estimates
+
+| Size   | Time      | Scope                              |
+| ------ | --------- | ---------------------------------- |
+| **S**  | <1 hour   | Single file, isolated change       |
+| **M**  | 1-3 hours | Few files, contained feature       |
+| **L**  | 1-2 days  | Cross-cutting, multiple components |
+| **XL** | >2 days   | Major refactor, new system         |
+
+### Scope Control
+
+When scope creeps:
+
+1. **Name it:** "That's scope expansion. Let's finish X first."
+2. **Park it:** "Added to Open Questions. Revisit after core spec stable."
+3. **Cost it:** "Adding Y changes effort from M to XL. Worth it?"
+
+**Hard rule:** If scope changes, re-estimate and flag explicitly.
+
+### References
+
+| File                                                        | When to Read                                 |
+| ----------------------------------------------------------- | -------------------------------------------- |
+| [templates.md](references/templates.md)                     | Output formats for plans, ADRs, RFCs         |
+| [decision-frameworks.md](references/decision-frameworks.md) | Complex multi-factor decisions               |
+| [estimation.md](references/estimation.md)                   | Breaking down work, avoiding underestimation |
+| [technical-debt.md](references/technical-debt.md)           | Evaluating refactoring ROI                   |
+
+## Approval
+
+Present the complete proposal and ask for approval. **Stop before implementation on both paths.** A request to plan or create a spec ends here. For an ongoing coding task, resume its selected playbook after approval.
+
+Done means the proposal is understandable, acceptance is testable, material unknowns are explicit, and the approval state is accurately reported. Suggested next workflows are suggestions, not automatic transitions.
+
+## Refine
+
+Accept an explicit path; use the current known spec when unambiguous. Read the whole spec, relevant source/history, and any recorded approvals.
+
+1. Identify required behavior, compatibility, security, error invariants, ownership, and implementation contracts before proposing cuts.
+2. Use [prose cleanup](../cleanup/PLAYBOOK.md#prose-cleanup) in proposal-only mode for prose and [show-complexity](../show-complexity/PLAYBOOK.md) for design burden. This workflow's approval boundary controls both procedures.
+3. Present clarity improvements and viable conservative/aggressive simplifications with focused diffs. Explain what each retains, changes, and loses; do not force alternatives where no safe reduction exists.
+4. Ask which proposals to approve. Make no initial edits, including wording-only cleanup.
+5. Apply only selected changes. Reconcile types, interfaces, deliverables, and validation affected by semantic changes. Resolve contradictions through dialogue.
+6. Check consistency and formatting. Report the actual path, changes, and remaining uncertainties. Suggest implementation when ready; do not automatically implement or publish the revised spec.

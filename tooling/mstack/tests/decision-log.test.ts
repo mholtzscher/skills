@@ -21,7 +21,7 @@ function cli(cwd: string, args: string[]) {
 }
 
 test("template is the exact six-column source header", async () => {
-  expect(await readFile(new URL("../../../mstack/references/decision-trail/decision-log-template.tsv", import.meta.url), "utf8")).toBe(header);
+  expect(await readFile(new URL("../../../mstack/playbooks/decision-trail/references/decision-log-template.tsv", import.meta.url), "utf8")).toBe(header);
 });
 
 test("new nested path with spaces, UTC timestamp, then sequential append preserves bytes", async () => {

@@ -10,7 +10,7 @@ if (args.length !== 6 || args[0].trim() === "") {
 
 try {
   const [logfile, ...cells] = args;
-  const header = await readFile(new URL("../references/decision-trail/decision-log-template.tsv", import.meta.url));
+  const header = await readFile(new URL("../playbooks/decision-trail/references/decision-log-template.tsv", import.meta.url));
   await mkdir(dirname(logfile), { recursive: true });
   // Append even on first use. A mistaken existence/size observation must not
   // truncate prior rows, especially on a network mount. Callers serialize writes.
