@@ -56,7 +56,7 @@ Deterministic classification and the pure Actions-log summarizer are adapted fro
 
 ## Decision-log append helper
 
-Requires Bun only, with no production package dependencies or `gh`. This helper writes the explicitly selected local file. Unlike the PR CLI, it is not read-only. Follow [Decision trail](../playbooks/decision-trail.md) for the canonical schema, storage, run attribution, corrections, audit, review, and publication boundaries.
+Requires Bun only, with no production package dependencies or `gh`. This helper writes the explicitly selected local file. Unlike the PR CLI, it is not read-only. The calling workflow owns storage, run attribution, corrections, audit, review, and publication boundaries. The bundled template defines the canonical schema.
 
 ```sh
 bun /absolute/path/to/mstack/scripts/decision-log.ts <logfile> <phase> <decision> <why> <evidence> <result>

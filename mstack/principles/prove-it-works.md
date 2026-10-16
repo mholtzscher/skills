@@ -10,6 +10,6 @@ Indirect evidence can feel cheaper than direct observation, but acting on a wron
 
 Use a deterministic rerunnable comparison when it materially improves reliability, following [Encode lessons](encode-lessons.md#make-work-rerunnable). Reuse an adequate existing check before writing another. For an approved new script, run it and retain its actual output so the human can inspect both the method and the result. A script that was only written is not executed proof.
 
-Keep raw outputs and evidence artifacts visible to the human through resolving paths or links. Preserve permission boundaries for new scripts, running systems, and evidence collection. A local artifact is not automatically a committed deliverable. Publishing an audit trail requires the explicit agreement described in [Decision trails](../playbooks/decision-trail.md#where-it-lives), not merely a large or complex task.
+Keep raw outputs and evidence artifacts visible to the human through resolving paths or links. Preserve permission boundaries for new scripts, running systems, and evidence collection. A local artifact is not automatically a committed deliverable. Publishing an audit trail requires explicit agreement, not merely a large or complex task.
 
 Report what was observed, what the check establishes, and what remains unverified. An unavailable tool or an unexecuted check remains a gap rather than a pass.

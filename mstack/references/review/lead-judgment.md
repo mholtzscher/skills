@@ -58,4 +58,4 @@ A good verdict is useful, not an unfiltered dump. The user should be able to rea
 
 The "Dismissed" section is not busywork. It's a trust mechanism. Showing the user what you rejected and why lets them override your judgment where they disagree. This is more valuable than hiding the rejected findings.
 
-Give every finding one of the four verdicts in the [Interrogate procedure](../../playbooks/review.md#step-5-lead-judgment), with reviewer/model attribution and a rationale: Act on, Consider, Noted, or Dismissed. Preserve disagreements in the agreement map. No finding is automatically applied; stop at the report unless agreed fixes are separately approved.
+Give every finding one of the four verdicts, with reviewer/model attribution and a rationale: Act on, Consider, Noted, or Dismissed. Preserve disagreements in the agreement map. No finding is automatically applied; stop at the report unless agreed fixes are separately approved.

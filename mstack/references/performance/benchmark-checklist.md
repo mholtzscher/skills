@@ -10,7 +10,7 @@ For a quick ballpark the user asked for, one run is enough. Still check question
 - Read the measurement script. Note what it times, counts, and ignores.
 - Check the load average with `uptime` and the core count with `nproc`. If the machine is busy, find out what is running. Stop workloads only within your actual tools and authority; never kill unrelated processes. If you cannot stop competing work, interleave the sides so both see the same noise, and say so in the report. Serialize measurements on shared resources or otherwise control contention; isolated worktrees alone do not isolate CPU, disk, or network load. If noise still prevents a comparison, report that gap rather than a winner.
 
-Use available tools appropriate to the environment; the commands below are examples, not permission to install tools or change environment configuration. Writing or changing measurement code requires an [approved sketch/spec](../../SKILL.md#scope-and-approval); reuse existing approval when it covers the work. If a required check is unavailable, report the evidence gap rather than infer success.
+Use available tools appropriate to the environment; the commands below are examples, not permission to install tools or change environment configuration. Writing or changing measurement code requires an approved sketch/spec; reuse existing approval when it covers the work. If a required check is unavailable, report the evidence gap rather than infer success.
 
 ## The questions
 
@@ -27,9 +27,9 @@ Use available tools appropriate to the environment; the commands below are examp
 - Lead with the verdict: faster, slower, no measurable difference, or inconclusive.
 - Give the number with its unit, the run count, the range, and the limiter. For example, "p50 41 ms → 33 ms, median of 7 runs per side, range 32 to 35 ms after, bound by JSON parsing on one core."
 - Call the verdict inconclusive when you claim a difference but cannot name the limiter, when a side ran untuned, or when you could not check questions 4 and 7. Name the gap. Missing required evidence or uncontrolled measurement conditions are not a winner.
-- Keep a PR body to one primary number, using the [publication procedure](../../playbooks/pull-requests.md#publish). Put the runs, range, and limiter evidence in a linked artifact or notes file, respecting repository policy for local evidence and obtaining authority before uploading it.
+- Keep a PR body to one primary number. The calling delivery workflow owns publication. Put the runs, range, and limiter evidence in a linked artifact or notes file, respecting repository policy for local evidence and obtaining authority before uploading it.
 
 ## Other performance material
 
-- For a [one-off performance issue](../../playbooks/performance.md#one-off-performance-issue), vet the baseline before planning from it, and every number after that.
-- For a [hillclimb](../../playbooks/performance.md#hillclimb), vet the harness before it is frozen. The frozen harness then prints error and work counts, so each keep-or-revert checks questions 4 and 7 for free. Inspect those counts and actual correctness evidence on every attempt; printing counters alone does not establish validity.
+- For a one-off performance issue, vet the baseline before planning from it, and every number after that.
+- For a hillclimb, vet the harness before it is frozen. The frozen harness then prints error and work counts, so each keep-or-revert checks questions 4 and 7 for free. Inspect those counts and actual correctness evidence on every attempt; printing counters alone does not establish validity.

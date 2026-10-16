@@ -17,4 +17,4 @@ Before using a tool-specific recipe, discover the actual tools and inspect their
 Cross-cutting:
 
 - [incident-postmortem.md](sources/incident-postmortem.md). Add this if the target code looks defensive (null checks, retry, timeout, rate limit, feature flag, egress guard, OOM handler); run the relevant queries within the assigned source.
-- For prior session evidence, read [history guidance](../../history.md) and the actual [host adapter](../../../SKILL.md#host-selection), not an assumed chat or database interface.
+- For prior session evidence, read [history guidance](../../history.md) and the adapter for the actual host, [OpenCode](../../hosts/opencode.md) or [Pi](../../hosts/pi.md). Use the available interface rather than assuming a chat or database interface exists.

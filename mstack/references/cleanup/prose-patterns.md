@@ -1,6 +1,6 @@
 # Prose patterns
 
-Apply this complete catalog when invoking [Prose cleanup](../../playbooks/cleanup.md#prose-cleanup). Preserve meaning and match the intended tone. The caller's scope, exact-evidence protections, and technical-syntax protections govern what is editable.
+Apply this complete catalog during prose cleanup. Preserve meaning and match the intended tone. The caller's scope, exact-evidence protections, and technical-syntax protections govern what is editable.
 
 Rule numbers are stable IDs that other procedures can cite. Removed rules leave gaps. Heading labels preserve these IDs without ordered-list renumbering.
 

@@ -1,6 +1,6 @@
 # Design red flags
 
-Screen every actual candidate before [Architecture synthesis](../../playbooks/exploration.md#phase-b-sketch). Each red flag prompts investigation of concrete behavioral or maintainability harm before requiring revision or rejection. Describe the caller coordination, duplicated rule, hidden state, or change burden that matters to the actual goal. A preferred shape, size threshold, or hypothetical future caller alone is not a blocker. Read [Minimize reader load](../../principles/minimize-reader-load.md).
+Screen every actual candidate before architecture synthesis. Each red flag prompts investigation of concrete behavioral or maintainability harm before requiring revision or rejection. Describe the caller coordination, duplicated rule, hidden state, or change burden that matters to the actual goal. A preferred shape, size threshold, or hypothetical future caller alone is not a blocker. Read [Minimize reader load](../../principles/minimize-reader-load.md).
 
 Assume a contributor sees only the files it opened, copies the nearest example, and takes the shortest path that compiles. Distinguish confirmed source callers and behavior from proposed future usage and design hypotheses. Screening proposes a better shape; it does not authorize implementation, wholesale deletion, or a new migration.
 
@@ -46,7 +46,7 @@ Give each piece of state one owner. Other modules read it or ask that owner to c
 
 The design supports more than one way to do the same task. A contributor copies whichever example it finds first, so both ways keep gaining callers.
 
-Prefer one internal path. For an approved internal migration, move every caller and delete the superseded path in the same wave. Preserve supported external compatibility and unrelated work. A necessary temporary adapter needs an owner and removal condition. Establish that the tasks and contracts really are the same before proposing consolidation. Use [Refactoring](../../playbooks/refactoring.md) for behavior pins and authorized migration, not deletion from a report-only review.
+Prefer one internal path. For an approved internal migration, move every caller and delete the superseded path in the same wave. Preserve supported external compatibility and unrelated work. A necessary temporary adapter needs an owner and removal condition. Establish that the tasks and contracts really are the same before proposing consolidation. Retain behavior pins for an authorized migration; a report-only review proposes changes rather than deleting code.
 
 ## Importable internals
 

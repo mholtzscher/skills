@@ -27,6 +27,6 @@ Reproduce the failure first. Ask why until the mechanism explains it. Symptom fi
 
 Search for the pattern as well as the instance. Inspect sibling modules and callers for the same mechanism. Fix equivalent instances within the approved fix scope and surface additional work rather than expanding authority. When stuck, instrument the path and read the actual error instead of guessing. New instrumentation follows the existing code-approval gate.
 
-A workaround needing a paragraph-long comment is a diagnostic to investigate its design, not proof the code is wrong. Preserve useful rationale and uncertain constraints while checking them, as required by [Comment review](../playbooks/cleanup.md#comment-review).
+A workaround needing a paragraph-long comment is a diagnostic to investigate its design, not proof the code is wrong. Preserve useful rationale and uncertain constraints while checking them.
 
 For a failure after restart, suspect stale persistent state before changing code. Inspect config files, caches, lock files, and serialized state. If an authorized experiment clearing owned disposable state restores behavior, prioritize state validation and reconciliation as the likely fix. Preserve the original evidence. Clearing state is not itself a durable fix, and this diagnostic grants no permission to delete user, shared, or production state.

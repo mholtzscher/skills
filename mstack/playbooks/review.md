@@ -14,11 +14,11 @@ These are distinct procedures, not automatic stages. A broad diff does not autom
 
 Establish intent, exact base/target revisions, and whether local edits belong in scope. Inventory changed paths, including new/deleted/renamed files. Review the full relevant diff, not just classifier output or a summary. Preserve unrelated files and external state.
 
-Use [orchestration](../references/orchestration.md) and the actual [host adapter](../SKILL.md#host-selection) when delegating. Give reviewers the original intent and immutable snapshot, absolute cwd and base revision, bounded scope, evidence requirements, and report-only stopping point. Reviewers do not edit files, run builds, install dependencies, commit, or post comments. A reviewer needing execution returns the precise proposed check; the lead may perform it only within allowed scope or assign an authorized tester contract. Reviewer status does not silently become tester authority.
+When delegating, use [orchestration](../references/orchestration.md) and the adapter for the actual host, [OpenCode](../references/hosts/opencode.md) or [Pi](../references/hosts/pi.md). Give reviewers the original intent and immutable snapshot, absolute cwd and base revision, bounded scope, evidence requirements, and report-only stopping point. Reviewers do not edit files, run builds, install dependencies, commit, or post comments. A reviewer needing execution returns the precise proposed check; the lead may perform it only within allowed scope or assign an authorized tester contract. Reviewer status does not silently become tester authority.
 
 The lead verifies every proposed finding and consolidates duplicates. Ask for concrete triggering conditions, consequences, and evidence. Model agreement raises a lead, not proof. Missing tests or speculative risks alone are not validated defects. A clean scoped review is valid; there is no nit quota.
 
-Stop at the report. Do not auto-apply findings, post GitHub comments, resolve threads, or launch delivery. Agreed fixes require approval under [scope and approval](../SKILL.md#scope-and-approval); reuse existing agreement only when it actually covers those fixes.
+Stop at the report. Do not auto-apply findings, post GitHub comments, resolve threads, or launch delivery. Agreed fixes require implementation approval; reuse existing agreement only when it actually covers those fixes.
 
 ## Ordinary review
 

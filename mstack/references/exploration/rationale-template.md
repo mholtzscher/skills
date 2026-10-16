@@ -1,10 +1,10 @@
 # Rationale template
 
-The prose accompanies the type sketch from [Architecture](../../playbooks/exploration.md#architecture). Aim for one page with sentence-case headings and no boilerplate. Replace the notes below with actual content. Preserve every section, with honest limits where evidence or alternatives are unavailable.
+The prose accompanies the architecture type sketch. Aim for one page with sentence-case headings and no boilerplate. Replace the notes below with actual content. Preserve every section, with honest limits where evidence or alternatives are unavailable.
 
 ## Problem
 
-One paragraph. What are we trying to do, and what makes the shape non-obvious in the existing system or constraints? Name the constraints found in [Phase A](../../playbooks/exploration.md#phase-a-ground-the-problem), including types to interoperate with, callers that must remain compatible, and invariants crossing the boundary. Distinguish source-established constraints from design hypotheses.
+One paragraph. What are we trying to do, and what makes the shape non-obvious in the existing system or constraints? Name the constraints established during grounding, including types to interoperate with, callers that must remain compatible, and invariants crossing the boundary. Distinguish source-established constraints from design hypotheses.
 
 ## Usage, caller's view
 
@@ -16,7 +16,7 @@ State the recommended architecture, data structures first, then data flow throug
 
 ## Synthesis decision
 
-For multiple candidates, the lead records which became the base and why, what was adapted from each other candidate, and what was rejected and why. Attribute actual contributions and known identities. For one direct candidate, state that fact and the evidence supporting the choice. Local architecture comparison need not run [Arena](../../playbooks/exploration.md#arena). Record an Arena result only if it actually occurred; do not manufacture candidates, judge verdicts, or independent agreement.
+For multiple candidates, the lead records which became the base and why, what was adapted from each other candidate, and what was rejected and why. Attribute actual contributions and known identities. For one direct candidate, state that fact and the evidence supporting the choice. Local architecture comparison need not run Arena. Record an Arena result only if it actually occurred; do not manufacture candidates, judge verdicts, or independent agreement.
 
 ## Tradeoffs accepted
 
@@ -32,4 +32,4 @@ State what the human needs to weigh before implementation and risks worth flaggi
 
 ## Next implementation step
 
-One sentence naming the first thing to build against the sketch after approval and only within the caller's implementation authority. For an architecture-only task, propose that next step without starting it. [Phase C](../../playbooks/exploration.md#phase-c-agree) always requires implementation approval; it is not an opt-in checkpoint.
+One sentence naming the first thing to build against the sketch after approval and only within the caller's implementation authority. For an architecture-only task, propose that next step without starting it. Implementation approval is always required; it is not an opt-in checkpoint.

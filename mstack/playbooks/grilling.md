@@ -6,7 +6,7 @@ Read the conversation and relevant code/docs first. Reuse answered questions and
 
 Work the tree in **rounds**. The **frontier** is every decision whose prerequisites are already settled: the questions you can ask _now_ without guessing at answers you haven't heard yet. Ask the whole frontier in one round: number each question and give your recommended answer. Then wait for the user's answers before the next round.
 
-Use the [host's structured question tool](../SKILL.md#host-selection) when available. Make each question a real choice, explain why it matters, and put the recommended answer first with credible alternatives. If the tool limits the number of questions per call, cover the same ready frontier in tool-sized batches within one logical round; dependent questions still belong to the next round.
+Use the host's structured question tool when available, following the adapter for [OpenCode](../references/hosts/opencode.md) or [Pi](../references/hosts/pi.md). Make each question a real choice, explain why it matters, and put the recommended answer first with credible alternatives. If the tool limits the number of questions per call, cover the same ready frontier in tool-sized batches within one logical round; dependent questions still belong to the next round.
 
 When no structured question tool is available, format a round like so:
 

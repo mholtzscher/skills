@@ -4,6 +4,8 @@ Audited 2026-10-15 against mstack `fbc0587` plus the spec-planner restoration, p
 
 D29 moves this report and the other maintenance documents to `docs/mstack/`, with validation and development tooling in `tooling/mstack/`. Links below resolve to the current runtime paths. Historical commands, counts, and evidence describe their recorded revisions. Source coverage and the remaining restoration recommendations are unchanged by this packaging move.
 
+D30 removes upward runtime reading dependencies while preserving peer composition. Its link/caller adaptations are recorded below and in provenance. Historical fidelity and byte-preservation claims continue to identify their original revisions.
+
 ## Result
 
 **The initial integration preserved broad intent much better than substantive source detail.** Consolidation preserved the already-condensed mstack text; it did not recover the instructions, examples, and references omitted earlier.
@@ -555,6 +557,18 @@ From `tooling/mstack`, `bun install --frozen-lockfile` reported no changes, `bun
 Two new tests exercise the packaging boundary. One copies the actual runtime to a temporary skill directory without repository docs, tooling, or development dependencies, validates its local links and metadata, and runs both CLIs from an unrelated project directory. The decision-log helper resolves its bundled template and writes the expected row; the PR helper returns the expected target using the offline `gh` fixture. The other invokes the relocated validator from an unrelated working directory and confirms that its default target is the repository runtime.
 
 The bundle validator reports one entry and 84 runtime Markdown files. Repository maintenance links, heading fragments, and runtime reachability were checked separately. Direct code, prose, and comment review preserved the selected scope, source attribution, approval boundaries, and useful test rationale. These checks establish local packaging and helper behavior. Fresh independent Help evaluation, live host discovery, and real GitHub execution from a copied installation were not run. Installation and global configuration were not changed.
+
+## D30 downward-link verification
+
+Checked on 2026-10-15 against baseline `6397a5a`. The audit found 28 link occurrences back to `SKILL.md` and 24 from supporting material back to playbooks. After the user's **Keep peer links** choice, all 52 were removed or redirected to the same or a lower layer. Host-specific pointers now reach the applicable adapter directly. Approval and evidence constraints remain in their original instructions without a link back to the entry.
+
+Direct caller review covered the reading dependencies rather than only deleting Markdown syntax. The PR playbook now calls Show me for visual metadata; publication and metadata rewriting retain their prose-cleanup steps. Verification-skill routing remains in the entry and skill-development playbook. Architecture supplies applicable instructions in each runner brief, and the runner reports missing context to its parent. The orchestration contract passes governing rules and assigned instructions in the brief while retaining absolute paths to supporting resources. Principles and references retain their approval, behavior-proof, comment-preservation, and publication constraints without launching a higher-level procedure.
+
+The validator checks resolved inline Markdown targets outside fenced examples. It rejects links from a playbook to the entry and from supporting material to either higher layer, including links to their directories. Peer links and `../` paths to peers or lower layers remain valid. Ten added tests cover nine upward-link cases and one composed workflow with shared references, local anchors, license access, and a protected fenced example. All 86 tests passed with 246 assertions, including the existing copied-runtime tests. Typechecking passed. Running the new validator against a temporary export of the unchanged baseline failed with 50 distinct upward-link diagnostics, reflecting the 52 occurrences with duplicate source/target pairs deduplicated. The updated bundle validates with one entry, 84 Markdown files, and no errors.
+
+Before/after comparison found 62 unchanged runtime files and 32 edited Markdown files. All 48 fenced examples are byte-preserved. The entry, license, both host adapters, all runtime helper code, and the deferred Arena body are unchanged. Runtime and maintenance file targets and fragments resolve, and all 25 playbooks and 14 principles remain reachable. Direct code, prose, and comment cleanup found no remaining scoped defect; this is not an independent review.
+
+The external skill-creator quick validator failed before validation because Python's `yaml` module is missing. No dependency was installed for it. The repository's Bun validator supplied metadata, target, packaging, and layer checks. Link tests and direct context review do not establish live delegation behavior or automatic comprehension of every brief. No fresh independent behavioral evaluation, host discovery, or live-host delegation was run. Installation and global configuration were unchanged.
 
 ## Validation limits
 

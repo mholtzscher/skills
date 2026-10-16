@@ -1,6 +1,6 @@
 # History as evidence
 
-Use the current host's [history adapter](../SKILL.md#host-selection). Scope retrieval to the relevant project/topic and a useful recent period, or the period explicitly requested. Expand across projects only when the request calls for that scope. Do not retrieve secrets or unrelated conversations to build a general profile.
+Use the current host's history adapter: [OpenCode](hosts/opencode.md) or [Pi](hosts/pi.md). Scope retrieval to the relevant project/topic and a useful recent period, or the period explicitly requested. Expand across projects only when the request calls for that scope. Do not retrieve secrets or unrelated conversations to build a general profile.
 
 Delegate large transcript searches with a concrete question and request concise findings: date, session/entry ID, a short user quote, relevant outcome, and confidence. Exclude the current research session and its children when mining historical preferences.
 

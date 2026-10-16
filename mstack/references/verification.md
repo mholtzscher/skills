@@ -11,8 +11,6 @@ Derive checks from the approved behavior and plausible failures. Read [prove it 
 
 Use available external specialists when their task fits: go-test-effectiveness, service-design, agent-browser, terminal-control, or the project's own verification skill. Skill availability alone is not a reason to launch a broad audit.
 
-When asked to create or maintain a project verification skill, follow the [verification-skill playbook](../playbooks/verification-skill.md).
-
 For PR checks, use the bundled [PR helpers](../scripts/README.md). Their rollup is evidence about reported jobs, not a complete branch-protection/ruleset/mergeability proof. Missing or ambiguous required-check knowledge cannot support a claim that required CI is green.
 
 ## Focused regression testing
@@ -20,7 +18,7 @@ For PR checks, use the bundled [PR helpers](../scripts/README.md). Their rollup 
 Use this sequence when the user explicitly asks for TDD, a failing test, or a regression test, or when the bug has an obvious cheap local test target. Otherwise, skip adding a new test when the path is unclear, expensive, integration-heavy, or not requested. Make broken behavior executable before changing production code when a clear, cheap test path exists. The goal is a focused check that fails before the fix and passes after it, not universal test-first implementation.
 
 1. **Understand the bug.** Identify intended behavior, actual behavior, the affected path, and the smallest observable reproduction.
-2. **Choose the narrowest executable check.** Prefer the closest unit, component, integration, or regression test already used for that path. Do not build test infrastructure merely to satisfy this sequence. New tests and analysis helpers remain within the current task's [implementation approval](../SKILL.md#scope-and-approval).
+2. **Choose the narrowest executable check.** Prefer the closest unit, component, integration, or regression test already used for that path. Do not build test infrastructure merely to satisfy this sequence. New tests and analysis helpers remain within the current task's implementation approval.
 3. **Write the failing test first.** Add the smallest focused test that would have caught the bug. Encode correct behavior rather than copying the implementation.
 4. **Run RED before fixing.** Confirm the test fails for the intended reason and retain that failure. If it passes or fails for an unrelated reason, repair the test or reproduction before changing implementation.
 5. **Fix the bug.** Make the smallest production change that satisfies the intended behavior while preserving nearby contracts.

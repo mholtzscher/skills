@@ -2,7 +2,7 @@
 
 Actively build and sharpen the project's domain model as you design. This is the _active_ discipline: challenging terms, inventing edge-case scenarios, and writing the glossary and decisions down the moment they crystallise. (Merely _reading_ `GLOSSARY.md` for vocabulary is not this playbook: that's a one-line habit any playbook can do. This playbook is for when you're changing the model, not just consuming it.)
 
-Use the [host's question tool](../SKILL.md#host-selection) for genuine domain decisions, with conversational fallback. Reuse settled answers from planning. The inline documentation updates below apply when the requested work includes modeling; in a read-only investigation, propose them instead. Preserve established repository organization and numbering, and record the decision's actual status.
+Use the host's question tool for genuine domain decisions, with conversational fallback. Read the adapter for the current host, [OpenCode](../references/hosts/opencode.md) or [Pi](../references/hosts/pi.md). Reuse settled answers from planning. The inline documentation updates below apply when the requested work includes modeling; in a read-only investigation, propose them instead. Preserve established repository organization and numbering, and record the decision's actual status.
 
 Read `GLOSSARY-MAP.md` when present to find bounded contexts; otherwise inspect the current context's `GLOSSARY.md`.
 

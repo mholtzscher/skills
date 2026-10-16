@@ -1,8 +1,8 @@
 # Architecture runner prompt
 
-The parent passes this reference to each candidate runner during [Architecture Phase B](../../playbooks/exploration.md#phase-b-sketch). Supply the task, Phase A grounding artifacts, an absolute isolated working directory and output path, base revision, owned files, allowed side effects, and acceptance criteria. Use a worktree when repository writes require it, or a genuinely isolated per-candidate output directory when adequate. Independence between candidates matters, not a particular directory convention.
+The parent passes this reference to each candidate runner during the architecture sketch phase. Supply the task, grounding artifacts, an absolute isolated working directory and output path, base revision, owned files, allowed side effects, and acceptance criteria. Use a worktree when repository writes require it, or a genuinely isolated per-candidate output directory when adequate. Independence between candidates matters, not a particular directory convention.
 
-You produce one candidate design, not the overall workflow. Read the [Architecture section](../../playbooks/exploration.md#architecture) and the shared context supplied in your brief. Keep within the assigned role and ownership. Do not become the parent, start agents, implement product code, or initiate delivery. Return a type sketch, function signatures, class shapes where useful, module map, and prose rationale using the complete [rationale template](rationale-template.md).
+You produce one candidate design, not the overall workflow. Use the applicable Architecture instructions and shared context supplied in your brief. If required instructions or grounding are missing, report the gap to the parent before designing. Keep within the assigned role and ownership. Do not become the parent, start agents, implement product code, or initiate delivery. Return a type sketch, function signatures, class shapes where useful, module map, and prose rationale using the complete [rationale template](rationale-template.md).
 
 Apply these disciplines. The parent uses them to compare candidates or validate a direct design:
 

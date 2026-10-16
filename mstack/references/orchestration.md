@@ -24,7 +24,7 @@ For tightly coupled changes, keep the root as the active implementation writer a
 
 For delegated tasks, launch a real subagent before doing its assigned work. Describing delegation is not a substitute for launching an agent. Do not create agents solely to satisfy this rule for root-only tasks. If optional delegation is unavailable, use the disclosed fallback in [Blockers and failures](#blockers-and-failures).
 
-Read the [host adapter](../SKILL.md#host-selection) for actual tool syntax and capabilities. Current tool schemas take precedence over examples. Models and actual agent names come from host configuration; mstack requires no model setup. A requested multi-model review needs real model diversity; if unavailable, report it rather than relabeling same-model roles as diverse.
+For actual tool syntax and capabilities, read the adapter for the current host, [OpenCode](hosts/opencode.md) or [Pi](hosts/pi.md). Current tool schemas take precedence over examples. Models and actual agent names come from host configuration; mstack requires no model setup. A requested multi-model review needs real model diversity; if unavailable, report it rather than relabeling same-model roles as diverse.
 
 For each launch:
 
@@ -65,7 +65,7 @@ Give each agent a narrow task with:
 - **Deliverable:** what to return or implement, with expected evidence and a concise handoff format
 - **Acceptance criteria:** how success will be checked
 
-Include absolute paths to mstack's shared rules, relevant playbook/principles, and host adapter.
+Supply the applicable shared rules and assigned playbook instructions in the brief, plus absolute paths to relevant principles, supporting references, and the selected host adapter. The child receives its governing context from the parent rather than reopening a higher-level workflow.
 
 When an approved sketch or spec provides numbered deliverables, use them as the initial work breakdown. Each worker contract names the relevant deliverable IDs, owned paths, dependencies, and acceptance criteria. Preserve those references when splitting large deliverables into milestones or combining small deliverables that form one cohesive change; do not require one agent per deliverable. Keep a deliverable incomplete until all its assigned implementation and validation work is accepted.
 

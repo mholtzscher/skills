@@ -1,6 +1,6 @@
 # Mstack help
 
-Read the relevant [host adapter](../SKILL.md#host-selection). Identify what the user is trying to accomplish and explain only the applicable path. Give an invocation they can use in their current host. Inspect actual availability before claiming a tool or background capability works. Installing/configuring dependencies is a separate requested action.
+Read the adapter for the current host: [OpenCode](../references/hosts/opencode.md) or [Pi](../references/hosts/pi.md). Identify what the user is trying to accomplish and explain only the applicable path. Give an invocation they can use in their current host. Inspect actual availability before claiming a tool or background capability works. Installing/configuring dependencies is a separate requested action.
 
 ## Usage
 
@@ -11,7 +11,7 @@ Mstack has one explicit entry point. Describe the task after its name; these are
 | OpenCode V2 | `@mstack Fix the filter reset` |
 | Pi          | `/skill:mstack triage PR 123`  |
 
-Use the [playbook table](../SKILL.md#playbooks) for the requested task and the [PR intent table](../SKILL.md#pr-workflows) for publication, feedback, or check requests. Explicit spec paths and PR URLs or numbers are accepted. Planning, investigation, review, and checks retain their own completion conditions. Implementation requires an approved sketch or spec. Ordinary approved coding continues through one unmerged PR and scoped required-CI repair.
+Use the playbook and PR intent tables already in context to match the requested task. Explicit spec paths and PR URLs or numbers are accepted. Planning, investigation, review, and checks retain their own completion conditions. Implementation requires an approved sketch or spec. Ordinary approved coding continues through one unmerged PR and scoped required-CI repair.
 
 ## Dependencies
 

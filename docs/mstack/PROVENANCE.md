@@ -320,6 +320,7 @@ The [2026-10-15 audit](SOURCE-AUDIT.md) maps all selected vendor sources, all 52
 
 ## Deliberate changes
 
+- D30 makes runtime reading flow downward from entry to playbooks to supporting material, while retaining useful peer links. Host pointers now reach the adapters directly. Shared rules and task-specific constraints stay in force without parent backlinks. Delegated briefs supply applicable governing instructions, and the Architecture runner reports missing context to its parent. PR visual-format routing moves to the PR playbook; verification-skill routing remains in the entry and skill-development playbook. The original rules, examples, and approval boundaries remain, with the link and caller adaptations recorded in [D30](DECISIONS.md#d30-keep-runtime-reading-flow-downward-and-retain-peer-composition).
 - D29 separates the installable `mstack/` runtime from repository-only `docs/mstack/` maintenance records and `tooling/mstack/` development tooling. Historical sources, hashes, and inventories are preserved, with links rebased to their current targets. Help carries the usage and dependency guidance needed without the repository guide. Runtime helper source and bundled license bytes are unchanged.
 - Two planning paths, each requiring implementation approval; full specs remain first-class.
 - Selective delegation and one writer for coupled implementation, with separate OpenCode/Pi adapters and host-owned models.

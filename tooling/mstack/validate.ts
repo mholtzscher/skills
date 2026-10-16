@@ -19,6 +19,12 @@ export async function validateBundle(root: string) {
     const rel = relative(root, path);
     return rel !== ".." && !rel.startsWith(`..${sep}`) && !rel.startsWith(sep);
   };
+  const layer = (path: string) => {
+    const rel = relative(root, path);
+    if (rel === "" || rel === "SKILL.md") return 0;
+    if (rel === "playbooks" || rel.startsWith(`playbooks${sep}`)) return 1;
+    return 2;
+  };
   if (skillFiles.length !== 1 || skillFiles[0] !== join(root, "SKILL.md")) errors.push("Bundle must have exactly one entry point at SKILL.md");
   for (const path of skillFiles) {
     const label = relative(root, path);
@@ -50,6 +56,7 @@ export async function validateBundle(root: string) {
       try {
         const actual = await realpath(location);
         if (!inside(actual)) errors.push(`${relative(root, path)}: link leaves the installed bundle: ${target}`);
+        else if (layer(actual) < layer(path)) errors.push(`${relative(root, path)}: upward instruction link: ${target}`);
       } catch {
         errors.push(`${relative(root, path)}: broken link ${target}`);
       }

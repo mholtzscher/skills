@@ -212,6 +212,14 @@ Accepted 2026-10-15. Keep only `SKILL.md`, `LICENSE`, playbooks, principles, run
 
 Help must remain usable from an installed copy, with local invocation, dependency, and installation guidance. Runtime files must not depend on repository maintenance documents or development packages. Preserve the complete maintenance history and source inventories, runtime helper behavior, license notices, single-entry discovery metadata, and workflow approval boundaries. The validator defaults to the runtime directory from any working directory and still accepts an explicit installation path. Installation and global configuration remain separate cutover actions.
 
+### D30: Keep runtime reading flow downward and retain peer composition
+
+Accepted 2026-10-15. Runtime links follow three layers: the `SKILL.md` entry, playbooks, and supporting material such as principles, references, and helper usage. Links may go down or stay within a layer. Remove links from child files back to the entry and from supporting files back to playbooks. The user chose **Keep peer links**, preserving useful task composition and shared-resource links. A relative `../` path is not an upward dependency when it reaches a peer or lower-layer resource. Maintenance documents are outside this runtime rule. [E27](#e27-downward-reading-flow).
+
+Preserve substantive rules and delegated context when removing backlinks. Host guidance points directly to the applicable adapters. Already-loaded shared rules remain authoritative. The parent supplies applicable governing instructions in each delegated brief; the child reports missing required context rather than reopening the parent workflow. Workflow routing belongs in the entry or calling playbook. Keep supporting references focused on their assigned task. Add validation for the layer boundaries and tests that reject upward dependencies while allowing valid peer composition.
+
+This refines D03's conditional reading and D29's self-contained packaging. It does not require a strict directory tree, remove peer links, change approval or delivery authority, or restore deferred Arena content.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed pstack 0.15.21's 24 principles into 14. Several concrete prescriptions were shortened away, including the written premise/actor census and detailed exhaustive-matching/type-construction guidance. D26 restores these diagnostics and examples, with explicit choices for evidence-driven tools, risk-based types, and declared migration phases. The source's mandatory tool deliverable and proceed-first policy are not restored. Full Orchestrate/Autopilot protocols and the dedicated worktree/simulator-cleanup workflow were not preserved.
@@ -268,6 +276,8 @@ The planning-pointer cleanup was checked on 2026-10-15 against baseline `53ff3ae
 The optional-specialist paragraph removal was checked on 2026-10-15 against baseline `58e6593`. Bundle validation reports one entry and 90 Markdown files. Direct comparison confirms unchanged preceding entry text and task-specific specialist guidance. No links, headings, discovery metadata, or executable code changed. No fresh behavioral or live-host evaluation was run.
 
 The D29 packaging move was checked on 2026-10-15 against baseline `5bcbaad`. Bundle validation reports one entry and 84 runtime Markdown files. Fresh typechecking and all 76 tests passed from `tooling/mstack`, including copied-runtime CLI execution and validator default-path checks. Ninety-two retained runtime files, including helper source and license, are byte-preserved. [Packaging evidence](SOURCE-AUDIT.md#d29-packaging-verification) records direct review, link checks, and limits. Fresh independent Help evaluation, live host discovery, and real GitHub execution from a copied installation remain untested. No installation or global cutover occurred.
+
+The D30 downward-link cleanup was checked on 2026-10-15 against baseline `6397a5a`. All 52 upward-link occurrences were removed or redirected. The new validator rejects that baseline with 50 distinct upward-link diagnostics and accepts the updated bundle with one entry and 84 Markdown files. Typechecking and all 86 tests passed, including rejection and peer-composition cases. All 48 fenced runtime examples are unchanged, and the entry, host adapters, helper code, license, and Arena body retain their bytes. [Link-flow evidence](SOURCE-AUDIT.md#d30-downward-link-verification) records caller/context review and remaining limits. The external skill-creator validator could not start because PyYAML is missing. No fresh independent behavioral evaluation or live host delegation was run.
 
 Future verification should update this section with its date, target revision, commands/evidence, and remaining limits. No follow-up above is automatically authorized by this snapshot.
 
@@ -382,3 +392,7 @@ After D27 was published, the user asked whether the proposed testing, forensics,
 ### E26: Runtime packaging separation
 
 The user asked whether provenance, decisions, and the glossary would be installed with the skill, then requested a proposed directory structure. The assistant showed `mstack/` for runtime files, `docs/mstack/` for maintenance documents, and `tooling/mstack/` for validation, tests, and development dependencies. The proposal retained self-contained Help and runtime links. The user replied "do that", approving this layout and its necessary caller updates.
+
+### E27: Downward reading flow
+
+After D29 was published, the user requested downward links through the skill without upward links. An audit found 28 links back to `SKILL.md` and 24 from supporting material back to playbooks. The assistant proposed removing those reading dependencies, preserving rules and delegated context, and adding a validator check. The user selected **Keep peer links (Recommended)**, approving parent-backlink removal while retaining task-specific composition, shared-resource links, and valid `../` paths.

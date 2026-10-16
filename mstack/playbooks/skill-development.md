@@ -20,7 +20,7 @@ Mine the current conversation for durable learnings, then propose concrete edits
 
 ### 1. Locate the active transcript
 
-Use the active host's [history adapter](../SKILL.md#host-selection) and [history evidence rules](../references/history.md). Retrieve this project's actual active session, not an unrelated recent chat. Verify its opening user prompt and session identity before review. Inspect the actual export/API schema rather than assuming `message.content[0].text` or a Cursor directory. Follow the active branch where the host exposes session trees. Include relevant parent/child evidence without confusing a child's opening assignment with the user's opening request. Do not crawl other projects or query the live database directly.
+Use [history evidence rules](../references/history.md) and the history adapter for the active host, [OpenCode](../references/hosts/opencode.md) or [Pi](../references/hosts/pi.md). Retrieve this project's actual active session, not an unrelated recent chat. Verify its opening user prompt and session identity before review. Inspect the actual export/API schema rather than assuming `message.content[0].text` or a Cursor directory. Follow the active branch where the host exposes session trees. Include relevant parent/child evidence without confusing a child's opening assignment with the user's opening request. Do not crawl other projects or query the live database directly.
 
 For an authorized filesystem export, this optional candidate-listing recipe covers legacy flat, nested, and child layouts where those layouts actually exist. Replace the placeholder with the host's discovered, project-scoped export directory. It lists candidates, not proof of active-session identity or complete coverage.
 

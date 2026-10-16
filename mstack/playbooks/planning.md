@@ -104,7 +104,7 @@ question({
 
 Explore directly by default using the host's file and search tools: on OpenCode, use `glob` for paths, `grep` for symbols and content, and `read` for relevant files; on Pi, use the available equivalents. Identify key files, abstractions, patterns, integration points, types, interfaces, and project-layout constraints.
 
-For delegated discovery, use [orchestration](../references/orchestration.md) and the current [host adapter](../SKILL.md#host-selection) after checking available agents and the actual tool schema. Assign bounded read-only discovery tasks. Launch independent tasks separately in the background where supported, wait for results before dependent steps, and consume results before drafting; do not assume a particular agent name exists.
+For delegated discovery, check available agents and the actual tool schema. Use [orchestration](../references/orchestration.md) and the adapter for the current host, [OpenCode](../references/hosts/opencode.md) or [Pi](../references/hosts/pi.md). Assign bounded read-only discovery tasks. Launch independent tasks separately in the background where supported, wait for results before dependent steps, and consume results before drafting; do not assume a particular agent name exists.
 
 | Target             | What to Find                                       |
 | ------------------ | -------------------------------------------------- |

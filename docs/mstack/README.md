@@ -24,6 +24,8 @@ Planning, investigation, review, metadata rewrite, and check snapshots keep thei
 
 Only `mstack/` is copied or symlinked during installation. Runtime links resolve within that directory. Repository-root `AGENTS.md` routes maintenance work to this guide's neighboring instructions.
 
+Runtime reading flows from the entry to playbooks to supporting material. Peer playbooks may compose each other, and supporting resources may share references. Links back to the entry or from supporting material to playbooks are rejected by the validator. Relative `../` paths are valid when their targets belong to the same or a lower layer. Maintenance documents may link to any runtime layer.
+
 ## Install the whole bundle
 
 Place or symlink the repository's `mstack/` directory under a shared skill root. For example, after deciding to install:

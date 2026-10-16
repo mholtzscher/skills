@@ -1,6 +1,6 @@
 # Continuity
 
-Follow only the requested section. For pickup or pause, read [history guidance](../references/history.md) and the current [host adapter](../SKILL.md#host-selection).
+Follow only the requested section. For pickup or pause, read [history guidance](../references/history.md) and the adapter for the current host, [OpenCode](../references/hosts/opencode.md) or [Pi](../references/hosts/pi.md).
 
 ## Recall
 
@@ -10,7 +10,7 @@ Keep it tight and on-topic. Read only what the in-scope threads need, then stop.
 
 Your context lives in two records. Your own chat history holds what you did and decided. The shared record holds everything that happened around the same code under other names: the symptoms users keep reporting, the fixes that shipped and got reverted, the errors still firing in prod. That second record is what [Why](explanation.md#why) searches, across source control, the issue tracker, chat and issue channels, long-form docs, and error tracking. A feature with a long bug tail keeps most of its story there, so don't reconstruct it from your transcripts alone.
 
-Use [history guidance](../references/history.md) and the actual [host history adapter](../SKILL.md#host-selection), not a hardcoded transcript directory or UUID path. Recall is bounded read-only research. It does not authorize integration setup, broad unrelated access, product changes, or external writes.
+Use [history guidance](../references/history.md) and the history adapter for the actual host, [OpenCode](../references/hosts/opencode.md) or [Pi](../references/hosts/pi.md). A hardcoded transcript directory or UUID path does not establish access. Recall is bounded read-only research. It does not authorize integration setup, broad unrelated access, product changes, or external writes.
 
 1. Classify, then route. One specific prior chat to resume is [Pickup](#pickup), not this. Turning habits into a durable skill belongs to separately approved [Author or Reflect](skill-development.md), not automatic workflow encoding. A human-readable activity summary is a different task. Recall loads working context across recent chats before you act. If the user already gave you a full state capsule (paths, branch, the change), use it and skip transcript mining. Still reconcile relevant current state and specific gaps as needed; a supplied capsule is not a reason for broad extra mining.
 2. Lock the scope before searching. Pin the window ("recent" is a real range, default the last 7 days), the topic if named, and the workspace (default the active one). State the scope back, including the actual date range. Never read another project's transcripts without being asked. Never quietly turn "all" into "recent N". If an all-history request needs bounded batches, preserve its full scope and report incomplete coverage rather than silently truncating it.
@@ -54,7 +54,7 @@ Then give each action item a short executive summary. Cover the decision to make
 
 Show each action item as a before and after, side by side. For a choice, put the current state beside each option, or the options alone when there is no current state. Use existing real screenshots or a video when the change is visible. Otherwise use another artifact, such as a table of numbers, a diff, or a diagram. If no visual exists yet, make a reply visual from existing evidence, such as an inline comparison table or Mermaid diagram. If you cannot, say plainly that none exists. If real screenshots or video are unavailable, say so and show allowed text or table evidence instead; do not start an app or job to capture them. Never invent a number, and never draw or generate a picture of a screen you did not capture. Link only artifacts that exist.
 
-Prefer visuals to dense prose. Use a table, a Mermaid diagram, a chart, or an authorized conceptual image that does not pretend to be a captured screen. Reply visuals do not authorize project changes; code, HTML, or other project artifacts require separate approval under the existing [scope boundary](../SKILL.md#scope-and-approval). End with the summary, not execution of its action items or self-owned work.
+Prefer visuals to dense prose. Use a table, a Mermaid diagram, a chart, or an authorized conceptual image that does not pretend to be a captured screen. Reply visuals do not authorize project changes; code, HTML, or other project artifacts require separate approval under the existing scope boundary. End with the summary, not execution of its action items or self-owned work.
 
 ## Pickup
 

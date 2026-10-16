@@ -24,7 +24,7 @@ Sequence justified removal before building on the simpler base. Cut unused behav
 
 Trace observed usage, production callers, and contracts before declaring machinery obsolete. Remove dead code, redundant validators, and orphan references within approved scope. Design for actual usage rather than speculative edge cases. Add parsers and guards for real boundary contracts and spec requirements, not imagined future needs.
 
-For prompts, remove redundant instructions and excessive templates. A reference with no novel content can be deleted after checking its callers, substantive content, and removal authority. Preserve a valid route for retained guidance. This is not permission to delete approved restored instructions, supported external requirements, useful rationale, or uncertain constraint comments. Investigate those through [Comment review](../playbooks/cleanup.md#comment-review).
+For prompts, remove redundant instructions and excessive templates. A reference with no novel content can be deleted after checking its callers, substantive content, and removal authority. Preserve a valid route for retained guidance. This is not permission to delete approved restored instructions, supported external requirements, useful rationale, or uncertain constraint comments. Investigate uncertain rationale before proposing its removal.
 
 ## Migrate internal callers and remove the old path
 
@@ -32,4 +32,4 @@ When the new internal API is approved, inventory callers, migrate them, and dele
 
 Preserve genuine supported external contracts and unrelated work. Temporary adapters are exceptional and time-boxed, with an owner and removal condition rather than permanent default architecture. Use [declared migration phases](verifiable-units.md#declare-migration-phases-when-temporary-breakage-is-necessary) if approved isolated intermediate breakage is necessary.
 
-Update tests to assert the agreed new contract. Remove obsolete tests that protect only pre-refactor implementation details, while preserving meaningful behavior pins and external requirements. Follow [Refactoring](../playbooks/refactoring.md) for original-code pins, coordinated moves, and equivalence evidence. A new internal API does not silently authorize a changed behavior contract or an out-of-scope migration.
+Update tests to assert the agreed new contract. Remove obsolete tests that protect only pre-refactor implementation details, while preserving meaningful behavior pins and external requirements. Retain original-code pins, coordinated moves, and equivalence evidence for an approved refactor. A new internal API does not silently authorize a changed behavior contract or an out-of-scope migration.
