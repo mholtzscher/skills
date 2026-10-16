@@ -149,16 +149,27 @@ project-layout changes as a nested `text` directory tree, marking each path as n
 responsibility. If one part is unchanged or genuinely not applicable, say so and explain why instead of silently
 omitting it. Map each new type and interface to an owning path and deliverable.
 
+```text
+src/
+├── api/
+│   └── widget_handler.go    # modify — validates and serves widget requests
+└── widgets/
+    ├── service.go           # new — owns widget creation rules
+    └── repository.go        # modify — persists widget records
+```
+
 Define each deliverable with a stable ID, a concrete outcome, owning file/package paths, dependencies, and references to its testable acceptance criteria. Include shared infrastructure and integration checks in those mappings so delegation does not leave required work unowned. Keep this information in the existing spec; the execution orchestrator decides agent assignments and scheduling, not the planner.
 
 For each acceptance criterion, specify how an implementer can check it: the behavior or boundary to exercise, the expected result, and a concrete command or manual procedure when known. Cover the main success path and material failure or regression paths. Distinguish checks the implementer can run locally from those requiring external access or a deployed environment. Do not invent commands; mark unknown commands for discovery during implementation and explain what must be checked.
 
-Use appropriate template from [templates.md](references/templates.md):
+#### Select the output template
 
-- **Quick Decision** — Scoped technical choices
-- **Feature Plan** — New feature development
-- **ADR** — Architecture decisions
-- **RFC** — Larger proposals
+Choose the format for the current proposal, then read only its template:
+
+- [Quick decision](references/templates/quick-decision.md) for scoped technical choices.
+- [Feature plan](references/templates/feature-plan.md) for new feature development.
+- [ADR](references/templates/adr.md) for architecture decisions.
+- [RFC](references/templates/rfc.md) for larger proposals.
 
 Write the draft to the explicitly requested path, or default to `specs/<descriptive-name>.md`, and mark its approval state accurately. Creating the requested spec is permitted planning work. Use established repository conventions for durable ADRs and [domain modeling](../domain-modeling/PLAYBOOK.md) for glossary/decision-record work.
 
@@ -195,6 +206,8 @@ Present the written spec and its consequential choices, then wait for explicit a
 ---
 
 ### Phase 5: DONE
+
+After approval, read the [handoff template](references/templates/handoff.md) for the task-decomposition handoff. The final response follows the format below.
 
 #### Final Output
 
@@ -264,7 +277,6 @@ When scope creeps:
 
 | File                                                        | When to Read                                 |
 | ----------------------------------------------------------- | -------------------------------------------- |
-| [templates.md](references/templates.md)                     | Output formats for plans, ADRs, RFCs         |
 | [decision-frameworks.md](references/decision-frameworks.md) | Complex multi-factor decisions               |
 | [estimation.md](references/estimation.md)                   | Breaking down work, avoiding underestimation |
 | [technical-debt.md](references/technical-debt.md)           | Evaluating refactoring ROI                   |
