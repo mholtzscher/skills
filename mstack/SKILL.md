@@ -133,5 +133,3 @@ Identify the host from its actual tools, not from the project being edited.
 - **Pi:** read [pi.md](references/hosts/pi.md).
 
 The workflows share the same policy. These adapters supply tool syntax and capability limits. Use available file/search/shell tools for ordinary operations. Bun and authenticated `gh` run on the agent's execution machine, which may differ from the UI machine.
-
-Discover optional skills by their registered names and actual installed paths. Browser/terminal verification may use `agent-browser` or `terminal-control`; Go work may use `service-design` or `go-test-effectiveness`; skill authoring may use `skill-creator` and `writing-for-agents`. These are external specialists, not bundled dependencies required at startup. When a particular task requires an unavailable capability, report that gap.

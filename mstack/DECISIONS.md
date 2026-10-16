@@ -70,6 +70,8 @@ Vendor/adapt show-me, show-complexity, spec-planner, grilling, and domain-modeli
 
 Technical and tool-specific skills remain external: service-design, go-test-effectiveness, skill-creator, writing-for-agents, agent-browser, and terminal-control. No external skill is mandatory at bundle startup; a task still requires the actual tools needed to complete it. This keeps independently evolving tool instructions with their owners while making the selected planning/explanation workflow self-contained. **Rejected proposal:** reference all the planning/explanation procedures externally. [E5](#e5-vendoring-migration-and-review-surface).
 
+On 2026-10-15, Plannotator review `pn-55dbd7` requested removal of the entry's optional-specialist paragraph as unnecessary. Remove that repeated catalog. Task-specific verification and authoring guidance still identify relevant specialists, and shared completion rules still require reporting unavailable capabilities. The external-specialist policy remains unchanged.
+
 ### D11: Put deterministic mechanics in standalone Bun scripts
 
 Use Bun/TypeScript for reusable PR targeting, paginated thread collection, conservative check classification, and bounded failure-log evidence. Preserve unknown/unavailable evidence as distinct from success and detect inconsistent snapshots. Keep approval and publication policy in the playbooks. Explicit spec paths and PR targets are supported; repository defaults are conveniences rather than a strict slash-command grammar.
@@ -252,6 +254,8 @@ Final D28 packaging checks report one entry and 90 Markdown files, with 296 reso
 The entry-document annotation fixes were checked on 2026-10-15 against baseline `43d6392`. Bundle validation reports one entry and 90 Markdown files; all 295 local fragment links resolve, and all 25 playbooks and 14 principles remain reachable. Direct before/after comparison confirms unchanged discovery metadata, routing tables, approval rules, execution rules, and host selection. Help retains the on-demand installation guide, principle reading and material citations remain explicit, and the opening retains relative-link resolution. This was a direct prose and routing review, with no fresh independent behavioral evaluation or live-host check. No executable code changed.
 
 The planning-pointer cleanup was checked on 2026-10-15 against baseline `53ff3ae`. Bundle validation reports one entry and 90 Markdown files. The new link resolves; the planning playbook and all shared rules outside the approved passage are byte-identical to baseline. Verification was direct and static, with no fresh behavioral or live-host evaluation. No executable code changed.
+
+The optional-specialist paragraph removal was checked on 2026-10-15 against baseline `58e6593`. Bundle validation reports one entry and 90 Markdown files. Direct comparison confirms unchanged preceding entry text and task-specific specialist guidance. No links, headings, discovery metadata, or executable code changed. No fresh behavioral or live-host evaluation was run.
 
 Future verification should update this section with its date, target revision, commands/evidence, and remaining limits. No follow-up above is automatically authorized by this snapshot.
 
