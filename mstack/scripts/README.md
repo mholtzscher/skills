@@ -52,16 +52,7 @@ At most five distinct run/attempt/job targets are collected, sequentially. Addit
 
 Each subprocess uses argv directly, never a shell. Its combined stdout/stderr is bounded to 8 MiB. The per-process deadline defaults to 30,000 ms (`--timeout-ms` overrides it); timeout/output overflow sends SIGTERM, then SIGKILL after 200 ms if necessary. Review pagination has explicit limits of 1,000 thread pages, 1,000 additional comment pages total, and 32 MiB of comment bodies. Missing/repeated cursors, duplicate IDs, GraphQL errors, and budget exhaustion fail the entire thread report instead of silently truncating it. GitHub connections are not atomic snapshots; concurrent review changes can require a rerun.
 
-## Development
-
-```sh
-cd mstack/scripts
-bun install
-bun run typecheck
-bun test
-```
-
-The lockfile pins development-only TypeScript/Bun types. Tests use fixture classification and a subprocess fake `gh`; they perform no live GitHub operations. Deterministic classification and the pure Actions-log summarizer are adapted from Michael Holtzscher's MIT-licensed `workflow-tools/pr/check-classification.ts` and `workflow-tools/pr/actions-log.ts` (copyright 2026 Michael Holtzscher; see the repository's `LICENSE`). Effect and plugin machinery are not included.
+Deterministic classification and the pure Actions-log summarizer are adapted from Michael Holtzscher's MIT-licensed `workflow-tools/pr/check-classification.ts` and `workflow-tools/pr/actions-log.ts` (copyright 2026 Michael Holtzscher; see the [bundle license](../LICENSE)). Effect and plugin machinery are not included.
 
 ## Decision-log append helper
 

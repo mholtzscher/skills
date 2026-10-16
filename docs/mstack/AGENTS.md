@@ -9,8 +9,8 @@ Before changing the bundle's workflows, wording, scripts, packaging, or host int
 
 ## Checks
 
-From the repository root, run `bun mstack/validate.ts`, `bunx prettier --check 'mstack/**/*.md'`, and `git diff --check`. Check formatting on changed root Markdown too. Inspect new or changed link fragments; the bundle validator checks file targets, not heading anchors.
+From the repository root, run `bun tooling/mstack/validate.ts`, `bunx prettier --check 'mstack/**/*.md' 'docs/mstack/**/*.md'`, and `git diff --check`. Check formatting on changed root Markdown too. Inspect new or changed link fragments; the bundle validator checks runtime file targets, not heading anchors or maintenance-document links.
 
-For helper or validator changes, also run `bun run typecheck` and `bun test` from `mstack/scripts` after installing its development dependencies. For workflow changes, use the scenario-evaluation guidance in [skill development](playbooks/skill-development.md#evaluate); packaging checks alone do not establish behavior. Discovery, delegation, or watcher changes need the relevant host-level check, with unavailable checks reported explicitly.
+For helper, validator, or packaging changes, also run `bun run typecheck` and `bun test` from `tooling/mstack` after installing its development dependencies. For workflow changes, use the scenario-evaluation guidance in [skill development](../../mstack/playbooks/skill-development.md#evaluate); packaging checks alone do not establish behavior. Discovery, delegation, or watcher changes need the relevant host-level check, with unavailable checks reported explicitly.
 
 Keep validation gaps in [DECISIONS.md](DECISIONS.md#validation-and-cutover-snapshot) dated and evidence-backed. Installation and host configuration follow the separately approved cutover described in [README.md](README.md#migration).

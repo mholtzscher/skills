@@ -3,11 +3,11 @@ import { chmod, copyFile, mkdtemp, readFile, rm, writeFile } from "node:fs/promi
 import { existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { delimiter, join } from "node:path";
-import { classify, type Check, type Read } from "../checks.ts";
-import { createGh } from "../gh.ts";
-import { summarizeFailedLog } from "../actions-log.ts";
-import { actionsSelector } from "../logs.ts";
-import { parseArgs, type Target } from "../target.ts";
+import { classify, type Check, type Read } from "../../../mstack/scripts/checks.ts";
+import { createGh } from "../../../mstack/scripts/gh.ts";
+import { summarizeFailedLog } from "../../../mstack/scripts/actions-log.ts";
+import { actionsSelector } from "../../../mstack/scripts/logs.ts";
+import { parseArgs, type Target } from "../../../mstack/scripts/target.ts";
 import cases from "./fixtures/classification.json";
 
 const target: Target = {
@@ -69,7 +69,7 @@ async function fixture(responses: Response[], run: (env: Record<string, string>,
   }
 }
 async function cli(env: Record<string, string>, args: string[]) {
-  const child = Bun.spawn([process.execPath, new URL("../pr.ts", import.meta.url).pathname, ...args], { env, stdout: "pipe", stderr: "pipe" });
+  const child = Bun.spawn([process.execPath, new URL("../../../mstack/scripts/pr.ts", import.meta.url).pathname, ...args], { env, stdout: "pipe", stderr: "pipe" });
   const [stdout, stderr, code] = await Promise.all([new Response(child.stdout).text(), new Response(child.stderr).text(), child.exited]);
   return { stdout, stderr, code, json: stdout ? JSON.parse(stdout) : undefined };
 }

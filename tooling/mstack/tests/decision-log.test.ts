@@ -5,7 +5,7 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const header = "ts\tphase\tdecision\twhy\tevidence\tresult\n";
-const script = fileURLToPath(new URL("../decision-log.ts", import.meta.url));
+const script = fileURLToPath(new URL("../../../mstack/scripts/decision-log.ts", import.meta.url));
 const temporary: string[] = [];
 afterEach(async () => {
   for (const dir of temporary.splice(0)) await rm(dir, { recursive: true, force: true });
@@ -21,7 +21,7 @@ function cli(cwd: string, args: string[]) {
 }
 
 test("template is the exact six-column source header", async () => {
-  expect(await readFile(new URL("../../references/decision-trail/decision-log-template.tsv", import.meta.url), "utf8")).toBe(header);
+  expect(await readFile(new URL("../../../mstack/references/decision-trail/decision-log-template.tsv", import.meta.url), "utf8")).toBe(header);
 });
 
 test("new nested path with spaces, UTC timestamp, then sequential append preserves bytes", async () => {

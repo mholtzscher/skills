@@ -2,7 +2,7 @@ import { afterEach, expect, test } from "bun:test";
 import { mkdtemp, mkdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
-import { validateBundle } from "../../validate.ts";
+import { validateBundle } from "../validate.ts";
 
 const roots: string[] = [];
 afterEach(async () => {

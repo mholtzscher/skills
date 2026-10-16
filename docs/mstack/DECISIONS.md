@@ -1,6 +1,6 @@
 # Mstack maintenance decisions
 
-Initial record created 2026-10-15 from the original design session's user messages and completed question/answer records, including material before compaction, and cross-checked against the published bundle at `f26c267`. Later decisions cite their own approval evidence. This is the durable record of design intent; [SKILL.md](SKILL.md) and its linked playbooks contain the executable instructions, and [PROVENANCE.md](PROVENANCE.md) identifies adapted sources.
+Initial record created 2026-10-15 from the original design session's user messages and completed question/answer records, including material before compaction, and cross-checked against the published bundle at `f26c267`. Later decisions cite their own approval evidence. This is the durable record of design intent; [SKILL.md](../../mstack/SKILL.md) and its linked playbooks contain the executable instructions, and [PROVENANCE.md](PROVENANCE.md) identifies adapted sources.
 
 The decisions below are accepted unless explicitly marked otherwise. Rationale summarizes the tradeoffs discussed; detailed implementation choices are identified as such rather than presented as separate user votes. Original approval records are indexed under [Sources](#sources). Earlier session history informed the discussion but does not override these choices.
 
@@ -22,7 +22,7 @@ Mstack owns Michael's engineering workflow in this repository. Adapt pstack's pl
 
 Shared rules, the principle index, host selection, investigation guidance, and PR intent routing live in the main skill. Load only the selected playbooks and relevant principle leaves. Repeated directions to read already-loaded shared rules were removed because they added reads without context.
 
-Approved consolidations: code/prose/comments in [cleanup](playbooks/cleanup.md); recall/catch-up/pickup/pause in [continuity](playbooks/continuity.md); how/why/teach in [explanation](playbooks/explanation.md); sketch/spec-planner/refinement in [planning](playbooks/planning.md); six PR operations in [pull requests](playbooks/pull-requests.md). Named sections preserve each operation's permissions and stopping point. Spec implementation, finish delivery, grilling, and domain modeling remain separate procedures.
+Approved consolidations: code/prose/comments in [cleanup](../../mstack/playbooks/cleanup.md); recall/catch-up/pickup/pause in [continuity](../../mstack/playbooks/continuity.md); how/why/teach in [explanation](../../mstack/playbooks/explanation.md); sketch/spec-planner/refinement in [planning](../../mstack/playbooks/planning.md); six PR operations in [pull requests](../../mstack/playbooks/pull-requests.md). Named sections preserve each operation's permissions and stopping point. Spec implementation, finish delivery, grilling, and domain modeling remain separate procedures.
 
 The user explicitly required exact text preservation during consolidation. Headings, relative links, and agreed terminology changed; substantive instruction rewriting was not part of that permission. This does not freeze wording forever: future intentional changes need their own scope. [E7](#e7-shared-context-consolidation), [E9](#e9-playbook-consolidation).
 
@@ -40,19 +40,19 @@ On 2026-10-15, the user approved removing duplicated planning details from the e
 
 Approved feature, bug-fix, refactoring, and spec-implementation work continues through verification, cleanup, one PR, and repair of required CI within scope. Ordinary delivery stops before merging. Stacked delivery and merging remain explicitly requested advanced operations.
 
-**Rejected:** making verified local changes the ordinary stopping point. The user chose “Publish ordinary coding too” and “Fix CI for coding tasks.” This authority belongs to approved coding; investigation, planning, review, and check snapshots retain their own completion conditions. See [scope and approval](SKILL.md#scope-and-approval) and [finish delivery](playbooks/finish-delivery.md). [E2](#e2-delegation-delivery-and-activation), [E3](#e3-planning-and-pr-contracts).
+**Rejected:** making verified local changes the ordinary stopping point. The user chose “Publish ordinary coding too” and “Fix CI for coding tasks.” This authority belongs to approved coding; investigation, planning, review, and check snapshots retain their own completion conditions. See [scope and approval](../../mstack/SKILL.md#scope-and-approval) and [finish delivery](../../mstack/playbooks/finish-delivery.md). [E2](#e2-delegation-delivery-and-activation), [E3](#e3-planning-and-pr-contracts).
 
 ### D06: Preserve distinct PR intents and agreement boundaries
 
 Publish, rewrite metadata, triage feedback, fix agreed feedback, inspect checks, and watch are independently selectable operations. Triage is read-only until agreement. Feedback fixes must publish successfully before reactions or thread resolution. Monitoring after standalone publication or feedback fixes is read-only; coding tasks own required-CI repair. An immediate checks request does not become a waiting or repair loop.
 
-Keep the visual PR format: **Why the change**, **Special things to note**, a compact **Change outline**, and verification results. Explicit PR URLs/numbers are accepted. The [PR playbook](playbooks/pull-requests.md) implements these boundaries, including its bounded 30-minute publication watcher and opt-out; merging its files did not merge its permissions. [E3](#e3-planning-and-pr-contracts), [E5](#e5-vendoring-migration-and-review-surface), [E6](#e6-initial-implementation-approval), [E9](#e9-playbook-consolidation).
+Keep the visual PR format: **Why the change**, **Special things to note**, a compact **Change outline**, and verification results. Explicit PR URLs/numbers are accepted. The [PR playbook](../../mstack/playbooks/pull-requests.md) implements these boundaries, including its bounded 30-minute publication watcher and opt-out; merging its files did not merge its permissions. [E3](#e3-planning-and-pr-contracts), [E5](#e5-vendoring-migration-and-review-surface), [E6](#e6-initial-implementation-approval), [E9](#e9-playbook-consolidation).
 
 ### D07: Delegate selectively; let hosts own models
 
 Use separate contexts when independent exploration, implementation, or review materially helps. Coupled implementation has one writer, and the coordinator accepts delegated evidence. Optional delegation can fall back to disclosed direct work where sound; an explicitly required independent review or parallel run remains unmet until available or revised by the user.
 
-Models and roles come from host configuration. **Rejected:** mandatory implementation delegation, routine design panels, a model sheet, and even an optional mstack-specific model-setup workflow. OpenCode/Pi adapters translate actual host capabilities rather than duplicating workflow policy. See [orchestration](references/orchestration.md) and [host selection](SKILL.md#host-selection). [E2](#e2-delegation-delivery-and-activation), [E3](#e3-planning-and-pr-contracts), [E4](#e4-principles-cleanup-and-models).
+Models and roles come from host configuration. **Rejected:** mandatory implementation delegation, routine design panels, a model sheet, and even an optional mstack-specific model-setup workflow. OpenCode/Pi adapters translate actual host capabilities rather than duplicating workflow policy. See [orchestration](../../mstack/references/orchestration.md) and [host selection](../../mstack/SKILL.md#host-selection). [E2](#e2-delegation-delivery-and-activation), [E3](#e3-planning-and-pr-contracts), [E4](#e4-principles-cleanup-and-models).
 
 ### D08: Retain material principle citations
 
@@ -62,7 +62,7 @@ Read relevant principle leaves and cite a principle when it materially changes a
 
 Code cleanup, prose cleanup, and dedicated comment review are mandatory before publication. They are distinct passes, not a requirement for three simultaneous writing agents. Independent report-only review is useful when available; the owner applies accepted changes within scope.
 
-Comment review preserves useful non-obvious rationale and investigates uncertain constraints before recommending deletion. **Rejected:** inheriting pstack's default-to-delete treatment of unresolved constraint comments. Encoding a real constraint in a type, test, or assertion is preferable when practical, but uncertainty alone is not evidence that a comment is worthless. See [cleanup](playbooks/cleanup.md). [E4](#e4-principles-cleanup-and-models), [E5](#e5-vendoring-migration-and-review-surface).
+Comment review preserves useful non-obvious rationale and investigates uncertain constraints before recommending deletion. **Rejected:** inheriting pstack's default-to-delete treatment of unresolved constraint comments. Encoding a real constraint in a type, test, or assertion is preferable when practical, but uncertainty alone is not evidence that a comment is worthless. See [cleanup](../../mstack/playbooks/cleanup.md). [E4](#e4-principles-cleanup-and-models), [E5](#e5-vendoring-migration-and-review-surface).
 
 ### D10: Vendor selected procedures; keep specialists external
 
@@ -88,9 +88,11 @@ Building the bundle, deprecating the standalone orchestrator, and publishing the
 
 The resulting packaging requires the entire `mstack/` directory under a skill search root. An explicit OpenCode source points at the parent containing `mstack/`; the obsolete `mstack/skills` source must be changed during cutover. See [installation](README.md#install-the-whole-bundle) and [migration](README.md#migration). [E5](#e5-vendoring-migration-and-review-surface), [E6](#e6-initial-implementation-approval), [E8](#e8-single-entry-and-terminology).
 
+D29 narrows `mstack/` to runtime files. Maintenance records and development tooling now live outside the installable directory; the whole-runtime installation and separate cutover requirements remain.
+
 ### D14: Include verification-skill creation and maintenance
 
-The initial bundle had general verification guidance but omitted pstack's project verification-skill workflows. The user approved adding one [verification-skill playbook](playbooks/verification-skill.md) with Create and Maintain sections and the worked feature-map resources.
+The initial bundle had general verification guidance but omitted pstack's project verification-skill workflows. The user approved adding one [verification-skill playbook](../../mstack/playbooks/verification-skill.md) with Create and Maintain sections and the worked feature-map resources.
 
 The implemented adaptation defaults generated skills to project-local `.agents/skills/verify-<app>/`, shared by OpenCode and Pi. Creation proves one mapped feature end to end. Maintenance covers every mapped feature against source and live behavior, confines corrections to the target skill directory, and reports clean, changed, or blocked. Both retain evidence through owned cleanup. Mstack approval gates and selective source-reading delegation replace upstream host/path and mandatory-delegation assumptions. These are the adaptation's implemented details; real-app evaluation remains a separate evidence gap. [E10](#e10-verification-skill-addition).
 
@@ -98,11 +100,13 @@ The implemented adaptation defaults generated skills to project-local `.agents/s
 
 Keep this decision record and a short maintainer `AGENTS.md`, link them from the development guide, and make provenance refer to the committed record. The user approved this after asking how future sessions could recover context lost through compaction. Store decisions, rationale, source locators, and known gaps rather than a personal transcript dump. A repository-root pointer makes the maintainer instructions reachable when a session starts above `mstack/`. [E11](#e11-durable-maintenance-context).
 
+D29 supersedes their original location inside the installed bundle. The records and maintainer instructions live in `docs/mstack/`, reached through repository-root `AGENTS.md`.
+
 ### D16: Restore show-me source fidelity
 
 Accepted 2026-10-15. Restore the complete show-me source body rather than summarizing its examples into a view-selection table. The condensed playbook had retained only one of ten worked examples and omitted the product-styling and desktop/mobile requirements. Keep the original examples and substantive guidance; limit adaptations to single-entry packaging, host-compatible file opening, and formatting. This supersedes the initial condensed show-me implementation while retaining D02's single entry and the shared approval rules.
 
-Keep attribution out of this playbook's runtime instructions, as requested to avoid confusing the agent. Source identity and license notices remain in [PROVENANCE.md](PROVENANCE.md#show-me-source-fidelity) and [LICENSE](LICENSE). The approval covers this show-me restoration and publication to PR #2; it does not authorize rewriting other vendored procedures. [E12](#e12-show-me-restoration).
+Keep attribution out of this playbook's runtime instructions, as requested to avoid confusing the agent. Source identity and license notices remain in [PROVENANCE.md](PROVENANCE.md#show-me-source-fidelity) and [LICENSE](../../mstack/LICENSE). The approval covers this show-me restoration and publication to PR #2; it does not authorize rewriting other vendored procedures. [E12](#e12-show-me-restoration).
 
 ### D17: Restore spec-planner source fidelity
 
@@ -202,6 +206,12 @@ Existing approvals govern new tests, instrumentation, parsers, derived artifacts
 
 Selective host-owned execution replaces mandatory implementation agents, model-sheet setup, and automatic Architecture for every cross-function edit. Adequate query tools replace compulsory SQLite conversion of every artifact. Preserve test-before-fix evidence without requiring broken published commits. D26 governs any approved isolated temporary failure. Accepted production fixes retain one ordinary unmerged PR and scoped required-CI repair; diagnostic and measurement-only requests retain their own stopping boundaries. Arena and other source-audit omissions remain outside this batch.
 
+### D29: Separate runtime packaging from repository maintenance
+
+Accepted 2026-10-15. Keep only `SKILL.md`, `LICENSE`, playbooks, principles, runtime references, helpers, and helper usage in `mstack/`. Move the installation/development guide, maintainer instructions, decisions, glossary, provenance, and source audit to `docs/mstack/`. Move the validator, tests, package manifest, lockfile, TypeScript configuration, and local development dependencies to `tooling/mstack/`. Update repository pointers, relative links, test imports, and validation commands together. [E26](#e26-runtime-packaging-separation).
+
+Help must remain usable from an installed copy, with local invocation, dependency, and installation guidance. Runtime files must not depend on repository maintenance documents or development packages. Preserve the complete maintenance history and source inventories, runtime helper behavior, license notices, single-entry discovery metadata, and workflow approval boundaries. The validator defaults to the runtime directory from any working directory and still accepts an explicit installation path. Installation and global configuration remain separate cutover actions.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed pstack 0.15.21's 24 principles into 14. Several concrete prescriptions were shortened away, including the written premise/actor census and detailed exhaustive-matching/type-construction guidance. D26 restores these diagnostics and examples, with explicit choices for evidence-driven tools, risk-based types, and declared migration phases. The source's mandatory tool deliverable and proceed-first policy are not restored. Full Orchestrate/Autopilot protocols and the dedicated worktree/simulator-cleanup workflow were not preserved.
@@ -256,6 +266,8 @@ The entry-document annotation fixes were checked on 2026-10-15 against baseline 
 The planning-pointer cleanup was checked on 2026-10-15 against baseline `53ff3ae`. Bundle validation reports one entry and 90 Markdown files. The new link resolves; the planning playbook and all shared rules outside the approved passage are byte-identical to baseline. Verification was direct and static, with no fresh behavioral or live-host evaluation. No executable code changed.
 
 The optional-specialist paragraph removal was checked on 2026-10-15 against baseline `58e6593`. Bundle validation reports one entry and 90 Markdown files. Direct comparison confirms unchanged preceding entry text and task-specific specialist guidance. No links, headings, discovery metadata, or executable code changed. No fresh behavioral or live-host evaluation was run.
+
+The D29 packaging move was checked on 2026-10-15 against baseline `5bcbaad`. Bundle validation reports one entry and 84 runtime Markdown files. Fresh typechecking and all 76 tests passed from `tooling/mstack`, including copied-runtime CLI execution and validator default-path checks. Ninety-two retained runtime files, including helper source and license, are byte-preserved. [Packaging evidence](SOURCE-AUDIT.md#d29-packaging-verification) records direct review, link checks, and limits. Fresh independent Help evaluation, live host discovery, and real GitHub execution from a copied installation remain untested. No installation or global cutover occurred.
 
 Future verification should update this section with its date, target revision, commands/evidence, and remaining limits. No follow-up above is automatically authorized by this snapshot.
 
@@ -366,3 +378,7 @@ After D26 was published, the assistant recommended Architecture, Arena, and Swar
 ### E25: Diagnostic workflow restoration
 
 After D27 was published, the user asked whether the proposed testing, forensics, and performance options were skills. The assistant identified the `tdd` skill and four nested pstack playbooks, explained the missing instructions and their existing mstack destinations, and distinguished the already-restored benchmarking and Hillclimb procedures. The user answered "ah yes, do those". The acknowledged scope retained the established source comparison, isolated implementation, independent review, behavioral checks, and publication to PR #2.
+
+### E26: Runtime packaging separation
+
+The user asked whether provenance, decisions, and the glossary would be installed with the skill, then requested a proposed directory structure. The assistant showed `mstack/` for runtime files, `docs/mstack/` for maintenance documents, and `tooling/mstack/` for validation, tests, and development dependencies. The proposal retained self-contained Help and runtime links. The user replied "do that", approving this layout and its necessary caller updates.

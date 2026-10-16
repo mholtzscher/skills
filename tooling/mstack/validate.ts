@@ -59,7 +59,7 @@ export async function validateBundle(root: string) {
 }
 
 if (import.meta.main) {
-  const result = await validateBundle(process.argv[2] ?? import.meta.dir);
+  const result = await validateBundle(process.argv[2] ?? resolve(import.meta.dir, "../../mstack"));
   console.log(JSON.stringify(result, null, 2));
   process.exitCode = result.errors.length ? 1 : 0;
 }
