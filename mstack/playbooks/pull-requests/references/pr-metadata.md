@@ -17,14 +17,32 @@ One sentence explaining the problem and what becomes possible.
 
 ## Change outline
 
-A compact visual account of the change.
+A compact visual outline of the change, using the requirements below.
 
 ## Verification
 
 - Actual command or exercised behavior and observed result.
 ```
 
-Use `- None.` under Special things to note when appropriate. For Change outline, choose relevant type/interface diffs, a shallow responsibility tree, component/call tree, SQL/endpoint changes, or pseudocode. Prefer focused diffs for existing shapes and complete blocks for wholly new ones. Explain the shape rather than writing a file-by-file changelog.
+Use `- None.` under Special things to note when appropriate.
+
+## Change outline requirements
+
+**The Change outline must show the change visually.** Prose summaries and file-by-file changelogs do not satisfy this requirement. Use a diagram, responsibility tree, focused diff, or pseudocode that shows the relevant structure or flow.
+
+Include only the views that explain this PR, ordered for narrative:
+
+- SQL table and endpoint contract changes, plus pseudocode for business logic
+- key data structure / type changes
+- a shallow file tree showing changed responsibilities
+- React component tree changes, including important hooks, state, and package boundaries
+- call-tree, call-stack, control-flow, or data-flow changes
+
+Prefer focused `diff` blocks for edits to an existing shape; show the complete target shape when most of it is new or when diff notation would obscure ownership or order.
+
+Before publishing metadata, check that the outline contains a relevant visual and accurately represents the reviewed diff. Replace prose-only summaries or file-by-file changelogs with the appropriate visual before publishing.
+
+## Verification and publication
 
 Verification distinguishes local results from CI and names material unavailable checks. Do not invent links, measurements, or successful outcomes. The calling workflow applies prose cleanup to the title/body.
 

@@ -14,6 +14,8 @@ D33 splits Planning's template resource into individually selected files on 2026
 
 D34 applies the same conditional-reading structure to the glossary-map format, Interrogate report, and Planning completion response on 2026-10-16. The caller now owns glossary context selection, and all three extracted templates retain their content.
 
+D35 restores workflow-tools' detailed PR visual-outline guidance on 2026-10-16 and makes a relevant visual an explicit requirement before metadata publication.
+
 ## Result
 
 **The initial integration preserved broad intent much better than substantive source detail.** Consolidation preserved the already-condensed mstack text; it did not recover the instructions, examples, and references omitted earlier.
@@ -655,6 +657,25 @@ Direct static walkthroughs traced eight cases through the instructions:
 | Report an approved completed spec            | Done reads the separate handoff and final-response formats; implementation still follows the selected task's authority. |
 
 Code cleanup found no changed executable code. Prose cleanup reviewed the new routing, maintenance records, and PR additions while preserving moved source wording and literal examples. Comment review found no new comment edits and preserved the existing annotations. These were direct passes. No independent behavioral execution, generated-artifact exercise, or fresh live-host check was run. The external skill-creator validator was not rerun after its recorded missing-PyYAML failure, and that check remains unavailable.
+
+## D35 visual PR outline verification
+
+The 2026-10-16 change replaces the condensed outline guidance in the shared PR metadata reference. The comparison source is `PR_BODY_TEMPLATE_INSTRUCTIONS` in workflow-tools `pr/metadata-prompts.ts` at `3f83b1d5b6b7e82adf7639148403083b4ccb4a8d`. The rule explicitly requires a visual rather than a prose summary or file-by-file changelog. It restores the five source view choices, narrative ordering, and complete-shape exception, then checks the actual visual against the reviewed diff before publication. Publish and Rewrite metadata both already call the shared reference.
+
+Direct comparison against `8a6f70f26113efba25f13054dbb9372d38b34699` confirms that the template changes only its outline placeholder and supporting outline guidance, plus section headings. The remaining template sections and verification/publication suffix are preserved, and all other 100 runtime files are byte-identical. The inspected workflow-tools file matches its pinned revision. All five view-selection bullets preserve their exact source wording, and the complete-target-shape exception is restored. Bundle validation reports one entry and 91 Markdown files. Formatting, whitespace, and the new fragment links pass.
+
+Direct static walkthroughs cover six cases:
+
+| Case                                                     | Required outcome from the instructions                                                              |
+| -------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| API/schema change                                        | Show the relevant SQL or endpoint contract changes, with business-logic pseudocode when useful.     |
+| React behavior change                                    | Show the component structure and important hooks, state, and package boundaries.                    |
+| Control-flow or data-flow change                         | Choose a relevant flow diagram or call tree, using focused diffs for an existing shape.             |
+| Mostly new shape or a diff that obscures ownership/order | Show the complete target shape instead.                                                             |
+| Prose-only summary or file-by-file changelog             | Revise it into a relevant visual before publishing metadata. A small change can use a focused diff. |
+| Explicit user instructions requiring a different format  | Honor the explicit override under the retained template preamble.                                   |
+
+PR #2's actual published outline at `8a6f70f` contains a fenced responsibility tree covering the runtime entry, playbooks, references, helpers, maintenance docs, and tooling. This is an inspected existing artifact, not a newly generated behavioral evaluation. Code and comment cleanup found no executable or comment changes. Prose cleanup reviewed the new requirement and maintenance/PR text while preserving the source view list. No independent behavioral execution, generated-PR exercise, or fresh live-host check was run. Helper, validator, and packaging code are unchanged, so D34's 92 tests and typecheck were not rerun. The external skill-creator validator remains unverified after its recorded missing-PyYAML failure.
 
 ## Validation limits
 
