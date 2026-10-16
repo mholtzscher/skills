@@ -9,6 +9,7 @@ Skills live in their own directories with a `SKILL.md` entry point and supportin
 | Skill                             | Purpose                                                                                                                |
 | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | [`mstack`](docs/mstack/README.md) | Personal engineering workflow bundle: approved sketches/specs, implementation, investigation, review, and PR delivery. |
+| `agent-orchestrator`              | Coordinate bounded agent work, delegation, verification, and review.                                                   |
 | `classify-code-review`            | Route code reviews with the OpenCode SDLC classifiers, then verify findings against source.                            |
 | `conventional-commits`            | Conventional commit guidance for commit messages.                                                                      |
 | `go-test-effectiveness`           | Design and review Go tests for meaningful fault detection.                                                             |
@@ -20,20 +21,19 @@ Skills live in their own directories with a `SKILL.md` entry point and supportin
 
 The following skills have been moved to `deprecated/` and are no longer actively maintained:
 
-| Skill                | Purpose                                                                                             |
-| -------------------- | --------------------------------------------------------------------------------------------------- |
-| `agent-orchestrator` | Standalone orchestration; maintained guidance is integrated into mstack.                            |
-| `atlas-cli`          | Query Jira and Confluence through the `atlas` CLI.                                                  |
-| `atlassian-api`      | Read-only Jira/Confluence access through bundled `curl` + `jq` helpers.                             |
-| `build-skill`        | Reference kit for creating and validating new skills.                                               |
-| `gradle`             | Run Gradle tasks with concise, high-signal output.                                                  |
-| `index-knowledge`    | Generate hierarchical `AGENTS.md` knowledge bases for repositories.                                 |
-| `librarian`          | Research open-source libraries and inspect repository internals.                                    |
-| `mermaid`            | Guidance and validation tooling for Mermaid diagrams.                                               |
-| `prime-flow`         | Phase-gated development workflow with domain modeling, Plannotator review, and hard approval gates. |
-| `spec-planner`       | Turn vague feature ideas into implementation-ready specs.                                           |
-| `visual-explainer`   | Generate self-contained HTML explainers, diagrams, diff reviews, and slide decks.                   |
-| `zellij-tasks`       | Manage long-running terminal tasks in Zellij.                                                       |
+| Skill              | Purpose                                                                                             |
+| ------------------ | --------------------------------------------------------------------------------------------------- |
+| `atlas-cli`        | Query Jira and Confluence through the `atlas` CLI.                                                  |
+| `atlassian-api`    | Read-only Jira/Confluence access through bundled `curl` + `jq` helpers.                             |
+| `build-skill`      | Reference kit for creating and validating new skills.                                               |
+| `gradle`           | Run Gradle tasks with concise, high-signal output.                                                  |
+| `index-knowledge`  | Generate hierarchical `AGENTS.md` knowledge bases for repositories.                                 |
+| `librarian`        | Research open-source libraries and inspect repository internals.                                    |
+| `mermaid`          | Guidance and validation tooling for Mermaid diagrams.                                               |
+| `prime-flow`       | Phase-gated development workflow with domain modeling, Plannotator review, and hard approval gates. |
+| `spec-planner`     | Turn vague feature ideas into implementation-ready specs.                                           |
+| `visual-explainer` | Generate self-contained HTML explainers, diagrams, diff reviews, and slide decks.                   |
+| `zellij-tasks`     | Manage long-running terminal tasks in Zellij.                                                       |
 
 ## Repository layout
 

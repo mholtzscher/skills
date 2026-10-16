@@ -1,12 +1,9 @@
 ---
 name: agent-orchestrator
 description: Orchestrate coding work when independent workstreams or separate exploration, verification, or review context materially help, or when the user asks to delegate or use subagents. File count alone does not warrant delegation.
-disable-model-invocation: true
 ---
 
 # Agent Orchestrator
-
-Deprecated. Maintained orchestration guidance now lives in [mstack](../../mstack/references/orchestration.md), with separate OpenCode V2 and Pi adapters. This archived version records the previous standalone workflow.
 
 The user's explicit instructions take precedence over this skill.
 
