@@ -12,6 +12,8 @@ D32 adds independently written Big-pics-little-words guidance as a named HTML mo
 
 D33 splits Planning's template resource into individually selected files on 2026-10-16. Source content and examples are preserved; the reading path now follows document type and the approval stage.
 
+D34 applies the same conditional-reading structure to the glossary-map format, Interrogate report, and Planning completion response on 2026-10-16. The caller now owns glossary context selection, and all three extracted templates retain their content.
+
 ## Result
 
 **The initial integration preserved broad intent much better than substantive source detail.** Consolidation preserved the already-condensed mstack text; it did not recover the instructions, examples, and references omitted earlier.
@@ -245,8 +247,8 @@ The following inventory makes resource loss explicit; short destination summarie
 
 | Source resources                                                                                                                                                                                         | State                                                                                                                                                                                                                                                 |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| spec-planner `references/{templates,decision-frameworks,estimation,technical-debt}.md`                                                                                                                   | All four restored in full, formatting only.                                                                                                                                                                                                           |
-| domain-modeling `GLOSSARY-FORMAT.md`, `ADR-FORMAT.md`                                                                                                                                                    | Both restored in full under D18, replacing the condensed `domain-records.md`; formatting and `skill` → `playbook` are the only changes.                                                                                                               |
+| spec-planner `references/{templates,decision-frameworks,estimation,technical-debt}.md`                                                                                                                   | All four restored in full in D17, formatting only. D33 splits the combined templates; D34 extracts the playbook's final response. Both preserve the template bodies.                                                                                  |
+| domain-modeling `GLOSSARY-FORMAT.md`, `ADR-FORMAT.md`                                                                                                                                                    | Both restored in full under D18, replacing the condensed `domain-records.md`; changes then were formatting and `skill` → `playbook`. D34 separates the map format and moves context selection into the caller without losing content.                 |
 | architect `references/{runner-prompt,rationale-template,design-red-flags}.md`                                                                                                                            | Restored in D27 under `references/exploration/`. All ten runner disciplines, eight rationale sections, and eight red flags retain their substantive content with documented approval, host, and evidence-led adaptations.                             |
 | how `references/{explorer-prompt,explainer-prompt}.md`                                                                                                                                                   | Both restored in full under D19, with direct/delegated and host adaptations.                                                                                                                                                                          |
 | why `references/{epistemics,investigator-prompt,synthesizer-prompt,source-playbook}.md` and `references/sources/{code-archaeology,databricks,datadog,incident-postmortem,linear,notion,sentry,slack}.md` | All twelve restored under D19. Epistemics is formatting-only; other resources retain detailed recipes/evidence/output fields with conditional host/access/read-only adaptations. All fifteen fenced examples are source-identical.                    |
@@ -630,6 +632,29 @@ Direct static walkthroughs traced these requests through the instructions:
 | Refine an existing spec             | Refine reads the existing document, proposes changes, and waits for selection rather than loading a fresh-plan template.   |
 
 Code cleanup found no changed executable code. Prose cleanup reviewed the new routing and maintenance text while preserving the moved source wording and literal examples. Comment review preserved the tree annotations and found no new comment changes needed. These were direct passes. No independent behavioral execution, generated-spec exercise, or fresh live-host check was run. The external skill-creator validator was not rerun after its recorded missing-PyYAML failure, and that check remains unavailable.
+
+## D34 additional-template verification
+
+The 2026-10-16 extraction uses bundle baseline `8a437e0c5223fffc1b66d4b2debe5e494be3d231`. Domain modeling keeps the individual glossary structure and definition rules in `GLOSSARY-FORMAT.md`. Its map description and complete fenced example move to `GLOSSARY-MAP-FORMAT.md`. The existing single/multi-context selection rules move into the calling playbook, which reads the new map format only when writing or updating a map.
+
+Review retains its ordinary-review, Interrogate, and blast-radius procedures. The complete Interrogate output body moves into `references/interrogate-report.md`, with its section headings promoted. The caller carries forward the stated intent, and the template retains actual reviewer attribution, all four verdict buckets, the agreement map, check evidence, gaps, and the stop before fixes. Planning's exact completion-response fence moves to `references/templates/final-response.md`, reached after approval in Done. The final-response and task-decomposition handoff remain separate formats.
+
+Exact before/after comparisons preserve all three template bodies, the glossary context-selection rules, and all 48 fenced runtime examples. Reconstructing each caller from its baseline with only the stated extraction and pointer changes produces its exact current bytes. All other 94 runtime files and the active standalone agent-orchestrator are byte-identical. Bundle validation reports one entry and 91 Markdown files. Typechecking and all 92 tests with 303 assertions pass, including copied-installation and nested-reference checks. Formatting, whitespace, all 672 local links and 281 fragments, and complete runtime Markdown reachability pass.
+
+Direct static walkthroughs traced eight cases through the instructions:
+
+| Request or stage                             | Instruction path and stopping point                                                                                     |
+| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Resolve a term in a single-context project   | Read the individual glossary format; create the root glossary lazily when the first term is resolved.                   |
+| Update a glossary in a multi-context project | Read the existing map to select the context, ask if unclear, and use the individual glossary format.                    |
+| Write or update the context map              | Read the separate map format, preserving its context links and relationship examples.                                   |
+| Perform ordinary review                      | Use the ordinary-review contract without requiring the Interrogate report.                                              |
+| Analyze blast radius                         | Use the proof-level and risk report, preserving its execution-authority boundary.                                       |
+| Prepare the Interrogate verdict              | Read its report template with the stated intent; preserve attribution, evidence, gaps, and report-only completion.      |
+| A full spec awaits approval                  | Refine stops for approval before Done reads the completion formats.                                                     |
+| Report an approved completed spec            | Done reads the separate handoff and final-response formats; implementation still follows the selected task's authority. |
+
+Code cleanup found no changed executable code. Prose cleanup reviewed the new routing, maintenance records, and PR additions while preserving moved source wording and literal examples. Comment review found no new comment edits and preserved the existing annotations. These were direct passes. No independent behavioral execution, generated-artifact exercise, or fresh live-host check was run. The external skill-creator validator was not rerun after its recorded missing-PyYAML failure, and that check remains unavailable.
 
 ## Validation limits
 

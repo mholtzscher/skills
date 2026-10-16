@@ -38,6 +38,20 @@ If a `GLOSSARY-MAP.md` exists at the root, the repo has multiple contexts. The m
 
 Create files lazily: only when you have something to write. If no `GLOSSARY.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
 
+### Single vs multi-context repos
+
+**Single context (most repos):** One `GLOSSARY.md` at the repo root.
+
+The playbook infers which structure applies:
+
+- If `GLOSSARY-MAP.md` exists, read it to find contexts
+- If only a root `GLOSSARY.md` exists, single context
+- If neither exists, create a root `GLOSSARY.md` lazily when the first term is resolved
+
+When multiple contexts exist, infer which one the current topic relates to. If unclear, ask.
+
+When writing or updating `GLOSSARY-MAP.md`, read [GLOSSARY-MAP-FORMAT.md](references/GLOSSARY-MAP-FORMAT.md).
+
 ## During the session
 
 ### Challenge against the glossary
