@@ -693,6 +693,8 @@ Five independent offline evaluations ran on synthetic fixture repositories again
 
 The routing fix renames the Skill development row to "capture lessons about skills" and adds a direct Capture row for project-code lessons. Review, Capture, and Survey fixtures remained clean. The implementation fixture contains only its two approved new files. Bundle validation reports one entry and 95 Markdown files. Typechecking and all 92 tests pass with the playbook count raised to 26. Formatting, whitespace, and the new section anchors pass. Prose cleanup removed parentheses and prose arrows from the new runtime text. Code cleanup covered the one-line test change, and comment review found no code comments in the change.
 
+Agreed PR #3 review feedback added source scoping, nearer-source precedence, and buckets for standards findings, keeping correctness and security defects in their main bucket. These follow-up fixes were checked statically against the threads' scenarios; the evaluations above predate them, and no fixture had nested or conflicting standards files.
+
 Limits: evaluators worked on small synthetic repositories without network access, so `gh` review-history mining, delegated Survey exploration, large-codebase sampling, a real Interrogate panel, and live OpenCode/Pi discovery remain untested. The Survey interview added a Grilling shared-understanding confirmation round before drafting; this follows Grilling's contract and is recorded as an observed extra turn.
 
 ## Validation limits

@@ -14,7 +14,7 @@ These are distinct procedures, not automatic stages. A broad diff does not autom
 
 Establish intent, exact base/target revisions, and whether local edits belong in scope. Inventory changed paths, including new/deleted/renamed files. Review the full relevant diff, not just classifier output or a summary. Preserve unrelated files and external state. Run [Coding standards: Find](../coding-standards/PLAYBOOK.md#find) and review the diff against those standards as its [Apply](../coding-standards/PLAYBOOK.md#apply) section describes.
 
-When delegating, use [orchestration](../../references/orchestration.md) and the adapter for the actual host, [OpenCode](../../references/hosts/opencode.md) or [Pi](../../references/hosts/pi.md). Give reviewers the original intent and immutable snapshot, absolute cwd and base revision, bounded scope, standards source paths and the [smell baseline](../../references/code-smells.md), evidence requirements, and report-only stopping point. Reviewers do not edit files, run builds, install dependencies, commit, or post comments. A reviewer needing execution returns the precise proposed check; the lead may perform it only within allowed scope or assign an authorized tester contract. Reviewer status does not silently become tester authority.
+When delegating, use [orchestration](../../references/orchestration.md) and the adapter for the actual host, [OpenCode](../../references/hosts/opencode.md) or [Pi](../../references/hosts/pi.md). Give reviewers the original intent and immutable snapshot, absolute cwd and base revision, bounded scope, standards source paths with their scopes and the [smell baseline](../../references/code-smells.md), evidence requirements, and report-only stopping point. Reviewers do not edit files, run builds, install dependencies, commit, or post comments. A reviewer needing execution returns the precise proposed check; the lead may perform it only within allowed scope or assign an authorized tester contract. Reviewer status does not silently become tester authority.
 
 The lead verifies every proposed finding and consolidates duplicates. Ask for concrete triggering conditions, consequences, and evidence. Model agreement raises a lead, not proof. Missing tests or speculative risks alone are not validated defects. A clean scoped review is valid; there is no nit quota.
 
@@ -24,7 +24,7 @@ Stop at the report. Do not auto-apply findings, post GitHub comments, resolve th
 
 Inspect correctness, contracts, failure cases, compatibility, and meaningful test protection. Work directly when that meets the request; use independent reviewers when useful and supported. Explicitly required independence remains unmet if unavailable.
 
-Report findings with narrow locations, mechanism, consequence, and correction. Classify them as **Act on**, **Consider**, **Noted**, or **Dismissed**, with reasons; prioritize real defects over preference and speculative churn. Report standards findings in a separate **Standards** section, each citing its file and rule or naming its smell. Include the reviewed snapshot, actual checks, and material gaps. Load the [rubric](references/rubric.md) for detailed review lenses or the [lead framework](references/lead-judgment.md) when adjudicating findings; ordinary review does not require the entire interrogate panel or report shape.
+Report findings with narrow locations, mechanism, consequence, and correction. Classify them as **Act on**, **Consider**, **Noted**, or **Dismissed**, with reasons; prioritize real defects over preference and speculative churn. Report standards findings in a separate **Standards** section, each with its bucket and citing its file and rule or naming its smell. A standards finding that is also a correctness or security defect stays in its main bucket with the citation, and its Standards entry refers to it. Include the reviewed snapshot, actual checks, and material gaps. Load the [rubric](references/rubric.md) for detailed review lenses or the [lead framework](references/lead-judgment.md) when adjudicating findings; ordinary review does not require the entire interrogate panel or report shape.
 
 ## Interrogate
 
@@ -52,7 +52,7 @@ For an authorized multi-model panel, launch one reviewer per selected available 
 
 If a requested model or diversity is unavailable, report the exact gap. A same-model second reviewer may provide independent context, but is not model diversity. Optional delegation can fall back to sound disclosed direct work; explicitly requested diversity remains unmet until available or revised by the user. Do not silently substitute rejected models or change host configuration.
 
-Read the [reviewer prompt](references/reviewer-prompt.md), [rubric](references/rubric.md), and [code-quality lens](references/code-quality-review.md). Fill in the same template for every reviewer with the stated intent, diff or file contents, rubric, code-quality lens, standards source paths, and smell baseline. For direct work apply the same evidence requirements. Structural concerns require a concrete maintainability problem to block; file size alone prompts inspection.
+Read the [reviewer prompt](references/reviewer-prompt.md), [rubric](references/rubric.md), and [code-quality lens](references/code-quality-review.md). Fill in the same template for every reviewer with the stated intent, diff or file contents, rubric, code-quality lens, standards source paths with their scopes, and smell baseline. For direct work apply the same evidence requirements. Structural concerns require a concrete maintainability problem to block; file size alone prompts inspection.
 
 ### Step 4, Synthesize
 
@@ -67,7 +67,7 @@ You are the lead reviewer, a pragmatic senior engineer, not a neutral aggregator
 - **Noted**. Technically valid but not actionable. Context-dependent, premature optimization, or low-impact at this stage.
 - **Dismissed**. Wrong, nitpicky, or missing context, with a brief reason.
 
-Verify standards findings the same way, then report them in the separate **Standards** section instead of these buckets. Mark each as a documented breach or a judgment call.
+Verify standards findings the same way and give each a bucket. Report them in the separate **Standards** section, marked as a documented breach or a judgment call, with their bucket. A standards finding that is also a correctness or security defect stays in its main bucket with the standards citation; its Standards entry refers to it.
 
 More than five Act on items is a calibration signal to recheck filtering and duplicates, not a cap that hides validated findings. No findings is a valid outcome.
 

@@ -11,16 +11,16 @@ Every rule and check starts as a proposal. Edit a standards file only for rows t
 
 ## Find
 
-Search the repository for every file that documents how code should be written. When `CODING_STANDARDS.md` or `CONTRIBUTING.md` exists, it must be on the list. Include the style guides, ADRs, and package-level standards files that they or the repository instructions point to. Read the linter, formatter, type-checker, and CI configuration to learn which rules tooling already enforces.
+Search the repository for every file that documents how code should be written. When `CODING_STANDARDS.md` or `CONTRIBUTING.md` exists, it must be on the list. Include the style guides, ADRs, and package-level standards files that they or the repository instructions point to. Record each source's scope: the directory a package-level file sits in, narrowed by any paths a rule declares in **Applies to**. Read the linter, formatter, type-checker, and CI configuration to learn which rules tooling already enforces.
 
-Done when you hold the standards source paths found by searching, the tool-enforced rules, or the explicit result that no standards documentation exists.
+Done when you hold the standards source paths and their scopes, found by searching, the tool-enforced rules, or the explicit result that no standards documentation exists.
 
 ## Apply
 
-Apply rules to new and changed code. Existing violations outside the diff are migration candidates to report, not scope to fix.
+Apply rules to new and changed code within each rule's scope. When a nearer source contradicts a broader one, the nearer source wins for its paths. Existing violations outside the diff are migration candidates to report, not scope to fix.
 
-- **Implementation.** Run [Find](#find), read the standards sources, and follow them while writing code. Put their paths in every delegated implementation brief. A documented rule that conflicts with the approved design is a question for the user.
-- **Review and cleanup.** Check the scoped diff against every documented rule and the [smell baseline](../../references/code-smells.md). Report standards findings in their own **Standards** section. Cite the file and rule for a documented breach; name the smell and quote the hunk for a baseline smell. A documented breach can be a hard finding. A smell is always a judgment call. The repository overrides the baseline, so suppress a smell its standards endorse. Skip anything tooling already enforces.
+- **Implementation.** Run [Find](#find), read the standards sources, and follow them while writing code. Put the paths of the sources whose scope covers a delegated brief's files in that brief. A documented rule that conflicts with the approved design is a question for the user.
+- **Review and cleanup.** Check each changed file against the documented rules whose scope covers it, and the whole diff against the [smell baseline](../../references/code-smells.md). Report standards findings in their own **Standards** section. Cite the file and rule for a documented breach; name the smell and quote the hunk for a baseline smell. A documented breach can be a hard finding. A smell is always a judgment call. The repository overrides the baseline, so suppress a smell its standards endorse. Skip anything tooling already enforces.
 - **No standards documentation.** Flag clashes with clearly consistent surrounding code as judgment calls that cite the surrounding examples, never as documented rules. Offer a [Survey](#survey) and wait for the user to request it.
 
 ## Capture

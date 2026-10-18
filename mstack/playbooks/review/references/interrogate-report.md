@@ -26,7 +26,7 @@
 
 ## Standards
 
-[Each: documented breach or judgment call, the standards file and rule or the smell name, narrow location, which reviewers/models raised it, and the correction. State which standards files were reviewed, or that none exist.]
+[Each: bucket, documented breach or judgment call, the standards file and rule or the smell name, narrow location, which reviewers/models raised it, and the correction. A standards finding that is also a correctness or security defect appears in its main bucket above with the citation; here, refer to that entry. State which standards files and scopes were reviewed, or that none exist.]
 
 ## Agreement Map
 
