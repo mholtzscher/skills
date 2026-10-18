@@ -52,6 +52,8 @@ Read the complete [synthesizer template](references/reflection/synthesizer.md). 
 
 Move any Accepted item that a lint rule, script, metadata flag, or runtime check would enforce more reliably to proposed Backlog. Read [Encode lessons](../../principles/encode-lessons.md). Prefer a structural correction over another blanket instruction. This reflection proposes the mechanism; it does not implement tooling or file issues automatically.
 
+Some findings concern how the target project's code should be written rather than an agent workflow or skill. Hand those to [Coding standards: Capture](../coding-standards/PLAYBOOK.md#capture) as proposed project rules or checks instead of skill edits.
+
 ### 5. Apply only selected, approved rows
 
 Present the full Accepted / Rejected / Backlog output and wait for explicit row selection before applying any Accepted edit. Accepted means recommended, not authorized. The user picks the subset and may redirect routings. Reuse a separate prior approval only when it explicitly selects and covers the edits at hand. Ask before changing shared or global guidance. A discovered gap does not authorize silently patching a skill mid-task.

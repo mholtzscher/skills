@@ -24,6 +24,10 @@
 
 [Each with attribution and a brief rationale.]
 
+## Standards
+
+[Each: documented breach or judgment call, the standards file and rule or the smell name, narrow location, which reviewers/models raised it, and the correction. State which standards files were reviewed, or that none exist.]
+
 ## Agreement Map
 
 [Where reviewers/models agreed and diverged, and what that pattern tells us. Distinguish independent agreement, explicit disagreement, and silence; report actual diversity rather than inferred model identities.]

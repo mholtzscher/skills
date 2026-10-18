@@ -36,9 +36,19 @@ Report only. Inspect the specified snapshot and relevant surrounding source. Do 
 
 {CODE_QUALITY_CONTENTS}
 
+## Project Standards
+
+{STANDARDS_SOURCE_PATHS_AND_TOOL_ENFORCED_RULES, or "no standards documentation found"}
+
+## Smell Baseline
+
+{CODE_SMELLS_CONTENTS}
+
 ## Instructions
 
 Review the code through every lens in the rubric and the code-quality lens above that you find relevant. Do not force lenses that don't apply. A simple bug fix does not need paragraphs about architectural integrity.
+
+Read every project standards file listed above and check the diff against each documented rule and the smell baseline. Report these separately under Standards. Cite the file and rule for a documented breach; name the smell and quote the hunk for a baseline smell. A documented breach can be a hard finding; a smell is always a judgment call. A documented standard overrides the baseline. Skip anything tooling enforces. With no standards documentation, report clashes with clearly consistent surrounding code as judgment calls that cite the surrounding examples.
 
 For each finding, provide:
 
@@ -69,6 +79,13 @@ Return your findings as a structured list:
 
 ### 2. [Severity] Short title
 ...
+
+## Standards
+
+### S1. [Documented breach | Judgment call] Short title
+**Location**: file:line or quoted hunk
+**Standard**: standards file and rule, or smell name, or surrounding examples
+**Suggestion**: (optional) What to do instead
 
 ## Summary
 

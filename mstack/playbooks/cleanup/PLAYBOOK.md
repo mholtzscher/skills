@@ -18,7 +18,7 @@ The implementation owner evaluates findings and applies accepted in-scope change
 
 Adapted from Cursor Team Kit's deslop with mstack scope and approval rules.
 
-Resolve the actual comparison base and include relevant local changes. Read the scoped diff and surrounding contracts. Look for unnecessary wrappers, abnormal defensive checks inside trusted boundaries, catch-all fallbacks, casts that conceal type errors, deep nesting, and code that conflicts with local conventions.
+Resolve the actual comparison base and include relevant local changes. Read the scoped diff and surrounding contracts. Look for unnecessary wrappers, abnormal defensive checks inside trusted boundaries, catch-all fallbacks, casts that conceal type errors, deep nesting, and code that conflicts with local conventions. Run [Coding standards: Find](../coding-standards/PLAYBOOK.md#find) and check the scoped diff against those standards as its [Apply](../coding-standards/PLAYBOOK.md#apply) section describes.
 
 For every proposed removal, establish what responsibility remains and why behavior is preserved. Do not remove legitimate boundary validation or error handling just because it looks defensive. Prefer a focused correction over a broad rewrite.
 

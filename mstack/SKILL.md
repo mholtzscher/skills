@@ -32,7 +32,7 @@ Select the matching playbook and follow its instructions. State the selected pat
 | Keep or audit a reviewable decision trail                   | [Decision trail](playbooks/decision-trail/PLAYBOOK.md)                                |
 | Resume prior work                                           | [Pickup](playbooks/continuity/PLAYBOOK.md#pickup)                                     |
 | Hand off or pause work                                      | [Pause](playbooks/continuity/PLAYBOOK.md#pause)                                       |
-| Author/evaluate a skill or capture workflow lessons         | [Skill development](playbooks/skill-development/PLAYBOOK.md)                          |
+| Author/evaluate a skill or capture lessons about skills     | [Skill development](playbooks/skill-development/PLAYBOOK.md)                          |
 | Create a project verification skill                         | [Create](playbooks/verification-skill/PLAYBOOK.md#create)                             |
 | Maintain a project verification skill                       | [Maintain](playbooks/verification-skill/PLAYBOOK.md#maintain)                         |
 | Stress-test a proposal through questions                    | [Grilling](playbooks/grilling/PLAYBOOK.md)                                            |
@@ -45,6 +45,8 @@ Select the matching playbook and follow its instructions. State the selected pat
 | Clean up code                                               | [Code cleanup](playbooks/cleanup/PLAYBOOK.md#code-cleanup)                            |
 | Improve prose                                               | [Prose cleanup](playbooks/cleanup/PLAYBOOK.md#prose-cleanup)                          |
 | Review comment value                                        | [Comments](playbooks/cleanup/PLAYBOOK.md#comment-review)                              |
+| Find, apply, or survey project coding standards             | [Coding standards](playbooks/coding-standards/PLAYBOOK.md)                            |
+| Capture lessons about project code as rules or checks       | [Capture](playbooks/coding-standards/PLAYBOOK.md#capture)                             |
 | Explain mstack usage or dependencies                        | [Help](playbooks/help/PLAYBOOK.md)                                                    |
 
 Mstack is the single entry point. Playbooks supply task procedures; principles guide decisions; roles name bounded assignments when delegating. Read playbooks as task instructions, with the shared rules already in context.
@@ -115,6 +117,8 @@ Read only the relevant principle files below before applying them. In the respon
 | Recurring mistakes or repeated manual work           | [Encode lessons](principles/encode-lessons.md)               |
 
 ## Execution and completion
+
+Before writing code, [find and apply](playbooks/coding-standards/PLAYBOOK.md#apply) the project's coding standards.
 
 Read [orchestration](references/orchestration.md) when delegation or independent review is useful. Keep coupled implementation with one writer; delegate independent work and accept its evidence yourself. Use host-configured roles and models. Mstack has no model sheet or mandatory setup step.
 
