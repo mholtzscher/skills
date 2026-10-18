@@ -11,6 +11,7 @@ Mstack is an independently maintained adaptation, not an upstream compatibility 
 | [HumanLayer show-me](https://github.com/humanlayer/skills/tree/main/plugins/show-me/skills/show-me)                                                           | installed 2026-10-11; installer folder hash `362200ac2fb3c17b765049444e88de73767e6d08`          | Vendored/adapted visual explanation specialist                                                                                                            |
 | [Matt Pocock grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling)                                                           | installed 2026-10-11; installer folder hash `28aceb4c9567b985cb47f7db88cf23c9f33af8b8`          | Vendored/adapted decision-tree interview                                                                                                                  |
 | [Matt Pocock domain-modeling](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling)                                              | installed 2026-10-11; installer folder hash `ea30ee454ba264543dbe40737973b1a5afb9f0e6`          | Vendored/adapted domain modeling, glossary and ADR formats                                                                                                |
+| [Matt Pocock code-review and retro](https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336/skills/engineering)                    | commit `49dd158d1076134a641b33efb035946536778336`, inspected 2026-10-18                         | Smell baseline; standards discovery, documented-rule citation, and the check-versus-rule classification behind Coding standards                           |
 | [backnotprop's Big-pics-little-words](https://github.com/backnotprop/bro/blob/3737bf2b3e5ef8f44639ebf6e6bbbf821b3edfb9/skills/big-pics-little-words/SKILL.md) | repository commit `3737bf2b3e5ef8f44639ebf6e6bbbf821b3edfb9`, inspected 2026-10-16              | Design brief for independently worded HTML-first explanation guidance; upstream text is not vendored                                                      |
 
 Installer folder hashes identify installed content, not upstream Git commits. The source skill bodies and required references were adapted into mstack's own files rather than retained as an unmodified vendored subtree.
@@ -326,6 +327,26 @@ Adaptations:
 - Preserve source attribution and incomplete-symbol gaps. Comparable paired captures can support confirmation, but workload, build, capture settings, intervention, and confounders still matter. An unpaired capture remains the strongest supported hypothesis rather than proof of a product fix.
 - Preserve the seven ordered mantras through the existing shared section, the one-off target stop, and per-attempt verification. The complete benchmark checklist governs numbers and comparable repeated runs. Original trace artifacts remain visible, and inconclusive or wrong-boundary results cannot become a winner. PR and final reports cite actual baseline/post-fix values, deltas, identities, and artifact paths.
 - Ordinary approved fixes retain one unmerged PR and scoped required-CI repair. Diagnosis and measurement-only work stop with evidence; a referenced fix or Hillclimb route does not authorize starting it. Other source omissions, including Arena, remain separately scoped.
+
+## Coding standards sources
+
+[D36](DECISIONS.md#d36-add-a-coding-standards-workflow), accepted 2026-10-18, draws on two Matt Pocock engineering skills at `49dd158d1076134a641b33efb035946536778336`. Both are MIT-licensed under the existing Matt Pocock notice in [LICENSE](../../mstack/LICENSE).
+
+| Source file                        | SHA-256                                                            |
+| ---------------------------------- | ------------------------------------------------------------------ |
+| `engineering/code-review/SKILL.md` | `09eb147f793e4647949edd32dbad278f0554dfb56e0d46b699cd4c2c55bf0357` |
+| `engineering/retro/SKILL.md`       | `33fbc28568e3146f20fd908b12998bc0ab30aa4f4c87288199a40793efa94696` |
+| `LICENSE`                          | `0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5` |
+
+The [smell baseline](../../mstack/references/code-smells.md) vendors code-review's twelve Fowler smells and its two binding rules with every definition and fix preserved. Edits are stylistic under D24's prose rules: "Fix:" replaces each prose arrow, comma splices become separate sentences or "and", parentheses and abbreviations are rewritten, the opening is rewritten for a standalone reference, and a closing reporting line is added. [Coding standards](../../mstack/playbooks/coding-standards/PLAYBOOK.md) adapts code-review's standards discovery (search, with `CODING_STANDARDS.md` and `CONTRIBUTING.md` mandatory when present) and file-plus-rule citations. It also adapts retro's mechanical-versus-judgment classification, guardrail findings, and 1,000-line navigation-pointer guidance.
+
+Adaptations:
+
+- Code-review's mandatory parallel Standards and Spec sub-agents become a separate Standards section inside the existing Review playbook, with D07's selective delegation. Spec conformance stays with Review's existing intent checks.
+- Retro reads standards only during review. The user chose to have implementation read them too, so the entry's shared rules point implementation at Apply and delegated implementer briefs carry the source paths.
+- Retro's session-wide environment categories (navigation, tool economy, information access, steering files) are not imported. Capture covers coding-standards and check lessons; Reflection keeps workflow and skill lessons and hands project lessons to Capture.
+- Survey and its interview are mstack additions with no upstream counterpart. Matt's workflow starts with an empty file that retro fills.
+- Proposals need explicit row selection, and new checks need implementation approval, consistent with D04 and D24.
 
 ## Integrated-source audit
 
