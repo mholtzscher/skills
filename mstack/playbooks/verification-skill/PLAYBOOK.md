@@ -1,6 +1,6 @@
 # Create and maintain a verification skill
 
-Adapted from pstack's create-verification-skill and maintain-verification-skill. Select **Create** for a project that needs a repeatable way to drive its real app, or **Maintain** to audit an existing verification skill and feature map. These are separate operations.
+Select **Create** for a project that needs a repeatable way to drive its real app, or **Maintain** to audit an existing verification skill and feature map.
 
 ## Create
 
@@ -16,7 +16,7 @@ Inspect existing skills first; use [Maintain](#maintain) for an existing target 
 - **Observe:** screenshots, terminal transcripts, response bodies, exit codes, logs, persisted state, and other evidence that establishes behavior.
 - **Isolate:** instance ownership and whether ports, data directories, profiles, and sessions allow independent runs. Establish a disposable test target rather than driving an unrelated running instance.
 
-Propose the skill path, harness/helper changes, initial feature coverage, proof target, evidence location, and cleanup in a sketch; use a full spec when uncertainty warrants it. Obtain implementation approval before writing the skill or helpers. Reuse an already-approved design.
+Propose the skill path, harness/helper changes, initial feature coverage, proof target, evidence location, and cleanup in a sketch; use a full spec when uncertainty warrants it. Obtain implementation approval before writing the skill or helpers.
 
 If the checkout cannot build or reach a usable state, report the exact blocker. Product-code repairs require their own approved scope. Minimal missing assets or sample configuration may be created as explicitly approved verification scaffolding only when irrelevant to the behavior being proved; name them and remove them in cleanup.
 
@@ -55,7 +55,7 @@ Audit the verification skill and its feature map against source and live behavio
 
 1. Locate the explicitly supplied verification skill, or discover the project's skill with launch/drive instructions and a feature map. Ask if several candidates are plausible. If none exists, stop and recommend [Create](#create).
 2. Reconcile the feature index with its files. Identify missing, duplicate, dead, or unindexed entries. Record proposed corrections before editing; a read-only audit remains read-only.
-3. Establish source coverage for every feature file. Use bounded read-only explorers through [orchestration](../../references/orchestration.md) when separate context helps, grouping independent features sensibly. They return a feature summary, source entry points, likely drift or none, and a live recipe; they neither edit nor drive the app. Direct source review is valid when optional delegation is unavailable; disclose that substitution.
+3. Establish source coverage for every feature file. Use bounded read-only explorers through [orchestration](../../references/orchestration.md) when separate context helps, grouping independent features sensibly. They return a feature summary, source entry points, likely drift or none, and a live recipe; they neither edit nor drive the app.
 4. Reconcile the evidence and merge overlapping recipes into as few app states as practical. Spot-check cited drift and inspect recent source changes for unmapped user-facing surfaces; require concrete source paths. Propose a bounded correction sketch and obtain approval before changing docs, maps, or helpers. Reuse approved scope, and reopen it for materially different corrections discovered live.
 
 ### Drive and reconcile

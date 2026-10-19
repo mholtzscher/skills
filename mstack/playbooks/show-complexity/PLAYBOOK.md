@@ -1,6 +1,6 @@
 # Show complexity
 
-Make complexity visible, explain what requires it, and identify what can be simplified. Borrow [show-me](../show-me/PLAYBOOK.md)'s approach: use the smallest visual that explains the point, place evidence beside it, and keep prose brief.
+Make complexity visible, explain what requires it, and identify what can be simplified. Use for "implementation complexity", "what complexity does this introduce?", and "what can we simplify?" This classifies essential versus accidental complexity; it does not estimate effort. Borrow [show-me](../show-me/PLAYBOOK.md)'s approach: use the smallest visual that explains the point, place evidence beside it, and keep prose brief.
 
 ## Establish the scope
 
@@ -69,7 +69,7 @@ Save order
 └── [?] Invalidate secondary cache  retained pending consumer check
 ```
 
-This example illustrates presentation, not a rule that mappings or caches are unnecessary. Attach source references to the actual findings.
+This example illustrates presentation, not a rule that mappings or caches are unnecessary.
 
 When the subject needs a richer visual or the user requests one, create a focused, self-contained HTML artifact and show it through an available preview tool. Keep the same evidence and classification discipline. Use an available HTML skill for artifact-specific guidance.
 
@@ -93,8 +93,8 @@ For a change review, assess the net effect against its base. Show complexity the
 
 ## Finish with a decision
 
-After the visual, give a compact, prioritized recommendation. If worthwhile simplifications were found, present the highest-value ones in up to three short bullets. Otherwise, briefly explain why the current design is justified. Include unresolved facts only when they could change that conclusion. Each recommendation should name the burden removed, cite its evidence, and mention any decisive tradeoff. Refer to annotations already in the visual rather than explaining them again. Mention what to preserve when it could otherwise be mistaken for removable complexity. Keeping the current design is a valid conclusion.
+After the visual, give a compact, prioritized recommendation. If worthwhile simplifications were found, present the highest-value ones in up to three short bullets. Otherwise, briefly explain why the current design is justified. Include unresolved facts only when they could change that conclusion. Name the burden removed, cite its evidence, and mention any decisive tradeoff. Refer to annotations already in the visual rather than explaining them again. Mention what to preserve when it could otherwise be mistaken for removable complexity.
 
 Expand only when additional findings materially change the decision or the user asks for a detailed assessment.
 
-End when the main findings have source evidence, proposed simplifications account for retained responsibilities, and unresolved requirements are explicit. Keep the response proportional to the scope. An assessment authorizes analysis and requested visual artifacts; implement refactors only when the user asks for them. Before implementation, obtain approval of the sketch/spec under [planning](../planning/PLAYBOOK.md).
+End when the main findings have source evidence, proposed simplifications account for retained responsibilities, and unresolved requirements are explicit. An assessment authorizes analysis and requested visual artifacts; implement refactors only when the user asks for them.

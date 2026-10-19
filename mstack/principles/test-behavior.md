@@ -20,4 +20,4 @@ These shapes are diagnostics, not a blanket ban on meaningful negative assertion
 
 Use the smallest test boundary that protects the requirement, whether a pure function, real integration, meaningful property, concurrency scenario, or UI interaction. A property needs an independent invariant and inputs that could expose a defect. Coverage measures reachability, not fault detection. Assertions about implementation wording or structure need a real contract to justify them.
 
-Apply this principle when writing, changing, or deciding whether to keep a test. It does not require adding tests for every reversible low-impact edit. Choose verification proportional to the actual behavioral risk and the selected playbook, retaining approval before new test code.
+It does not require adding tests for every reversible low-impact edit. Choose verification proportional to the actual behavioral risk and the selected playbook.

@@ -125,13 +125,13 @@ Use an available host preview or file-opening tool to open `path/to/show-me-{des
 
 Place each visual next to the short text it supports. Keep only the calls, files, props, states, and boundaries needed to answer the user's current question or the options to resolve the current discussion point.
 
-You may use one of these, you may use several, it is unlikely you will use all of them. Use your judgement and don't overwhelm the user.
+Use only the formats the point needs.
 
 ## Big pictures, little words
 
 Create an HTML explanation of the current discussion, led by large visuals and short text. Keep the key details and material caveats needed for an accurate understanding, even when the prose is brief.
 
-Design the page for its subject, giving the layout, visual hierarchy, and type deliberate attention. Use your own visual judgment. Add real-world pictures, icons, or other imagery selectively where they clarify the explanation.
+Design the page for its subject. Add real-world pictures, icons, or other imagery selectively where they clarify the explanation.
 
 Write for someone new to the subject. Use clear, concise, plain language and explain necessary technical terms. Favor literal explanations over strained metaphors.
 

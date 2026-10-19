@@ -8,7 +8,7 @@ Select the requested procedure locally:
 - [Interrogate](#interrogate) for an adversarial review, challenge, stress test, or explicitly requested multi-model review.
 - [Blast radius](#blast-radius) for what a change could break elsewhere and proof of its deciding safety fact.
 
-These are distinct procedures, not automatic stages. A broad diff does not automatically authorize a model panel, code experiment, fixes, publication, or merge. Use [PR triage](../pull-requests/PLAYBOOK.md#triage-feedback) for existing inline feedback.
+These are distinct procedures, not automatic stages. Use [PR triage](../pull-requests/PLAYBOOK.md#triage-feedback) for existing inline feedback.
 
 ## Shared scope and authority
 
@@ -16,19 +16,19 @@ Establish intent, exact base/target revisions, and whether local edits belong in
 
 When delegating, use [orchestration](../../references/orchestration.md) and the adapter for the actual host, [OpenCode](../../references/hosts/opencode.md) or [Pi](../../references/hosts/pi.md). Give reviewers the original intent and immutable snapshot, absolute cwd and base revision, bounded scope, standards source paths with their scopes and the [smell baseline](../../references/code-smells.md), evidence requirements, and report-only stopping point. Reviewers do not edit files, run builds, install dependencies, commit, or post comments. A reviewer needing execution returns the precise proposed check; the lead may perform it only within allowed scope or assign an authorized tester contract. Reviewer status does not silently become tester authority.
 
-The lead verifies every proposed finding and consolidates duplicates. Ask for concrete triggering conditions, consequences, and evidence. Model agreement raises a lead, not proof. Missing tests or speculative risks alone are not validated defects. A clean scoped review is valid; there is no nit quota.
+The lead verifies every proposed finding and consolidates duplicates. Ask for concrete triggering conditions, consequences, and evidence. Model agreement raises a lead, not proof. Missing tests or speculative risks alone are not validated defects.
 
 Stop at the report. Do not auto-apply findings, post GitHub comments, resolve threads, or launch delivery. Agreed fixes require implementation approval; reuse existing agreement only when it actually covers those fixes.
 
 ## Ordinary review
 
-Inspect correctness, contracts, failure cases, compatibility, and meaningful test protection. Work directly when that meets the request; use independent reviewers when useful and supported. Explicitly required independence remains unmet if unavailable.
+Inspect correctness, contracts, failure cases, compatibility, and meaningful test protection. Work directly when that meets the request; use independent reviewers when useful and supported.
 
 Report findings with narrow locations, mechanism, consequence, and correction. Classify them as **Act on**, **Consider**, **Noted**, or **Dismissed**, with reasons; prioritize real defects over preference and speculative churn. Report standards findings in a separate **Standards** section, each with its bucket and citing its file and rule or naming its smell. A standards finding that is also a correctness or security defect stays in its main bucket with the citation, and its Standards entry refers to it. Include the reviewed snapshot, actual checks, and material gaps. Load the [rubric](references/rubric.md) for detailed review lenses or the [lead framework](references/lead-judgment.md) when adjudicating findings; ordinary review does not require the entire interrogate panel or report shape.
 
 ## Interrogate
 
-Challenge code changes from independent angles and deliver a synthesized verdict. When multi-model review is requested or explicitly authorized, the adversarial diversity comes from different real models, not assigned personas. Do not auto-apply changes.
+Challenge code changes from independent angles and deliver a synthesized verdict. When multi-model review is requested or explicitly authorized, the adversarial diversity comes from different real models, not assigned personas.
 
 ### Step 1, Scope
 
@@ -46,21 +46,21 @@ Before spawning reviewers, state the intent in one clear paragraph from the user
 
 ### Step 3, Reviewers
 
-Choose selective direct or delegated review using the shared authority rules. A narrow adversarial review can be direct; disclose the lack of independence. Explicit independent review or diversity cannot be silently replaced with direct work.
+A narrow adversarial review can be direct; disclose the lack of independence. Explicit independent review or diversity cannot be silently replaced with direct work.
 
 For an authorized multi-model panel, launch one reviewer per selected available host-configured model, labeled Reviewer A, B, and so on. Launch independent reviewers together where the host supports it. Use actual discovered agents and schemas, not fixed agent names, model defaults, a model sheet, or a model-setup PR. Omit model overrides unless the user requests a model or explicitly authorizes diversity. Record only identities confirmed by tool calls or returned metadata.
 
-If a requested model or diversity is unavailable, report the exact gap. A same-model second reviewer may provide independent context, but is not model diversity. Optional delegation can fall back to sound disclosed direct work; explicitly requested diversity remains unmet until available or revised by the user. Do not silently substitute rejected models or change host configuration.
+If a requested model or diversity is unavailable, report the exact gap. A same-model second reviewer may provide independent context, but is not model diversity. Do not silently substitute rejected models or change host configuration.
 
 Read the [reviewer prompt](references/reviewer-prompt.md), [rubric](references/rubric.md), and [code-quality lens](references/code-quality-review.md). Fill in the same template for every reviewer with the stated intent, diff or file contents, rubric, code-quality lens, standards source paths with their scopes, and smell baseline. For direct work apply the same evidence requirements. Structural concerns require a concrete maintainability problem to block; file size alone prompts inspection.
 
 ### Step 4, Synthesize
 
-As results come back, build a unified picture. Parse every reviewer's findings. Merge findings that describe the same issue differently, and note which reviewers and confirmed models raised each one. Findings two or more models raised independently are a high-signal lead to verify, not a substitute for evidence. Read a lone model's finding and verify it too. Note disagreements. If one model flags something and another explicitly says the opposite, that is context for the verdict. Silence is not agreement or an explicit rejection.
+Parse every reviewer's findings. Merge findings that describe the same issue differently, and note which reviewers and confirmed models raised each one. Findings two or more models raised independently are a high-signal lead to verify, not a substitute for evidence. Read a lone model's finding and verify it too. Note disagreements. If one model flags something and another explicitly says the opposite, that is context for the verdict. Silence is not agreement or an explicit rejection.
 
 ### Step 5, Lead judgment
 
-You are the lead reviewer, a pragmatic senior engineer, not a neutral aggregator. Read the [lead judgment framework](references/lead-judgment.md). Verify every finding against the actual code and goals. Put every finding in one of four buckets, with the reviewer/model attribution and a one-line rationale:
+Read the [lead judgment framework](references/lead-judgment.md). Verify every finding against the actual code and goals. Put every finding in one of four buckets, with the reviewer/model attribution and a one-line rationale:
 
 - **Act on**. Real issues affecting correctness, security, or maintainability given the actual goals. They would block a real PR; explain the concrete problem.
 - **Consider**. Legitimate, but you're not sure they outweigh the cost of addressing them now. Worth the user's attention.
@@ -77,15 +77,13 @@ When preparing the Interrogate verdict, read and use the [report template](refer
 
 ## Blast radius
 
-Find what a change breaks somewhere else, before it ships. Use for "blast radius of X", "what could this break", or reviewing a small diff you don't trust yet.
+Find what a change breaks somewhere else. Use for "blast radius of X", "what could this break", or reviewing a small diff you don't trust yet.
 
-Companion to [How](../explanation/PLAYBOOK.md#how) and [Why](../explanation/PLAYBOOK.md#why). How tells you what the code does. Why tells you why it's shaped that way. Blast radius tells you what it breaks somewhere else.
-
-Listing the callers is not the job. The agent can grep those in a second. The job is the breakage grep won't show you.
+Listing the callers is not the job. The job is the breakage grep won't show you.
 
 ### Don't trust your own writeup
 
-A blast-radius writeup that sounds right is not evidence that it is true. It reads as convincing whether or not it's true. Do not hand back only a convincing narrative. Find the one or two facts the whole thing depends on and prove them by running code within the authority below; otherwise explicitly mark them unproven.
+A blast-radius writeup that sounds right is not evidence that it is true. Do not hand back only a convincing narrative. Find the one or two facts the whole thing depends on and prove them by running code within the authority below; otherwise explicitly mark them unproven.
 
 ### How sure are you
 
@@ -103,9 +101,9 @@ Step 4 is usually one small script that imports the same library the app ships a
 
 Existing authorized read-only checks may run within their actual side-effect limits. Writing a new script or test is a code experiment: it needs an already-approved or newly approved sketch and an isolated, explicitly disposable target. State what will run, what it can write or affect, and the observation that would falsify the safety claim. Keep product files, unrelated files, dependencies, and external state unchanged unless separately authorized; this analysis does not authorize installations or app/environment mutations. A worktree is not a security sandbox.
 
-Reviewer delegates remain report-only. Assign execution separately to a tester with an explicit authorized contract or have the lead run it within allowed scope. Reuse already-given approval when it covers this exact proof; do not infer execution permission from a request for read-only review.
+Reviewer delegates remain report-only. Assign execution separately to a tester with an explicit authorized contract or have the lead run it within allowed scope. Do not infer execution permission from a request for read-only review.
 
-If execution, tools, data, or approval are missing, mark the safety fact **unproven**, state the highest attained proof level and exact gap, and propose the smallest reproducible check. Include the proposed script/check in the report when useful, clearly labeled unrun; obtain approval before writing code to disk. Do not replace the real-code proof requirement with a claim that source inspection proved execution.
+If execution, tools, data, or approval are missing, mark the safety fact **unproven**, state the highest attained proof level and exact gap, and propose the smallest reproducible check. Include the proposed script/check in the report when useful, clearly labeled unrun; obtain approval before writing code to disk.
 
 ### Steps
 
@@ -114,7 +112,7 @@ If execution, tools, data, or approval are missing, mark the safety fact **unpro
 3. Look where grep stops. Read the source of the library you call, and check its pinned version and any local patch. Work out when things run: microtasks, unmount and teardown, Solid versus React. Follow what a symbol search misses: the JSON an API returns, a DB column, a wire format, another language reading the same bytes, a feature flag, code three hops downstream. Do not infer behavior from an unpatched or different library version.
 4. Be honest about each risk. Give it a real chance of happening and a real cost if it does. Keep the risks you confirmed. List the ones you checked and cleared separately. Follow [Why's epistemics](../../references/explanation/why/epistemics.md): cite a real `file:line`, a search that finds nothing is still an answer, and never make up a caller or an API. Distinguish confirmed risks, cleared risks, and unresolved hypotheses; a scoped negative search is not global proof of absence.
 5. Prove the one fact. Within proof authority, write a script or test that runs the real code, run it, and paste what happened. Use the exact shipped dependency/function and fail loudly on the bad behavior. If blocked, report unproven with attained level, exact gap, and smallest proposed reproducible check instead of claiming completion of execution.
-6. For a big or wide change, consider independent evidence gathering or an explicitly authorized diverse-model comparison of the same question. Different models can catch different real bugs; ask the same question and merge verified answers. Apply selective delegation and real host capabilities, not an automatic arena requirement. An explicitly requested diverse panel remains unmet when unavailable; broad scope alone does not authorize it.
+6. For a big or wide change, consider independent evidence gathering or an explicitly authorized diverse-model comparison of the same question. Different models can catch different real bugs; ask the same question and merge verified answers.
 
 ### What to hand back
 
@@ -126,4 +124,4 @@ If execution, tools, data, or approval are missing, mark the safety fact **unpro
 
 Apply the relevant [prose cleanup](../cleanup/PLAYBOOK.md#prose-cleanup), cite real code, and strip anything private before it goes anywhere public. Keep reproducible evidence without exposing private inputs or credentials. The report itself is not permission to publish it.
 
-**Reply:** the report above, with each deciding safety fact either supported by its executed proof or marked unproven, its highest proof level and remaining gap explicit. Stop at the analysis; fixes, publication, and merge retain their separate approval boundaries.
+**Reply:** the report above, with each deciding safety fact either supported by its executed proof or marked unproven, its highest proof level and remaining gap explicit.

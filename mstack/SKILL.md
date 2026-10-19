@@ -7,7 +7,7 @@ license: MIT
 
 # Mstack
 
-Select the matching playbook and follow its instructions. State the selected path briefly. Keep a checklist for substantial work, with completion conditions from that playbook. Load supporting playbooks only when needed. Resolve relative links from the containing file's location in the installed bundle.
+Select the matching playbook and follow its instructions. State the selected path briefly. An explicit `@mstack` invocation names this entry: if its content is unavailable, report that instead of substituting another skill's procedure. Keep a checklist for substantial work, with completion conditions from that playbook. Load supporting playbooks only when needed. Resolve relative links from the containing file's location in the installed bundle.
 
 ## Playbooks
 
@@ -41,6 +41,7 @@ Select the matching playbook and follow its instructions. State the selected pat
 | Explain in HTML with large visuals and minimal text         | [Big pictures, little words](playbooks/show-me/PLAYBOOK.md#big-pictures-little-words) |
 | Assess essential and accidental complexity                  | [Show complexity](playbooks/show-complexity/PLAYBOOK.md)                              |
 | Reconstruct prior session context                           | [Recall](playbooks/continuity/PLAYBOOK.md#recall)                                     |
+| Retro or retrospective on completed work                    | [Reflect](playbooks/skill-development/PLAYBOOK.md#reflect)                            |
 | Summarize progress in the current conversation              | [Catch up](playbooks/continuity/PLAYBOOK.md#catch-up)                                 |
 | Clean up code                                               | [Code cleanup](playbooks/cleanup/PLAYBOOK.md#code-cleanup)                            |
 | Improve prose                                               | [Prose cleanup](playbooks/cleanup/PLAYBOOK.md#prose-cleanup)                          |
@@ -59,6 +60,8 @@ Establish the question and the decision it informs. Remain read-only unless the 
 
 - Runtime mechanics and ownership: use [how](playbooks/explanation/PLAYBOOK.md#how).
 - Design rationale and historical constraints: use [why](playbooks/explanation/PLAYBOOK.md#why).
+- Whether the design was the right choice, or which option to pick: use [Architecture](playbooks/exploration/PLAYBOOK.md#architecture), not Why.
+- Timing trends, slow tests, and benchmarks: use [performance](playbooks/performance/PLAYBOOK.md), read-only until implementation is approved.
 - A teaching conversation: use [teach](playbooks/explanation/PLAYBOOK.md#teach).
 - Essential versus accidental complexity: use [show-complexity](playbooks/show-complexity/PLAYBOOK.md).
 

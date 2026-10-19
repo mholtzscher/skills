@@ -12,7 +12,7 @@ Preserve meaningful error distinctions and resource ownership. A catch-all fallb
 
 ## Keep the shell mechanical
 
-Keep business decisions in pure functions without framework dependencies. The shell parses inputs, calls the functions, performs required effects, and translates results or errors. This makes the logic testable without starting the framework.
+Keep business decisions in pure functions without framework dependencies. The shell parses inputs, calls the functions, performs required effects, and translates results or errors.
 
 - Parse functions transform raw bytes into typed state.
 - Prompt construction takes structured state and returns a string.
@@ -23,4 +23,4 @@ Expose domain concepts across a public boundary. Do not publicly re-export priva
 Use two questions to locate the responsibility:
 
 - "Is this data crossing a system boundary right now?" If not, identify a changed invariant before adding another validation layer.
-- "Can this be a pure function that the shell just calls?" If yes, extract the decision from the wiring when that fits the approved design.
+- "Can this be a pure function that the shell just calls?" If yes, extract the decision from the wiring.
