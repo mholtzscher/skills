@@ -259,8 +259,8 @@ flowchart LR
 
 ## Accuracy rules
 
-- Prefer views generated from the project's own artifacts over views drawn by hand. Examples are emitted type declarations, an API description, a schema dump, or migration output, taken at both pinned revisions and diffed. Use the tools the project already has.
+- Prefer views generated from the project's own artifacts over views drawn by hand. Examples are emitted type declarations, an API description, a schema dump, or migration output. For a change, generate them at both pinned revisions and diff them. For a data model, generate them at its one pinned revision. Use the tools the project already has.
 - Label each view with its source: generated from a named artifact at a revision, or drawn by hand from cited `file:line` locations.
 - Check that every type, field, table, column, function, and event named in a view exists at the pinned revision. Search for any name you did not read directly.
 - Render each Mermaid diagram when a renderer is available, and fix any that fail. When none is available, say the diagrams were not rendered. Keep to common Mermaid syntax, because GitHub and Plannotator run different Mermaid versions. Unrendered diagrams fail most often on a semicolon inside a sequence message, which ends the statement, and on unquoted parentheses or brackets in flowchart labels.
-- Show before and after against the pinned base, not against memory of earlier code.
+- In a change tour, show before and after against the pinned base, not against memory of earlier code.
