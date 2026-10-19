@@ -1,6 +1,6 @@
 # Idempotent operations
 
-Design commands, lifecycle steps, and processing loops to converge on the intended state despite crashes, restarts, and retries. Every state-mutating operation should explain what happens when it runs twice and when the previous run crashed halfway. If partial state unpredictably changes the next outcome, each restart becomes another debugging session.
+Design commands, lifecycle steps, and processing loops to converge on the intended state despite crashes, restarts, and retries. Every state-mutating operation should explain what happens when it runs twice and when the previous run crashed halfway.
 
 ## Reconcile partial state
 
@@ -11,7 +11,7 @@ Examples for systems being designed include:
 - Self-healing locks can use PID-based stale-lock detection, but verify the actual process identity and liveness before declaring a lock stale. PID reuse means a matching number alone does not prove that the original owner is still running, and a missing or inconclusive observation does not grant deletion authority.
 - Idempotent scheduling lets incomplete failed work restart cleanly and regenerates fresh input after each cycle rather than replaying obsolete state. This requires real scheduling and reconciliation capabilities in that system. Mstack instructions do not supply locks or a scheduler.
 
-Test the operation by asking what happens when it runs twice in a row, when the prior run crashes at every possible point, and whether re-execution converges on the same intended end state. If the answer depends on leftover state without a defined recovery path, add a reconciliation step within approved scope.
+Test the operation by asking what happens when it runs twice in a row, when the prior run crashes at every possible point, and whether re-execution converges on the same intended end state. If the answer depends on leftover state without a defined recovery path, add a reconciliation step.
 
 ## Retry only the incomplete authorized actions
 

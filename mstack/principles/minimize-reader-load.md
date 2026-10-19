@@ -2,7 +2,7 @@
 
 ## Count layers and hidden state separately
 
-Maintainability is the work a reader needs to understand the code. Track two independent axes, the layers between a question and its answer, and the hidden or mutable state a reader must hold in mind. A flat file with 50 globals can be as hard to reason about as a 6-layer adapter stack. Line count, cyclomatic complexity, and an architecture label are proxies, not the goal. Working memory is finite for readers too, as [Guard context](guard-context.md) describes for agents.
+Maintainability is the work a reader needs to understand the code. Track two independent axes, the layers between a question and its answer, and the hidden or mutable state a reader must hold in mind. A flat file with 50 globals can be as hard to reason about as a 6-layer adapter stack. Line count, cyclomatic complexity, and an architecture label are proxies, not the goal.
 
 - Inspect wrappers with one caller, adapters with no second implementation, and speculative indirection. Collapse them when they cost more than they save. Their shape or size alone is not proof of a maintainability defect.
 - Make adjacent layers change the abstraction. Repeating the same methods and arguments adds another jump without hiding a meaningful decision. Collapse unnecessary pass-through layers.
@@ -20,9 +20,9 @@ Prefer the smallest complete solution and diff that solves the approved problem.
 
 ## Subtract before construction
 
-Sequence justified removal before building on the simpler base. Cut unused behavior before investing in polishing it. Simplification is an ongoing investment in a design that does the required work with the same or fewer concepts.
+Sequence justified removal before building on the simpler base. Cut unused behavior before investing in polishing it.
 
-Trace observed usage, production callers, and contracts before declaring machinery obsolete. Remove dead code, redundant validators, and orphan references within approved scope. Design for actual usage rather than speculative edge cases. Add parsers and guards for real boundary contracts and spec requirements, not imagined future needs.
+Trace observed usage, production callers, and contracts before declaring machinery obsolete. Remove dead code, redundant validators, and orphan references. Design for actual usage rather than speculative edge cases. Add parsers and guards for real boundary contracts and spec requirements, not imagined future needs.
 
 For prompts, remove redundant instructions and excessive templates. A reference with no novel content can be deleted after checking its callers, substantive content, and removal authority. Preserve a valid route for retained guidance. This is not permission to delete approved restored instructions, supported external requirements, useful rationale, or uncertain constraint comments. Investigate uncertain rationale before proposing its removal.
 
@@ -32,4 +32,4 @@ When the new internal API is approved, inventory callers, migrate them, and dele
 
 Preserve genuine supported external contracts and unrelated work. Temporary adapters are exceptional and time-boxed, with an owner and removal condition rather than permanent default architecture. Use [declared migration phases](verifiable-units.md#declare-migration-phases-when-temporary-breakage-is-necessary) if approved isolated intermediate breakage is necessary.
 
-Update tests to assert the agreed new contract. Remove obsolete tests that protect only pre-refactor implementation details, while preserving meaningful behavior pins and external requirements. Retain original-code pins, coordinated moves, and equivalence evidence for an approved refactor. A new internal API does not silently authorize a changed behavior contract or an out-of-scope migration.
+Update tests to assert the agreed new contract. Remove obsolete tests that protect only pre-refactor implementation details, while preserving meaningful behavior pins and external requirements. Retain original-code pins, coordinated moves, and equivalence evidence for an approved refactor.

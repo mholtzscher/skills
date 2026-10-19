@@ -1,6 +1,6 @@
 # Architecture, arena, and swarm
 
-Read [orchestration](../../references/orchestration.md). Select the actual intent; these are deliberate tools, not mandatory steps for every function.
+Read [orchestration](../../references/orchestration.md). Select the actual intent.
 
 ## Architecture
 
@@ -14,7 +14,7 @@ Before work, open a checklist with all five phases and their completion conditio
 4. Implement against the approved sketch, only for an authorized coding task.
 5. Scrap and revisit the design if implementation reveals a pattern of architectural failure.
 
-For an architecture-only request, the implementation phase remains unstarted. The scrap phase is a decision checkpoint, not a requirement to reject a sound design.
+For an architecture-only request, the implementation phase remains unstarted.
 
 ### Phase A: Ground the problem
 
@@ -28,7 +28,7 @@ Write the caller's usage first, then derive types, signatures, class shapes, and
 
 Choose direct work or multiple host-configured perspectives according to the uncertainty. One well-supported design can finish this phase. When credible alternatives would resolve a consequential uncertainty, compare whole, structurally distinct shapes rather than point fixes inside one shape. Two or three candidates can be useful; they are not a quota. Read [Explore alternatives](../../principles/explore-alternatives.md) for that choice. The existing [Arena](#arena) procedure is optional when useful, not a required dispatch or a prerequisite for local architecture comparison.
 
-For delegated candidates, give each the task, grounding artifacts, absolute isolated output target, ownership constraints, applicable Architecture instructions, shared context, and [runner prompt](references/runner-prompt.md). Supply the instructions in the brief so the runner can complete its assigned phase without reopening the parent workflow. Use actual available tools and host-configured roles/models through [orchestration](../../references/orchestration.md). Keep candidates independent until an explicitly authorized later iteration. Requested independence or model diversity must be real; report an unavailable requirement instead of relabeling direct work or same-model roles.
+For delegated candidates, give each the task, grounding artifacts, absolute isolated output target, ownership constraints, applicable Architecture instructions, shared context, and [runner prompt](references/runner-prompt.md). Supply the instructions in the brief so the runner can complete its assigned phase without reopening the parent workflow. Keep candidates independent until an explicitly authorized later iteration.
 
 Screen every actual candidate against the complete [design red flags](references/design-red-flags.md) before synthesis. Assume the next contributor is an agent that sees only the files it opened, copies the nearest example, and takes the shortest path that compiles. Prefer a design where a change that looks correct in one file satisfies the whole contract. Investigate concrete harm before treating a structural diagnostic as a blocker.
 
@@ -38,7 +38,7 @@ Produce one synthesized design package. Record the base, useful adaptations, rej
 
 ### Phase C: Agree
 
-Present the complete design package and request approval before implementation, including code stubs or repository scaffolds. Both [planning paths](../planning/PLAYBOOK.md#approval) require approval. Reuse prior approval only when it covers this exact shape and scope. A material deviation needs a revised approved plan. An architecture-only request stops after presenting the package and approval request; design approval alone does not turn it into a coding task.
+Present the complete design package and request approval before implementation, including code stubs or repository scaffolds. A material deviation needs a revised approved plan. An architecture-only request stops after presenting the package and approval request; design approval alone does not turn it into a coding task.
 
 A requested design artifact may be written at its authorized path as planning work. Otherwise present the sketch in the reply or another authorized artifact. Writing product-code stubs or scaffolds into the checkout is implementation, even if their bodies only throw `not implemented`.
 
@@ -50,7 +50,7 @@ For useful adversarial pressure, use a scoped [review](../review/PLAYBOOK.md) of
 
 Enter this phase only when the caller grants implementation authority through the selected coding path. Replace `not implemented` bodies with code and pseudocode with logic. The approved sketch is the contract. Surface deviations instead of silently absorbing them. If a function needs an unanticipated parameter, identify whether the sketch was wrong, a requirement was missed, or implementation is overreaching. Resolve material changes through approval before proceeding.
 
-Verify behavior through the selected coding playbook. Compilation or a completed scaffold alone is not proof that the design works.
+Verify behavior through the selected coding playbook.
 
 ### Phase E: Scrap when the architecture is wrong
 
@@ -63,7 +63,7 @@ If implementation keeps producing friction the sketch cannot absorb, revise the 
 - Callers must know the abstraction's internal rules to use it.
 - Two or more independent Phase D deviations have the same shape across the implementation.
 
-Use judgment. A few edge cases do not condemn an architecture. Some problems are legitimately complex. Complexity in the data is not necessarily complexity in the design.
+A few edge cases do not condemn an architecture. Some problems are legitimately complex. Complexity in the data is not necessarily complexity in the design.
 
 When the pattern warrants a new shape:
 
@@ -72,13 +72,13 @@ When the pattern warrants a new shape:
 3. Subtract before adding. Identify the rules, states, dependencies, jumps, or coordination burden that the replacement removes and where retained responsibility goes. Compare concrete reader burden, not a size or deletion quota, using [Minimize reader load](../../principles/minimize-reader-load.md#subtract-before-construction).
 4. Return to Phase B, compare alternatives when useful, and return to approval if the shape changes.
 
-Scrapping means revising the design and proposing or making an authorized owned replacement. It does not grant authority to delete someone else's work, reset commits, discard evidence, or expand the approved migration.
+Scrapping means revising the design and proposing or making an authorized owned replacement.
 
 ### Outputs
 
-Write the caller's usage first and derive the type sketch from it. For small changes, provide one file's worth of new types and signatures. For larger work, provide a module map plus type definitions and ownership. Ship a one-page rationale alongside, following every section of the [rationale template](references/rationale-template.md), including usage and synthesis decision.
+For small changes, provide one file's worth of new types and signatures. For larger work, provide a module map plus type definitions and ownership. Ship a one-page rationale alongside, following every section of the [rationale template](references/rationale-template.md), including usage and synthesis decision.
 
-Identify the grounded source, checks actually performed, proposed future usage, unknowns, and approval state. A hypothetical caller is a design proposal, not an observed production consumer. Cite each read principle that materially changed a decision and explain the choice it changed. End with a supported design decision or the exact blocker, not an automatic implementation or PR.
+Identify the grounded source, checks actually performed, proposed future usage, unknowns, and approval state. A hypothetical caller is a design proposal, not an observed production consumer. End with a supported design decision or the exact blocker, not an automatic implementation or PR.
 
 ## Arena
 
@@ -119,8 +119,6 @@ If a worker drops out, continue useful work with N-1 and note the dropout. A mis
 
 An early race selection does not permit abandoning owned workers or processes. Drain all launched workers and record their terminal states, or report explicit unknown liveness and incomplete work. Do not claim cancellation without a real supported operation and confirmed outcome.
 
-If delegation is unavailable and independent concurrency is optional, continue as direct analysis and explicitly identify that substitution. Do not call it a completed swarm. A request that specifically requires independent parallel agents remains blocked until the user changes that requirement or the capability is available.
-
 ### Phase C: Aggregate
 
 Read the actual terminal reports and validate each against its brief. Verify the evidence, exact target SHAs, and measurement method where required. A result missing or contradicting its required SHAs/method is invalid for acceptance. Preserve its report as evidence of the failure instead of silently fixing its receipt.
@@ -137,4 +135,4 @@ Return one consolidated in-chat report with the result table, all evidenced issu
 
 Stop at this report unless the caller separately authorized subsequent implementation or delivery. Findings and selected candidates do not automatically authorize fixes or PR publication.
 
-All modes end with evidence for the decision or a clear blocker. They do not automatically publish competing PRs.
+All modes end with evidence for the decision or a clear blocker.

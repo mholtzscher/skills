@@ -7,47 +7,48 @@ license: MIT
 
 # Mstack
 
-Select the matching playbook and follow its instructions. State the selected path briefly. Keep a checklist for substantial work, with completion conditions from that playbook. Load supporting playbooks only when needed. Resolve relative links from the containing file's location in the installed bundle.
+Select the matching playbook and follow its instructions. State the selected path briefly. An explicit `@mstack` invocation names this entry: if its content is unavailable, report that instead of substituting another skill's procedure. Keep a checklist for substantial work, with completion conditions from that playbook. Load supporting playbooks only when needed. Resolve relative links from the containing file's location in the installed bundle.
 
 ## Playbooks
 
-| Request                                                     | Playbook                                                                              |
-| ----------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| New or changed behavior                                     | [Feature](playbooks/feature/PLAYBOOK.md)                                              |
-| Reported defect                                             | [Bug fix](playbooks/bug-fix/PLAYBOOK.md)                                              |
-| Behavior-preserving restructuring                           | [Refactoring](playbooks/refactoring/PLAYBOOK.md)                                      |
-| Small implementation sketch or full spec                    | [Planning](playbooks/planning/PLAYBOOK.md)                                            |
-| Create an implementation-ready spec                         | [Full spec](playbooks/planning/PLAYBOOK.md#full-spec)                                 |
-| Refine an existing proposal                                 | [Spec refinement](playbooks/planning/PLAYBOOK.md#refine)                              |
-| Implement an approved spec                                  | [Spec implementation](playbooks/spec-implement/PLAYBOOK.md)                           |
-| Read-only question or architecture explanation              | [Investigation](#investigation)                                                       |
-| Prototype or visual-parity work                             | [Prototype](playbooks/prototype/PLAYBOOK.md)                                          |
-| Performance measurements, fixes, or hillclimbing            | [Performance](playbooks/performance/PLAYBOOK.md)                                      |
-| Live runtime symptom or captured trace                      | [Forensics](playbooks/forensics/PLAYBOOK.md)                                          |
-| Independent review or blast-radius analysis                 | [Review](playbooks/review/PLAYBOOK.md)                                                |
-| Architecture, competing designs, or partitioned exploration | [Exploration](playbooks/exploration/PLAYBOOK.md)                                      |
-| Publish, rewrite, triage, fix feedback, or inspect checks   | [PR workflows](#pr-workflows)                                                         |
-| Explicit stack or merge                                     | [Advanced delivery](playbooks/advanced-delivery/PLAYBOOK.md)                          |
-| Long active-session task or project-scale run               | [Autonomous run](playbooks/autonomous/PLAYBOOK.md)                                    |
-| Keep or audit a reviewable decision trail                   | [Decision trail](playbooks/decision-trail/PLAYBOOK.md)                                |
-| Resume prior work                                           | [Pickup](playbooks/continuity/PLAYBOOK.md#pickup)                                     |
-| Hand off or pause work                                      | [Pause](playbooks/continuity/PLAYBOOK.md#pause)                                       |
-| Author/evaluate a skill or capture lessons about skills     | [Skill development](playbooks/skill-development/PLAYBOOK.md)                          |
-| Create a project verification skill                         | [Create](playbooks/verification-skill/PLAYBOOK.md#create)                             |
-| Maintain a project verification skill                       | [Maintain](playbooks/verification-skill/PLAYBOOK.md#maintain)                         |
-| Stress-test a proposal through questions                    | [Grilling](playbooks/grilling/PLAYBOOK.md)                                            |
-| Clarify domain terms or record a glossary/decision          | [Domain modeling](playbooks/domain-modeling/PLAYBOOK.md)                              |
-| Explain with a diagram or code-shape sketch                 | [Show me](playbooks/show-me/PLAYBOOK.md)                                              |
-| Explain in HTML with large visuals and minimal text         | [Big pictures, little words](playbooks/show-me/PLAYBOOK.md#big-pictures-little-words) |
-| Assess essential and accidental complexity                  | [Show complexity](playbooks/show-complexity/PLAYBOOK.md)                              |
-| Reconstruct prior session context                           | [Recall](playbooks/continuity/PLAYBOOK.md#recall)                                     |
-| Summarize progress in the current conversation              | [Catch up](playbooks/continuity/PLAYBOOK.md#catch-up)                                 |
-| Clean up code                                               | [Code cleanup](playbooks/cleanup/PLAYBOOK.md#code-cleanup)                            |
-| Improve prose                                               | [Prose cleanup](playbooks/cleanup/PLAYBOOK.md#prose-cleanup)                          |
-| Review comment value                                        | [Comments](playbooks/cleanup/PLAYBOOK.md#comment-review)                              |
-| Find, apply, or survey project coding standards             | [Coding standards](playbooks/coding-standards/PLAYBOOK.md)                            |
-| Capture lessons about project code as rules or checks       | [Capture](playbooks/coding-standards/PLAYBOOK.md#capture)                             |
-| Explain mstack usage or dependencies                        | [Help](playbooks/help/PLAYBOOK.md)                                                    |
+| Request                                                            | Playbook                                                                              |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| New or changed behavior                                            | [Feature](playbooks/feature/PLAYBOOK.md)                                              |
+| Repair a reported defect                                           | [Bug fix](playbooks/bug-fix/PLAYBOOK.md)                                              |
+| Behavior-preserving restructuring                                  | [Refactoring](playbooks/refactoring/PLAYBOOK.md)                                      |
+| Small implementation sketch or full spec                           | [Planning](playbooks/planning/PLAYBOOK.md)                                            |
+| Create an implementation-ready spec                                | [Full spec](playbooks/planning/PLAYBOOK.md#full-spec)                                 |
+| Refine an existing proposal                                        | [Spec refinement](playbooks/planning/PLAYBOOK.md#refine)                              |
+| Implement a spec                                                   | [Spec implementation](playbooks/spec-implement/PLAYBOOK.md)                           |
+| Read-only investigation of code or architecture                    | [Investigation](#investigation)                                                       |
+| Prototype or visual-parity work                                    | [Prototype](playbooks/prototype/PLAYBOOK.md)                                          |
+| Performance measurements, fixes, or hillclimbing                   | [Performance](playbooks/performance/PLAYBOOK.md)                                      |
+| Diagnose a live symptom or captured trace                          | [Forensics](playbooks/forensics/PLAYBOOK.md)                                          |
+| Independent review or blast-radius analysis                        | [Review](playbooks/review/PLAYBOOK.md)                                                |
+| Architecture, competing designs, or partitioned exploration        | [Exploration](playbooks/exploration/PLAYBOOK.md)                                      |
+| Publish, rewrite, triage, fix feedback, inspect checks, or monitor | [PR workflows](#pr-workflows)                                                         |
+| Explicit stack or merge                                            | [Advanced delivery](playbooks/advanced-delivery/PLAYBOOK.md)                          |
+| Long active-session task or project-scale run                      | [Autonomous run](playbooks/autonomous/PLAYBOOK.md)                                    |
+| Keep or audit a reviewable decision trail                          | [Decision trail](playbooks/decision-trail/PLAYBOOK.md)                                |
+| Resume prior work                                                  | [Pickup](playbooks/continuity/PLAYBOOK.md#pickup)                                     |
+| Hand off or pause work                                             | [Pause](playbooks/continuity/PLAYBOOK.md#pause)                                       |
+| Author, update, or evaluate a skill                                | [Skill development](playbooks/skill-development/PLAYBOOK.md)                          |
+| Create a project verification skill                                | [Create](playbooks/verification-skill/PLAYBOOK.md#create)                             |
+| Maintain a project verification skill                              | [Maintain](playbooks/verification-skill/PLAYBOOK.md#maintain)                         |
+| Stress-test a proposal through questions                           | [Grilling](playbooks/grilling/PLAYBOOK.md)                                            |
+| Clarify domain terms or record a glossary/decision                 | [Domain modeling](playbooks/domain-modeling/PLAYBOOK.md)                              |
+| Explain with a diagram or code-shape sketch                        | [Show me](playbooks/show-me/PLAYBOOK.md)                                              |
+| Explain in HTML with large visuals and minimal text                | [Big pictures, little words](playbooks/show-me/PLAYBOOK.md#big-pictures-little-words) |
+| Assess complexity without changing code                            | [Show complexity](playbooks/show-complexity/PLAYBOOK.md)                              |
+| Review recent work and live state                                  | [Recall](playbooks/continuity/PLAYBOOK.md#recall)                                     |
+| Retro the current session for skill lessons                        | [Reflect](playbooks/skill-development/PLAYBOOK.md#reflect)                            |
+| Summarize progress in the current conversation                     | [Catch up](playbooks/continuity/PLAYBOOK.md#catch-up)                                 |
+| Clean up the scoped change (code, prose, comments)                 | [Code cleanup](playbooks/cleanup/PLAYBOOK.md#code-cleanup)                            |
+| Improve prose                                                      | [Prose cleanup](playbooks/cleanup/PLAYBOOK.md#prose-cleanup)                          |
+| Review comment value                                               | [Comments](playbooks/cleanup/PLAYBOOK.md#comment-review)                              |
+| Find, apply, or survey project coding standards                    | [Coding standards](playbooks/coding-standards/PLAYBOOK.md)                            |
+| Capture lessons about project code as rules or checks              | [Capture](playbooks/coding-standards/PLAYBOOK.md#capture)                             |
+| Explain mstack usage or dependencies                               | [Help](playbooks/help/PLAYBOOK.md)                                                    |
 
 Mstack is the single entry point. Playbooks supply task procedures; principles guide decisions; roles name bounded assignments when delegating. Read playbooks as task instructions, with the shared rules already in context.
 
@@ -59,6 +60,8 @@ Establish the question and the decision it informs. Remain read-only unless the 
 
 - Runtime mechanics and ownership: use [how](playbooks/explanation/PLAYBOOK.md#how).
 - Design rationale and historical constraints: use [why](playbooks/explanation/PLAYBOOK.md#why).
+- Choosing between design options: use [Architecture](playbooks/exploration/PLAYBOOK.md#architecture), not Why.
+- Timing trends, slow tests, and benchmarks: use [performance](playbooks/performance/PLAYBOOK.md), read-only until implementation is approved.
 - A teaching conversation: use [teach](playbooks/explanation/PLAYBOOK.md#teach).
 - Essential versus accidental complexity: use [show-complexity](playbooks/show-complexity/PLAYBOOK.md).
 

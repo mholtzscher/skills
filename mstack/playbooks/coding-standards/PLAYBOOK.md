@@ -13,7 +13,7 @@ Every rule and check starts as a proposal. Edit a standards file only for rows t
 
 Search the repository for every file that documents how code should be written. When `CODING_STANDARDS.md` or `CONTRIBUTING.md` exists, it must be on the list. Include the style guides, ADRs, and package-level standards files that they or the repository instructions point to. Record each source's scope: the directory a package-level file sits in, narrowed by any paths a rule declares in **Applies to**. Read the linter, formatter, type-checker, and CI configuration to learn which rules tooling already enforces.
 
-Done when you hold the standards source paths and their scopes, found by searching, the tool-enforced rules, or the explicit result that no standards documentation exists.
+Done when you hold the standards source paths and their scopes, the tool-enforced rules, or the explicit result that no standards documentation exists.
 
 ## Apply
 
@@ -33,7 +33,7 @@ Inputs are the current session, review findings, or project lessons handed over 
    - **Judgment.** Cross-file consistency, matching surrounding style, or a design preference no check can decide. Propose a rule in the [rule format](references/rule-format.md), using the failing case from the evidence.
    - **Stale or unclear.** A rule the code or the user now contradicts, that a reviewer cannot apply, or that tooling now enforces. Propose clarifying or removing it.
 3. Present numbered rows with the class, proposal, target file, and evidence. Wait for the user to select rows.
-4. Write the selected rules to the existing standards file. With none, create `CODING_STANDARDS.md` at the repository root unless the repository has an established home for such documents. When the file passes about 1,000 lines, move detail into linked documents and leave navigation pointers. Selected checks go through [planning](../planning/PLAYBOOK.md) approval and ordinary delivery.
+4. Write the selected rules to the existing standards file. With none, create `CODING_STANDARDS.md` at the repository root unless the repository has an established home for such documents. When the file passes about 1,000 lines, move detail into linked documents and leave navigation pointers. Selected checks follow [planning](../planning/PLAYBOOK.md).
 
 Report applied, proposed, and dropped rows separately.
 

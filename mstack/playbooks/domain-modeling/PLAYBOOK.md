@@ -1,10 +1,8 @@
 # Domain modeling
 
-Actively build and sharpen the project's domain model as you design. This is the _active_ discipline: challenging terms, inventing edge-case scenarios, and writing the glossary and decisions down the moment they crystallise. (Merely _reading_ `GLOSSARY.md` for vocabulary is not this playbook: that's a one-line habit any playbook can do. This playbook is for when you're changing the model, not just consuming it.)
+Actively build and sharpen the project's domain model as you design. This is the _active_ discipline: challenging terms, inventing edge-case scenarios, and writing the glossary and decisions down the moment they crystallise.
 
 Use the host's question tool for genuine domain decisions, with conversational fallback. Read the adapter for the current host, [OpenCode](../../references/hosts/opencode.md) or [Pi](../../references/hosts/pi.md). Reuse settled answers from planning. The inline documentation updates below apply when the requested work includes modeling; in a read-only investigation, propose them instead. Preserve established repository organization and numbering, and record the decision's actual status.
-
-Read `GLOSSARY-MAP.md` when present to find bounded contexts; otherwise inspect the current context's `GLOSSARY.md`.
 
 ## File structure
 
@@ -36,13 +34,11 @@ If a `GLOSSARY-MAP.md` exists at the root, the repo has multiple contexts. The m
 │       └── docs/adr/
 ```
 
-Create files lazily: only when you have something to write. If no `GLOSSARY.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
+Create files lazily: only when you have something to write. If no `docs/adr/` exists, create it when the first ADR is needed.
 
 ### Single vs multi-context repos
 
-**Single context (most repos):** One `GLOSSARY.md` at the repo root.
-
-The playbook infers which structure applies:
+Infer the structure:
 
 - If `GLOSSARY-MAP.md` exists, read it to find contexts
 - If only a root `GLOSSARY.md` exists, single context
@@ -64,7 +60,7 @@ When the user uses vague or overloaded terms, propose a precise canonical term. 
 
 ### Discuss concrete scenarios
 
-When domain relationships are being discussed, stress-test them with specific scenarios. Invent scenarios that probe edge cases and force the user to be precise about the boundaries between concepts.
+When domain relationships are being discussed, invent specific edge-case scenarios that force the user to be precise about the boundaries between concepts.
 
 ### Cross-reference with code
 
@@ -74,7 +70,7 @@ When the user states how something works, check whether the code agrees. If you 
 
 When a term is resolved, update `GLOSSARY.md` right there. Don't batch these up: capture them as they happen. Use the format in [GLOSSARY-FORMAT.md](references/GLOSSARY-FORMAT.md).
 
-`GLOSSARY.md` should be totally devoid of implementation details. Do not treat `GLOSSARY.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
+`GLOSSARY.md` should be totally devoid of implementation details. Do not treat `GLOSSARY.md` as a spec, a scratch pad, or a repository for implementation decisions.
 
 ### Offer ADRs sparingly
 

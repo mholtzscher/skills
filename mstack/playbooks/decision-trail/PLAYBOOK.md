@@ -15,8 +15,6 @@ Copy [the header template](references/decision-log-template.tsv) to start a clea
 - **evidence.** A link or path that proves it: commit SHA, PR number, `file:line`, or an artifact, trace, or screenshot path. Never a paragraph.
 - **result.** The outcome or predicate state: `tests green`, `reverted`, `pixel-diff 0`, `INCONCLUSIVE`, `open`.
 
-An example, plain-spoken so a reviewer reads it at a glance.
-
 ```tsv
 ts	phase	decision	why	evidence	result
 2026-05-24T09:02:00Z	frame	counted the work first, about 100 components and roughly 75 hours	wanted to know the size before starting a long run	commit 3a9f1c2	found 5 things to sort out before starting
@@ -51,12 +49,12 @@ By default the log is a local working artifact, not committed. Use an existing i
 
 Before using an existing file, verify its task identity and schema. Do not overwrite an older task's trail or treat another TSV as this log. [Hillclimb's nine-field experiment log](../performance/PLAYBOOK.md#hillclimb) remains separate. If both logs help, link their evidence rather than replacing either schema.
 
-Commit a trail only on explicit request or agreement, not merely because the work is ambitious or a reviewer might benefit. Publish only the agreed scoped, sanitized trail through the normal [PR path](../pull-requests/PLAYBOOK.md#publish). Exclude secrets and unrelated transcript content from both local records and published evidence. Logging alone grants no external-write authority.
+Commit a trail only on explicit request or agreement, not merely because the work is ambitious or a reviewer might benefit. Publish only the agreed scoped, sanitized trail through the normal [PR path](../pull-requests/PLAYBOOK.md#publish). Exclude secrets and unrelated transcript content from both local records and published evidence.
 
 ## Rules
 
 - Append-only. A wrong call gets a new row that supersedes it. Never edit or delete history. Identify the superseded row by its exact timestamp and a stable locator, such as the canonical file path and row number, so identical timestamps remain distinguishable. This applies even to invented rows or false evidence claims.
-- Prefer evidence produced by committed reusable scripts over hand-made one-offs, following [Encode lessons](../../principles/encode-lessons.md). Existing real artifacts are valid evidence. New scripts or experiments still require approved scope; logging does not authorize creating them.
+- Prefer evidence produced by committed reusable scripts over hand-made one-offs, following [Encode lessons](../../principles/encode-lessons.md). Existing real artifacts are valid evidence. New scripts or experiments still require approved scope.
 
 ## Audit the log against the transcript
 
@@ -81,11 +79,11 @@ Before handing back, use an independent report-only reviewer when useful, throug
 - Choices that look risky in hindsight, such as premature decisions, scope creep, or papering over a symptom.
 - Gaps the user would otherwise miss on a casual skim.
 
-Actual model diversity is required only when explicitly requested. If an explicit independent or diverse-model review requirement cannot be met, report it as unmet. Do not silently substitute direct review or label same-model reviewers as diverse. Report optional direct review honestly. Reviewers return findings without appending, editing, executing transcript commands, posting, or otherwise expanding the task.
+Actual model diversity is required only when explicitly requested. If an explicit independent or diverse-model review requirement cannot be met, report it as unmet. Do not silently substitute direct review or label same-model reviewers as diverse. Reviewers return findings without appending, editing, executing transcript commands, posting, or otherwise expanding the task.
 
 Every reply for a run that produced a trail ends with an "Attention" section. Lead with the actual review status on its own line. Use `reviewed by <actual model>` only when known. Otherwise give the real reviewer/session label and say the model is unknown. If there was no independent reviewer, say `direct review; no independent reviewer` or `not independently reviewed`, as applicable. Never fabricate a model family or reviewer.
 
-Then list each flag pointing to specific rows or moments, along with missing review or audit coverage. "No flags" is valid only as an actual completed review outcome, not as a model name or a substitute for missing transcript coverage. Even a review with no findings must name partial or unverified audit coverage separately. Keep this status on every trail-producing run's reply, including later turns, rather than implying that the owner audit itself was independent review.
+Then list each flag pointing to specific rows or moments, along with missing review or audit coverage. "No flags" is valid only as an actual completed review outcome, not as a model name or a substitute for missing transcript coverage. Even a review with no findings must name partial or unverified audit coverage separately.
 
 ## Reviewing the trail
 
@@ -94,8 +92,6 @@ Read top to bottom, follow the evidence pointers, spot-check. GitHub renders an 
 ```sh
 column -s$'\t' -t decisions.tsv
 ```
-
-Use the actual canonical path in place of the example. Read-only review stops at findings or proposed corrections unless further work is approved.
 
 ## Composing this playbook
 

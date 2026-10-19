@@ -24,10 +24,10 @@ When no structured question tool is available, format a round like so:
 
 Word each question so "yes" accepts your recommended answer.
 
-Each round the user answers reshapes the tree: settled decisions push the frontier outward and unblock questions that depended on them. Recompute the frontier and ask the next round. A question whose answer depends on another question still open in this round belongs to a _later_ round, not this one.
+Each round the user answers reshapes the tree: settled decisions push the frontier outward and unblock questions that depended on them. Recompute the frontier and ask the next round.
 
 Finding _facts_ is your job, never the user's. When a frontier question needs a fact from the environment (filesystem, tools, etc.), look it up directly or delegate bounded research through [orchestration](../../references/orchestration.md); don't ask the user for anything you could look up yourself. When research is delegated, don't block on it: a running exploration is an unsettled prerequisite, so only the questions downstream of it wait for the sub-agent to report; ask the rest of the frontier now. The _decisions_ are the user's: put each to them and wait.
 
 The session is done when the frontier is empty: every branch of the design tree visited, nothing left silently assumed. Do not act on it until the user confirms you have reached a shared understanding.
 
-Restate the intended outcome and decisions for that confirmation. If the interview pauses before the frontier is empty, report the unresolved decisions instead of claiming completion. This interview does not authorize implementation. For a formal plan, hand the agreed decisions to [full-spec planning](../planning/PLAYBOOK.md#full-spec) without restarting the interview.
+Restate the intended outcome and decisions for that confirmation. If the interview pauses before the frontier is empty, report the unresolved decisions instead of claiming completion. For a formal plan, hand the agreed decisions to [full-spec planning](../planning/PLAYBOOK.md#full-spec) without restarting the interview.

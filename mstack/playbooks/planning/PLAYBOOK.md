@@ -15,16 +15,7 @@ For a sketch, show the intended behavior and a focused code/data/file diff, deci
 
 ## Full spec
 
-For a full spec, use [grilling](../grilling/PLAYBOOK.md) to settle open decisions and [domain-modeling](../domain-modeling/PLAYBOOK.md) when terminology matters. These build on one interview rather than asking the same questions again. The phases below apply to the full-spec path; the small-change path lives in [sketch](#sketch).
-
-Produce implementation-ready specs through rigorous dialogue and honest trade-off analysis.
-
-### Core Philosophy
-
-- **Dialogue over deliverables** — Plans emerge from discussion, not assumption
-- **Skeptical by default** — Requirements are incomplete until proven otherwise
-- **Second-order thinking** — Consider downstream effects and maintenance burden
-- **Implementation shape is part of the design** — Types, interfaces, and project layout make a proposal executable rather than aspirational
+For a full spec, use [grilling](../grilling/PLAYBOOK.md) to settle open decisions and [domain-modeling](../domain-modeling/PLAYBOOK.md) when terminology matters. These build on one interview rather than asking the same questions again.
 
 ### Workflow Phases
 
@@ -47,10 +38,9 @@ Phase: CLARIFY | Waiting for: answers to questions 1-4
 
 **Hard rule:** No spec until user has responded to at least one round of questions. Read existing decisions first; an earlier clarification or grilling round in this conversation counts. Reuse settled answers rather than restarting the interview.
 
-1. **STOP.** Do not proceed to planning until that clarification requirement is met.
-2. Identify gaps in: scope, motivation, constraints, edge cases, success criteria, and expected implementation shape
-3. Ask 2-4 pointed questions that would change the approach. Use the host's structured question tool when available.
-4. **Wait for responses**
+1. Identify gaps in: scope, motivation, constraints, edge cases, success criteria, and expected implementation shape
+2. Ask 2-4 pointed questions that would change the approach. Use the host's structured question tool when available.
+3. **Wait for responses**
 
 **IMPORTANT: Use structured questions when the host exposes them.** On OpenCode, use `question`; on Pi, use the installed question extension's actual schema. If unavailable, ask the same focused questions in conversation and wait. For OpenCode, group up to 4 questions in one call, each with 2-4 options containing a label and description. Keep headers within 16 characters. The tool supplies the custom-answer row; do not add an "Other" option. Use `multiple: true` when several choices may apply. OpenCode example:
 
@@ -86,7 +76,7 @@ question({
 | Success        | "How will we know this worked?"                          |
 | Implementation | "Which types, boundaries, or modules will change?"       |
 
-**Escape prevention:** For a new interview, even if the request seems complete, ask 2+ clarifying questions. Skip only for mechanical requests (e.g., "rename X to Y"). An already-completed clarification round satisfies this requirement.
+**Escape prevention:** For a new interview, even if the request seems complete, ask 2+ clarifying questions. Skip only for mechanical requests (e.g., "rename X to Y").
 
 **Anti-patterns to resist:**
 
@@ -100,11 +90,9 @@ question({
 
 ### Phase 2: DISCOVER
 
-**After clarification, before planning:** Understand existing system.
+Explore directly by default using the host's file and search tools. Identify key files, abstractions, patterns, integration points, types, interfaces, and project-layout constraints.
 
-Explore directly by default using the host's file and search tools: on OpenCode, use `glob` for paths, `grep` for symbols and content, and `read` for relevant files; on Pi, use the available equivalents. Identify key files, abstractions, patterns, integration points, types, interfaces, and project-layout constraints.
-
-For delegated discovery, check available agents and the actual tool schema. Use [orchestration](../../references/orchestration.md) and the adapter for the current host, [OpenCode](../../references/hosts/opencode.md) or [Pi](../../references/hosts/pi.md). Assign bounded read-only discovery tasks. Launch independent tasks separately in the background where supported, wait for results before dependent steps, and consume results before drafting; do not assume a particular agent name exists.
+For delegated discovery, check available agents and the actual tool schema. Use [orchestration](../../references/orchestration.md) and the adapter for the current host, [OpenCode](../../references/hosts/opencode.md) or [Pi](../../references/hosts/pi.md). Assign bounded read-only discovery tasks. Launch independent tasks separately in the background where supported, wait for results before dependent steps, and consume results before drafting.
 
 | Target             | What to Find                                       |
 | ------------------ | -------------------------------------------------- |
@@ -115,7 +103,7 @@ For delegated discovery, check available agents and the actual tool schema. Use 
 | Project layout     | Package boundaries, file ownership, and naming     |
 | Integration points | APIs, events, and data flows touched               |
 
-**If unfamiliar tech is involved**, use available web search with 2-4 varied queries and fetch authoritative documentation. Follow applicable tool/documentation policies and report unavailable research capabilities. Use file reading to retrieve passages saved to a file or fetch source evidence about a specific claim. Return the recommended approach, gotchas, and production patterns with source evidence; distinguish verified facts from assumptions.
+**If unfamiliar tech is involved**, use available web search with 2-4 varied queries and fetch authoritative documentation. Follow applicable tool/documentation policies and report unavailable research capabilities. Return the recommended approach, gotchas, and production patterns with source evidence; distinguish verified facts from assumptions.
 
 **Output:** Brief architecture summary before proposing solutions, including current type, interface, and project-layout constraints.
 
@@ -171,7 +159,7 @@ Choose the format for the current proposal, then read only its template:
 - [ADR](references/templates/adr.md) for architecture decisions.
 - [RFC](references/templates/rfc.md) for larger proposals.
 
-Write the draft to the explicitly requested path, or default to `specs/<descriptive-name>.md`, and mark its approval state accurately. Creating the requested spec is permitted planning work. Use established repository conventions for durable ADRs and [domain modeling](../domain-modeling/PLAYBOOK.md) for glossary/decision-record work.
+Write the draft to the explicitly requested path, or default to `specs/<descriptive-name>.md`, and mark its approval state accurately. Use established repository conventions for durable ADRs and [domain modeling](../domain-modeling/PLAYBOOK.md) for glossary/decision-record work.
 
 **Transition:** Spec produced → REFINE
 
@@ -219,7 +207,7 @@ When reporting the approved, completed spec, read and use the [final-response te
 2. Write or finalize the spec at the explicitly requested path, or default to `specs/<filename>.md`. Explicit paths may be nested or outside that directory.
 3. Confirm: `Spec written to: <actual path>`
 
-Suggest implementation only when ready; do not start it as a consequence of finishing the document. Follow [approval](#approval) for the selected task's stopping condition.
+Follow [approval](#approval) for the selected task's stopping condition.
 
 ---
 
@@ -240,21 +228,17 @@ When scope creeps:
 2. **Park it:** "Added to Open Questions. Revisit after core spec stable."
 3. **Cost it:** "Adding Y changes effort from M to XL. Worth it?"
 
-**Hard rule:** If scope changes, re-estimate and flag explicitly.
-
 ### References
 
-| File                                                        | When to Read                                 |
-| ----------------------------------------------------------- | -------------------------------------------- |
-| [decision-frameworks.md](references/decision-frameworks.md) | Complex multi-factor decisions               |
-| [estimation.md](references/estimation.md)                   | Breaking down work, avoiding underestimation |
-| [technical-debt.md](references/technical-debt.md)           | Evaluating refactoring ROI                   |
+| File                                              | When to Read               |
+| ------------------------------------------------- | -------------------------- |
+| [technical-debt.md](references/technical-debt.md) | Evaluating refactoring ROI |
 
 ## Approval
 
 Present the complete proposal and ask for approval. **Stop before implementation on both paths.** A request to plan or create a spec ends here. For an ongoing coding task, resume its selected playbook after approval.
 
-Done means the proposal is understandable, acceptance is testable, material unknowns are explicit, and the approval state is accurately reported. Suggested next workflows are suggestions, not automatic transitions.
+Done means the proposal is understandable, acceptance is testable, material unknowns are explicit, and the approval state is accurately reported.
 
 ## Refine
 
@@ -265,4 +249,4 @@ Accept an explicit path; use the current known spec when unambiguous. Read the w
 3. Present clarity improvements and viable conservative/aggressive simplifications with focused diffs. Explain what each retains, changes, and loses; do not force alternatives where no safe reduction exists.
 4. Ask which proposals to approve. Make no initial edits, including wording-only cleanup.
 5. Apply only selected changes. Reconcile types, interfaces, deliverables, and validation affected by semantic changes. Resolve contradictions through dialogue.
-6. Check consistency and formatting. Report the actual path, changes, and remaining uncertainties. Suggest implementation when ready; do not automatically implement or publish the revised spec.
+6. Check consistency and formatting. Report the actual path, changes, and remaining uncertainties. Suggest implementation when ready.

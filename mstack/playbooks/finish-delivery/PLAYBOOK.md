@@ -1,6 +1,6 @@
 # Finish a coding task
 
-This is the shared completion path for approved feature, bug-fix, refactoring, and spec-implementation work. It does not add delivery to read-only or planning workflows.
+This is the shared completion path for approved feature, bug-fix, refactoring, and spec-implementation work.
 
 1. Complete relevant local [verification](../../references/verification.md).
 2. Run the mandatory [cleanup passes](../cleanup/PLAYBOOK.md#before-publication), inspect accepted changes, and rerun affected checks.
@@ -9,4 +9,4 @@ This is the shared completion path for approved feature, bug-fix, refactoring, a
 5. Investigate completed failures, fix in-scope causes, validate locally, rerun affected cleanup, and push. Required CI repair is authorized within the approved design. A materially different solution returns to approval. Repeated failure under the same premise invokes [Question the premise](../../principles/question-the-premise.md), not an unbounded retry loop.
 6. Finish only when required checks and acceptance are established. Missing required-check knowledge, access, external infrastructure, or an unresolvable failure is a reported blocker. Do not disable checks, bypass protections, or label skipped/pending jobs as passes.
 
-The report includes the PR URL, published revision, behavior delivered, actual validation, material principle citations, and any unresolved work. Ordinary delivery does not merge the PR.
+The report includes the PR URL, published revision, behavior delivered, actual validation, material principle citations, and any unresolved work.

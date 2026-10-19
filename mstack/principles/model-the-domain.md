@@ -2,7 +2,7 @@
 
 ## Choose the structure before the logic
 
-Name the data shape before writing the logic. Define core types early, trace every important access pattern, and choose structures that match the dominant reads and writes. Map each important type and interface to its owner. A structure that matches the domain can remove branches and invalid states. Choosing it while writing is cheap; recovering it later becomes a refactor that is easy to defer.
+Name the data shape before writing the logic. Define core types early, trace every important access pattern, and choose structures that match the dominant reads and writes. Map each important type and interface to its owner. A structure that matches the domain can remove branches and invalid states.
 
 Reach for the smallest structure that fits:
 
@@ -16,7 +16,7 @@ Reach for the smallest structure that fits:
 
 When none fits, identify what the code must never allow and how the data gets read. Find the structure that expresses exactly those requirements. A feature extending an existing if/else chain, a second boolean that must stay synchronized with the first, or repeated rules across temporal phases should prompt this investigation.
 
-Keep boring code when its shape is clear, local, and unlikely to grow. An abstraction must remove a real ambiguity, repeated decision, duplicated rule, invalid state, branch burden, or lifecycle risk to justify its indirection. DRY the structure, not every line. Types and data models should converge, but three similar statements can be clearer than a premature abstraction. Prefer explicit code over clever code. Test behavior and edge cases rather than line counts.
+Keep boring code when its shape is clear, local, and unlikely to grow. An abstraction must remove a real ambiguity, repeated decision, duplicated rule, invalid state, branch burden, or lifecycle risk to justify its indirection. Types and data models should converge, but three similar statements can be clearer than a premature abstraction.
 
 Before actors share state, ask what happens if another actor modifies it concurrently. If that can affect correctness, consider isolation through [Separate ownership](separate-ownership.md).
 
@@ -38,4 +38,4 @@ A match on a sum type should expose a missing case when a new variant is added. 
 
 Derive types from the authoritative shape when one exists. A protocol buffer, OpenAPI spec, GraphQL schema, database migration, or design-token file should not acquire a hand-maintained shadow definition. Use [Encode lessons](encode-lessons.md#encode-a-recurring-constraint) when generation or checks can enforce agreement.
 
-External parsing and unsafe assertions belong to [Boundary discipline](boundary-discipline.md#parse-external-data-without-lying-to-the-compiler). A cast does not establish correctness. Use an external TypeScript specialist for syntax only when one is actually available; it is not a mandatory runtime dependency of this principle.
+External parsing and unsafe assertions belong to [Boundary discipline](boundary-discipline.md#parse-external-data-without-lying-to-the-compiler). A cast does not establish correctness.

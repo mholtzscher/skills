@@ -272,6 +272,36 @@ Each standards source applies only within its scope: the directory a package-lev
 
 Accepted 2026-10-19. Remove the explicit "read repository instructions" wording from the spec-implement entry, the planning depth choice, and the verification inventory step. OpenCode injects `AGENTS.md` as system instructions (global plus project files, nested files on read discovery), so compliant runs show no `read` tool call for it: sessions `ses_eae25604` and `ses_eaf7e80` followed `hearth/AGENTS.md` conventions without ever reading that file, with the harness copy confirmed in `instruction_blob`. The removed lines created false audit gaps without adding behavior. Shared-rule authority for explicit user and repository instructions is unchanged. Approval: Inbox thread `msg_01M5922TTVBZ0RDARQWW83MF1X` ("Approve these three wording removals?"), user answered "approved" 2026-10-19. [E34](#e34-harness-injected-instructions).
 
+### D38: Trim playbook no-op sentences for directness
+
+Accepted 2026-10-19. Remove persona framing, same-file restatements, shared-rule repeats already loaded with the entry, and throat-clearing across all 26 playbooks (net about 60 lines). Shared-rule removals rest on [SKILL.md](../../mstack/SKILL.md): approval reuse and reopening (scope and approval), one unmerged PR without merging or stacks (scope and approval), selective delegation with disclosed direct fallback (execution and completion), and tool-schema precedence (host selection). This extends D03's consolidation precedent, which removed repeated shared-rule directions without freezing future wording changes.
+
+Substantive instructions, permission boundaries, approval gates, and evidence requirements are preserved. Where the trim overreached, the load-bearing text was restored: the planning structured-question contract (option shape, header length, `multiple: true`, worked example), the spec filename/path rules, the show-complexity scope bound, and the forensics evidence-source verbs. Provenance stays in [PROVENANCE.md](PROVENANCE.md): the inline deslop credit was removed as covered there, while the Comment Sicko credit remains inline because it has no provenance entry. Approval: user directive "Apply then" in the working session, 2026-10-19, on the independent worker's finding list.
+
+### D39: Trim principle no-op sentences for directness
+
+Accepted 2026-10-19. Remove agreed no-op sentences across the 14 principles: same-file restatements, slogans, disclaimers, and shared-rule repeats already loaded with the entry (approval reuse and reopening, one-PR delivery with explicit stacks, selective delegation with disclosed fallback, tool-schema precedence, unavailable-check reporting). Substantive diagnostics, E23 risk-based choices, the D09 comment protection, and E26 evidence requirements are preserved; prove-it-works keeps the unavailable-check gap rule while verifiable-units defers to it. Approval: user-selected "Agreed + shared-rule" scope on the reconciled opus/Sol finding lists, 2026-10-19. Opus-only operative trims and all wording rewrites were excluded.
+
+### D40: Second trim pass on principles
+
+Accepted 2026-10-19. Extend D39 with the reconciled pass-2 findings: the 5 both-workers-agree deletions, 6 Sol-only pure removals, and 8 missed shared-rule approval repeats (prototype-approval, census/instrumentation gates, scope-expansion and deletion disclaimers). Excluded all wording rewrites and opus-only operative trims. One misapplied edit (model-the-domain :19, slogan kept over diagnostic) was caught in verification and repaired before checks. Approval: user-selected "Add shared-rule too" scope, 2026-10-19.
+
+### D41: Routing fixes from mstack usage sessions
+
+Accepted 2026-10-19. Five routing improvements grounded in session evidence (subagent-mined from the live session store, dev sessions excluded):
+
+- Architectural "why" disambiguation: historical rationale routes to Why; "was this the right choice?" or option comparison routes to Exploration → Architecture. Evidence: `ses_eb0dc933` (HomeKit bridge/adapter) misrouted to Why and had to reload Exploration after user correction.
+- Explicit-invocation fallback: an `@mstack` invocation names the entry; if its content is unavailable, report that instead of substituting another skill. Evidence: `ses_eb0aa2a9` first `@mstack explore` carried no skill attachment and was answered from service-design. Caveat: this line only fires once the entry loads; the underlying non-activation is a host-boundary failure needing separate investigation.
+- Show-complexity triggers: "implementation complexity", "what complexity does this introduce?", "what can we simplify?", with classification explicitly not effort estimation. Evidence: unprefixed complexity request answered as effort estimate; `@mstack`-prefixed repeat correctly loaded Show complexity.
+- Retro entry row routing to Skill development → Reflect. Evidence: `@mstack retro` probed Continuity before settling on Reflect.
+- Performance precedence: timing trends, slow tests, and benchmarks route to Performance, read-only until implementation approval. Evidence: CI-slowdown session mixed Investigation labeling with Performance procedure.
+
+Approval: user "yes" to implementing all five, 2026-10-19.
+
+### D42: Entry-trigger disambiguation from dual-worker review
+
+Accepted 2026-10-19. Ten trigger fixes both workers independently flagged: repair-vs-diagnose wording (bug fix/forensics), narrowed read-only investigation scope, recall as recent-work review, cleanup as scoped-change tidy, implement-a-spec without pre-approval implication, skill author/update/evaluate, analysis-only complexity assessment, retro scoped to current-session skill lessons, and monitor added to the PR row. Lessons three-way split is addressed by the :35/:44/:50 scoping, not a new playbook. Excluded: each worker's unique extras and all rewrites. Approval: user-selected "Both-agree only" scope, 2026-10-19. Follow-up same day: the D41 Architecture bullet was narrowed to choosing-between-options per the workers' shared verdict; evaluating an existing design routes through the entry's Review and Show complexity rows.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed pstack 0.15.21's 24 principles into 14. Several concrete prescriptions were shortened away, including the written premise/actor census and detailed exhaustive-matching/type-construction guidance. D26 restores these diagnostics and examples, with explicit choices for evidence-driven tools, risk-based types, and declared migration phases. The source's mandatory tool deliverable and proceed-first policy are not restored. Full Orchestrate/Autopilot protocols and the dedicated worktree/simulator-cleanup workflow were not preserved.
