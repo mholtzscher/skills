@@ -22,7 +22,7 @@ Select the subject:
 1. Establish intent from the request, commit messages, and PR description when one exists. Include local edits only when the user agrees. Inventory the changed paths, including new, deleted, and renamed files. Untracked files join the diff only when they are in scope.
 2. Read the full diff once. Keep lookups targeted: each one answers a question a specific stop needs answered. Do not explore the repository for general context.
 3. Split the change into chapters by logical unit, not by file or folder. A small change can be one chapter with one stop. Three files changed for one reason form one chapter; one file with two unrelated changes splits across two. Unrelated work never shares a chapter. Put the most important chapter first, so a reader who stops early has already seen what matters.
-4. Every changed path appears in exactly one chapter or in an explicit **Not covered** list with a reason. Check this against the inventory before delivery.
+4. Every changed path has exactly one owning chapter or appears in an explicit **Not covered** list with a reason. A chapter that shows part of a file another chapter owns cites those lines instead of claiming the path. Check ownership against the inventory before delivery.
 5. Use the change-specific views where they apply: the contract delta for changed types and payloads, the deploy compatibility matrix for schema or wire changes, and interface conformance for changed interfaces. Say plainly which chapter carries most of the risk.
 6. Explain the change rather than reviewing it. If you notice a likely defect while reading, mention it briefly at its stop and offer [Review](../review/PLAYBOOK.md) separately. Most stops mention none.
 

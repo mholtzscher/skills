@@ -331,12 +331,13 @@ Adaptations:
 
 ## Tour sources
 
-[D43](DECISIONS.md#d43-add-a-tour-playbook-for-shared-visual-walkthroughs), accepted 2026-10-19, adapts ideas from the guided-review method that Plannotator 0.28.23 returns through its Inbox `get_guide_brief` tool. Plannotator is MIT/Apache-2.0 licensed. The [Change](../../mstack/playbooks/tour/PLAYBOOK.md#change) procedure keeps its main ideas in independent wording: chapters by logical unit rather than file, the most important chapter first and glue last, unrelated work in separate chapters, every changed path placed exactly once or listed, targeted lookups instead of repository exploration, and explanation instead of bug hunting.
+[D43](DECISIONS.md#d43-add-a-tour-playbook-for-shared-visual-walkthroughs), accepted 2026-10-19, adapts ideas from the guided-review method that Plannotator 0.28.23 returns through its Inbox `get_guide_brief` tool. Plannotator is MIT/Apache-2.0 licensed. The [Change](../../mstack/playbooks/tour/PLAYBOOK.md#change) procedure keeps its main ideas in independent wording: chapters by logical unit rather than file, the most important chapter first and glue last, unrelated work in separate chapters, every changed path owned by exactly one chapter or listed, targeted lookups instead of repository exploration, and explanation instead of bug hunting.
 
 Adaptations:
 
 - The method's voice rules, sentence limits, and JSON output schema are not imported. Prose cleanup already governs style, and the default output is a Markdown file rather than an Inbox guide.
 - Chapters lead with a visual from the views catalog, ordered data first, which is an mstack addition.
+- The brief requires both splitting a file's unrelated changes across sections and placing each file exactly once. Mstack resolves that conflict with an owning chapter per path, and other chapters cite the lines they show.
 - The brief's diff command and untracked-file handling become mstack's scope rule: local edits and untracked files join only when agreed.
 - The data-model subject, the views catalog, the legend, and the accuracy rules have no upstream counterpart. The view list extends the five view kinds in D35's PR metadata reference.
 
