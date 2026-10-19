@@ -6,7 +6,7 @@ For a new proposal, choose its depth, follow the sketch or full-spec section, th
 
 ## Choose depth
 
-1. Read the request, existing decisions, repository instructions, and relevant source. Explain the current behavior and ownership briefly.
+1. Read the request, existing decisions, and relevant source. Explain the current behavior and ownership briefly.
 2. Choose **sketch** for a bounded, understood change with a clear validation path. Choose **spec** for consequential uncertainty, cross-boundary contracts, migration, or substantial scope. A one-line security change can still need a spec. Explain the choice and honor an explicit user selection.
 
 ## Sketch
