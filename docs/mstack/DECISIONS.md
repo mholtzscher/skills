@@ -298,6 +298,10 @@ Accepted 2026-10-19. Five routing improvements grounded in session evidence (sub
 
 Approval: user "yes" to implementing all five, 2026-10-19.
 
+### D42: Entry-trigger disambiguation from dual-worker review
+
+Accepted 2026-10-19. Ten trigger fixes both workers independently flagged: repair-vs-diagnose wording (bug fix/forensics), narrowed read-only investigation scope, recall as recent-work review, cleanup as scoped-change tidy, implement-a-spec without pre-approval implication, skill author/update/evaluate, analysis-only complexity assessment, retro scoped to current-session skill lessons, and monitor added to the PR row. Lessons three-way split is addressed by the :35/:44/:50 scoping, not a new playbook. Excluded: each worker's unique extras and all rewrites. Approval: user-selected "Both-agree only" scope, 2026-10-19. Follow-up same day: the D41 Architecture bullet was narrowed to choosing-between-options per the workers' shared verdict; evaluating an existing design routes through the entry's Review and Show complexity rows.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed pstack 0.15.21's 24 principles into 14. Several concrete prescriptions were shortened away, including the written premise/actor census and detailed exhaustive-matching/type-construction guidance. D26 restores these diagnostics and examples, with explicit choices for evidence-driven tools, risk-based types, and declared migration phases. The source's mandatory tool deliverable and proceed-first policy are not restored. Full Orchestrate/Autopilot protocols and the dedicated worktree/simulator-cleanup workflow were not preserved.
