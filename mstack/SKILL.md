@@ -39,6 +39,7 @@ Select the matching playbook and follow its instructions. State the selected pat
 | Clarify domain terms or record a glossary/decision                 | [Domain modeling](playbooks/domain-modeling/PLAYBOOK.md)                              |
 | Explain with a diagram or code-shape sketch                        | [Show me](playbooks/show-me/PLAYBOOK.md)                                              |
 | Explain in HTML with large visuals and minimal text                | [Big pictures, little words](playbooks/show-me/PLAYBOOK.md#big-pictures-little-words) |
+| Walk a reader through a change or data model as a shared tour      | [Tour](playbooks/tour/PLAYBOOK.md)                                                    |
 | Assess complexity without changing code                            | [Show complexity](playbooks/show-complexity/PLAYBOOK.md)                              |
 | Review recent work and live state                                  | [Recall](playbooks/continuity/PLAYBOOK.md#recall)                                     |
 | Retro the current session for skill lessons                        | [Reflect](playbooks/skill-development/PLAYBOOK.md#reflect)                            |

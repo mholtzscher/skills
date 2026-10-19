@@ -13,6 +13,7 @@ Mstack is an independently maintained adaptation, not an upstream compatibility 
 | [Matt Pocock domain-modeling](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling)                                              | installed 2026-10-11; installer folder hash `ea30ee454ba264543dbe40737973b1a5afb9f0e6`          | Vendored/adapted domain modeling, glossary and ADR formats                                                                                                |
 | [Matt Pocock code-review and retro](https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336/skills/engineering)                    | commit `49dd158d1076134a641b33efb035946536778336`, inspected 2026-10-18                         | Smell baseline; standards discovery, documented-rule citation, and the check-versus-rule classification behind Coding standards                           |
 | [backnotprop's Big-pics-little-words](https://github.com/backnotprop/bro/blob/3737bf2b3e5ef8f44639ebf6e6bbbf821b3edfb9/skills/big-pics-little-words/SKILL.md) | repository commit `3737bf2b3e5ef8f44639ebf6e6bbbf821b3edfb9`, inspected 2026-10-16              | Design brief for independently worded HTML-first explanation guidance; upstream text is not vendored                                                      |
+| [Plannotator guided-review method](https://github.com/backnotprop/plannotator)                                                                                | `get_guide_brief` output from Plannotator 0.28.23, inspected 2026-10-19                         | Ideas behind the change tour: importance ordering, logical chapters, the coverage rule, and orientation instead of audit; upstream text is not vendored   |
 
 Installer folder hashes identify installed content, not upstream Git commits. The source skill bodies and required references were adapted into mstack's own files rather than retained as an unmodified vendored subtree.
 
@@ -327,6 +328,18 @@ Adaptations:
 - Preserve source attribution and incomplete-symbol gaps. Comparable paired captures can support confirmation, but workload, build, capture settings, intervention, and confounders still matter. An unpaired capture remains the strongest supported hypothesis rather than proof of a product fix.
 - Preserve the seven ordered mantras through the existing shared section, the one-off target stop, and per-attempt verification. The complete benchmark checklist governs numbers and comparable repeated runs. Original trace artifacts remain visible, and inconclusive or wrong-boundary results cannot become a winner. PR and final reports cite actual baseline/post-fix values, deltas, identities, and artifact paths.
 - Ordinary approved fixes retain one unmerged PR and scoped required-CI repair. Diagnosis and measurement-only work stop with evidence; a referenced fix or Hillclimb route does not authorize starting it. Other source omissions, including Arena, remain separately scoped.
+
+## Tour sources
+
+[D43](DECISIONS.md#d43-add-a-tour-playbook-for-shared-visual-walkthroughs), accepted 2026-10-19, adapts ideas from the guided-review method that Plannotator 0.28.23 returns through its Inbox `get_guide_brief` tool. Plannotator is MIT/Apache-2.0 licensed. The [Change](../../mstack/playbooks/tour/PLAYBOOK.md#change) procedure keeps its main ideas in independent wording: chapters by logical unit rather than file, the most important chapter first and glue last, unrelated work in separate chapters, every changed path owned by exactly one chapter or listed, targeted lookups instead of repository exploration, and explanation instead of bug hunting.
+
+Adaptations:
+
+- The method's voice rules, sentence limits, and JSON output schema are not imported. Prose cleanup already governs style, and the default output is a Markdown file rather than an Inbox guide.
+- Chapters lead with a visual from the views catalog, ordered data first, which is an mstack addition.
+- The brief requires both splitting a file's unrelated changes across sections and placing each file exactly once. Mstack resolves that conflict with an owning chapter per path, and other chapters cite the lines they show.
+- The brief's diff command and untracked-file handling become mstack's scope rule: local edits and untracked files join only when agreed.
+- The data-model subject, the views catalog, the legend, and the accuracy rules have no upstream counterpart. The view list extends the five view kinds in D35's PR metadata reference.
 
 ## Coding standards sources
 
