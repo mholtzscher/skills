@@ -1,6 +1,6 @@
 # Mstack maintenance decisions
 
-Initial record created 2026-10-15 from the original design session's user messages and completed question/answer records, including material before compaction, and cross-checked against the published bundle at `f26c267`. Later decisions cite their own approval evidence. This is the durable record of design intent; [SKILL.md](../../mstack/SKILL.md) and its linked playbooks contain the executable instructions, and [PROVENANCE.md](PROVENANCE.md) identifies adapted sources.
+Initial record created 2026-10-15 from the original design session's user messages and completed question/answer records, including material before compaction, and cross-checked against the published bundle at `f26c267`. Later decisions cite their own approval evidence. This is the durable record of design intent; [SKILL.md](../../mstack/SKILL.md) and its linked playbooks contain the executable instructions. The upstream-source provenance record was retired on 2026-10-21 under [D44](#d44-retire-upstream-provenance-tracking); older PROVENANCE.md links below are historical revision evidence.
 
 The decisions below are accepted unless explicitly marked otherwise. Rationale summarizes the tradeoffs discussed; detailed implementation choices are identified as such rather than presented as separate user votes. Original approval records are indexed under [Sources](#sources). Earlier session history informed the discussion but does not override these choices.
 
@@ -315,6 +315,12 @@ The user's choices:
 - **Markdown by default, opened in Plannotator.** The user answered "always markdown and open plannotator for me". This uses the optional review surface accepted with [E5](#e5-vendoring-migration-and-review-surface). The procedure keeps a fallback that reports the path when Plannotator is unavailable, so Plannotator does not become a required dependency.
 
 Every tour pins its revision or range, anchors each stop to source, and applies the accuracy rules before delivery. Stops run data first, in this order: Map, Shapes, Flow, Behavior, Glue. A change tour gives every changed path exactly one owning chapter or lists it as Not covered, and explains the change rather than reviewing it. The views catalog stays inside the Tour folder under D31 because only Tour uses it; adopting it from Show me or PR metadata would move it to the runtime root in that change. Show me's body is unchanged, preserving D16. Tours are read-only; Inbox guides, HTML, and PR bodies are produced only on request, and remote writes need explicit authority.
+
+### D44: Retire upstream-provenance tracking
+
+Accepted 2026-10-21. Delete `docs/mstack/PROVENANCE.md` and stop SHA/revision-level upstream tracking. Mstack is now owned work in this repository; upstream parity was already not a goal under D01, and the user confirmed there is no intent to stay in sync. The tracking cost exceeds its maintenance value.
+
+License compliance is preserved without the file. MIT copyright notices remain in [LICENSE](../../mstack/LICENSE). Big-pics-little-words remains independently worded guidance from a source without a declared license, not vendored MIT material. Prior `PROVENANCE.md` section links in this record and in [SOURCE-AUDIT.md](SOURCE-AUDIT.md) remain as historical revision evidence for the D16-D28 restorations and D29-D36 packaging changes; they are not live dependencies. Forward maintenance reads this decision record only, per the updated `AGENTS.md`. Approval: user directive "i'm not trying to stay in sync with upstream anymore. the skill is becoming my own now" plus "full delete option", 2026-10-21.
 
 ## Upstream differences that are not new commitments
 
