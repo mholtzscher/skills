@@ -2,7 +2,7 @@
 
 Michael's explicitly invoked engineering workflows for OpenCode V2 and Pi. One entry point, `mstack`, routes planning, investigation, review, explanation, and PR requests to playbooks.
 
-Mstack is independently maintained. It adapts pstack's playbook/principle structure and selected workflows, incorporates agent-orchestrator, and vendors the planning, explanation, and verification-skill procedures listed in [provenance](PROVENANCE.md). It does not depend on workflow-tools or a pstack installation.
+Mstack is independently maintained and owned in this repository. It does not depend on workflow-tools or a pstack installation.
 
 Playbooks provide task procedures, principles guide decisions, and roles are bounded assignments for delegated work. These terms are defined in the [glossary](GLOSSARY.md).
 
@@ -19,7 +19,7 @@ Planning, investigation, review, metadata rewrite, and check snapshots keep thei
 | Directory         | Contents                                                                                                          |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------- |
 | `mstack/`         | Installable entry, playbooks, principles, runtime references, helpers, helper usage, and license                  |
-| `docs/mstack/`    | Installation/development guide, maintenance instructions, decisions, glossary, provenance, and source audit       |
+| `docs/mstack/`    | Installation/development guide, maintenance instructions, decisions, glossary, and source audit                   |
 | `tooling/mstack/` | Bundle validator, tests, package manifest, lockfile, TypeScript configuration, and local development dependencies |
 
 Only `mstack/` is copied or symlinked during installation. Runtime links resolve within that directory. Repository-root `AGENTS.md` routes maintenance work to this guide's neighboring instructions.
@@ -116,7 +116,7 @@ The [host adapters](../../mstack/SKILL.md#host-selection) distinguish OpenCode a
 
 Before modifying mstack, read the [maintainer instructions](AGENTS.md) and [decision record](DECISIONS.md). They preserve the approved tradeoffs, superseded approaches, and known validation gaps from the original design session; update the record when an accepted choice changes.
 
-The [integrated-source audit](SOURCE-AUDIT.md) maps retained and missing source instructions, examples, and resources. Show-me and spec-planner have full-source restorations; several other integrated procedures remain condensed. Consult the audit and [provenance](PROVENANCE.md) before further restoration.
+The [integrated-source audit](SOURCE-AUDIT.md) is a historical 2026-10-15 report mapping retained and missing source instructions, examples, and resources.
 
 From `tooling/mstack`:
 
@@ -144,4 +144,4 @@ The old standalone agent-orchestrator is archived under `deprecated/` in the ski
 
 The former `mstack-*` shortcuts have been consolidated into the single entry point. Replace a shortcut such as `@mstack-pr-triage 123` with `@mstack triage PR 123`. When cutting over from the old layout, update any explicit source that points at `mstack/skills` to the parent skill directory containing `mstack/`, then reload discovery.
 
-Creating this bundle does not uninstall workflow-tools or change host configuration. Switch installation sources only during an explicit cutover. License notices and source/adaptation details are in [LICENSE](../../mstack/LICENSE) and [PROVENANCE.md](PROVENANCE.md).
+Creating this bundle does not uninstall workflow-tools or change host configuration. Switch installation sources only during an explicit cutover. License notices are in [LICENSE](../../mstack/LICENSE).
