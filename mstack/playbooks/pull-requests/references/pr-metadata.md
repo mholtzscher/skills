@@ -28,7 +28,7 @@ Use `- None.` under Special things to note when appropriate.
 
 ## Change outline requirements
 
-**The Change outline must show the change visually.** Prose summaries and file-by-file changelogs do not satisfy this requirement. Use a diagram, responsibility tree, focused diff, or pseudocode that shows the relevant structure or flow.
+**The Change outline must show the change visually.** Prose summaries and file-by-file changelogs do not satisfy this requirement. Use a diagram, responsibility tree, focused diff, or pseudocode that shows the relevant structure or flow, drawn from the components in [visual components](../../../references/visual-components.md).
 
 Include only the views that explain this PR, ordered for narrative:
 
