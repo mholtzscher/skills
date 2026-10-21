@@ -16,7 +16,7 @@ Inspect existing skills first; use [Maintain](#maintain) for an existing target 
 - **Observe:** screenshots, terminal transcripts, response bodies, exit codes, logs, persisted state, and other evidence that establishes behavior.
 - **Isolate:** instance ownership and whether ports, data directories, profiles, and sessions allow independent runs. Establish a disposable test target rather than driving an unrelated running instance.
 
-Propose the skill path, harness/helper changes, initial feature coverage, proof target, evidence location, and cleanup in a sketch; use a full spec when uncertainty warrants it. Obtain implementation approval before writing the skill or helpers.
+Propose the skill path, harness/helper changes, initial feature coverage, proof target, evidence location, and cleanup in a sketch; use a spec when uncertainty warrants it. Obtain implementation approval before writing the skill or helpers.
 
 If the checkout cannot build or reach a usable state, report the exact blocker. Product-code repairs require their own approved scope. Minimal missing assets or sample configuration may be created as explicitly approved verification scaffolding only when irrelevant to the behavior being proved; name them and remove them in cleanup.
 

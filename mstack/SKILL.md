@@ -16,8 +16,7 @@ Select the matching playbook and follow its instructions. State the selected pat
 | New or changed behavior                                            | [Feature](playbooks/feature/PLAYBOOK.md)                                              |
 | Repair a reported defect                                           | [Bug fix](playbooks/bug-fix/PLAYBOOK.md)                                              |
 | Behavior-preserving restructuring                                  | [Refactoring](playbooks/refactoring/PLAYBOOK.md)                                      |
-| Small implementation sketch or full spec                           | [Planning](playbooks/planning/PLAYBOOK.md)                                            |
-| Create an implementation-ready spec                                | [Full spec](playbooks/planning/PLAYBOOK.md#full-spec)                                 |
+| New proposal, sketch or spec                                       | [Planning](playbooks/planning/PLAYBOOK.md)                                            |
 | Refine an existing proposal                                        | [Spec refinement](playbooks/planning/PLAYBOOK.md#refine)                              |
 | Implement a spec                                                   | [Spec implementation](playbooks/spec-implement/PLAYBOOK.md)                           |
 | Read-only investigation of code or architecture                    | [Investigation](#investigation)                                                       |
@@ -87,7 +86,7 @@ Mstack applies to the task for which it was invoked. The selected playbook deter
 
 ## Scope and approval
 
-Implementation requires an approved sketch or full spec. Use [Planning](playbooks/planning/PLAYBOOK.md) when a proposal is needed.
+Implementation requires an approved sketch or spec. Use [Planning](playbooks/planning/PLAYBOOK.md) when a proposal is needed.
 
 Approval of an already-discussed sketch, spec, or feedback fix satisfies this gate. Reuse that agreement rather than restarting the interview. Reopen a decision when new evidence materially changes the agreed outcome. Read-only investigation, drafting the requested plan, and inspecting an existing diff do not require implementation approval. An experiment that writes code needs an approved sketch too; use an isolated, explicitly disposable target.
 

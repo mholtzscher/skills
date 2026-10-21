@@ -2,7 +2,13 @@
 
 Planning produces a proposal, not an implementation.
 
-For a new proposal, choose its depth, follow the sketch or full-spec section, then seek approval. For an existing spec, follow [refinement](#refine) only.
+For a new proposal, choose its depth, follow the sketch or spec section, then seek approval. For an existing spec, follow [refinement](#refine) only.
+
+## Terms
+
+- **Proposal** is the umbrella output: either depth below, before approval.
+- **Sketch** is the lightweight depth: intended behavior, focused diff, tradeoff, and verification; it stays in conversation unless a file is useful or requested.
+- **Spec** is the file-backed depth: concrete Types, Interfaces, and Layout plus deliverables, acceptance checks, risks, and estimates, written to `specs/<name>.md` via the selected template.
 
 ## Choose depth
 
@@ -11,11 +17,11 @@ For a new proposal, choose its depth, follow the sketch or full-spec section, th
 
 ## Sketch
 
-For a sketch, show the intended behavior and a focused code/data/file diff, decisive tradeoff, and verification. Resolve consequential unknowns through the host question tool. Keep the sketch in conversation unless a file is useful or requested.
+For a sketch, show the intended behavior and a focused code/data/file diff, decisive tradeoff, and verification. Use one view from [visual components](../../references/visual-components.md) where it clarifies the change. Label the view as proposed and anchor it to source `file:line`. Resolve consequential unknowns through the host question tool. Keep the sketch in conversation unless a file is useful or requested.
 
-## Full spec
+## Spec
 
-For a full spec, use [grilling](../grilling/PLAYBOOK.md) to settle open decisions and [domain-modeling](../domain-modeling/PLAYBOOK.md) when terminology matters. These build on one interview rather than asking the same questions again.
+For a spec, use [grilling](../grilling/PLAYBOOK.md) to settle open decisions and [domain-modeling](../domain-modeling/PLAYBOOK.md) when terminology matters. These build on one interview rather than asking the same questions again.
 
 ### Workflow Phases
 
@@ -25,7 +31,7 @@ CLARIFY ──[user responds]──► DISCOVER ──[done]──► DRAFT ─�
    └──[still ambiguous]──◄──────┴───────────────────┴────[gaps found]──────┘
 ```
 
-**State phase at end of every response while following the full-spec path:**
+**State phase at end of every response while following the spec path:**
 
 ```
 ---
@@ -135,7 +141,7 @@ unrelated code. For entirely new files or definitions with no useful before-stat
 block. Include only relevant definitions, but do not replace them with prose such as "add a request object." Render
 project-layout changes as a nested `text` directory tree, marking each path as new, modify, or move and stating its
 responsibility. If one part is unchanged or genuinely not applicable, say so and explain why instead of silently
-omitting it. Map each new type and interface to an owning path and deliverable.
+omitting it. Map each new type and interface to an owning path and deliverable. Where a view clarifies Types, Interfaces, or Layout, use the components and legend in [visual components](../../references/visual-components.md). Label views as proposed and anchor them to source and spec paths.
 
 ```text
 src/
