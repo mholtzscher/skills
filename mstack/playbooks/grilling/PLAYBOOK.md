@@ -30,4 +30,4 @@ Finding _facts_ is your job, never the user's. When a frontier question needs a 
 
 The session is done when the frontier is empty: every branch of the design tree visited, nothing left silently assumed. Do not act on it until the user confirms you have reached a shared understanding.
 
-Restate the intended outcome and decisions for that confirmation. If the interview pauses before the frontier is empty, report the unresolved decisions instead of claiming completion. For a formal plan, hand the agreed decisions to [full-spec planning](../planning/PLAYBOOK.md#full-spec) without restarting the interview.
+Restate the intended outcome and decisions for that confirmation. If the interview pauses before the frontier is empty, report the unresolved decisions instead of claiming completion. For a formal plan, hand the agreed decisions to [spec planning](../planning/PLAYBOOK.md#spec) without restarting the interview.
