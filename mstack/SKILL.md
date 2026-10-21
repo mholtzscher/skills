@@ -7,7 +7,13 @@ license: MIT
 
 # Mstack
 
-Select the matching playbook and follow its instructions. State the selected path briefly. An explicit `@mstack` invocation names this entry: if its content is unavailable, report that instead of substituting another skill's procedure. Keep a checklist for substantial work, with completion conditions from that playbook. Load supporting playbooks only when needed. Resolve relative links from the containing file's location in the installed bundle.
+Select the matching playbook and briefly name it. Playbooks define procedures; principles guide decisions. Load supporting files only as needed, resolving relative links from the containing file.
+
+Track the playbook’s completion conditions in a checklist. If no playbook fits, define a task-specific checklist with an explicit deliverable and stopping condition.
+
+For delegation or independent review, read [orchestration](references/orchestration.md).
+
+If an explicit `@mstack` invocation cannot load this entry, report that rather than substituting another skill.
 
 ## Playbooks
 
@@ -25,7 +31,7 @@ Select the matching playbook and follow its instructions. State the selected pat
 | Diagnose a live symptom or captured trace                          | [Forensics](playbooks/forensics/PLAYBOOK.md)                                          |
 | Independent review or blast-radius analysis                        | [Review](playbooks/review/PLAYBOOK.md)                                                |
 | Architecture, competing designs, or partitioned exploration        | [Exploration](playbooks/exploration/PLAYBOOK.md)                                      |
-| Publish, rewrite, triage, fix feedback, inspect checks, or monitor | [PR workflows](#pr-workflows)                                                         |
+| Publish, rewrite, triage, fix feedback, inspect checks, or monitor | [PR workflows](playbooks/pull-requests/PLAYBOOK.md)                                   |
 | Explicit stack or merge                                            | [Advanced delivery](playbooks/advanced-delivery/PLAYBOOK.md)                          |
 | Long active-session task or project-scale run                      | [Autonomous run](playbooks/autonomous/PLAYBOOK.md)                                    |
 | Keep or audit a reviewable decision trail                          | [Decision trail](playbooks/decision-trail/PLAYBOOK.md)                                |
@@ -50,10 +56,6 @@ Select the matching playbook and follow its instructions. State the selected pat
 | Capture lessons about project code as rules or checks              | [Capture](playbooks/coding-standards/PLAYBOOK.md#capture)                             |
 | Explain mstack usage or dependencies                               | [Help](playbooks/help/PLAYBOOK.md)                                                    |
 
-Mstack is the single entry point. Playbooks supply task procedures; principles guide decisions; roles name bounded assignments when delegating. Read playbooks as task instructions, with the shared rules already in context.
-
-If no playbook fits, assemble the smallest task-specific checklist from the shared rules, with an explicit deliverable and stopping condition. Ask about consequential intent rather than inventing a broader mission.
-
 ## Investigation
 
 Establish the question and the decision it informs. Remain read-only unless the user separately requests an artifact or implementation.
@@ -67,40 +69,16 @@ Establish the question and the decision it informs. Remain read-only unless the 
 
 Trace the important path, inspect material failure cases, and cite the actual source. Delegate independent deep evidence gathering when useful. Stop once the question has a supported answer or a deciding fact is explicitly unavailable. Recommend a next action only when it follows from the findings; an investigation does not automatically become a prototype, refactor, or PR.
 
-## PR workflows
+## Shared rules
 
-Select the requested intent; these are independently selectable operations, not enforced stages.
-
-| Request                                  | Procedure                                                       |
-| ---------------------------------------- | --------------------------------------------------------------- |
-| Commit, push, create/update a PR         | [Publish](playbooks/pull-requests/PLAYBOOK.md#publish)          |
-| Rewrite title and description only       | [Rewrite](playbooks/pull-requests/PLAYBOOK.md#rewrite-metadata) |
-| Evaluate unresolved inline feedback      | [Triage](playbooks/pull-requests/PLAYBOOK.md#triage-feedback)   |
-| Apply agreed feedback and settle threads | [Fix](playbooks/pull-requests/PLAYBOOK.md#fix-agreed-feedback)  |
-| Inspect checks now                       | [Checks](playbooks/pull-requests/PLAYBOOK.md#inspect-checks)    |
-| Monitor after publication without edits  | [Watch](playbooks/pull-requests/PLAYBOOK.md#watch)              |
-
-# Mstack shared rules
-
-Mstack applies to the task for which it was invoked. The selected playbook determines the work and its completion condition. Reading another bundled file supplies guidance, not permission to start that file's workflow. Explicit user instructions and repository rules govern the task.
-
-## Scope and approval
-
-Implementation requires an approved sketch or spec. Use [Planning](playbooks/planning/PLAYBOOK.md) when a proposal is needed.
-
-Approval of an already-discussed sketch, spec, or feedback fix satisfies this gate. Reuse that agreement rather than restarting the interview. Reopen a decision when new evidence materially changes the agreed outcome. Read-only investigation, drafting the requested plan, and inspecting an existing diff do not require implementation approval. An experiment that writes code needs an approved sketch too; use an isolated, explicitly disposable target.
-
-After implementation approval, coding playbooks authorize scoped commits, pushes, and PR creation/update, including fixes to required CI. Ordinary delivery is one PR and stops before merging. Stacked delivery and merging require explicit requests. Preserve unrelated work and the selected delivery branch. Missing access or a materially different outcome needs help, rather than a workaround that changes the goal.
-
-## Questions and communication
-
-Look up observable facts. Ask the user for product intent, preferences, or consequential tradeoffs. Use the host's structured question tool; give a recommendation and meaningful alternatives. If unavailable, ask the same focused questions in the conversation and wait. Use Plannotator/Inbox when requested or when an artifact benefits from that review surface, not as a mandatory dependency.
-
-Use focused diffs, trees, or pseudocode to explain proposed changes. Lead with the result or decision. Separate observed evidence, inference, and unresolved questions. Do not turn a brief explanation into a report of every tool call.
+- **Scope:** Mstack applies to the invoked task. The selected playbook defines its work and stopping condition; reading another file supplies guidance, not authority to start another workflow. Explicit user instructions and repository rules govern the task. Preserve unrelated work and the selected delivery branch.
+- **Approval:** Implementation, including code-writing experiments, requires an approved [sketch or spec](playbooks/planning/PLAYBOOK.md). Reuse an agreed sketch, spec, or feedback fix; seek renewed approval when new evidence materially changes the outcome. Read-only investigation, requested planning, and diff inspection need no implementation approval. Keep experiments in isolated, explicitly disposable targets. Before writing code, [find and apply project standards](playbooks/coding-standards/PLAYBOOK.md#apply).
+- **Delivery:** Approved coding playbooks authorize scoped commits, pushes, one PR, and required-CI repair. Ordinary delivery stops before merging. Stacks and merging require explicit requests.
+- **Completion:** Support completion claims with observed evidence against the requested outcome; use [verification](references/verification.md) for implementation and review. Report unmet requirements and unavailable or unrun checks. When blocked, preserve a resumable state and seek help rather than changing the goal or silently weakening a requirement.
 
 ## Principles
 
-Read only the relevant principle files below before applying them. In the response, cite each principle that materially changed a decision by name and link, explaining the specific choice it changed. A list of slogans is not evidence. Do not claim to have applied an unread principle. Principles guide decisions within the task's scope.
+Read relevant principles before applying them within the task's scope. Cite each principle that materially changed a decision by name and link, explaining the choice it changed.
 
 | When deciding                                        | Read                                                         |
 | ---------------------------------------------------- | ------------------------------------------------------------ |
@@ -119,25 +97,11 @@ Read only the relevant principle files below before applying them. In the respon
 | Retryable commands and partial failure               | [Idempotent operations](principles/idempotent-operations.md) |
 | Recurring mistakes or repeated manual work           | [Encode lessons](principles/encode-lessons.md)               |
 
-## Execution and completion
-
-Before writing code, [find and apply](playbooks/coding-standards/PLAYBOOK.md#apply) the project's coding standards.
-
-Read [orchestration](references/orchestration.md) when delegation or independent review is useful. Keep coupled implementation with one writer; delegate independent work and accept its evidence yourself. Use host-configured roles and models. Mstack has no model sheet or mandatory setup step.
-
-Read [host selection](#host-selection) before using host-specific questions, delegation, history, or review tooling. Tool schemas in the current session take precedence over documented examples. Skill instructions describe conduct; enforced permissions belong to the host.
-
-Verify the actual behavior at the relevant boundary. Report commands and outcomes, including unavailable or unrun checks. Compilation and an agent's completion message alone do not prove the requested behavior. Use [verification](references/verification.md) for implementation and review.
-
-Before publication, run all three [cleanup passes](playbooks/cleanup/PLAYBOOK.md#before-publication): code, prose, and comments. Apply accepted, behavior-preserving cleanup within scope and reverify affected behavior. Structural or semantic changes outside the approved design return to approval.
-
-When blocked, name the unmet requirement and preserve a resumable state. A failed optional delegate can be replaced by direct work where sound, with the loss of independence stated. An explicit independent-review or parallel-execution requirement remains blocked until satisfied or the user changes it.
-
 ## Host selection
 
-Identify the host from its actual tools, not from the project being edited.
+Before using host-specific tools, identify the host from its available tools and read its adapter:
 
-- **OpenCode V2:** read [opencode.md](references/hosts/opencode.md).
-- **Pi:** read [pi.md](references/hosts/pi.md).
+- **OpenCode V2:** [opencode.md](references/hosts/opencode.md)
+- **Pi:** [pi.md](references/hosts/pi.md)
 
-The workflows share the same policy. These adapters supply tool syntax and capability limits. Use available file/search/shell tools for ordinary operations. Bun and authenticated `gh` run on the agent's execution machine, which may differ from the UI machine.
+Look up facts; ask the user for consequential decisions. Use structured questions with a recommendation and meaningful alternatives, falling back to conversation when unavailable.

@@ -18,6 +18,8 @@ Mstack owns this repository's engineering workflow. Upstream parity and a workfl
 
 Shared rules, the principle index, host selection, investigation guidance, and PR intent routing live in the main skill. Load only the selected playbooks and relevant principle leaves. Consolidation changed headings, links, and agreed terminology, not substantive instructions.
 
+The shared-rule organization is superseded by [D47](#d47-keep-the-entry-contract-separate-from-procedures), and entry-level PR intent routing by [D48](#d48-remove-duplicate-entry-routers). The single-entry design remains accepted.
+
 ### D04: Approve both planning paths
 
 The agent chooses a sketch or full spec based on uncertainty, impact, and scope, and the user can override that choice. Both require approval before implementation. Reuse already-given approval and reopen it when material new evidence changes the outcome.
@@ -53,6 +55,8 @@ Use Bun and TypeScript for PR targeting, thread collection, check classification
 ### D12: Host questions are the default review interface
 
 Use structured host questions for decisions, with conversational fallback. Inbox or Plannotator review is optional, used when requested or when an artifact benefits from it.
+
+The entry-level Inbox/Plannotator recommendation is retired by [D49](#d49-place-orientation-before-routing); host-question policy remains accepted.
 
 ### D13: Build and publish before a separate cutover
 
@@ -190,11 +194,39 @@ Accepted 2026-10-21. Move the views catalog from `mstack/playbooks/tour/referenc
 
 Accepted 2026-10-21. Delete `docs/mstack/SOURCE-AUDIT.md`. The per-source retained/missing inventory and batch evaluation evidence are no longer maintained; `DECISIONS.md` remains the durable record of accepted behavior and the upstream-differences summary above remains the boundary for future work. Approval: user directive `i don't want it` on 2026-10-21.
 
+### D47: Keep the entry contract separate from procedures
+
+Accepted 2026-10-20. Keep shared rules in `SKILL.md` focused on scope, approval, delivery authority, and evidence-backed completion. Replace procedural summaries with conditional routes to planning, coding standards, orchestration, verification, and cleanup. Principle selection and host selection are peer routing sections; question-tool policy sits with host selection. Remove generic response-style advice already supplied by the host or task procedures. This supersedes D03's shared-rule organization, preserving approval and delivery boundaries, mandatory cleanup, selective delegation and its failure handling, and D08's material principle citations. Approval: the user accepted the structural review and directed `i like this. implement it` in this session. The aim is one owner for procedural detail rather than several abbreviated versions.
+
+The separate procedural-table organization is superseded by [D48](#d48-remove-duplicate-entry-routers); the compact shared contract remains accepted.
+
+### D48: Remove duplicate entry routers
+
+Accepted 2026-10-20. Route PR requests directly from the main playbook table to the Pull requests playbook, whose sections own operation selection. Remove the Supporting procedures table introduced by D47. Keep necessary planning, standards, verification, and orchestration links beside the applicable contract or host guidance; publication procedures already invoke cleanup. This supersedes D03's entry-level PR intent routing and D47's separate procedural table, preserving the independent PR intents of D06 and mandatory cleanup of D09. Approval: user requested addressing annotations 1 and 2 in Plannotator review `pn-56c515`, questioning the repeated PR playbook and second router.
+
+### D49: Place orientation before routing
+
+Accepted 2026-10-20. Move the playbook/principle/role explanation and unmatched-request fallback before the playbook table. Place the orchestration pointer beside roles rather than under Host selection, superseding that placement in D48. Remove the Plannotator/Inbox recommendation from `SKILL.md`, partially superseding D12; task-specific procedures and host adapters are outside this edit. Approval: annotations 1 through 3 in Plannotator review `pn-4e2169`, including the explicit request to remove the recommendation from this file. This keeps orientation ahead of selection and separates orchestration policy from host mechanics.
+
+### D50: Tighten the entry introduction
+
+Accepted 2026-10-20. Replace the expanded introduction with four short paragraphs covering playbook selection and conditional loading, completion checklists and unmatched requests, orchestration, and missing-entry handling. Remove repeated identity, terminology, and scope exposition; the shared contract and glossary retain those responsibilities. This refines D49's orientation wording without changing its placement. Approval: the user directed `do that` after reviewing the exact proposed introduction.
+
+### D51: Tighten host selection
+
+Accepted 2026-10-20. Keep host selection focused on identifying the host from available tools, reading its adapter, and using structured questions with conversational fallback. Remove generic tooling advice, shared-policy exposition, and execution-machine detail from the entry. Approval: the user directed `do that` after reviewing the exact proposed Host selection section. Adapter links and D12's question-tool policy remain intact.
+
+### D52: Remove the checklist scope qualifier
+
+Accepted 2026-10-20. Remove `For substantial work,` from the entry's checklist instruction, making it unconditional. This supersedes D50's retained substantial-work qualifier. Approval: explicit removal requested in annotation 1 of Plannotator review `pn-91de4b`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
 
 ## Validation and cutover snapshot
+
+2026-10-20, D47 working-tree review: bundle validation (`bun tooling/mstack/validate.ts`, one skill and 97 Markdown files), full bundle/docs Prettier check, and `git diff --check` passed. Direct before/after route inspection covered read-only investigation, previously approved implementation, optional versus required delegation failure, and publication cleanup. Those paths retain their authority and stopping conditions through the shared contract and linked owners; this is source inspection, not an independent behavioral run. Changed section anchors were inspected and no Markdown callers of removed headings were found. The external skill-creator validator could not run because its Python environment lacks `yaml`. Live workflow evaluation was not run.
 
 As of 2026-10-15, baseline commit `f26c267`, bundle validation, formatting, script typechecking, and tests passed for publication. Discovery found exactly one mstack entry in the OpenCode registry and Pi RPC. That establishes discovery, not live delegation or workflow behavior.
 
