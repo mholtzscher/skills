@@ -1,0 +1,74 @@
+# Mstack
+
+Michael's engineering workflow bundle for OpenCode V2 and Pi. One explicitly invoked [entry point](SKILL.md) routes your request to a playbook.
+
+## Install
+
+Copy or symlink the entire `mstack/` directory into a skill search root. For a checkout at `~/code/skills`:
+
+```sh
+mkdir -p ~/.agents/skills
+ln -s ~/code/skills/mstack ~/.agents/skills/mstack
+```
+
+Inspect an existing destination before replacing it, then reload skills or start a fresh host session. Keep the entry, playbooks, principles, references, and scripts together; copying `SKILL.md` alone breaks the bundle.
+
+For an explicit OpenCode skill source, select the parent directory containing `mstack/`, not `mstack/` itself. Only the root `SKILL.md` is a skill entry; playbooks are supporting Markdown.
+
+## Use
+
+Describe the task in natural language:
+
+| Host        | Example                              |
+| ----------- | ------------------------------------ |
+| OpenCode V2 | `@mstack fix the filter reset`       |
+| Pi          | `/skill:mstack fix the filter reset` |
+
+Other requests include:
+
+- Plan a change, refine a spec, or implement an approved spec.
+- Investigate behavior, explain a design, or review a change.
+- Triage PR feedback, apply agreed fixes, or inspect checks.
+- Build a visual explanation or a guided tour.
+- Measure performance, diagnose a trace, or refactor code.
+- Resume work, summarize progress, or reflect on session lessons.
+- Create or maintain a project verification skill.
+
+See [SKILL.md](SKILL.md#playbooks) for the full routing table. General skill authoring and evaluation use the separate `skill-creator` and `writing-for-agents` skills; [Reflect](playbooks/reflect/PLAYBOOK.md) extracts durable lessons from a session.
+
+## Working style
+
+Implementation starts from an approved sketch or spec. Approved coding work includes verification, code/prose/comment cleanup, one PR, and in-scope required-CI repair. Ordinary delivery stops before merging; stacks and merging require explicit requests.
+
+Focused requests keep their own stopping points. Planning produces a proposal, review produces findings, and a checks request reports current CI. [PR operations](playbooks/pull-requests/PLAYBOOK.md) are independently selectable.
+
+Delegation is selective, with one writer for coupled implementation and host-configured models. Principles are read when relevant and cited when they materially change a decision.
+
+## Requirements
+
+- A host with file-reading tools; structured questions and delegation use available host capabilities.
+- Git, authenticated `gh`, and repository permissions for publication.
+- Bun for the bundled PR and decision-log helpers. See [script usage](scripts/README.md).
+- Project tools for verification, plus browser or terminal tools when the behavior needs them.
+
+Host-specific capabilities are documented in the [OpenCode](references/hosts/opencode.md) and [Pi](references/hosts/pi.md) adapters. External specialist skills remain separate installations. Mstack has no workflow-tools dependency and supplies no durable scheduler.
+
+## Maintain
+
+In the source repository, `mstack/` is the installable bundle, `docs/mstack/` holds maintenance instructions and decisions, and `tooling/mstack/` holds validation and tests. Read `docs/mstack/AGENTS.md` before changing the bundle.
+
+From the repository root:
+
+```sh
+bun tooling/mstack/validate.ts
+bunx prettier --check 'mstack/**/*.md' 'docs/mstack/**/*.md'
+git diff --check
+```
+
+For helper, validator, or packaging changes, also run `bun install --frozen-lockfile`, `bun run typecheck`, and `bun test` from `tooling/mstack/`. Structural checks do not establish agent behavior; use `skill-creator` for behavioral evaluation and check live host capabilities when affected.
+
+## Migration
+
+Replace old `mstack-*` shortcuts with natural-language requests such as `@mstack triage PR 123`. Replace an installation source pointing at `mstack/skills` with the parent directory containing `mstack/`, then reload discovery. Installation changes do not uninstall other tools or alter host configuration; make those changes only as part of an explicit cutover.
+
+Licensed under [MIT](LICENSE).

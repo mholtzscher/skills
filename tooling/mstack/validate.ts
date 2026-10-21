@@ -29,7 +29,7 @@ export async function validateBundle(root: string) {
   };
   const layer = (path: string) => {
     const rel = relative(root, path);
-    if (rel === "" || rel === "SKILL.md") return 0;
+    if (rel === "" || rel === "SKILL.md" || rel === "README.md") return 0;
     const parts = rel.split(sep);
     if (parts[0] === "playbooks" && (parts.length <= 2 || (parts.length === 3 && parts[2] === "PLAYBOOK.md"))) return 1;
     return 2;

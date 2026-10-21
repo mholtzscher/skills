@@ -38,6 +38,17 @@ test("rejects extra entry points that hosts would discover differently", async (
   expect((await validateBundle(root)).errors).toEqual(["Bundle must have exactly one entry point at SKILL.md"]);
 });
 
+test("root README links work in an isolated installed bundle without becoming a skill entry", async () => {
+  const root = await fixture();
+  await skill(root, ".", "mstack");
+  await mkdir(join(root, "playbooks/review"), { recursive: true });
+  await writeFile(join(root, "playbooks/review/PLAYBOOK.md"), "# Review\n");
+  await writeFile(join(root, "README.md"), "# Mstack\n[Entry](SKILL.md)\n[Review](playbooks/review/PLAYBOOK.md)\n");
+  expect(await validateBundle(root)).toEqual({ skills: 1, markdownFiles: 4, errors: [] });
+  await writeFile(join(root, "README.md"), "# Mstack\n[Missing](missing.md)\n");
+  expect((await validateBundle(root)).errors).toEqual(["README.md: broken link missing.md"]);
+});
+
 test("rejects the former nested layout even with only one skill", async () => {
   const root = await fixture();
   await skill(root, "skills/mstack", "mstack");
@@ -60,6 +71,7 @@ test.each([
   ["playbooks/review/PLAYBOOK.md", "../../SKILL.md#scope-and-approval"],
   ["principles/proof.md", "../SKILL.md"],
   ["references/deep/guide.md", "../../SKILL.md"],
+  ["references/deep/guide.md", "../../README.md"],
   ["scripts/README.md", "../SKILL.md"],
   ["principles/proof.md", "../playbooks/review/PLAYBOOK.md"],
   ["references/deep/guide.md", "../../playbooks/review/PLAYBOOK.md#verdict"],
@@ -73,6 +85,7 @@ test.each([
 ])("rejects an upward reading dependency from %s to %s", async (source, target) => {
   const root = await fixture();
   await skill(root, ".", "mstack");
+  await writeFile(join(root, "README.md"), "# Mstack\n");
   for (const name of ["review", "planning"]) {
     await mkdir(join(root, "playbooks", name), { recursive: true });
     await writeFile(join(root, "playbooks", name, "PLAYBOOK.md"), `# ${name}\n`);

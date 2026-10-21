@@ -128,9 +128,13 @@ Accepted 2026-10-15. Restore TDD, Bug fix, Runtime forensics, Trace forensics, a
 
 Accepted 2026-10-15. Keep only `SKILL.md`, `LICENSE`, playbooks, principles, runtime references, helpers, and helper usage in `mstack/`. Maintenance records live in `docs/mstack/` and development tooling lives in `tooling/mstack/`. Runtime files must not depend on repository maintenance documents.
 
+The exclusion of a root user guide is superseded by [D54](#d54-ship-a-concise-readme-with-the-bundle); maintenance records and tooling remain outside the bundle.
+
 ### D30: Keep runtime reading flow downward and retain peer composition
 
 Accepted 2026-10-15. Runtime links go down or stay within a layer: entry, playbooks, then supporting material. Remove backlinks to the entry and from supporting files to playbooks. Keep peer composition and shared-resource links. Maintenance documents are outside this rule.
+
+The root README's human-facing navigation is handled by [D54](#d54-ship-a-concise-readme-with-the-bundle); instruction-layer constraints remain accepted.
 
 ### D31: Colocate playbooks and their owned references
 
@@ -230,11 +234,17 @@ Accepted 2026-10-20. Remove `For substantial work,` from the entry's checklist i
 
 Accepted 2026-10-20. Remove the general skill-development route and its Author/Evaluate sections. Move Reflect and its four owned templates to `playbooks/reflect/`, and route session retros directly there. Approved skill changes use the existing `skill-creator` and `writing-for-agents` skills; maintenance guidance uses `skill-creator` for behavioral evaluation. Preserve reflection's evidence, three lenses, synthesis, structural-enforcement check, and explicit row-selection boundaries. This supersedes the skill-development routing portions of D41 and D42 and the combined packaging of D24, not their retained reflection behavior. Approval: the user answered `yes` to keeping Reflect only and removing the duplicated author/evaluate workflow.
 
+### D54: Ship a concise README with the bundle
+
+Accepted 2026-10-20. Move the user guide from `docs/mstack/README.md` to `mstack/README.md`, alongside `SKILL.md`. Tighten it around installation, natural-language invocation, working style, requirements, maintenance, and migration. Remove stale Arena and general skill-development claims and defer detailed routing to the entry. The root README can link to any runtime layer, but its relative links must resolve inside a copied bundle and it is not another skill entry. Maintenance documents and tooling remain outside the installable directory; the README names their repository paths for contributors. This partially supersedes D29's packaging and D30's link-layer treatment. Approval: the user requested moving the README into the skill folder, tightening it, and bringing it up to date.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
 
 ## Validation and cutover snapshot
+
+2026-10-20, D54 working-tree review: bundle validation found one skill and 98 Markdown files with no errors. Typechecking and all 94 tooling tests passed, including root README navigation, rejection of supporting-file backlinks, and copied-bundle validation/helper execution. Updated the copied-installation test to compare playbook names with the source instead of its stale count of 26. Formatting and diff checks passed; inspected the moved guide's section anchors and incoming links. Live host discovery was not rerun, so the fixture's one-entry result does not establish host registration behavior.
 
 2026-10-20, D53 working-tree review: direct before/after comparison confirmed the three reviewer templates are byte-identical and reflection stages 1–4 retain their bodies apart from headings, links, and table formatting. Source inspection covered the direct retro route, removal of general author/evaluate routing, no-learning completion, and approved-edit handoff to external specialists. This is structural inspection, not an independent behavioral run; live reflection and specialist handoff remain untested.
 

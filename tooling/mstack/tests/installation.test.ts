@@ -27,9 +27,9 @@ test("copied runtime is self-contained and its helpers work from an unrelated di
   await mkdir(bin);
   await cp(source, installed, { recursive: true });
 
-  expect((await readdir(installed)).sort()).toEqual(["LICENSE", "SKILL.md", "playbooks", "principles", "references", "scripts"]);
+  expect((await readdir(installed)).sort()).toEqual(["LICENSE", "README.md", "SKILL.md", "playbooks", "principles", "references", "scripts"]);
   const playbooks = await readdir(join(installed, "playbooks"), { withFileTypes: true });
-  expect(playbooks).toHaveLength(26);
+  expect(playbooks.map((entry) => entry.name).sort()).toEqual((await readdir(join(source, "playbooks"))).sort());
   for (const playbook of playbooks) {
     expect(playbook.isDirectory()).toBe(true);
     expect(await readFile(join(installed, "playbooks", playbook.name, "PLAYBOOK.md"), "utf8")).toMatch(/^# /);

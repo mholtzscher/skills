@@ -6,16 +6,16 @@ Skills live in their own directories with a `SKILL.md` entry point and supportin
 
 ## Included skills
 
-| Skill                             | Purpose                                                                                                                |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| [`mstack`](docs/mstack/README.md) | Personal engineering workflow bundle: approved sketches/specs, implementation, investigation, review, and PR delivery. |
-| `agent-orchestrator`              | Coordinate bounded agent work, delegation, verification, and review.                                                   |
-| `classify-code-review`            | Route code reviews with the OpenCode SDLC classifiers, then verify findings against source.                            |
-| `conventional-commits`            | Conventional commit guidance for commit messages.                                                                      |
-| `go-test-effectiveness`           | Design and review Go tests for meaningful fault detection.                                                             |
-| `service-design`                  | Blueprint for designing and refactoring modular Go services.                                                           |
-| `show-complexity`                 | Visualize essential and accidental complexity and evaluate worthwhile simplifications.                                 |
-| `spec-planner`                    | Turn vague feature ideas into implementation-ready specs.                                                              |
+| Skill                        | Purpose                                                                                                                |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| [`mstack`](mstack/README.md) | Personal engineering workflow bundle: approved sketches/specs, implementation, investigation, review, and PR delivery. |
+| `agent-orchestrator`         | Coordinate bounded agent work, delegation, verification, and review.                                                   |
+| `classify-code-review`       | Route code reviews with the OpenCode SDLC classifiers, then verify findings against source.                            |
+| `conventional-commits`       | Conventional commit guidance for commit messages.                                                                      |
+| `go-test-effectiveness`      | Design and review Go tests for meaningful fault detection.                                                             |
+| `service-design`             | Blueprint for designing and refactoring modular Go services.                                                           |
+| `show-complexity`            | Visualize essential and accidental complexity and evaluate worthwhile simplifications.                                 |
+| `spec-planner`               | Turn vague feature ideas into implementation-ready specs.                                                              |
 
 ## Deprecated skills
 
@@ -51,7 +51,7 @@ Most skills follow this pattern:
 
 Copy or symlink the skill directory you want into your agent's configured skills folder.
 
-For mstack, install the whole runtime directory as described in [its guide](docs/mstack/README.md). Its entry point uses supporting resources that must stay alongside it. Maintenance records live in `docs/mstack/`; validation, tests, and development dependencies live in `tooling/mstack/`. Install selected active skills rather than the entire repository, which also contains archived skills.
+For mstack, install the whole runtime directory as described in [its guide](mstack/README.md). Its entry point uses supporting resources that must stay alongside it. Maintenance records live in `docs/mstack/`; validation, tests, and development dependencies live in `tooling/mstack/`. Install selected active skills rather than the entire repository, which also contains archived skills.
 
 Common locations include:
 
