@@ -176,11 +176,15 @@ Accepted 2026-10-19. Ten trigger fixes both workers independently flagged, cover
 
 ### D43: Add a Tour playbook for shared, visual walkthroughs
 
-Accepted 2026-10-19. Add a Tour playbook with an owned views catalog for ordered visual walkthroughs of a change or data model. Show me stays the single in-chat view. Tours cover change and data-model subjects only, stay tool-agnostic, default to Markdown opened in Plannotator, and remain read-only. Every tour pins its revision, anchors each stop to source, gives each changed path one owning chapter, and explains rather than reviews. Approval: sketch approved plus owning-chapter fix for PR 5 feedback, 2026-10-19.
+Accepted 2026-10-19. Add a Tour playbook with an owned views catalog for ordered visual walkthroughs of a change or data model. Show me stays the single in-chat view. Tours cover change and data-model subjects only, stay tool-agnostic, default to Markdown opened in Plannotator, and remain read-only. Every tour pins its revision, anchors each stop to source, gives each changed path one owning chapter, and explains rather than reviews. Catalog ownership superseded by [D45](#d45-promote-views-catalog-to-cross-cutting) on 2026-10-21; tour structure rules are unchanged. Approval: sketch approved plus owning-chapter fix for PR 5 feedback, 2026-10-19.
 
 ### D44: Retire upstream-provenance tracking
 
 Accepted 2026-10-21. Delete `docs/mstack/PROVENANCE.md` and stop revision-level upstream tracking. Mstack is now owned work in this repository. Upstream parity was already not a goal under D01, and the user confirmed there is no intent to stay in sync. MIT copyright notices remain in [LICENSE](../../mstack/LICENSE). Big-pics-little-words remains independently worded guidance from a source without a declared license, not vendored MIT material. Older `PROVENANCE.md` section links in this record and in [SOURCE-AUDIT.md](SOURCE-AUDIT.md) are historical revision evidence, not live dependencies. Approval: user directive on 2026-10-21 to treat the skill as owned work plus full delete option.
+
+### D45: Promote views catalog to cross-cutting
+
+Accepted 2026-10-21. Move the views catalog from `mstack/playbooks/tour/references/views.md` to `mstack/references/visual-components.md` as shared component guidance for tour, planning, show-me, and future visual consumers. Generalize catalog wording from stops to sections and cover proposal labeling alongside pinned revisions; starting component set and legend are unchanged. The catalog has since grown with responsibility tree, pseudocode, layout tree and file-layout diff, deliverable matrix, config map, UI component tree and component diff, control-flow diff, and screenshot reference, with show-me trimmed to reuse it. Tour structure, pinning, chapter ownership, delivery, and read-only rules stay in the Tour playbook. Planning sketch and spec link the shared catalog and label views as proposed. This partially supersedes the owned-catalog outcome in [D43](#d43-add-a-tour-playbook-for-shared-visual-walkthroughs). Approval: user directive yes to the promotion in the 2026-10-21 session.
 
 ## Upstream differences that are not new commitments
 

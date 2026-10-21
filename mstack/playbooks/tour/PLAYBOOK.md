@@ -12,10 +12,10 @@ Select the subject:
 1. Pin the subject. Record the exact base and head revisions for a change, or the single revision for a data model, in the tour itself.
 2. Name the audience and what they should be able to do afterwards: approve, extend, debug, or onboard. Put depth where that goal needs it.
 3. Order the stops data first: **Map**, **Shapes**, **Flow**, **Behavior**, then **Glue**. The Map is one overview visual with a sentence or two. Shapes covers types, interfaces, payloads, and tables. Flow shows how data moves between them. Behavior covers logic and state. Glue gathers wiring, config, and generated files. Drop parts that do not apply.
-4. Open every stop with a visual chosen from [views](references/views.md). Follow it with a short caption that says what changed or exists, why, and what it implies for behavior, contracts, data, or operations. Leave the details to the diff or code.
+4. Open every stop with a visual chosen from [visual components](../../references/visual-components.md). Follow it with a short caption that says what changed or exists, why, and what it implies for behavior, contracts, data, or operations. Leave the details to the diff or code.
 5. Anchor every stop to its source: `file:line` references, or the changed paths it covers. Put each gotcha at the stop where it applies, not in a closing list.
 6. State the scope and what the tour leaves out.
-7. Apply the accuracy rules in views before delivery. Fix or remove any view that fails them.
+7. Apply the accuracy rules in visual components before delivery. Fix or remove any view that fails them.
 
 ## Change
 
