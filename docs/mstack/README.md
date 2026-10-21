@@ -19,7 +19,7 @@ Planning, investigation, review, metadata rewrite, and check snapshots keep thei
 | Directory         | Contents                                                                                                          |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------- |
 | `mstack/`         | Installable entry, playbooks, principles, runtime references, helpers, helper usage, and license                  |
-| `docs/mstack/`    | Installation/development guide, maintenance instructions, decisions, glossary, and source audit                   |
+| `docs/mstack/`    | Installation/development guide, maintenance instructions, decisions, and glossary                                 |
 | `tooling/mstack/` | Bundle validator, tests, package manifest, lockfile, TypeScript configuration, and local development dependencies |
 
 Only `mstack/` is copied or symlinked during installation. Runtime links resolve within that directory. Repository-root `AGENTS.md` routes maintenance work to this guide's neighboring instructions.
@@ -115,8 +115,6 @@ The [host adapters](../../mstack/SKILL.md#host-selection) distinguish OpenCode a
 ## Development and validation
 
 Before modifying mstack, read the [maintainer instructions](AGENTS.md) and [decision record](DECISIONS.md). They preserve the approved tradeoffs, superseded approaches, and known validation gaps from the original design session; update the record when an accepted choice changes.
-
-The [integrated-source audit](SOURCE-AUDIT.md) is a historical 2026-10-15 report mapping retained and missing source instructions, examples, and resources.
 
 From `tooling/mstack`:
 

@@ -180,15 +180,19 @@ Accepted 2026-10-19. Add a Tour playbook with an owned views catalog for ordered
 
 ### D44: Retire upstream-provenance tracking
 
-Accepted 2026-10-21. Delete `docs/mstack/PROVENANCE.md` and stop revision-level upstream tracking. Mstack is now owned work in this repository. Upstream parity was already not a goal under D01, and the user confirmed there is no intent to stay in sync. MIT copyright notices remain in [LICENSE](../../mstack/LICENSE). Big-pics-little-words remains independently worded guidance from a source without a declared license, not vendored MIT material. Older `PROVENANCE.md` section links in this record and in [SOURCE-AUDIT.md](SOURCE-AUDIT.md) are historical revision evidence, not live dependencies. Approval: user directive on 2026-10-21 to treat the skill as owned work plus full delete option.
+Accepted 2026-10-21. Delete `docs/mstack/PROVENANCE.md` and stop revision-level upstream tracking. Mstack is now owned work in this repository. Upstream parity was already not a goal under D01, and the user confirmed there is no intent to stay in sync. MIT copyright notices remain in [LICENSE](../../mstack/LICENSE). Big-pics-little-words remains independently worded guidance from a source without a declared license, not vendored MIT material. Older `PROVENANCE.md` section links in this record are historical revision evidence, not live dependencies. Approval: user directive on 2026-10-21 to treat the skill as owned work plus full delete option.
 
 ### D45: Promote views catalog to cross-cutting
 
 Accepted 2026-10-21. Move the views catalog from `mstack/playbooks/tour/references/views.md` to `mstack/references/visual-components.md` as shared component guidance for tour, planning, show-me, and future visual consumers. Generalize catalog wording from stops to sections and cover proposal labeling alongside pinned revisions; starting component set and legend are unchanged. The catalog has since grown with responsibility tree, pseudocode, layout tree and file-layout diff, deliverable matrix, config map, UI component tree and component diff, control-flow diff, and screenshot reference, with show-me trimmed to reuse it. Tour structure, pinning, chapter ownership, delivery, and read-only rules stay in the Tour playbook. Planning sketch and spec link the shared catalog and label views as proposed. This partially supersedes the owned-catalog outcome in [D43](#d43-add-a-tour-playbook-for-shared-visual-walkthroughs). Approval: user directive yes to the promotion in the 2026-10-21 session.
 
+### D46: Retire integrated-source audit
+
+Accepted 2026-10-21. Delete `docs/mstack/SOURCE-AUDIT.md`. The per-source retained/missing inventory and batch evaluation evidence are no longer maintained; `DECISIONS.md` remains the durable record of accepted behavior and the upstream-differences summary above remains the boundary for future work. Approval: user directive `i don't want it` on 2026-10-21.
+
 ## Upstream differences that are not new commitments
 
-The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. The 2026-10-15 [integrated-source audit](SOURCE-AUDIT.md) records additional losses separately from accepted host, approval, delegation, and delivery adaptations. Arena is explicitly deferred.
+The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
 
 ## Validation and cutover snapshot
 
