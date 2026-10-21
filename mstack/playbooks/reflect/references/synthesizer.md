@@ -45,7 +45,7 @@ Output exactly the format below when there are findings. No preamble, no narrati
 | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------- |
 | <failure mode in a skill or bundled procedure the parent used, with evidence citation> | <change to that instruction body>                                                       | <authoritative file path + section>     |
 | <skill existed but didn't trigger, with catalog and intended invocation evidence>      | <tune the skill's description so it fires next time while preserving invocation policy> | <tune description: <skill path>>        |
-| <recurring new pattern, no existing instruction is a real home, with evidence>         | <draft a new skill through Author and Evaluate>                                         | <new skill via authoring: <kebab-name>> |
+| <recurring new pattern, no existing instruction is a real home, with evidence>         | <draft a new skill using skill-creator and writing-for-agents>                          | <new skill via authoring: <kebab-name>> |
 
 One row per finding. The user approves row by row. Accepted means a recommendation, not permission. Route to the authoritative playbook or reference section when that owns the instruction, not just `SKILL.md`.
 

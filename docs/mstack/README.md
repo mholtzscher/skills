@@ -134,7 +134,7 @@ bun tooling/mstack/validate.ts
 
 The validator defaults to this repository's `mstack/` directory from any working directory. Pass an explicit bundle path to validate a copied installation. Check Markdown with `bunx prettier --check 'mstack/**/*.md' 'docs/mstack/**/*.md'` and inspect maintenance-document links and heading fragments separately.
 
-The structural validator checks packaging, not agent behavior. Use [independent scenario evaluation](../../mstack/playbooks/skill-development/PLAYBOOK.md) for workflow changes. Exercise actual host discovery before a cutover; live delegation and GitHub writes need their own scoped checks.
+The structural validator checks packaging, not agent behavior. Use the installed `skill-creator` skill's behavioral-evaluation guidance for workflow changes. Exercise actual host discovery before a cutover; live delegation and GitHub writes need their own scoped checks.
 
 ## Migration
 

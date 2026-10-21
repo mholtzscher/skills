@@ -106,6 +106,8 @@ Accepted 2026-10-15. Restore Teach, Catch-up, and Recall in full, including teac
 
 Accepted 2026-10-15. Restore the 28-pattern prose catalog with strict source style for editable prose, and Reflection with all four reviewer and synthesis references. Exact quotations, code, commands, citations, and technical meaning stay protected. Accepted reflection items remain proposals pending selection. Tracker writes need current authorization.
 
+Reflection packaging is superseded by [D53](#d53-keep-reflect-and-delegate-skill-development-to-specialists); its review and approval boundaries remain accepted.
+
 ### D25: Restore decision trails
 
 Accepted 2026-10-15. Restore the decision-trail procedure, six-column template, worked example, and local append helper. Trails stay local in ignored storage or an agreed outside-tree path. The user chose selective review. Read-only reviews propose corrections rather than appending them.
@@ -174,9 +176,13 @@ Accepted 2026-10-19. Extend D39 with the reconciled pass-2 findings. Excluded wo
 
 Accepted 2026-10-19. Five routing fixes from session evidence: architectural why goes to Exploration Architecture, explicit-invocation fallback reports a missing entry instead of substituting another skill, complexity triggers route to Show complexity without implying effort estimation, retro routes to Skill development Reflect, and timing and benchmark requests route to read-only Performance. Approval: user yes to implementing all five, 2026-10-19.
 
+The retro destination is superseded by the standalone Reflect route in [D53](#d53-keep-reflect-and-delegate-skill-development-to-specialists).
+
 ### D42: Entry-trigger disambiguation from dual-worker review
 
 Accepted 2026-10-19. Ten trigger fixes both workers independently flagged, covering repair versus diagnose wording, narrowed read-only investigation scope, recall as recent-work review, scoped-change cleanup, spec implementation without pre-approval implication, skill author and evaluation routing, analysis-only complexity assessment, current-session retro scope, and monitor on the PR row. Excluded single-worker extras and rewrites. Approval: user-selected Both-agree only scope, 2026-10-19.
+
+The skill author/evaluation route is retired by [D53](#d53-keep-reflect-and-delegate-skill-development-to-specialists); session retro routing remains supported through Reflect.
 
 ### D43: Add a Tour playbook for shared, visual walkthroughs
 
@@ -220,11 +226,17 @@ Accepted 2026-10-20. Keep host selection focused on identifying the host from av
 
 Accepted 2026-10-20. Remove `For substantial work,` from the entry's checklist instruction, making it unconditional. This supersedes D50's retained substantial-work qualifier. Approval: explicit removal requested in annotation 1 of Plannotator review `pn-91de4b`.
 
+### D53: Keep Reflect and delegate skill development to specialists
+
+Accepted 2026-10-20. Remove the general skill-development route and its Author/Evaluate sections. Move Reflect and its four owned templates to `playbooks/reflect/`, and route session retros directly there. Approved skill changes use the existing `skill-creator` and `writing-for-agents` skills; maintenance guidance uses `skill-creator` for behavioral evaluation. Preserve reflection's evidence, three lenses, synthesis, structural-enforcement check, and explicit row-selection boundaries. This supersedes the skill-development routing portions of D41 and D42 and the combined packaging of D24, not their retained reflection behavior. Approval: the user answered `yes` to keeping Reflect only and removing the duplicated author/evaluate workflow.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
 
 ## Validation and cutover snapshot
+
+2026-10-20, D53 working-tree review: direct before/after comparison confirmed the three reviewer templates are byte-identical and reflection stages 1–4 retain their bodies apart from headings, links, and table formatting. Source inspection covered the direct retro route, removal of general author/evaluate routing, no-learning completion, and approved-edit handoff to external specialists. This is structural inspection, not an independent behavioral run; live reflection and specialist handoff remain untested.
 
 2026-10-20, D47 working-tree review: bundle validation (`bun tooling/mstack/validate.ts`, one skill and 97 Markdown files), full bundle/docs Prettier check, and `git diff --check` passed. Direct before/after route inspection covered read-only investigation, previously approved implementation, optional versus required delegation failure, and publication cleanup. Those paths retain their authority and stopping conditions through the shared contract and linked owners; this is source inspection, not an independent behavioral run. Changed section anchors were inspected and no Markdown callers of removed headings were found. The external skill-creator validator could not run because its Python environment lacks `yaml`. Live workflow evaluation was not run.
 

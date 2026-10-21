@@ -37,7 +37,6 @@ If an explicit `@mstack` invocation cannot load this entry, report that rather t
 | Keep or audit a reviewable decision trail                          | [Decision trail](playbooks/decision-trail/PLAYBOOK.md)                                |
 | Resume prior work                                                  | [Pickup](playbooks/continuity/PLAYBOOK.md#pickup)                                     |
 | Hand off or pause work                                             | [Pause](playbooks/continuity/PLAYBOOK.md#pause)                                       |
-| Author, update, or evaluate a skill                                | [Skill development](playbooks/skill-development/PLAYBOOK.md)                          |
 | Create a project verification skill                                | [Create](playbooks/verification-skill/PLAYBOOK.md#create)                             |
 | Maintain a project verification skill                              | [Maintain](playbooks/verification-skill/PLAYBOOK.md#maintain)                         |
 | Stress-test a proposal through questions                           | [Grilling](playbooks/grilling/PLAYBOOK.md)                                            |
@@ -47,7 +46,7 @@ If an explicit `@mstack` invocation cannot load this entry, report that rather t
 | Walk a reader through a change or data model as a shared tour      | [Tour](playbooks/tour/PLAYBOOK.md)                                                    |
 | Assess complexity without changing code                            | [Show complexity](playbooks/show-complexity/PLAYBOOK.md)                              |
 | Review recent work and live state                                  | [Recall](playbooks/continuity/PLAYBOOK.md#recall)                                     |
-| Retro the current session for skill lessons                        | [Reflect](playbooks/skill-development/PLAYBOOK.md#reflect)                            |
+| Retro the current session for skill lessons                        | [Reflect](playbooks/reflect/PLAYBOOK.md)                                              |
 | Summarize progress in the current conversation                     | [Catch up](playbooks/continuity/PLAYBOOK.md#catch-up)                                 |
 | Clean up the scoped change (code, prose, comments)                 | [Code cleanup](playbooks/cleanup/PLAYBOOK.md#code-cleanup)                            |
 | Improve prose                                                      | [Prose cleanup](playbooks/cleanup/PLAYBOOK.md#prose-cleanup)                          |
