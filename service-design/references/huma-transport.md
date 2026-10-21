@@ -45,61 +45,50 @@ Keep the concrete Echo/Huma integration and cross-module policy at this composit
 
 ## Module-owned registration
 
-Each module registers its own operations:
+Follow the repository's coding standards. The default [operation-local layout](layout-and-ownership.md#operation-local-transport-files) keeps one operation's registration, wrappers, handler, and local helpers in its named file. The examples below show a module exposing `get-user`; other operations add their own registrars and files.
+
+`handler.go` owns the private handler and its dependencies. This example uses the concrete service; define a consumer-owned interface here only when the task needs that seam.
+
+```go
+package api
+
+import "my-api/internal/modules/users"
+
+type handler struct {
+    users *users.Service
+}
+```
+
+`register.go` is the explicit complete catalog, not the owner of every operation's metadata:
 
 ```go
 package api
 
 import (
+    "github.com/danielgtaylor/huma/v2"
+    "my-api/internal/modules/users"
+)
+
+func Register(group huma.API, svc *users.Service) {
+    h := &handler{users: svc}
+    registerGetUser(group, h)
+}
+```
+
+`get_user.go` owns this operation's contract and service translation:
+
+```go
+package api
+
+import (
+    "context"
+    "errors"
     "net/http"
 
     "github.com/danielgtaylor/huma/v2"
     "my-api/internal/modules/users"
 )
 
-type Handler struct {
-    users *users.Service
-}
-
-func Register(group huma.API, svc *users.Service) {
-    h := &Handler{users: svc}
-
-    huma.Register(group, huma.Operation{
-        OperationID: "get-user",
-        Method:      http.MethodGet,
-        Path:        "/{id}",
-        Summary:     "Get user",
-    }, h.GetUser)
-    huma.Register(group, huma.Operation{
-        OperationID: "create-user",
-        Method:      http.MethodPost,
-        Path:        "",
-        Summary:     "Create user",
-    }, h.CreateUser)
-    huma.Register(group, huma.Operation{
-        OperationID: "update-user",
-        Method:      http.MethodPatch,
-        Path:        "/{id}",
-        Summary:     "Update user",
-    }, h.UpdateUser)
-}
-```
-
-Use groups for:
-
-- version prefixes;
-- module/resource prefixes;
-- admin or internal route families;
-- middleware shared by a route family;
-- tags, metadata, or response transformers.
-
-Application assembly creates groups when it owns cross-module path, authentication, tags, or other policy; modules still own their operation registration. Give every operation a stable explicit operation ID and human-readable summary so generated OpenAPI remains intentional and testable.
-
-## Explicit input and output models
-
-Use explicit transport structs:
-
-```go
 type GetUserInput struct {
     ID string `path:"id" doc:"User ID"`
 }
@@ -113,24 +102,27 @@ type UserBody struct {
 type GetUserOutput struct {
     Body UserBody
 }
-```
 
-Huma inputs may describe path, query, header, and body values. Outputs may describe status, headers, and response bodies. Keep these separate from domain or database types when shapes differ—which should be the default assumption for public contracts.
+func registerGetUser(group huma.API, h *handler) {
+    huma.Register(group, huma.Operation{
+        OperationID: "get-user",
+        Method:      http.MethodGet,
+        Path:        "/{id}",
+        Summary:     "Get user",
+        Errors:      []int{http.StatusNotFound, http.StatusInternalServerError},
+    }, h.getUser)
+}
 
-This separation allows API versions, domain concepts, and persistence schemas to evolve independently.
-
-## Thin handlers
-
-Handlers translate transport input into a use-case call and map the result back into transport output:
-
-```go
-func (h *Handler) GetUser(
+func (h *handler) getUser(
     ctx context.Context,
     input *GetUserInput,
 ) (*GetUserOutput, error) {
     user, err := h.users.Get(ctx, input.ID)
+    if errors.Is(err, users.ErrUserNotFound) {
+        return nil, huma.Error404NotFound("user not found")
+    }
     if err != nil {
-        return nil, mapError(err)
+        return nil, huma.Error500InternalServerError("internal server error")
     }
 
     return &GetUserOutput{Body: UserBody{
@@ -140,6 +132,32 @@ func (h *Handler) GetUser(
     }}, nil
 }
 ```
+
+Keep `UserBody`, mapping, and error classification here while only this operation uses them. When another operation actually reuses those definitions, extract `user_models.go`, `user_mapping.go`, or `errors.go` within this protocol package as appropriate.
+
+Keep operation-specific schema/validation helpers beside the operation too. Reused schema fragments or preparation belong in `user_contracts.go` when needed, without changing their preparation lifetime. One public `Register` may accept separate service dependencies without merging their use cases or lifecycle policies. A sibling MCP adapter follows the same file convention but owns its own tool contracts and mappings.
+
+## Route groups
+
+Use groups for:
+
+- version prefixes;
+- module/resource prefixes;
+- admin or internal route families;
+- middleware shared by a route family;
+- tags, metadata, or response transformers.
+
+Application assembly creates groups when it owns cross-module path, authentication, tags, or other policy; modules still own their operation registration. Give every operation a stable explicit operation ID and human-readable summary so generated OpenAPI remains intentional and testable.
+
+## Explicit input and output models
+
+Use explicit transport structs as in `get_user.go` above. Huma inputs may describe path, query, header, and body values. Outputs may describe status, headers, and response bodies. Keep these separate from domain or database types when shapes differ—which should be the default assumption for public contracts. Operation-specific wrappers stay with their handler; only actual multi-operation payload reuse belongs in resource-named model files.
+
+This separation allows API versions, domain concepts, and persistence schemas to evolve independently.
+
+## Thin handlers
+
+Handlers translate transport input into a use-case call and map the result back into transport output, as `getUser` does above. Keep the handler with the operation rather than moving all handlers into a package-wide catalog.
 
 Huma constructs and validates the input before calling the handler. Do not repeat transport validation unless enforcing a business invariant.
 
@@ -178,7 +196,7 @@ var (
 )
 ```
 
-Map them at the transport seam:
+Map them at the transport seam. When several operations share the classification, `errors.go` can own it:
 
 ```go
 func mapError(err error) error {
@@ -199,6 +217,7 @@ Do not make services return Huma errors. Preserve error identity with wrapping s
 
 - Echo and Huma construction is centralized.
 - Every module owns operation registration with stable IDs and summaries.
+- The explicit catalog delegates to operation-local registrars; metadata, wrappers, handlers, and operation-only helpers stay together under the repository's convention.
 - Application assembly applies explicit auth and metadata policy to groups.
 - Public Echo routes remain outside authenticated Huma groups.
 - Inputs and outputs are explicit transport types.

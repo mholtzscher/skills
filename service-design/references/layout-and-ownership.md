@@ -1,6 +1,6 @@
 # Layout and Ownership
 
-Read this reference when placing a package, adding or splitting a module, or reviewing architecture.
+Read this reference when placing a package, organizing transport files, adding or splitting a module, or reviewing architecture.
 
 ## Module-based layout
 
@@ -41,10 +41,12 @@ my-api/
     modules/
       users/
         api/
-          routes.go
-          inputs.go
-          outputs.go
-          handlers.go
+          register.go
+          handler.go
+          get_user.go
+          create_user.go
+          user_models.go
+          user_mapping.go
         service.go
         repository.go
         model.go
@@ -122,7 +124,7 @@ Each product/domain area owns:
 - domain types and errors;
 - business use cases;
 - persistence/provider seams and module-specific adapters;
-- Huma transport registration and models;
+- transport registration and protocol-specific models;
 - tests.
 
 A representative module:
@@ -130,10 +132,12 @@ A representative module:
 ```text
 internal/modules/users/
   api/
-    routes.go
-    inputs.go
-    outputs.go
-    handlers.go
+    register.go
+    handler.go
+    get_user.go
+    create_user.go
+    user_models.go
+    user_mapping.go
   service.go
   repository.go
   model.go
@@ -156,16 +160,29 @@ Split because responsibilities change independently, not to create symmetry.
 
 ### `internal/modules/<module>/api`
 
-This is the Huma-facing transport package. It may import Huma; the service normally should not.
+This example uses `api` for HTTP. Follow repository package names; independent HTTP and MCP adapters may instead be sibling `httpapi` and `mcpapi` packages. Each owns its models, mappings, registration, errors, and consumed service interfaces. Both call the domain services rather than importing one another. Generic transport infrastructure belongs in platform; product tool names and contracts stay module-owned.
 
-Typical ownership:
+### Operation-local transport files
 
-- `routes.go`: operations and groups;
-- `inputs.go`: path/query/header/body transport structs and validation tags;
-- `outputs.go`: status, headers, and response bodies;
-- `handlers.go`: transport-to-service translation.
+Repository coding standards take precedence. Otherwise, use one operation per file for new or reorganized HTTP/MCP transport code: keep registration metadata, input/output wrappers, the handler, and helpers used only by that operation together. This gives a reader one place to inspect an operation's public contract and service translation.
 
-A compact module may combine these while the result remains easier to navigate.
+| File | Responsibility |
+|---|---|
+| `register.go` | One public `Register` constructs handlers and explicitly calls private operation registrars. Optional private registration groups compose calls, not operation metadata or handler bodies. |
+| `handler.go` | Private handler structs and their required dependencies, including consumer-owned interfaces when a seam is justified. |
+| `<operation>.go` | Private `register<Operation>`, route/tool metadata and contract selection, input/output wrappers, handler, and operation-only validation, mapping, or schema preparation. |
+| `<resource>_models.go` | Payload types actually reused by multiple operations in this protocol package. |
+| `<resource>_mapping.go` | Reused domain-to-protocol mappings. |
+| `<resource>_contracts.go` | Reused schema fragments, preparation getters, and validation contracts, when needed; preserve their preparation lifetime. |
+| `errors.go` | Common protocol-specific error translation; operation-only handling stays with the operation. |
+
+Name operation files after the explicit HTTP operation ID or MCP tool name in `snake_case`: `get-user` or `get_user` becomes `get_user.go` in its own protocol package. The package provides protocol qualification; HTTP and MCP need not have matching operations, files, or payloads. Moving declarations must preserve existing wire contracts and published schema names.
+
+Keep operation-only declarations local until another operation needs them. Extract actual reuse into resource-named support files or helpers named for a concrete responsibility, rather than splitting every operation across package-wide input, model, and handler catalogs. Create files only when they have content; use explicit registration rather than automatic discovery or `init` registries. A file per operation does not imply a package or service per operation.
+
+A module registration function may accept multiple service dependencies while their handlers, interfaces, and lifecycle policies stay separate. Keep transport-framework dependencies out of services. For a concrete Huma example, read [huma-transport.md](huma-transport.md#module-owned-registration).
+
+Apply the convention within the requested change. Preserve an established repository layout unless the user authorizes a migration; do not sweep unrelated code or reorganize generated/platform internals to match this module transport example.
 
 ### `internal/platform/db`
 

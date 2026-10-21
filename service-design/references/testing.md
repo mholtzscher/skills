@@ -49,10 +49,14 @@ Keep tests with the module that owns the behavior:
 internal/modules/users/
   service_test.go
   repository_test.go
-  api_test.go
+  api/
+    get_user_test.go
+    registration_test.go
 ```
 
 Tests may live inside a subpackage such as `api` or a provider adapter when they need package-local behavior. Choose locality over a global test taxonomy.
+
+For [operation-local transports](layout-and-ownership.md#operation-local-transport-files), operation-specific tests normally use the operation stem, such as `get_user_test.go`. Use the repository's integration/E2E suffixes and build tags when that boundary is needed; a filename does not decide the test level. Keep cohesive registration/catalog, cross-operation, and lifecycle tests together under behavioral names rather than forcing a one-to-one production/test-file mapping. Name fixture-only files as support code. Preserve surviving assertions and their owners when splitting mixed files.
 
 ## Generated-code verification
 

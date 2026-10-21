@@ -11,7 +11,7 @@ Design services around clear product ownership, explicit dependency direction, a
 
 ### 1. Inspect before designing
 
-Read the repository tree, `go.mod`, application entry point, transport construction, one representative module, persistence configuration, tests, and repository guidance such as `AGENTS.md`.
+Read the repository tree, `go.mod`, application entry point, transport construction, one representative module, persistence configuration, tests, and repository guidance such as `AGENTS.md` and `CODING_STANDARDS.md` when present.
 
 State assumptions and identify whether the task is:
 
@@ -25,7 +25,7 @@ Do not impose the example tree mechanically. Existing explicit project decisions
 
 ### 2. Choose the appropriate module shape
 
-Use product modules as the primary ownership boundary. Keep each module internally flat until distinct business rules, dependencies, or independent change pressure justify a nested capability. Split `service.go` by use case, or separate transport/mapping files, only after size or independent change pressure justifies it. Read [layout-and-ownership.md](references/layout-and-ownership.md) when adding or splitting modules, moving packages, or reviewing ownership.
+Use product modules as the primary ownership boundary. Keep each module internally flat until distinct business rules, dependencies, or independent change pressure justify a nested capability. Split domain service files by use case when justified; organize new or reorganized transport code by operation. Read [layout-and-ownership.md](references/layout-and-ownership.md) when adding or splitting modules, organizing transport files, moving packages, or reviewing ownership. Its operation-local convention is the default where repository standards do not specify another layout.
 
 ### 3. Assign one owner
 
@@ -36,7 +36,7 @@ Classify each change before selecting a path:
 | Executable startup | `cmd/<command>` |
 | Config, dependency assembly, router, lifecycle | `internal/app` |
 | Product behavior and domain types | `internal/modules/<module>` |
-| HTTP request/response models, handlers, and routes | `internal/modules/<module>/api` |
+| Transport models, handlers, and registration | Module-owned transport package, such as `api`, or sibling `httpapi`/`mcpapi` where the project separates protocols |
 | Shared domain-neutral infrastructure | `internal/platform` |
 | Tiny genuinely domain-neutral helpers | `internal/shared` |
 | Public OpenAPI/client artifacts | `api` |
@@ -93,7 +93,7 @@ Before finishing, answer:
 1. Can business behavior be tested without the HTTP transport?
 2. Do handlers translate rather than decide business behavior?
 3. Do domain/public types avoid sqlc and vendor leakage?
-4. Does each module register its own operations?
+4. Does each module register its complete surface explicitly, with each operation's metadata, wrappers, and handler discoverable together under the repository's file convention?
 5. Is Echo/Huma construction centralized in application assembly?
 6. Are required dependencies passed explicitly, with concrete implementations selected only in application assembly?
 7. Is shared code truly domain-neutral and used by more than one owner?
