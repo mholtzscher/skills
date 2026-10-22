@@ -74,9 +74,12 @@ Pass required dependencies explicitly through constructors. When a dependency ha
 
 Do not add an interface solely because an implementation exists, because a mock could be generated, or because a layered architecture commonly includes one. Before adding a seam, name the current consumer and the concrete problem the seam solves.
 
+Apply the same extraction test to helpers. Prefer code readable at its point of use over removing repeated lines. A named helper should express a substantial contract, shared invariant, or meaningful composition; small literals can stay inline. Give distinct contract shapes descriptive entry points rather than selecting them with a boolean mode. Keep parameterization when it makes the shared behavior easier to understand.
+
 ### 6. Implement the affected layer
 
 - For HTTP transport implemented with Echo and Huma—including router construction, routes, handlers, groups, inputs/outputs, OpenAPI metadata, or HTTP error mapping—read [huma-transport.md](references/huma-transport.md).
+- For Huma schema authoring, including schema-only use outside HTTP, read [readable schema contracts](references/huma-transport.md#readable-schema-contracts).
 - For migrations, queries, sqlc generation, repositories, pgx, or transactions, read [persistence.md](references/persistence.md).
 - For test placement or generated-code checks, read [testing.md](references/testing.md).
 

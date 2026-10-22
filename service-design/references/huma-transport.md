@@ -155,6 +155,32 @@ Use explicit transport structs as in `get_user.go` above. Huma inputs may descri
 
 This separation allows API versions, domain concepts, and persistence schemas to evolve independently.
 
+## Readable schema contracts
+
+This section also applies when Huma is used only to author schemas for another protocol. That use does not require Huma HTTP handlers, decoding, or runtime validation; preserve the protocol's existing owners.
+
+Derive ordinary fields and constraints from protocol-owned payload structs and Huma tags. Use native schema hooks for relationships the tags cannot express. Keep explicit schemas for closed unions or canonical document composition when deriving them would hide the contract or duplicate its authority.
+
+Apply the skill's helper-extraction rule to schema fragments. For example, prefer `{Type: "string"}` to a `textSchema()` wrapper, and show `AdditionalProperties: false` beside a closed object's fields. A small amount of repeated schema syntax makes each contract understandable without following constructor calls. A lifecycle union or canonical document builder can still justify a name and reuse.
+
+For example, declare an accepted alternative in a receipt union in place:
+
+```go
+accepted := &huma.Schema{
+    Type: "object",
+    AdditionalProperties: false,
+    Properties: map[string]*huma.Schema{
+        "status": {Const: "accepted"},
+        "receipt_id": {Type: "string"},
+    },
+    Required: []string{"status", "receipt_id"},
+}
+```
+
+Keep distinct summary and detail contracts visible at their operations. Share their actual invariants rather than assembling each through mode-dependent property mutations. Preserve canonical definitions, required-member rules, omission/null semantics, and exact JSON values when changing schema authoring.
+
+Schema maps and pointers may be mutable during preparation. Local literals or registration-local builders can provide fresh ownership; scalar factory helpers are not necessary for isolation. Retain intentional preparation reuse within its established lifetime rather than introducing shared mutable schemas to remove allocations.
+
 ## Thin handlers
 
 Handlers translate transport input into a use-case call and map the result back into transport output, as `getUser` does above. Keep the handler with the operation rather than moving all handlers into a package-wide catalog.
