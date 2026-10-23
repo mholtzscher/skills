@@ -314,6 +314,10 @@ Accepted 2026-10-22. Delete the final Reply paragraph repeating the preceding ou
 
 Accepted 2026-10-22. Replace Interrogate's `main`-based diff example and its caveat with an instruction to confirm the actual base and inspect the full changeset against it. The exact base/target scope and complete relevant diff remain required. Approval: the user requested `fix 1-4 as separate commits then give me more detail on 5`.
 
+### D72: Remove the fixed forensics checkpoint format
+
+Accepted 2026-10-22. Replace Runtime forensics' exact throughput-checkpoint format with a requirement to report authorized instrumentation or live hotfixes that changed state. This supersedes the checkpoint format restored under D28; diagnosis evidence and experiment approval requirements remain unchanged. Approval: after reviewing the requirement's history and proposed replacement, the user directed `do that`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
