@@ -282,6 +282,10 @@ Accepted 2026-10-22. Remove Help's instruction to use playbook and PR intent tab
 
 Accepted 2026-10-22. Delete the introductory upstream-comparison sentence from Comment review. Its operative preservation and investigation rules remain intact, including D09's protection of unresolved rationale. This follows D38's removal of non-operative framing. Approval: the user selected all five cleanup suggestions with `apply each as their own commit`.
 
+### D64: Remove Refactoring's opening slogan
+
+Accepted 2026-10-22. Delete the opening contract/structure/behavior slogan. The behavior pin, green slices, and equivalence requirements remain the operative contract under D22. This follows D38's removal of redundant framing. Approval: the user selected all five cleanup suggestions with `apply each as their own commit`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.

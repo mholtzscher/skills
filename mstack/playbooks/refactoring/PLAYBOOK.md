@@ -1,7 +1,5 @@
 # Refactoring
 
-**You own the contract. The structure changes. The behavior does not.**
-
 If the cleanup reveals a missing feature or a real bug, split it out and ship the structural change first against the pinned contract. A redesign that changes behavior is allowed, but name it and route to Feature. Large or cross-cutting structural work belongs to [exploration](../exploration/PLAYBOOK.md) and [planning](../planning/PLAYBOOK.md).
 
 Inspect first and propose the behavior contract, executable pin, target shape, migration, and verification through [planning](../planning/PLAYBOOK.md). Wait for sketch/spec approval before writing tests, harnesses, or product changes. Approval does not waive the requirement to execute the pin on the original code before structural edits.
