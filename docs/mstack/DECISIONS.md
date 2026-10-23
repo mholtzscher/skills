@@ -286,6 +286,10 @@ Accepted 2026-10-22. Delete the introductory upstream-comparison sentence from C
 
 Accepted 2026-10-22. Delete the opening contract/structure/behavior slogan. The behavior pin, green slices, and equivalence requirements remain the operative contract under D22. This follows D38's removal of redundant framing. Approval: the user selected all five cleanup suggestions with `apply each as their own commit`.
 
+### D65: Route refactoring exploration by design uncertainty
+
+Accepted 2026-10-22. Remove the size-based instruction routing all large or cross-cutting refactoring through Exploration. Step 3 retains Exploration for consequential or uncertain design choices; Planning remains required before implementation. This supersedes the broader exploration trigger retained with D22, without changing behavior pins, approval, or delivery requirements. Approval: the user selected all five cleanup suggestions with `apply each as their own commit`, after suggestion 3 was identified as a routing-behavior change.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
