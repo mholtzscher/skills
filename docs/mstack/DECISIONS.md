@@ -366,6 +366,10 @@ Accepted 2026-10-22. Replace assertions about reviewers' limited context and the
 
 Accepted 2026-10-22. Split the reviewer template's standards-documentation and tool-enforced-rule placeholders. An absence of standards documentation no longer replaces tooling information in the brief. This aligns the template with D81's discovery completion requirement. Approval: the user accepted the four proposed diffs with `apply each as their own commit`.
 
+### D84: Name the complete reviewer report in its stopping instruction
+
+Accepted 2026-10-22. Include Standards alongside Findings and Summary in the reviewer template's stopping instruction, matching its existing output template. Report-only authority and required report content are unchanged. Approval: the user accepted the four proposed diffs with `apply each as their own commit`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.

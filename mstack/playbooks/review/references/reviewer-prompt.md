@@ -26,7 +26,7 @@ Review whether the code achieves this intent well. Do NOT question the intent it
 
 {ABSOLUTE_PATHS_TO_MSTACK_SHARED_RULES_REVIEW_PLAYBOOK_AND_HOST_ADAPTER}
 
-Report only. Inspect the specified snapshot and relevant surrounding source. Do not edit files, run builds, install dependencies, commit, or post comments. If proof needs execution, return the precise proposed check and its required authority to the lead; do not silently become a tester. Stop at the Findings and Summary report.
+Report only. Inspect the specified snapshot and relevant surrounding source. Do not edit files, run builds, install dependencies, commit, or post comments. If proof needs execution, return the precise proposed check and its required authority to the lead; do not silently become a tester. Stop at the Findings, Standards, and Summary report.
 
 ## Review Rubric
 
