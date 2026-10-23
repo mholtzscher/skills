@@ -32,8 +32,6 @@ Honor proposal-only and review-only scope. Present proposed wording and wait whe
 
 ## Comment review
 
-This is an evidence-led adaptation of pstack's no-comments/Comment Sicko, without its default-to-delete treatment of uncertain constraints.
-
 Review the scoped diff and necessary surrounding code. Prefer an independent report-only reviewer when useful; the implementation owner applies accepted edits.
 
 - Remove stale claims, commented-out abandoned code, and narration already obvious from names and control flow.
