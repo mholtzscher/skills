@@ -10,7 +10,7 @@ Read [PR targeting](references/pr-targeting.md). Explicit publication authorizes
 2. Account for every scoped changed path, reading surrounding code where ownership or behavior needs context. A diff stat is not a review. If review is incomplete, report the unreviewed scope and stop before committing, pushing, or creating/updating the PR.
 3. Run relevant local verification and all [cleanup passes](../cleanup/PLAYBOOK.md#before-publication), unless already completed for this unchanged snapshot by the calling coding playbook. Reverify accepted changes.
 4. Commit only the relevant paths with truthful Conventional Commit subjects. Use coherent commits; avoid empty commits or broad staging that includes unrelated work. Push the intended topic branch without rewriting shared history.
-5. Update the unambiguous existing PR for this repository/head/base or create one. When writing metadata, use the [visual metadata format](references/pr-metadata.md) and [show-me](../show-me/PLAYBOOK.md) for the change outline. Preserve existing title/body unless rewriting was requested or the calling coding task authorizes an accurate update. Do not create duplicate PRs.
+5. Update the unambiguous existing PR for this repository/head/base or create one. When writing metadata, use the [visual metadata format](references/pr-metadata.md) and [visual components](../../references/visual-components.md) for the change outline. Preserve existing title/body unless rewriting was requested or the calling coding task authorizes an accurate update. Do not create duplicate PRs.
 6. Verify the published PR URL, head SHA, and any metadata written. If already published with no changes, verify rather than repeating writes.
 7. For standalone publication, start one [read-only watcher](#watch) by default. Honor `--no-watch` or conversational instructions to skip it. Coding playbooks own CI repair and suppress this separate watcher.
 
@@ -21,7 +21,7 @@ Report publication and watcher startup separately. A watcher failure does not un
 Read [PR targeting](references/pr-targeting.md).
 
 1. Resolve the requested PR and inspect its full diff, current title/body, base/head, and relevant context. Use the PR snapshot, not unrelated local edits. If review is incomplete, report the unreviewed scope and stop before editing the title or body.
-2. Write both title and body using [visual metadata](references/pr-metadata.md) and [show-me](../show-me/PLAYBOOK.md) for the change outline, correcting misleading scope rather than merely noting it.
+2. Write both title and body using [visual metadata](references/pr-metadata.md) and [visual components](../../references/visual-components.md) for the change outline, correcting misleading scope rather than merely noting it.
 3. Run the [prose cleanup pass](../cleanup/PLAYBOOK.md#prose-cleanup) and verify any substantive claims against the diff and observed checks.
 4. Edit only the PR title/body, then verify both parsed published values.
 

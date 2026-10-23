@@ -238,6 +238,10 @@ Accepted 2026-10-20. Remove the general skill-development route and its Author/E
 
 Accepted 2026-10-20. Move the user guide from `docs/mstack/README.md` to `mstack/README.md`, alongside `SKILL.md`. Tighten it around installation, natural-language invocation, working style, requirements, maintenance, and migration. Remove stale Arena and general skill-development claims and defer detailed routing to the entry. The root README can link to any runtime layer, but its relative links must resolve inside a copied bundle and it is not another skill entry. Maintenance documents and tooling remain outside the installable directory; the README names their repository paths for contributors. This partially supersedes D29's packaging and D30's link-layer treatment. Approval: the user requested moving the README into the skill folder, tightening it, and bringing it up to date.
 
+### D55: Route PR outlines directly to visual components
+
+Accepted 2026-10-22. Publish and Rewrite metadata read the shared visual-components reference directly instead of composing Show me to reach it. The PR metadata reference retains ownership of the visual-outline requirements, including relevant views, focused diffs, complete target shapes, and accuracy checks. This refines D45's shared-catalog routing and preserves D35's mandatory visual outline and D06's publication boundaries. Approval: the user selected suggestion 1, removing the PR → Show me → Visual components hop, with `do 1`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
