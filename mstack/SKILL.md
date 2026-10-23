@@ -49,7 +49,8 @@ If an explicit `@mstack` invocation cannot load this entry, report that rather t
 | Retro the current session for skill lessons                        | [Reflect](playbooks/reflect/PLAYBOOK.md)                                              |
 | Summarize progress in the current conversation                     | [Catch up](playbooks/continuity/PLAYBOOK.md#catch-up)                                 |
 | Clean up the scoped change (code, prose, comments)                 | [Code cleanup](playbooks/cleanup/PLAYBOOK.md#code-cleanup)                            |
-| Improve prose                                                      | [Prose cleanup](playbooks/cleanup/PLAYBOOK.md#prose-cleanup)                          |
+| Write or review docs, RFCs, readmes, PR descriptions, or commits   | [Technical writing](playbooks/technical-writing/PLAYBOOK.md)                          |
+| Remove filler and AI patterns from existing prose                  | [Prose cleanup](playbooks/cleanup/PLAYBOOK.md#prose-cleanup)                          |
 | Review comment value                                               | [Comments](playbooks/cleanup/PLAYBOOK.md#comment-review)                              |
 | Find, apply, or survey project coding standards                    | [Coding standards](playbooks/coding-standards/PLAYBOOK.md)                            |
 | Capture lessons about project code as rules or checks              | [Capture](playbooks/coding-standards/PLAYBOOK.md#capture)                             |

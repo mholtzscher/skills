@@ -238,11 +238,17 @@ Accepted 2026-10-20. Remove the general skill-development route and its Author/E
 
 Accepted 2026-10-20. Move the user guide from `docs/mstack/README.md` to `mstack/README.md`, alongside `SKILL.md`. Tighten it around installation, natural-language invocation, working style, requirements, maintenance, and migration. Remove stale Arena and general skill-development claims and defer detailed routing to the entry. The root README can link to any runtime layer, but its relative links must resolve inside a copied bundle and it is not another skill entry. Maintenance documents and tooling remain outside the installable directory; the README names their repository paths for contributors. This partially supersedes D29's packaging and D30's link-layer treatment. Approval: the user requested moving the README into the skill folder, tightening it, and bringing it up to date.
 
+### D55: Add a technical-writing playbook
+
+Accepted 2026-10-22. Add Technical writing for drafting and reviewing docs, RFCs, readmes, PR descriptions, and commit messages. Adapt the four-layer standard from [pstack technical-writing](https://github.com/cursor/plugins/blob/main/pstack/skills/technical-writing/SKILL.md): Diátaxis, Google developer style, STE, and Global English. Preserve its substantive guidance and worked example while replacing `unslop` with mstack's Prose cleanup. The existing MIT notice for Lauren Tan covers the source's license. Keep the catalog owned by Cleanup, with proposed additions rather than automatic catalog edits. Preserve review-only scope, exact technical syntax, legitimate uncertainty, required templates and PR visuals, and language-specific indentation. The entry distinguishes full technical writing from focused filler and AI-pattern cleanup. Approval: user directive "Let's add this playbook" after the coverage comparison, 2026-10-22.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
 
 ## Validation and cutover snapshot
+
+2026-10-22, D55 working-tree review: bundle validation found one skill and 99 Markdown files with no errors. Full bundle/docs Prettier and diff checks passed. Direct source comparison covered all four writing layers, rhythm guidance, the worked example, PR and commit handling, and composition with the unchanged prose-cleanup playbook and catalog. Inspected the cleanup section anchor and the separate entry routes. This is source inspection, not independent behavioral evaluation; live drafting and review behavior with the new playbook remain untested.
 
 2026-10-20, D54 working-tree review: bundle validation found one skill and 98 Markdown files with no errors. Typechecking and all 94 tooling tests passed, including root README navigation, rejection of supporting-file backlinks, and copied-bundle validation/helper execution. Updated the copied-installation test to compare playbook names with the source instead of its stale count of 26. Formatting and diff checks passed; inspected the moved guide's section anchors and incoming links. Live host discovery was not rerun, so the fixture's one-entry result does not establish host registration behavior.
 
