@@ -326,6 +326,10 @@ Accepted 2026-10-22. Remove the Show me link and attribution from Show complexit
 
 Accepted 2026-10-22. Delete the introductory active-discipline paragraph. The later sections retain concrete instructions for terminology challenges, scenarios, code checks, immediate glossary updates, and selective ADRs. This follows D38's removal of redundant framing without changing D18's modeling behavior. Approval: the user selected all five proposed cleanups with `apply each as their own commit`.
 
+### D75: Keep glossary-map discovery in one section
+
+Accepted 2026-10-22. Replace the discovery explanation above Domain modeling's multi-context tree with an example label. Keep the map-discovery and context-selection instructions in Single vs multi-context repos. The example layout and lazy file creation remain unchanged. Approval: the user selected all five proposed cleanups with `apply each as their own commit`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
