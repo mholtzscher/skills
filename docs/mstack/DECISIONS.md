@@ -294,6 +294,10 @@ Accepted 2026-10-22. Remove the size-based instruction routing all large or cros
 
 Accepted 2026-10-22. Remove the sentence beside the full-spec link restating the applicability of approval and stopping conditions. The adjacent Approval section and full-spec approval gate remain unchanged. This trims D56's routing wording without changing either planning path's authority. Approval: the user selected all five cleanup suggestions with `apply each as their own commit`.
 
+### D67: Remove Reflect's legacy transcript-listing recipe
+
+Accepted 2026-10-22. Remove the optional filesystem listing example and its introductory paragraph from Reflect. Keep host-adapter discovery, actual-schema inspection, active-session identity checks, scoped evidence, and the incomplete-digest fallback. This supersedes the legacy recipe retained under D24 and D53; reflection's review and approval boundaries remain unchanged. Approval: the user selected all five cleanup suggestions with `apply each as their own commit`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
