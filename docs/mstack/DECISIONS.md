@@ -242,11 +242,17 @@ Accepted 2026-10-20. Move the user guide from `docs/mstack/README.md` to `mstack
 
 Accepted 2026-10-22. Publish and Rewrite metadata read the shared visual-components reference directly instead of composing Show me to reach it. The PR metadata reference retains ownership of the visual-outline requirements, including relevant views, focused diffs, complete target shapes, and accuracy checks. This refines D45's shared-catalog routing and preserves D35's mandatory visual outline and D06's publication boundaries. Approval: the user selected suggestion 1, removing the PR → Show me → Visual components hop, with `do 1`.
 
+### D56: Disclose full-spec planning only for the spec path
+
+Accepted 2026-10-22. Keep depth selection, sketch instructions, approval, and existing-spec refinement in the Planning entry. Move the full-spec phases, estimates, scope control, and supporting-reference table into its owned `references/spec.md`, loaded only for the spec depth. Keep grilling and domain-modeling routing in the caller and carry its approval and stopping conditions into the reference without upward links. This changes D17's packaging while preserving its substantive procedure, prior-answer reuse, output paths, and approval boundaries; D33 and D34's stage-specific template loading remains intact. Approval: the user directed implementation of suggestion 2 after its scope was restated.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
 
 ## Validation and cutover snapshot
+
+2026-10-22, D56 working-tree review: bundle validation passed with one skill and 99 Markdown files; full bundle/docs formatting and diff checks passed. Before/after comparison verified unchanged depth-selection, sketch, approval, and refinement bodies, and the full-spec body apart from planned routing, relative-link, and formatting changes. The entry shrank from 258 to 43 lines. Inspected incoming `#spec`, `#approval`, and `#refine` links and the sketch/spec/refinement routes. This is structural inspection, not an independent behavioral run; live planning behavior after extraction remains untested.
 
 2026-10-20, D54 working-tree review: bundle validation found one skill and 98 Markdown files with no errors. Typechecking and all 94 tooling tests passed, including root README navigation, rejection of supporting-file backlinks, and copied-bundle validation/helper execution. Updated the copied-installation test to compare playbook names with the source instead of its stale count of 26. Formatting and diff checks passed; inspected the moved guide's section anchors and incoming links. Live host discovery was not rerun, so the fixture's one-entry result does not establish host registration behavior.
 
