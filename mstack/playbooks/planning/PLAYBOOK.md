@@ -23,7 +23,7 @@ For a sketch, show the intended behavior and a focused code/data/file diff, deci
 
 For a spec, use [grilling](../grilling/PLAYBOOK.md) to settle open decisions and [domain-modeling](../domain-modeling/PLAYBOOK.md) when terminology matters or for glossary/decision-record work. These build on one interview rather than asking the same questions again.
 
-Read and follow the [full-spec procedure](references/spec.md) only when the spec depth is selected. The approval and stopping conditions below apply throughout that procedure, including its post-approval handoff.
+Read and follow the [full-spec procedure](references/spec.md) only when the spec depth is selected.
 
 ## Approval
 

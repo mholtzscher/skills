@@ -290,6 +290,10 @@ Accepted 2026-10-22. Delete the opening contract/structure/behavior slogan. The 
 
 Accepted 2026-10-22. Remove the size-based instruction routing all large or cross-cutting refactoring through Exploration. Step 3 retains Exploration for consequential or uncertain design choices; Planning remains required before implementation. This supersedes the broader exploration trigger retained with D22, without changing behavior pins, approval, or delivery requirements. Approval: the user selected all five cleanup suggestions with `apply each as their own commit`, after suggestion 3 was identified as a routing-behavior change.
 
+### D66: Remove Planning's approval coordination sentence
+
+Accepted 2026-10-22. Remove the sentence beside the full-spec link restating the applicability of approval and stopping conditions. The adjacent Approval section and full-spec approval gate remain unchanged. This trims D56's routing wording without changing either planning path's authority. Approval: the user selected all five cleanup suggestions with `apply each as their own commit`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
