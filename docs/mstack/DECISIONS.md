@@ -32,6 +32,8 @@ Approved feature, bug-fix, refactoring, and spec-implementation work continues t
 
 Publish, rewrite metadata, triage feedback, fix agreed feedback, inspect checks, and watch are independently selectable. Triage is read-only until agreement. Feedback fixes publish first, then react or resolve. Monitoring after standalone publication or feedback fixes is read-only. Coding tasks own required-CI repair. Keep the visual PR format of why the change, special notes, a visual change outline, and verification.
 
+Automatic monitoring after standalone publication is superseded by [D58](#d58-separate-publication-from-preparation-and-monitoring). Explicit Watch remains read-only, and feedback-fix monitoring and coding-task CI repair are unchanged.
+
 ### D07: Delegate selectively; let hosts own models
 
 Use separate contexts when independent exploration, implementation, or review materially helps. Coupled implementation has one writer. Models and roles come from host configuration. Mandatory implementation delegation, routine design panels, and model setup are rejected. Optional delegation can fall back to disclosed direct work. Explicitly required independent review or parallel execution remains unmet until satisfied or revised.
@@ -246,11 +248,31 @@ Accepted 2026-10-22. Publish and Rewrite metadata read the shared visual-compone
 
 Accepted 2026-10-22. Keep depth selection, sketch instructions, approval, and existing-spec refinement in the Planning entry. Move the full-spec phases, estimates, scope control, and supporting-reference table into its owned `references/spec.md`, loaded only for the spec depth. Keep grilling and domain-modeling routing in the caller and carry its approval and stopping conditions into the reference without upward links. This changes D17's packaging while preserving its substantive procedure, prior-answer reuse, output paths, and approval boundaries; D33 and D34's stage-specific template loading remains intact. Approval: the user directed implementation of suggestion 2 after its scope was restated.
 
+### D57: Group publication's conditional reading dependencies
+
+Accepted 2026-10-22. List PR targeting, cleanup, and metadata/visual guidance together at the start of Publish so applicable references can be loaded together. Targeting is unconditional; cleanup retains the unchanged-snapshot exception for work completed by the calling coding playbook; metadata guidance is loaded when creating or updating metadata. Defer conditional reads until applicability is known. The ordered steps retain execution requirements and publication boundaries, with their reference links owned by the reading list. This refines D48 and D55's routing without changing D06 or D09. Approval: the user directed `do it` after suggestion 3's conditional publication reading list was restated.
+
+Cleanup routing and the unchanged-snapshot exception are superseded by [D58](#d58-separate-publication-from-preparation-and-monitoring)'s explicit caller ownership. The publication operation retains grouped targeting and conditional metadata reads.
+
+### D58: Separate publication from preparation and monitoring
+
+Accepted 2026-10-22. Keep standalone verification and cleanup in Publish's caller-level preparation. Give prepared coding workflows a direct `#publication` entry that owns target/diff inspection, scoped commit and push, PR creation/update, and published identity verification. Finish delivery calls that operation after its own preparation and retains required-CI repair. Standalone publication ends with the verified PR URL and head; monitoring requires an explicit Watch request. Remove the automatic standalone watcher and its opt-out instructions. Preserve the incomplete-diff-review stop rule, metadata requirements, all three cleanup passes, and feedback-fix monitoring. This supersedes D06's automatic standalone monitoring and D57's mixed preparation/publication routing. Approval: after discussing the responsibility split and asking which monitoring policy to retain, the user chose `stop after publication`.
+
+The nested publication entry and standalone preparation ownership are superseded by [D59](#d59-make-publish-a-single-prepared-operation). The stop-after-publication decision remains accepted.
+
+### D59: Make Publish a single prepared operation
+
+Accepted 2026-10-22. Collapse Publish into one operation at `#publish`. Verification and cleanup are caller-owned prerequisites for the scoped snapshot, including standalone publication; Publish no longer runs preparation. Finish delivery retains its verification and cleanup steps and calls `#publish`. Explain publication authority as a request including scoped commits, push, and PR creation/update. End with the verified PR URL and published head, without monitoring guidance in Publish. This supersedes D58's nested `#publication` entry and standalone preparation paragraph while preserving mandatory cleanup, write boundaries, and the separate Watch and feedback-fix workflows. Approval: the user accepted the three discussed findings from Plannotator review `pn-0f872c` with `apply those`.
+
+The user subsequently requested removing the caller-ownership sentence from Publish because it adds confusing coordination text. Preparation ownership remains recorded here and in the workflows that perform it, rather than restated in Publish.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
 
 ## Validation and cutover snapshot
+
+2026-10-22, D58 working-tree review: bundle validation passed with one skill and 99 Markdown files; full bundle/docs formatting and diff checks passed. Compared publication instructions before/after and inspected standalone Publish, prepared Finish delivery, explicit Watch, and feedback-fix routes. The new `#publication` anchor resolves, preparation remains caller-owned, and the complete-diff stop rule and existing feedback/CI-repair instructions are retained. No live host publication/watch run was performed; source inspection does not establish runtime watcher behavior.
 
 2026-10-22, D56 working-tree review: bundle validation passed with one skill and 99 Markdown files; full bundle/docs formatting and diff checks passed. Before/after comparison verified unchanged depth-selection, sketch, approval, and refinement bodies, and the full-spec body apart from planned routing, relative-link, and formatting changes. The entry shrank from 258 to 43 lines. Inspected incoming `#spec`, `#approval`, and `#refine` links and the sketch/spec/refinement routes. This is structural inspection, not an independent behavioral run; live planning behavior after extraction remains untested.
 
