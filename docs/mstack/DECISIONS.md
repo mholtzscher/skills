@@ -370,6 +370,10 @@ Accepted 2026-10-22. Split the reviewer template's standards-documentation and t
 
 Accepted 2026-10-22. Include Standards alongside Findings and Summary in the reviewer template's stopping instruction, matching its existing output template. Report-only authority and required report content are unchanged. Approval: the user accepted the four proposed diffs with `apply each as their own commit`.
 
+### D85: Scope scheduler requirements to restart-independent continuation
+
+Accepted 2026-10-22. Advanced delivery requires scheduler and agent-control verification before promising unattended continuation across session restarts, rather than before any multi-day Autonomous run. This reconciles its route with Autonomous run's existing allowance for bounded active-session work without a scheduler. Merge authority and task scope remain unchanged. Approval: the user accepted the four proposed diffs with `apply each as their own commit`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.

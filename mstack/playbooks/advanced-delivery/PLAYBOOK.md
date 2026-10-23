@@ -15,4 +15,4 @@
 3. Merge only the contiguous verified sequence from the root. Recheck identity/head immediately before each merge and account for changed bases after prior merges. A changed or blocked candidate stops later dependent merges.
 4. Verify the resulting base revision and relevant post-merge checks. Report merged, blocked, and remaining PRs accurately.
 
-For a multi-day program, use [autonomous run](../autonomous/PLAYBOOK.md) only after establishing real scheduler and agent-control support.
+For a multi-day program, use [autonomous run](../autonomous/PLAYBOOK.md). Verify scheduler and agent-control support before promising unattended continuation across session restarts.
