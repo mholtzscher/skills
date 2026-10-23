@@ -22,34 +22,8 @@ Phase: CLARIFY | Waiting for: answers to questions 1-4
 **Hard rule:** No spec until user has responded to at least one round of questions. Read existing decisions first; an earlier clarification or grilling round in this conversation counts. Reuse settled answers rather than restarting the interview.
 
 1. Identify gaps in: scope, motivation, constraints, edge cases, success criteria, and expected implementation shape
-2. Ask 2-4 pointed questions that would change the approach. Use the host's structured question tool when available.
+2. Ask 2-4 pointed questions that would change the approach. Use the host's structured question tool when available; otherwise ask in conversation.
 3. **Wait for responses**
-
-**IMPORTANT: Use structured questions when the host exposes them.** On OpenCode, use `question`; on Pi, use the installed question extension's actual schema. If unavailable, ask the same focused questions in conversation and wait. For OpenCode, group up to 4 questions in one call, each with 2-4 options containing a label and description. Keep headers within 16 characters. The tool supplies the custom-answer row; do not add an "Other" option. Use `multiple: true` when several choices may apply. OpenCode example:
-
-```
-question({
-  questions: [{
-    header: "Scope",
-    question: "Which subsystems need detailed specs?",
-    options: [
-      {
-        label: "VCS layer",
-        description: "Specify the shared boundary between jj-lib and gix."
-      },
-      {
-        label: "Review workflow",
-        description: "Specify the local GitHub PR-style review workflow."
-      },
-      {
-        label: "Event system",
-        description: "Specify pub/sub behavior and event persistence."
-      }
-    ],
-    multiple: true
-  }]
-})
-```
 
 | Category       | Example                                                  |
 | -------------- | -------------------------------------------------------- |

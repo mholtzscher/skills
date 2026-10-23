@@ -270,6 +270,10 @@ The user subsequently requested removing the caller-ownership sentence from Publ
 
 Accepted 2026-10-22. Feature calls Finish delivery directly, whose first step already invokes Verification. This follows D38's removal of redundant instructions; approval gates and completion evidence are unchanged. Approval: the user selected cleanup suggestion 1 with `let's do 1, 2, 5` and requested separate commits.
 
+### D61: Remove the question-tool tutorial from spec planning
+
+Accepted 2026-10-22. Remove the OpenCode question-call tutorial and hardcoded tool constraints from full-spec planning, retaining the 2–4-question interview, structured-tool preference, conversational fallback, wait, and prior-answer reuse. This supersedes D17's retained host-tool tutorial detail; interview and approval requirements are unchanged. Approval: the user selected cleanup suggestion 2 with `let's do 1, 2, 5` and requested separate commits.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
