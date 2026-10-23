@@ -350,6 +350,10 @@ Accepted 2026-10-22. Restore the introductory active-discipline paragraph and th
 
 Accepted 2026-10-22. Remove the caller-ownership sentence after the full-spec file-output steps. The Planning entry and spec approval phase retain the approval and stopping requirements. This completes D66's wording cleanup without changing planning authority. Approval: the user accepted the four proposed diffs with `apply each as their own commit`.
 
+### D80: Describe Finish delivery without an incomplete caller list
+
+Accepted 2026-10-22. Describe Finish delivery as the shared completion path for approved coding tasks instead of enumerating four callers. Prototype and Performance already use this path too. This corrects the description without expanding task authority or changing delivery behavior. Approval: the user accepted the four proposed diffs with `apply each as their own commit`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.

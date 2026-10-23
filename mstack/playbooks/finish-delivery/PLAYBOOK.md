@@ -1,6 +1,6 @@
 # Finish a coding task
 
-This is the shared completion path for approved feature, bug-fix, refactoring, and spec-implementation work.
+This is the shared completion path for approved coding tasks.
 
 1. Complete relevant local [verification](../../references/verification.md).
 2. Run the mandatory [cleanup passes](../cleanup/PLAYBOOK.md#before-publication), inspect accepted changes, and rerun affected checks.
