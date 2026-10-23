@@ -121,5 +121,3 @@ If execution, tools, data, or approval are missing, mark the safety fact **unpro
 - **Before you merge.** The cheapest test or repro that catches the real bug, including the script you wrote under approval or the smallest proposed unrun check if blocked. Give reproducible commands, expected failure/success signal, actual output, and any missing environment/data/approval. This is a recommendation, not merge authority.
 
 Apply the relevant [prose cleanup](../cleanup/PLAYBOOK.md#prose-cleanup), cite real code, and strip anything private before it goes anywhere public. Keep reproducible evidence without exposing private inputs or credentials. The report itself is not permission to publish it.
-
-**Reply:** the report above, with each deciding safety fact either supported by its executed proof or marked unproven, its highest proof level and remaining gap explicit.

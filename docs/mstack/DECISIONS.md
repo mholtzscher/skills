@@ -306,6 +306,10 @@ Accepted 2026-10-22. Delete Recall's opening sentence suggesting context reconst
 
 Accepted 2026-10-22. Delete the slogan contrasting caller listing with breakage beyond grep. The concrete dependency, timing, pinned-library, and external-contract investigation steps remain intact under D20. Approval: the user requested `fix 1-4 as separate commits then give me more detail on 5`.
 
+### D70: Remove Blast radius's duplicate reply instruction
+
+Accepted 2026-10-22. Delete the final Reply paragraph repeating the preceding output contract. The deciding safety fact still requires its attained proof level, executed evidence or unproven status, and exact gaps under D20. Approval: the user requested `fix 1-4 as separate commits then give me more detail on 5`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
