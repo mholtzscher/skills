@@ -302,6 +302,10 @@ Accepted 2026-10-22. Remove the optional filesystem listing example and its intr
 
 Accepted 2026-10-22. Delete Recall's opening sentence suggesting context reconstruction before any work or resumption. Recall remains an explicitly selected procedure with its existing research scope and output contract. This clarifies D23's retained Recall behavior without adding a general preflight. Approval: the user requested `fix 1-4 as separate commits then give me more detail on 5`.
 
+### D69: Remove Blast radius's search slogan
+
+Accepted 2026-10-22. Delete the slogan contrasting caller listing with breakage beyond grep. The concrete dependency, timing, pinned-library, and external-contract investigation steps remain intact under D20. Approval: the user requested `fix 1-4 as separate commits then give me more detail on 5`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.

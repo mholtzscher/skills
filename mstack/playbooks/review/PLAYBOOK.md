@@ -79,8 +79,6 @@ When preparing the Interrogate verdict, read and use the [report template](refer
 
 Find what a change breaks somewhere else. Use for "blast radius of X", "what could this break", or reviewing a small diff you don't trust yet.
 
-Listing the callers is not the job. The job is the breakage grep won't show you.
-
 ### Don't trust your own writeup
 
 A blast-radius writeup that sounds right is not evidence that it is true. Do not hand back only a convincing narrative. Find the one or two facts the whole thing depends on and prove them by running code within the authority below; otherwise explicitly mark them unproven.
