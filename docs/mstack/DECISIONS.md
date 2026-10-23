@@ -346,6 +346,10 @@ Accepted 2026-10-22. Remove the one-PR and CI-repair summary beside Prototype's 
 
 Accepted 2026-10-22. Restore the introductory active-discipline paragraph and the glossary-map explanation beside the multi-context example, reversing D74 and D75. The introduction establishes the proactive approach, and the adjacent explanation makes the example self-contained; those benefits outweigh the small wording repetition. Approval: the user answered `yes` to reverting both domain-modeling changes.
 
+### D79: Remove full-spec completion coordination prose
+
+Accepted 2026-10-22. Remove the caller-ownership sentence after the full-spec file-output steps. The Planning entry and spec approval phase retain the approval and stopping requirements. This completes D66's wording cleanup without changing planning authority. Approval: the user accepted the four proposed diffs with `apply each as their own commit`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.

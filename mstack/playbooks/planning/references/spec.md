@@ -164,8 +164,6 @@ When reporting the approved, completed spec, read and use the [final-response te
 2. Write or finalize the spec at the explicitly requested path, or default to `specs/<filename>.md`. Explicit paths may be nested or outside that directory.
 3. Confirm: `Spec written to: <actual path>`
 
-The calling workflow's approval and stopping conditions govern completion.
-
 ---
 
 ### Effort Estimates
