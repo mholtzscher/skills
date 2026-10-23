@@ -318,6 +318,10 @@ Accepted 2026-10-22. Replace Interrogate's `main`-based diff example and its cav
 
 Accepted 2026-10-22. Replace Runtime forensics' exact throughput-checkpoint format with a requirement to report authorized instrumentation or live hotfixes that changed state. This supersedes the checkpoint format restored under D28; diagnosis evidence and experiment approval requirements remain unchanged. Approval: after reviewing the requirement's history and proposed replacement, the user directed `do that`.
 
+### D73: Remove Show complexity's Show me dependency
+
+Accepted 2026-10-22. Remove the Show me link and attribution from Show complexity's opening visual instruction. Retain the complete local instruction to use the smallest explanatory visual, adjacent evidence, and brief prose. This reduces navigation without changing visual requirements. Approval: the user selected all five proposed cleanups with `apply each as their own commit`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.

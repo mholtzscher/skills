@@ -1,6 +1,6 @@
 # Show complexity
 
-Make complexity visible, explain what requires it, and identify what can be simplified. Use for "implementation complexity", "what complexity does this introduce?", and "what can we simplify?" This classifies essential versus accidental complexity; it does not estimate effort. Borrow [show-me](../show-me/PLAYBOOK.md)'s approach: use the smallest visual that explains the point, place evidence beside it, and keep prose brief.
+Make complexity visible, explain what requires it, and identify what can be simplified. Use for "implementation complexity", "what complexity does this introduce?", and "what can we simplify?" This classifies essential versus accidental complexity; it does not estimate effort. Use the smallest visual that explains the point, place evidence beside it, and keep prose brief.
 
 ## Establish the scope
 
