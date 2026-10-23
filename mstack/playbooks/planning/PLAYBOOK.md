@@ -251,7 +251,7 @@ Done means the proposal is understandable, acceptance is testable, material unkn
 Accept an explicit path; use the current known spec when unambiguous. Read the whole spec, relevant source/history, and any recorded approvals.
 
 1. Identify required behavior, compatibility, security, error invariants, ownership, and implementation contracts before proposing cuts.
-2. Use [prose cleanup](../cleanup/PLAYBOOK.md#prose-cleanup) in proposal-only mode for prose and [show-complexity](../show-complexity/PLAYBOOK.md) for design burden. This workflow's approval boundary controls both procedures.
+2. Use [Writing: Polish](../writing/PLAYBOOK.md#polish) in proposal-only mode for prose and [show-complexity](../show-complexity/PLAYBOOK.md) for design burden. This workflow's approval boundary controls both procedures.
 3. Present clarity improvements and viable conservative/aggressive simplifications with focused diffs. Explain what each retains, changes, and loses; do not force alternatives where no safe reduction exists.
 4. Ask which proposals to approve. Make no initial edits, including wording-only cleanup.
 5. Apply only selected changes. Reconcile types, interfaces, deliverables, and validation affected by semantic changes. Resolve contradictions through dialogue.

@@ -27,7 +27,7 @@ These are illustrative records, not claims about this task or permission to rese
 
 ## Logging a row
 
-Write each entry the way you'd tell a teammate what you did. Plain words, concrete actions, no AI speak or abstract jargon. Apply [prose cleanup](../cleanup/PLAYBOOK.md#prose-cleanup) to editable log text while preserving literal evidence and technical syntax.
+Write each entry the way you'd tell a teammate what you did. Plain words, concrete actions, no AI speak or abstract jargon. Apply [Writing: Polish](../writing/PLAYBOOK.md#polish) to editable log text while preserving literal evidence and technical syntax.
 
 Resolve the installed bundle's absolute path, then use the helper:
 

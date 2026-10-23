@@ -22,7 +22,7 @@ Read [PR targeting](references/pr-targeting.md).
 
 1. Resolve the requested PR and inspect its full diff, current title/body, base/head, and relevant context. Use the PR snapshot, not unrelated local edits. If review is incomplete, report the unreviewed scope and stop before editing the title or body.
 2. Write both title and body using [visual metadata](references/pr-metadata.md) and [show-me](../show-me/PLAYBOOK.md) for the change outline, correcting misleading scope rather than merely noting it.
-3. Run the [prose cleanup pass](../cleanup/PLAYBOOK.md#prose-cleanup) and verify any substantive claims against the diff and observed checks.
+3. Run [Writing: Polish](../writing/PLAYBOOK.md#polish) and verify any substantive claims against the diff and observed checks.
 4. Edit only the PR title/body, then verify both parsed published values.
 
 Done means the intended metadata is actually published. Report the URL and changes. Do not commit, push, switch branches, start a watcher, or wait for CI as part of this operation.

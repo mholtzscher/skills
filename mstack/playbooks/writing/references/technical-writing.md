@@ -2,7 +2,7 @@
 
 Write or review docs, RFCs, readmes, PR descriptions, and commit messages using four layers: Diátaxis structure, Google developer style, STE instruction rules, and Global English syntax.
 
-Read the complete scoped text and establish its audience and purpose. For new text, establish the reader's task and the source facts first. Apply all four layers to documents; skip Diátaxis for PR descriptions and commit messages. In review-only requests, report findings and proposed wording. In writing or editing requests, produce the scoped text.
+Apply all four layers to documents; skip Diátaxis for PR descriptions and commit messages. The caller supplies the audience, purpose, scope, and editing authority.
 
 Three rules sit above the layers:
 
@@ -86,7 +86,7 @@ Don't mix modes: no reference tables inside a tutorial, no tutorial hand-holding
 
 ## Apply prose cleanup and repo conventions
 
-- Apply [Prose cleanup](../cleanup/PLAYBOOK.md#prose-cleanup) to every document this playbook touches, within the same writing or review scope. Its catalog owns AI vocabulary, filler, hedging, and formatting patterns. Preserve exact quotations, code, commands, citations, technical meaning, and legitimate uncertainty under that playbook's protections.
+- The [prose-pattern catalog](prose-patterns.md) owns AI vocabulary, filler, hedging, and formatting patterns. Its strict punctuation rules govern editable prose when a general style guideline allows more latitude. Preserve exact quotations, code, commands, citations, technical meaning, and legitimate uncertainty under the caller's protections.
 - PR descriptions and commit messages are writing too. Every layer except Diátaxis applies to them. A PR body is a briefing that a reviewer can read in under a minute. Do not paste swarm logs, SHA lists, or metric tables. Link them. Preserve the required PR sections and visual change outline when composing with PR workflows.
 - Product UI strings are not documentation. Use your product's copy guidelines for those.
 - Indent code snippets with tabs where the language and repository conventions permit. Preserve syntax-required indentation. Write real paths. Make every count or tree claim true at the revision being documented, and include the command that regenerates it.
@@ -100,7 +100,3 @@ Before:
 After:
 
 > `budget.mjs` reads the committed budget from `budget.json` and counts the files that import protos. If the count exceeds the budget, CI fails. Run `budget.mjs --write` only to lower the budget.
-
-## Completion
-
-Check the scoped text against every applicable layer and the prose-pattern catalog. Verify symbols, paths, commands, and factual claims against the available sources. Finish with the requested text or review findings, identifying substantive ambiguity and any facts that remain unverified. Writing guidance alone does not authorize publication or remote metadata changes.

@@ -7,7 +7,7 @@ For a focused request, follow only the requested section.
 Before publication, run these three dedicated passes on the scoped change. Read their instructions rather than replacing them with a generic "looks clean" pass:
 
 1. [Code cleanup](#code-cleanup) for unnecessary code machinery and inconsistent style.
-2. [Prose cleanup](#prose-cleanup) for changed docs, user-facing prose, commit messages, and PR metadata.
+2. [Writing: Polish](../writing/PLAYBOOK.md#polish) for changed docs, user-facing prose, commit messages, and PR metadata.
 3. [Comment review](#comment-review) for stale narration and the value of non-obvious rationale.
 
 Use independent report-only review for code/comments when it adds confidence, following [orchestration](../../references/orchestration.md). If a pass has no relevant changed surface, record that result rather than inventing edits.
@@ -21,14 +21,6 @@ Resolve the actual comparison base and include relevant local changes. Read the 
 For every proposed removal, establish what responsibility remains and why behavior is preserved. Do not remove legitimate boundary validation or error handling just because it looks defensive. Prefer a focused correction over a broad rewrite.
 
 When called during approved implementation/publication cleanup, apply accepted behavior-preserving changes and reverify affected behavior. In review-only or proposal-only contexts, report proposed diffs without edits. A semantic or architectural change beyond the approved design needs approval. End with material findings and checks.
-
-## Prose cleanup
-
-Edit text to remove AI patterns. Read the complete text and establish its intended audience. For every prose-cleanup invocation, read the [complete prose-pattern catalog](references/prose-patterns.md), scan the selected text against all 28 entries, then rewrite within the caller's authority. Preserve meaning and match the intended tone.
-
-Apply the catalog's strict punctuation and style rules to selected editable prose. Rule 13 excludes em dashes and punctuation substitutes, including parentheses. Rule 14 permits colons before lists or examples, not as mid-sentence connectors. These are editing rules, not permission to alter exact quotations, code, commands, citations, catalog examples, or structured technical notation. Keep those literal. Rule 33 does not remove syntax arrows in genuine diagrams or code. Preserve requirements, technical contracts, confidence, legitimate epistemic hedges, and the author's meaning. Keep tables and diagrams when they explain something rather than decorate it. Report substantive ambiguity instead of silently choosing a new requirement.
-
-Honor proposal-only and review-only scope. Present proposed wording and wait when the caller requires agreement, including spec refinement. During approved implementation or publication cleanup, apply accepted in-scope prose edits without changing technical meaning. Check scoped PR titles, bodies, and commit prose before remote writes, but cleanup itself grants no permission to edit PR metadata, publish, or modify other files.
 
 ## Comment review
 
