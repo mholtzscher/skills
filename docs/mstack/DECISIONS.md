@@ -334,6 +334,10 @@ Accepted 2026-10-22. Replace the discovery explanation above Domain modeling's m
 
 Accepted 2026-10-22. Replace the emoji-and-separator question template with numbered questions, choices, and a recommended answer. This supersedes D18's retained fallback presentation format while preserving whole-frontier rounds, recommendations, prior-answer reuse, waiting for answers, and final confirmation. Approval: the user selected all five proposed cleanups with `apply each as their own commit`, after the fallback change was identified as an output-format change.
 
+### D77: Remove Prototype's repeated delivery summary
+
+Accepted 2026-10-22. Remove the one-PR and CI-repair summary beside Prototype's Finish delivery link. Keep per-component evidence and the baseline/disposable-prototype authority boundary. Finish delivery and the entry's delivery contract retain ordinary unmerged delivery and explicit stack authorization under D05. Approval: the user selected all five proposed cleanups with `apply each as their own commit`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
