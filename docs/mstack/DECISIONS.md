@@ -362,6 +362,10 @@ Accepted 2026-10-22. Require both identification of tool-enforced rules and a re
 
 Accepted 2026-10-22. Replace assertions about reviewers' limited context and the lead's complete context with an instruction to check findings against potentially missing context. Preserve the checklist of rejected approaches, external constraints, temporary architecture, and planned stack work. D20's evidence-led judgment and verification requirements remain unchanged. Approval: the user accepted the four proposed diffs with `apply each as their own commit`.
 
+### D83: Keep tool-enforced rules in every reviewer brief
+
+Accepted 2026-10-22. Split the reviewer template's standards-documentation and tool-enforced-rule placeholders. An absence of standards documentation no longer replaces tooling information in the brief. This aligns the template with D81's discovery completion requirement. Approval: the user accepted the four proposed diffs with `apply each as their own commit`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.

@@ -38,7 +38,9 @@ Report only. Inspect the specified snapshot and relevant surrounding source. Do 
 
 ## Project Standards
 
-{STANDARDS_SOURCE_PATHS_WITH_SCOPES_AND_TOOL_ENFORCED_RULES, or "no standards documentation found"}
+{STANDARDS_SOURCE_PATHS_WITH_SCOPES, or "no standards documentation found"}
+
+{TOOL_ENFORCED_RULES}
 
 ## Smell Baseline
 
