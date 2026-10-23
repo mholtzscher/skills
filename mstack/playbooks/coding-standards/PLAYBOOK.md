@@ -13,7 +13,7 @@ Every rule and check starts as a proposal. Edit a standards file only for rows t
 
 Search the repository for every file that documents how code should be written. When `CODING_STANDARDS.md` or `CONTRIBUTING.md` exists, it must be on the list. Include the style guides, ADRs, and package-level standards files that they or the repository instructions point to. Record each source's scope: the directory a package-level file sits in, narrowed by any paths a rule declares in **Applies to**. Read the linter, formatter, type-checker, and CI configuration to learn which rules tooling already enforces.
 
-Done when you hold the standards source paths and their scopes, the tool-enforced rules, or the explicit result that no standards documentation exists.
+Done when you have identified tool-enforced rules and either the standards source paths with their scopes or that no standards documentation exists.
 
 ## Apply
 
