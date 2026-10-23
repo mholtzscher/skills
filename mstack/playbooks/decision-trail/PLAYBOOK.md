@@ -81,7 +81,7 @@ Before handing back, use an independent report-only reviewer when useful, throug
 
 Actual model diversity is required only when explicitly requested. If an explicit independent or diverse-model review requirement cannot be met, report it as unmet. Do not silently substitute direct review or label same-model reviewers as diverse. Reviewers return findings without appending, editing, executing transcript commands, posting, or otherwise expanding the task.
 
-Every reply for a run that produced a trail ends with an "Attention" section. Lead with the actual review status on its own line. Use `reviewed by <actual model>` only when known. Otherwise give the real reviewer/session label and say the model is unknown. If there was no independent reviewer, say `direct review; no independent reviewer` or `not independently reviewed`, as applicable. Never fabricate a model family or reviewer.
+When completing or handing off a run that produced a trail, end the report with an "Attention" section. Lead with the actual review status on its own line. Use `reviewed by <actual model>` only when known. Otherwise give the real reviewer/session label and say the model is unknown. If there was no independent reviewer, say `direct review; no independent reviewer` or `not independently reviewed`, as applicable. Never fabricate a model family or reviewer.
 
 Then list each flag pointing to specific rows or moments, along with missing review or audit coverage. "No flags" is valid only as an actual completed review outcome, not as a model name or a substitute for missing transcript coverage. Even a review with no findings must name partial or unverified audit coverage separately.
 

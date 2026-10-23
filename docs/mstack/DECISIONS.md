@@ -114,6 +114,8 @@ Reflection packaging is superseded by [D53](#d53-keep-reflect-and-delegate-skill
 
 Accepted 2026-10-15. Restore the decision-trail procedure, six-column template, worked example, and local append helper. Trails stay local in ignored storage or an agreed outside-tree path. The user chose selective review. Read-only reviews propose corrections rather than appending them.
 
+The every-reply Attention-section requirement is superseded by [D86](#d86-report-trail-review-status-at-completion-or-handoff).
+
 ### D26: Restore the consolidated principles
 
 Accepted 2026-10-15. Restore substantive diagnostics and examples from the 24 principle sources into the 14 consolidated files. The user chose evidence-driven tool creation, risk-based semantic types, and declared migration phases. The proceed-first policy stays rejected.
@@ -373,6 +375,10 @@ Accepted 2026-10-22. Include Standards alongside Findings and Summary in the rev
 ### D85: Scope scheduler requirements to restart-independent continuation
 
 Accepted 2026-10-22. Advanced delivery requires scheduler and agent-control verification before promising unattended continuation across session restarts, rather than before any multi-day Autonomous run. This reconciles its route with Autonomous run's existing allowance for bounded active-session work without a scheduler. Merge authority and task scope remain unchanged. Approval: the user accepted the four proposed diffs with `apply each as their own commit`.
+
+### D86: Report trail review status at completion or handoff
+
+Accepted 2026-10-22. Require the decision trail's Attention section when completing or handing off a run, rather than on every reply after creating a trail. Preserve actual reviewer identity, review status, findings, and missing audit/review coverage requirements. This supersedes D25's retained every-reply reporting policy while keeping the final review summary. Approval: the user accepted the four proposed diffs with `apply each as their own commit`, after this item was identified as a reporting-policy change.
 
 ## Upstream differences that are not new commitments
 
