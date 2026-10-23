@@ -11,7 +11,7 @@ Mstack has one explicit entry point. Describe the task after its name; these are
 | OpenCode V2 | `@mstack Fix the filter reset` |
 | Pi          | `/skill:mstack triage PR 123`  |
 
-Use the playbook and PR intent tables already in context to match the requested task. Explicit spec paths and PR URLs or numbers are accepted. Planning, investigation, review, and checks retain their own completion conditions. Implementation requires an approved sketch or spec. Ordinary approved coding continues through one unmerged PR and scoped required-CI repair.
+Explicit spec paths and PR URLs or numbers are accepted. Planning, investigation, review, and checks retain their own completion conditions. Implementation requires an approved sketch or spec. Ordinary approved coding continues through one unmerged PR and scoped required-CI repair.
 
 ## Dependencies
 
