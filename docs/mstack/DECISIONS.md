@@ -266,6 +266,10 @@ Accepted 2026-10-22. Collapse Publish into one operation at `#publish`. Verifica
 
 The user subsequently requested removing the caller-ownership sentence from Publish because it adds confusing coordination text. Preparation ownership remains recorded here and in the workflows that perform it, rather than restated in Publish.
 
+### D60: Remove Feature's duplicate verification invocation
+
+Accepted 2026-10-22. Feature calls Finish delivery directly, whose first step already invokes Verification. This follows D38's removal of redundant instructions; approval gates and completion evidence are unchanged. Approval: the user selected cleanup suggestion 1 with `let's do 1, 2, 5` and requested separate commits.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
