@@ -8,19 +8,7 @@ Work the tree in **rounds**. The **frontier** is every decision whose prerequisi
 
 Use the host's structured question tool when available, following the adapter for [OpenCode](../../references/hosts/opencode.md) or [Pi](../../references/hosts/pi.md). Make each question a real choice, explain why it matters, and put the recommended answer first with credible alternatives. If the tool limits the number of questions per call, cover the same ready frontier in tool-sized batches within one logical round; dependent questions still belong to the next round.
 
-When no structured question tool is available, format a round like so:
-
-```
-❓ **Q1** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
-
-➡️ <your recommended answer>
-
----
-
-❓ **Q2** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
-
-➡️ <your recommended answer>
-```
+Without a structured question tool, present numbered questions with choices and a recommended answer.
 
 Word each question so "yes" accepts your recommended answer.
 

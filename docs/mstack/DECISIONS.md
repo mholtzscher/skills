@@ -330,6 +330,10 @@ Accepted 2026-10-22. Delete the introductory active-discipline paragraph. The la
 
 Accepted 2026-10-22. Replace the discovery explanation above Domain modeling's multi-context tree with an example label. Keep the map-discovery and context-selection instructions in Single vs multi-context repos. The example layout and lazy file creation remain unchanged. Approval: the user selected all five proposed cleanups with `apply each as their own commit`.
 
+### D76: Simplify Grilling's conversational fallback format
+
+Accepted 2026-10-22. Replace the emoji-and-separator question template with numbered questions, choices, and a recommended answer. This supersedes D18's retained fallback presentation format while preserving whole-frontier rounds, recommendations, prior-answer reuse, waiting for answers, and final confirmation. Approval: the user selected all five proposed cleanups with `apply each as their own commit`, after the fallback change was identified as an output-format change.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
