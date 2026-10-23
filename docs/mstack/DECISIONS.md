@@ -324,9 +324,13 @@ Accepted 2026-10-22. Remove the Show me link and attribution from Show complexit
 
 ### D74: Remove Domain modeling's introductory framing
 
+Superseded 2026-10-22 by [D78](#d78-restore-domain-modeling-orientation).
+
 Accepted 2026-10-22. Delete the introductory active-discipline paragraph. The later sections retain concrete instructions for terminology challenges, scenarios, code checks, immediate glossary updates, and selective ADRs. This follows D38's removal of redundant framing without changing D18's modeling behavior. Approval: the user selected all five proposed cleanups with `apply each as their own commit`.
 
 ### D75: Keep glossary-map discovery in one section
+
+Superseded 2026-10-22 by [D78](#d78-restore-domain-modeling-orientation).
 
 Accepted 2026-10-22. Replace the discovery explanation above Domain modeling's multi-context tree with an example label. Keep the map-discovery and context-selection instructions in Single vs multi-context repos. The example layout and lazy file creation remain unchanged. Approval: the user selected all five proposed cleanups with `apply each as their own commit`.
 
@@ -337,6 +341,10 @@ Accepted 2026-10-22. Replace the emoji-and-separator question template with numb
 ### D77: Remove Prototype's repeated delivery summary
 
 Accepted 2026-10-22. Remove the one-PR and CI-repair summary beside Prototype's Finish delivery link. Keep per-component evidence and the baseline/disposable-prototype authority boundary. Finish delivery and the entry's delivery contract retain ordinary unmerged delivery and explicit stack authorization under D05. Approval: the user selected all five proposed cleanups with `apply each as their own commit`.
+
+### D78: Restore Domain modeling orientation
+
+Accepted 2026-10-22. Restore the introductory active-discipline paragraph and the glossary-map explanation beside the multi-context example, reversing D74 and D75. The introduction establishes the proactive approach, and the adjacent explanation makes the example self-contained; those benefits outweigh the small wording repetition. Approval: the user answered `yes` to reverting both domain-modeling changes.
 
 ## Upstream differences that are not new commitments
 
