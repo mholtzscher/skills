@@ -75,6 +75,100 @@ Trace the important path, inspect material failure cases, and cite the actual so
 - **Delivery:** Approved coding playbooks authorize scoped commits, pushes, one PR, and required-CI repair. Ordinary delivery stops before merging. Stacks and merging require explicit requests.
 - **Completion:** Support completion claims with observed evidence against the requested outcome; use [verification](references/verification.md) for implementation and review. Report unmet requirements and unavailable or unrun checks. When blocked, preserve a resumable state and seek help rather than changing the goal or silently weakening a requirement.
 
+## Writing
+
+Apply this standard to all agent prose during the task: chat replies, progress updates, explanations, plans, reviews, documents, PR descriptions, and commit messages. Match the audience, requested format, and editing scope. Preserve exact quotations, code, commands, citations, technical meaning, requirements, and legitimate uncertainty. Product UI strings follow the product's copy guidelines.
+
+### Write plainly
+
+- **Cut every word that does no work.** Lead with the point. "In order to" is "to". "It is important to note that" is nothing.
+- **Use the short, everyday word.** "Use", not "utilize". "Help", not "facilitate". "Do", not "perform". A long word has to buy its length with precision.
+- **When a rule makes a sentence worse, fix the sentence another way or leave it alone.** A sentence that follows every rule and sounds like a machine wrote it has failed.
+
+The codebase is the word list. Write the real symbol, file, flag, or command name, not a synonym or a description of it. Use words a developer would say out loud: "move", "delete", "a budget that only decreases", not "evacuate", "ratchet", or "endgame". Define a named pattern on first use. If a recurring offender warrants an addition to the prose-pattern catalog, propose a replacement diff rather than editing the catalog as part of the writing task.
+
+### Vary the rhythm
+
+- Mix sentence lengths on purpose. Short sentences land a point. Longer ones carry a fact with its condition or consequence.
+- One thought per sentence does not mean one length per sentence. Split the sentence that carries two thoughts. Keep the long sentence that carries one.
+- Have a view when asked for judgment or explanation. Weigh trade-offs instead of only listing pros and cons. Reference material stays factual.
+- Be specific over sterile. Not "schema changes can cause issues" but "a column rename fails the build".
+
+### Write sentences to the reader (Google developer style)
+
+- Talk to the reader as "you", in the present tense. Use "will" for things that genuinely happen later. Tutorials can use the shared "we" voice.
+- Say who does what: "the compiler checks", not "is checked". Passive is fine when the actor is unknown or beside the point.
+- Write instructions as commands: "Click Submit." State facts plainly. Avoid "should be done".
+- Put the condition before the instruction: "To delete the document, click Delete."
+- Put the common case first and exceptions after.
+- Sound like a knowledgeable friend. Avoid buzzwords, figurative language, and "please" in instructions. Never use "simply", "easy", or "quickly" in a procedure.
+- Avoid unsupported pre-announcements such as "we will soon support...". Don't start consecutive sentences with the same phrase.
+- Link with words that say where the link goes: the page title or a short description, not "click here". Prefer a sentence of local context over a link away.
+- Headings carry the point, not just the topic. Use sentence case, bare verb phrases for tasks, and noun phrases for concepts. Documents use one h1 and no skipped heading levels; short replies need no headings.
+- Numbered lists are for sequences, bullets for other lists. Introduce a list with a complete sentence and keep items parallel.
+- Put code in code font and UI elements in bold. Use serial commas. Drop "etc." and say up front that a list is partial.
+
+### Make statements load one at a time (STE rules)
+
+- Give one instruction per sentence and one thought per sentence elsewhere.
+- Split instructions longer than about 20 words and other sentences longer than about 25 when that improves clarity.
+- Put warnings and conditions before the step they govern: "If hot oil touches your skin, injuries can occur."
+- Keep "the" and "a": "Remove backup file" reads two ways. "Remove the backup file" reads one.
+- Give each word one meaning and one job. If "check" means inspect, don't also use it for restrain.
+- Pick one word per action and keep it: "start", not "start" here and "initiate" there.
+- Write procedures as direct commands rather than passive narration: "Install the component", not "the component must be installed".
+- Avoid "-ing" words where a clearer construction exists.
+
+### Leave no sentence open to two readings (Global English)
+
+- Keep "only" and "not" next to the words they change. "Only fails on growth" and "fails only on growth" say different things.
+- Break up long noun strings: "the proto import budget check script" becomes "the script that checks the proto-import budget".
+- Make every "it", "they", and "this" point at one obvious thing. Repeat the noun when in doubt. Avoid using "this" or "which" to refer vaguely to a whole clause.
+- Keep verbs and articles. "Phase 1 moves the converters and Phase 2 the runtime" leaves Phase 2 without a verb.
+- Keep small words that show structure, such as "that" in "Ensure that the switch is off". Never trade clarity for word count.
+- Repeat the article when it prevents a misread: "the client and the host" when they are two things.
+- Make the grouping of "and" or "or" explicit when ambiguous. Use "both...and", "either...or", and "if...then" where helpful.
+- Use periods rather than semicolons or em dashes. Turn parenthetical prose into its own grammatical sentence. Never form plurals with "(s)".
+- Avoid slashes in prose: write "a, b, or both" rather than "a/b" or "and/or". Keep literal paths, commands, and technical notation intact.
+- Call each thing by one name. "The gate", "the ratchet", and "the budget check" for one thing teaches three things. Don't churn what didn't change.
+- Skip idioms, colloquialisms, Latin abbreviations, and metaphors.
+
+### Choose a mode for substantial documents (Diátaxis)
+
+Use this structure for substantial documents, not ordinary chat replies, progress updates, PR descriptions, or commit messages. Choose by the reader's purpose:
+
+- Action + learning: **tutorial**.
+- Action + work: **how-to**.
+- Understanding + work: **reference**.
+- Understanding + learning: **explanation**.
+
+**Tutorial.** Open with what the learner will build, not what they will "learn". Every step produces a visible result, early and often. Give expected output, prompt changes, or log lines. Limit explanation to one clause and a link. Stay concrete and use shared commands: "First, do x. Now, do y."
+
+**How-to.** Solve the reader's problem. Assume competence and focus on actions, linking background and teaching material instead of inserting digressions. Allow forks and judgment: "If you want x, do y." Name the guide by the task: "How to calibrate the radar array", not "Radar array calibration".
+
+**Reference.** Describe facts, options, limits, and errors for lookup. Mirror the structure of the thing described and generate from code where possible. Keep instruction, persuasion, and opinion elsewhere. Verify claims before stating them as facts; preserve genuine uncertainty rather than manufacturing certainty.
+
+**Explanation.** Address one bounded why question, readable away from the product. Use titles that tolerate an implicit "About...". Explain decisions, history, constraints, and alternatives. Offer reasoned judgment where useful.
+
+Keep one mode per document where practical. Separate and link reference tables, tutorial steps, and explanatory arguments rather than mixing them. Propose splits that exceed the requested edit scope. Required repository templates and document contracts take precedence.
+
+### Apply the standard within the task
+
+- A PR body is a briefing a reviewer can read in under a minute. Link swarm logs, SHA lists, and metric tables instead of pasting them. Preserve required PR sections and the visual change outline.
+- Indent code snippets with tabs where the language and repository permit. Preserve syntax-required indentation. Write real paths. Make count and tree claims true at the documented revision and include the command that regenerates them.
+- For drafting, revision, or a deliberate cleanup audit, use [Writing](playbooks/writing/PLAYBOOK.md). Its Polish mode loads the detailed prose-pattern catalog; ordinary output does not require that extra read. Explicit Polish passes remain required where a workflow calls them.
+- When creating or editing agent instructions, also use the external `writing-for-agents` skill.
+
+### Worked example
+
+Before:
+
+> Configuration of the proto import ratchet budget script parameters is performed via budget.json. Note that it's important to remember that running with --write, which updates the committed budget to reflect the current count, should only be done when lowering it. If exceeded, CI fails.
+
+After:
+
+> `budget.mjs` reads the committed budget from `budget.json` and counts the files that import protos. If the count exceeds the budget, CI fails. Run `budget.mjs --write` only to lower the budget.
+
 ## Principles
 
 Read relevant principles before applying them within the task's scope. Cite each principle that materially changed a decision by name and link, explaining the choice it changed.
