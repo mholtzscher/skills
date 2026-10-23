@@ -322,6 +322,10 @@ Accepted 2026-10-22. Replace Runtime forensics' exact throughput-checkpoint form
 
 Accepted 2026-10-22. Remove the Show me link and attribution from Show complexity's opening visual instruction. Retain the complete local instruction to use the smallest explanatory visual, adjacent evidence, and brief prose. This reduces navigation without changing visual requirements. Approval: the user selected all five proposed cleanups with `apply each as their own commit`.
 
+### D74: Remove Domain modeling's introductory framing
+
+Accepted 2026-10-22. Delete the introductory active-discipline paragraph. The later sections retain concrete instructions for terminology challenges, scenarios, code checks, immediate glossary updates, and selective ADRs. This follows D38's removal of redundant framing without changing D18's modeling behavior. Approval: the user selected all five proposed cleanups with `apply each as their own commit`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
