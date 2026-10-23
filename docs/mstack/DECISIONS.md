@@ -298,6 +298,10 @@ Accepted 2026-10-22. Remove the sentence beside the full-spec link restating the
 
 Accepted 2026-10-22. Remove the optional filesystem listing example and its introductory paragraph from Reflect. Keep host-adapter discovery, actual-schema inspection, active-session identity checks, scoped evidence, and the incomplete-digest fallback. This supersedes the legacy recipe retained under D24 and D53; reflection's review and approval boundaries remain unchanged. Approval: the user selected all five cleanup suggestions with `apply each as their own commit`.
 
+### D68: Remove Recall's universal-preflight framing
+
+Accepted 2026-10-22. Delete Recall's opening sentence suggesting context reconstruction before any work or resumption. Recall remains an explicitly selected procedure with its existing research scope and output contract. This clarifies D23's retained Recall behavior without adding a general preflight. Approval: the user requested `fix 1-4 as separate commits then give me more detail on 5`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
