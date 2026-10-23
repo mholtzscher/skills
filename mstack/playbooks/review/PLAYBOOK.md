@@ -35,7 +35,7 @@ Challenge code changes from independent angles and deliver a synthesized verdict
 Identify what to review from context:
 
 - If the user points at specific files or a diff, use that.
-- If on a feature branch, inspect `git diff main...HEAD` (or the appropriate base branch) for the full changeset. Confirm the actual base rather than assuming `main`.
+- If on a feature branch, confirm the actual base and inspect the full changeset against it.
 - If the user's message references recent work, gather the relevant files.
 
 Package the diff or file contents with any surrounding context files the reviewers need to understand the code. Include scoped local/new files when agreed; label the snapshot precisely so every reviewer sees the same change.

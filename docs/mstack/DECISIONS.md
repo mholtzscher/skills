@@ -310,6 +310,10 @@ Accepted 2026-10-22. Delete the slogan contrasting caller listing with breakage 
 
 Accepted 2026-10-22. Delete the final Reply paragraph repeating the preceding output contract. The deciding safety fact still requires its attained proof level, executed evidence or unproven status, and exact gaps under D20. Approval: the user requested `fix 1-4 as separate commits then give me more detail on 5`.
 
+### D71: Remove Review's hardcoded base-branch example
+
+Accepted 2026-10-22. Replace Interrogate's `main`-based diff example and its caveat with an instruction to confirm the actual base and inspect the full changeset against it. The exact base/target scope and complete relevant diff remain required. Approval: the user requested `fix 1-4 as separate commits then give me more detail on 5`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
