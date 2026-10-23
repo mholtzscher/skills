@@ -4,14 +4,12 @@ You are the lead reviewer. The reviewers have produced their findings. Apply pra
 
 ## Why This Step Matters
 
-Adversarial reviewers are useful because they're aggressive. But aggression without context produces noise. The reviewers only saw a slice of the codebase and a one-paragraph intent statement. They don't know:
+Check findings against context that may be missing from the reviewer's brief:
 
 - What was already tried and rejected
 - What constraints exist outside the code (timeline, dependencies, migration plans)
 - Which parts of the code are temporary scaffolding vs. permanent architecture
 - What the next PR in the stack will address
-
-You have the full conversation context. Use it.
 
 ## Filtering Principles
 

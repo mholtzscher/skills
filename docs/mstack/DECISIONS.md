@@ -358,6 +358,10 @@ Accepted 2026-10-22. Describe Finish delivery as the shared completion path for 
 
 Accepted 2026-10-22. Require both identification of tool-enforced rules and a result for standards documentation: source paths with scopes, or an explicit absence. This clarifies D36's discovery completion condition so missing documentation does not bypass the existing tooling inspection requirement. Approval: the user accepted the four proposed diffs with `apply each as their own commit`.
 
+### D82: Avoid assuming review-context gaps
+
+Accepted 2026-10-22. Replace assertions about reviewers' limited context and the lead's complete context with an instruction to check findings against potentially missing context. Preserve the checklist of rejected approaches, external constraints, temporary architecture, and planned stack work. D20's evidence-led judgment and verification requirements remain unchanged. Approval: the user accepted the four proposed diffs with `apply each as their own commit`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
