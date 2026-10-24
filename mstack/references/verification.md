@@ -4,12 +4,15 @@ Derive checks from the approved behavior and plausible failures. Read [prove it 
 
 1. Inventory the changed paths and affected consumers. Read the actual commands before running them.
 2. Use existing checks first. Add tests when they protect meaningful behavior, not to mirror the implementation or inflate coverage.
-3. Exercise the changed public boundary. Use the project's existing verification skill and feature map for covered paths. Browser/UI work needs the corresponding interaction; terminal work needs a real terminal interaction when behavior depends on a PTY; service changes need request/response or integration evidence where relevant.
-4. For a bug, establish a failing reproduction or explain why it cannot be run. After the fix, verify that same path and material regression paths.
-5. After cleanup or integration changes, rerun affected checks. Once the relevant checks pass, repeat them only for a new change or unresolved concern.
-6. Record the tested revision, commands, observed outcomes, and material coverage gaps. Distinguish passed, failed, pending, skipped, unavailable, and not run.
+3. Find applicable project verification skills among available skills and repository-local skill directories. Read the matching skill and feature-map recipes for affected behavior. If several candidates are plausible, resolve their scopes before selecting.
+4. Exercise the changed public boundary. When an applicable verification skill exists, follow its setup, driving, evidence, and cleanup instructions for affected paths and material regressions. Otherwise, use existing project checks and appropriate surface tools. Browser/UI work needs the corresponding interaction; terminal work needs a real terminal interaction when behavior depends on a PTY; service changes need request/response or integration evidence where relevant.
+5. For a bug, establish a failing reproduction or explain why it cannot be run. After the fix, verify that same path and material regression paths.
+6. After cleanup or integration changes, rerun affected checks. Once the relevant checks pass, repeat them only for a new change or unresolved concern.
+7. Record the tested revision, commands, observed outcomes, and material coverage gaps. Name the verification skill and recipes used, or state that none applies, and identify evidence locations. Distinguish passed, failed, pending, skipped, unavailable, and not run.
 
-Use available external specialists when their task fits: go-test-effectiveness, service-design, agent-browser, terminal-control, or the project's own verification skill. Skill availability alone is not a reason to launch a broad audit.
+In report-only review, identify applicable recipes and missing evidence; execution requires separate authority. Missing coverage or skill drift is a finding, not permission to create or maintain a skill or audit the entire feature map.
+
+Use available external specialists when their task fits: go-test-effectiveness, service-design, agent-browser, or terminal-control. Skill availability alone is not a reason to launch a broad audit.
 
 For PR checks, use the bundled [PR helpers](../scripts/README.md). Their rollup is evidence about reported jobs, not a complete branch-protection/ruleset/mergeability proof. Missing or ambiguous required-check knowledge cannot support a claim that required CI is green.
 
