@@ -32,6 +32,7 @@ If an explicit `@mstack` invocation cannot load this entry, report that rather t
 | Independent review or blast-radius analysis                        | [Review](playbooks/review/PLAYBOOK.md)                                                |
 | Architecture, competing designs, or partitioned exploration        | [Exploration](playbooks/exploration/PLAYBOOK.md)                                      |
 | Publish, rewrite, triage, fix feedback, inspect checks, or monitor | [PR workflows](playbooks/pull-requests/PLAYBOOK.md)                                   |
+| Rebase a PR or tidy merged branches and worktrees                  | [PR workflows](playbooks/pull-requests/PLAYBOOK.md)                                   |
 | Explicit stack or merge                                            | [Advanced delivery](playbooks/advanced-delivery/PLAYBOOK.md)                          |
 | Long active-session task or project-scale run                      | [Autonomous run](playbooks/autonomous/PLAYBOOK.md)                                    |
 | Keep or audit a reviewable decision trail                          | [Decision trail](playbooks/decision-trail/PLAYBOOK.md)                                |
@@ -70,9 +71,9 @@ Trace the important path, inspect material failure cases, and cite the actual so
 
 ## Shared rules
 
-- **Scope:** Mstack applies to the invoked task. The selected playbook defines its work and stopping condition; reading another file supplies guidance, not authority to start another workflow. Explicit user instructions and repository rules govern the task. Preserve unrelated work and the selected delivery branch.
+- **Scope:** Mstack applies to the invoked task. The selected playbook defines its work and stopping condition; reading another file supplies guidance, not authority to start another workflow. Explicit user instructions and repository rules govern the task. Preserve unrelated work and the selected delivery branch. A branch whose PR has merged or closed is no longer a delivery branch.
 - **Approval:** Implementation, including code-writing experiments, requires an approved [sketch or spec](playbooks/planning/PLAYBOOK.md). Reuse an agreed sketch, spec, or feedback fix; seek renewed approval when new evidence materially changes the outcome. Read-only investigation, requested planning, and diff inspection need no implementation approval. Keep experiments in isolated, explicitly disposable targets. Before writing code, [find and apply project standards](playbooks/coding-standards/PLAYBOOK.md#apply).
-- **Delivery:** Approved coding playbooks authorize scoped commits, pushes, one PR, and required-CI repair. Ordinary delivery stops before merging. Stacks and merging require explicit requests.
+- **Delivery:** Approved coding work starts in a [prepared workspace](playbooks/workspace/PLAYBOOK.md#prepare). Approved coding playbooks authorize scoped commits, pushes, one PR, and required-CI repair. Ordinary delivery stops before merging. Stacks and merging require explicit requests.
 - **Completion:** Support completion claims with observed evidence against the requested outcome; use [verification](references/verification.md) for implementation and review. Report unmet requirements and unavailable or unrun checks. When blocked, preserve a resumable state and seek help rather than changing the goal or silently weakening a requirement.
 
 ## Principles

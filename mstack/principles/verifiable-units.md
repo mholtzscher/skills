@@ -4,7 +4,7 @@
 
 Order sweeps, migrations, and other multi-step work into small units that each end in an observable check. Give deliverables stable identities, owners, dependencies, and acceptance criteria in the existing plan. Include shared infrastructure and integration checks so required work does not remain unowned.
 
-Establish the actual branch and comparison baseline. Verify its relevant known-good state before changes. An existing failure remains a baseline failure, not evidence the new work passes. Do not automatically rebase onto trunk or rewrite published or user history. Agree any required baseline repair or branch change.
+Establish the actual branch and comparison baseline. Verify its relevant known-good state before changes. An existing failure remains a baseline failure, not evidence the new work passes. Leave published, shared, and user history intact. The one exception is rebasing a task-owned topic branch onto its updated base when no one else has pushed to it or built on it. Agree any required baseline repair or branch change.
 
 The ordinary unit is a known-good state, one coherent change, and the deciding check before the next dependent change. Use [real checks](prove-it-works.md) even when an [existing tool](encode-lessons.md#make-work-rerunnable) makes the per-unit check cheap.
 

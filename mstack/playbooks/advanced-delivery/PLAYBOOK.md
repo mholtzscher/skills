@@ -14,5 +14,6 @@
 2. Independently review each candidate at its exact head for accepted behavior, test evidence, unresolved feedback, conflicts, and actual merge requirements. A check rollup alone cannot establish merge readiness; inspect applicable repository protections/rulesets and PR merge state through supported GitHub tools.
 3. Merge only the contiguous verified sequence from the root. Recheck identity/head immediately before each merge and account for changed bases after prior merges. A changed or blocked candidate stops later dependent merges.
 4. Verify the resulting base revision and relevant post-merge checks. Report merged, blocked, and remaining PRs accurately.
+5. Offer [Tidy](../pull-requests/PLAYBOOK.md#tidy) for the merged PRs' branches and worktrees.
 
 For a multi-day program, use [autonomous run](../autonomous/PLAYBOOK.md). Verify scheduler and agent-control support before promising unattended continuation across session restarts.
