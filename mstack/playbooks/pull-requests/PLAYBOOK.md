@@ -38,7 +38,7 @@ Read [PR targeting](references/pr-targeting.md). This workflow is read-only.
 2. Inspect the relevant code at the PR revision and applicable contracts. If the local checkout differs, distinguish proposed local fixes from the published behavior rather than conflating them.
 3. Classify each thread as **valid**, **invalid**, **already addressed**, or **unclear**. Distinguish defects from preferences and non-actionable chatter; check duplicate, outdated, and superseded claims.
 4. Explain the concrete evidence and consequence. Show the smallest proposed change as a focused diff when useful. A bot's confident phrasing is not proof.
-5. Present grouped verdicts, retaining IDs and identity for the next step. Ask for agreement through the host question tool.
+5. Present grouped verdicts, retaining IDs and identity for the next step. Ask for agreement through `question`.
 
 Do not react, reply, resolve threads, or modify code here. Suggest [fix](#fix-agreed-feedback) for agreed outcomes; preserve unclear/unapproved items as pending.
 
@@ -73,10 +73,10 @@ When called by a coding playbook, return this evidence to its authorized CI-repa
 
 ## Watch
 
-Read [orchestration](../../references/orchestration.md) and the adapter for the current host, [OpenCode](../../references/hosts/opencode.md) or [Pi](../../references/hosts/pi.md).
+Read [orchestration](../../references/orchestration.md).
 
 Launch one background investigator with an exact repository, PR number, published head SHA, start time, and deadline 30 minutes later unless the user selected another budget. Include the absolute mstack paths in its contract. It observes checks and investigates completed failures; it cannot edit, commit, push, react, resolve, or merge.
 
-Use the host's real wait/background capability with bounded waits. Recheck PR identity/head between observations. Stop and report **superseded** if the head changes, **complete** when the relevant check outcome is established, **expired/pending** at the deadline, or **blocked** when access/capability prevents observation. Missing required-check knowledge is a limitation, not a successful gate.
+Use available wait/background tools with bounded waits. Recheck PR identity/head between observations. Stop and report **superseded** if the head changes, **complete** when the relevant check outcome is established, **expired/pending** at the deadline, or **blocked** when access/capability prevents observation. Missing required-check knowledge is a limitation, not a successful gate.
 
-Deliver the result through the host's completion notification. If launch fails or durable continuation is unavailable, report that separately and offer an immediate checks snapshot. Do not claim monitoring started merely because instructions or a status file were written. A session restart may end monitoring; this skill supplies no scheduler.
+Deliver the result through the subagent completion notification. If launch fails or durable continuation is unavailable, report that separately and offer an immediate checks snapshot. Do not claim monitoring started merely because instructions or a status file were written. A session restart may end monitoring; this skill supplies no scheduler.

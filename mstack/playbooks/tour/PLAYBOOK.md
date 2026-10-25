@@ -35,7 +35,7 @@ Select the subject:
 
 ## Delivery
 
-Write one Markdown file with Mermaid diagrams at the path the user names. Otherwise use a task-specific temporary path outside the repository. Open it with the host's Plannotator annotate tool when that tool is available. If Plannotator is unavailable, give the file path and say it was not opened.
+Write one Markdown file with Mermaid diagrams at the path the user names. Otherwise use a task-specific temporary path outside the repository. Open it with the Plannotator annotate tool when available. If Plannotator is unavailable, give the file path and say it was not opened.
 
 Produce a Plannotator Inbox guide, an HTML page, or a PR body only when the user asks for one. Writing to a PR or any other remote is publication and needs explicit authority.
 

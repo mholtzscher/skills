@@ -19,7 +19,7 @@ Scan for:
 
 ## Scope to skills and tools the session actually used
 
-Route findings only to skills, tools, or MCPs this transcript used, except for evidenced missed-trigger candidates or the rare new-skill exception below. A skill or bundled procedure counts as used when the transcript shows a host skill-loading call with its ID, a read of its actual registered or bundled instruction path, a delegate brief naming that path, or a tool call matching its documented commands. Loaded plain mstack playbooks and references count. Project, global, and plugin paths all qualify. Speculative routings to instructions the parent never opened do not count.
+Route findings only to skills, tools, or MCPs this transcript used, except for evidenced missed-trigger candidates or the rare new-skill exception below. A skill or bundled procedure counts as used when the transcript shows a `skill` call with its ID, a read of its actual registered or bundled instruction path, a delegate brief naming that path, or a tool call matching its documented commands. Loaded plain mstack playbooks and references count. Project, global, and plugin paths all qualify. Speculative routings to instructions the parent never opened do not count.
 
 Two existing-target finding shapes are valid:
 

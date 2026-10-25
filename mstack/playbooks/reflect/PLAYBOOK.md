@@ -4,7 +4,7 @@ Mine the current conversation for durable learnings, then propose concrete edits
 
 ## 1. Locate the active transcript
 
-Use [history evidence rules](../../references/history.md) and the history adapter for the active host, [OpenCode](../../references/hosts/opencode.md) or [Pi](../../references/hosts/pi.md). Retrieve this project's actual active session, not an unrelated recent chat. Verify its opening user prompt and session identity before review. Inspect the actual export/API schema rather than assuming `message.content[0].text` or a Cursor directory. Follow the active branch where the host exposes session trees. Include relevant parent/child evidence without confusing a child's opening assignment with the user's opening request. Do not crawl other projects or query the live database directly.
+Use [history evidence rules](../../references/history.md). Retrieve this project's actual active session, not an unrelated recent chat. Verify its opening user prompt and session identity before review. Inspect the actual export/API schema rather than assuming `message.content[0].text` or a fixed transcript path. Follow the active branch when the response exposes session trees. Include relevant parent/child evidence without confusing a child's opening assignment with the user's opening request. Do not crawl other projects or query the live database directly.
 
 Check candidate metadata and opening records against this conversation using the real schema. If no transcript is accessible or matches, supply a tight session digest instead. Mark it explicitly incomplete and name missing turns, tool outcomes, or child evidence. Do not invent a full transcript or retrieve unrelated history to build a profile.
 

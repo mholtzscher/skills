@@ -17,7 +17,7 @@ For a new proposal, choose its depth, follow the sketch or spec section, then se
 
 ## Sketch
 
-For a sketch, show the intended behavior and a focused code/data/file diff, decisive tradeoff, and verification. Use one view from [visual components](../../references/visual-components.md) where it clarifies the change. Label the view as proposed and anchor it to source `file:line`. Resolve consequential unknowns through the host question tool. Keep the sketch in conversation unless a file is useful or requested.
+For a sketch, show the intended behavior and a focused code/data/file diff, decisive tradeoff, and verification. Use one view from [visual components](../../references/visual-components.md) where it clarifies the change. Label the view as proposed and anchor it to source `file:line`. Resolve consequential unknowns through `question`. Keep the sketch in conversation unless a file is useful or requested.
 
 ## Spec
 
@@ -28,6 +28,8 @@ Read and follow the [full-spec procedure](references/spec.md) only when the spec
 ## Approval
 
 Present the complete proposal and ask for approval. **Stop before implementation on both paths.** A request to plan or create a spec ends here. For an ongoing coding task, resume its selected playbook after approval.
+
+Use the available Plannotator tools when the user requests artifact review.
 
 Done means the proposal is understandable, acceptance is testable, material unknowns are explicit, and the approval state is accurately reported.
 

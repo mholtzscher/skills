@@ -96,11 +96,8 @@ Read relevant principles before applying them within the task's scope. Cite each
 | Retryable commands and partial failure               | [Idempotent operations](principles/idempotent-operations.md) |
 | Recurring mistakes or repeated manual work           | [Encode lessons](principles/encode-lessons.md)               |
 
-## Host selection
+## Tools
 
-Before using host-specific tools, identify the host from its available tools and read its adapter:
+Use `question` for consequential decisions, with a recommendation and meaningful alternatives; fall back to conversation when unavailable. Look up facts rather than asking the user to supply them.
 
-- **OpenCode V2:** [opencode.md](references/hosts/opencode.md)
-- **Pi:** [pi.md](references/hosts/pi.md)
-
-Look up facts; ask the user for consequential decisions. Use structured questions with a recommendation and meaningful alternatives, falling back to conversation when unavailable.
+Discover deferred tools through the available catalog rather than guessing tool names.

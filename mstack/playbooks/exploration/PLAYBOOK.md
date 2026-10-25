@@ -26,7 +26,7 @@ Reuse adequate grounding already established in the conversation, including its 
 
 Write the caller's usage first, then derive types, signatures, class shapes, and module boundaries from it. Leave bodies `not implemented`, with pseudocode and intent/invariant comments where needed. Apply the complete [runner discipline](references/runner-prompt.md) to direct design as well as delegated candidates.
 
-Choose direct work or multiple host-configured perspectives according to the uncertainty. One well-supported design can finish this phase. When credible alternatives would resolve a consequential uncertainty, compare whole, structurally distinct shapes rather than point fixes inside one shape. Two or three candidates can be useful; they are not a quota. Read [Explore alternatives](../../principles/explore-alternatives.md) for that choice. The existing [Arena](#arena) procedure is optional when useful, not a required dispatch or a prerequisite for local architecture comparison.
+Choose direct work or multiple configured perspectives according to the uncertainty. One well-supported design can finish this phase. When credible alternatives would resolve a consequential uncertainty, compare whole, structurally distinct shapes rather than point fixes inside one shape. Two or three candidates can be useful; they are not a quota. Read [Explore alternatives](../../principles/explore-alternatives.md) for that choice. The existing [Arena](#arena) procedure is optional when useful, not a required dispatch or a prerequisite for local architecture comparison.
 
 For delegated candidates, give each the task, grounding artifacts, absolute isolated output target, ownership constraints, applicable Architecture instructions, shared context, and [runner prompt](references/runner-prompt.md). Supply the instructions in the brief so the runner can complete its assigned phase without reopening the parent workflow. Keep candidates independent until an explicitly authorized later iteration.
 
@@ -90,15 +90,15 @@ Evaluate against the agreed criteria and real checks. Choose a base and identify
 
 Fan out N actual parallel workers, drain their results, and return one consolidated report. Workers may cover separate slices, race the same brief, mix both, or run a gauntlet of defined checks. Local workers are not cloud machines. An explicit remote-machine or model-race requirement remains unmet when the backend or requested models are unavailable.
 
-Before launching anything, open a checklist for Frame, Fan out, Aggregate, and Report. Use [orchestration](../../references/orchestration.md) and the adapter for the actual host, [OpenCode](../../references/hosts/opencode.md) or [Pi](../../references/hosts/pi.md). Implementation or executable experiments need the existing sketch/spec approval; read-only coverage does not authorize fixes or delivery.
+Before launching anything, open a checklist for Frame, Fan out, Aggregate, and Report. Use [orchestration](../../references/orchestration.md). Implementation or executable experiments need the existing sketch/spec approval; read-only coverage does not authorize fixes or delivery.
 
 ### Phase A: Frame
 
 1. State the done predicate, required coverage, and artifact or report the swarm must return. Establish common immutable evidence and criteria before dispatch.
 2. Choose the shape. Partition the question into independent slices or a coverage matrix, race N workers on identical briefs, or mix both. A gauntlet assigns the relevant checks explicitly. Assign each required slice once and identify intentional overlap for cross-checking. For a race or mixed shape, declare `first pass`, `rank all`, or `best-of`, with selection criteria, tie-breakers, and budget before launch.
-3. Set N from the user or derive it from the shape. N is the total worker count, not the host concurrency limit. Do not add redundant agents to fill a quota. Record any host limit that prevents the requested concurrency.
-4. Choose available host-configured agents/models from current schemas. Omit a model override to use the configured default. Name each actual model arm up front for a model race and report only identities confirmed by calls or returned metadata. Unsupported parameters or model IDs are capability gaps to resolve within the actual schema, not permission to invent a fallback family, modify configuration, or claim diversity.
-5. Give every writer a distinct absolute output directory or worktree and explicit file ownership. Establish the actual base branch and revision. If work must start from a particular pushed branch, verify it and select a real supported checkout/worktree at its SHA. Pass only parameters the current host actually exposes.
+3. Set N from the user or derive it from the shape. N is the total worker count, not the concurrency limit. Do not add redundant agents to fill a quota. Record any limit that prevents the requested concurrency.
+4. Choose available configured agents/models from current schemas. Omit a model override to use the configured default. Name each actual model arm up front for a model race and report only identities confirmed by calls or returned metadata. Unsupported parameters or model IDs are capability gaps to resolve within the actual schema, not permission to invent a fallback family, modify configuration, or claim diversity.
+5. Give every writer a distinct absolute output directory or worktree and explicit file ownership. Establish the actual base branch and revision. If work must start from a particular pushed branch, verify it and select a real supported checkout/worktree at its SHA. Pass only parameters the actual tool schema exposes.
 6. When workers verify or measure commits, name the exact SHAs in each brief rather than moving refs. Measurement briefs also define the method, including sample count, what one sample means, and order. Require the worker to record both the exact SHAs and method in its result. Read the full [benchmark checklist](../../references/performance/benchmark-checklist.md) before measurement claims or benchmark design, through [Explain the number](../../principles/explain-the-number.md). Non-measurement tasks do not need a fabricated sampling protocol.
 
 Define the race rule precisely:
@@ -109,7 +109,7 @@ Define the race rule precisely:
 
 ### Phase B: Fan out
 
-Launch all N workers through actual asynchronous host delegation, concurrently when their prerequisites and host capacity permit. Use separate worktrees or genuinely isolated output directories for writers. Read-only workers may share the immutable snapshot. Sequential direct analysis is not independent parallel execution.
+Launch all N workers with `subagent` and `background: true`, concurrently when their prerequisites and available capacity permit. Use separate worktrees or genuinely isolated output directories for writers. Read-only workers may share the immutable snapshot. Sequential direct analysis is not independent parallel execution.
 
 Every brief stands alone. Include the goal, scope, exact slice or race arm, immutable evidence and criteria, absolute cwd/output paths, actual base revision, ownership, allowed side effects, verification, budget, and report contract. Include exact SHAs and measurement method when applicable. Keep shared acceptance criteria outside worker write ownership.
 
