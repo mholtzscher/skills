@@ -400,6 +400,10 @@ Accepted 2026-10-25. Support OpenCode V2 only and remove both host adapters and 
 
 Accepted 2026-10-25. After the independent Opus 5.5 critique of PR 12, replace the reviewer template's stale host-adapter placeholder with orchestration, qualify `.agents/skills` as a documented compatibility source, and verify native `.opencode/skills` as a fallback when the default is not registered. Preserve explicit destinations and established project layouts. Move requested-artifact-review guidance from Planning to the entry's Tools section so it applies across workflows. This refines D49's placement without restoring an unsolicited tool recommendation, and supersedes D88's initial Planning-only placement. Keep literal background-call syntax in the orchestration example and use procedural wording elsewhere. Remove dual-host wording from validator diagnostics and test names without changing validation rules. Correct D67's supersession record under D88. Approval: the user directed `fix those` after the six-item critique summary. The changes close missed callers and align runtime claims with observed discovery evidence.
 
+### D90: Remove Inbox-specific runtime guidance
+
+Accepted 2026-10-25. Remove the Plannotator Inbox guide mention from Tour's delivery instructions. Mstack does not specify Inbox usage; this removes a workflow-specific instruction rather than prohibiting the tool. Tour retains its Markdown annotation default and explicit-request rules for HTML and PR bodies. Shared requested-artifact-review guidance remains in Tools. Approval: after reviewing the four current Plannotator references, the user directed `i want to not specify inbox usage`.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
