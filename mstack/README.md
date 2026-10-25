@@ -1,6 +1,6 @@
 # Mstack
 
-Michael's engineering workflow bundle for OpenCode V2 and Pi. One explicitly invoked [entry point](SKILL.md) routes your request to a playbook.
+Michael's engineering workflow bundle for OpenCode V2. One explicitly invoked [entry point](SKILL.md) routes your request to a playbook.
 
 ## Install
 
@@ -11,7 +11,7 @@ mkdir -p ~/.agents/skills
 ln -s ~/code/skills/mstack ~/.agents/skills/mstack
 ```
 
-Inspect an existing destination before replacing it, then reload skills or start a fresh host session. Keep the entry, playbooks, principles, references, and scripts together; copying `SKILL.md` alone breaks the bundle.
+Inspect an existing destination before replacing it, then use `/reload` to refresh discovery. Keep the entry, playbooks, principles, references, and scripts together; copying `SKILL.md` alone breaks the bundle.
 
 For an explicit OpenCode skill source, select the parent directory containing `mstack/`, not `mstack/` itself. Only the root `SKILL.md` is a skill entry; playbooks are supporting Markdown.
 
@@ -19,10 +19,11 @@ For an explicit OpenCode skill source, select the parent directory containing `m
 
 Describe the task in natural language:
 
-| Host        | Example                              |
-| ----------- | ------------------------------------ |
-| OpenCode V2 | `@mstack fix the filter reset`       |
-| Pi          | `/skill:mstack fix the filter reset` |
+```text
+@mstack fix the filter reset
+```
+
+Invocation loads instructions for that task, not a persistent mode. Internal routing reads linked playbooks directly.
 
 Other requests include:
 
@@ -42,16 +43,16 @@ Implementation starts from an approved sketch or spec. Approved coding work incl
 
 Focused requests keep their own stopping points. Planning produces a proposal, review produces findings, and a checks request reports current CI. [PR operations](playbooks/pull-requests/PLAYBOOK.md) are independently selectable.
 
-Delegation is selective, with one writer for coupled implementation and host-configured models. Principles are read when relevant and cited when they materially change a decision.
+Delegation is selective, with one writer for coupled implementation and OpenCode-configured models. Principles are read when relevant and cited when they materially change a decision.
 
 ## Requirements
 
-- A host with file-reading tools; structured questions and delegation use available host capabilities.
+- OpenCode V2 with file-reading tools; decisions use `question` and delegation uses `subagent` when available.
 - Git, authenticated `gh`, and repository permissions for publication.
 - Bun for the bundled PR and decision-log helpers. See [script usage](scripts/README.md).
 - Project tools for verification, plus browser or terminal tools when the behavior needs them.
 
-Host-specific capabilities are documented in the [OpenCode](references/hosts/opencode.md) and [Pi](references/hosts/pi.md) adapters. External specialist skills remain separate installations. Mstack has no workflow-tools dependency and supplies no durable scheduler.
+Read [orchestration](references/orchestration.md) for delegation and [history](references/history.md) for session retrieval. External specialist skills remain separate installations. Mstack has no workflow-tools dependency and supplies no durable scheduler.
 
 ## Maintain
 
@@ -65,10 +66,10 @@ bunx prettier --check 'mstack/**/*.md' 'docs/mstack/**/*.md'
 git diff --check
 ```
 
-For helper, validator, or packaging changes, also run `bun install --frozen-lockfile`, `bun run typecheck`, and `bun test` from `tooling/mstack/`. Structural checks do not establish agent behavior; use `skill-creator` for behavioral evaluation and check live host capabilities when affected.
+For helper, validator, or packaging changes, also run `bun install --frozen-lockfile`, `bun run typecheck`, and `bun test` from `tooling/mstack/`. Structural checks do not establish agent behavior; use `skill-creator` for behavioral evaluation and check live OpenCode capabilities when affected.
 
 ## Migration
 
-Replace old `mstack-*` shortcuts with natural-language requests such as `@mstack triage PR 123`. Replace an installation source pointing at `mstack/skills` with the parent directory containing `mstack/`, then reload discovery. Installation changes do not uninstall other tools or alter host configuration; make those changes only as part of an explicit cutover.
+Replace old `mstack-*` shortcuts with natural-language requests such as `@mstack triage PR 123`. Replace an installation source pointing at `mstack/skills` with the parent directory containing `mstack/`, then reload discovery. Installation changes do not uninstall other tools or alter OpenCode configuration; make those changes only as part of an explicit cutover.
 
 Licensed under [MIT](LICENSE).

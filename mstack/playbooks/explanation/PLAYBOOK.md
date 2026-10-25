@@ -4,7 +4,7 @@
 
 Explore the codebase to answer "how does X work?" questions. Produce architectural explanations at the level of a senior engineer onboarding onto a subsystem, enough to build a working mental model, not so much that it reads like annotated source code.
 
-Explorer and explainer are responsibilities, not required named agents. Give delegates a read-only task; do not claim host-enforced read-only access unless the actual permissions provide it.
+Explorer and explainer are responsibilities, not required named agents. Give delegates a read-only task; do not claim enforced read-only access unless the actual permissions provide it.
 
 ### 1. Assess complexity
 
@@ -19,7 +19,7 @@ When in doubt, take the simple path.
 
 Decompose the question into distinct angles, each a separate slice of the subsystem. Two to four angles are often useful, not a required agent count. Trace callers, data/state transitions, ownership, and material failure paths. Investigate coupled or modest slices directly; delegate independent bulky slices when useful.
 
-For each delegated slice, read the [explorer prompt](references/how/explorer-prompt.md), fill in the question and angle, and launch independent explorers together using real host tools. Keep the same components/flow/files-read/boundaries/gaps handoff for directly investigated slices so synthesis can reconcile them.
+For each delegated slice, read the [explorer prompt](references/how/explorer-prompt.md), fill in the question and angle, and launch independent explorers together with `subagent`. Keep the same components/flow/files-read/boundaries/gaps handoff for directly investigated slices so synthesis can reconcile them.
 
 ### 3. Synthesize (complex only)
 
@@ -39,7 +39,7 @@ The explanation uses the sections defined in the [explainer prompt](references/h
 
 Investigate the motivation and intent behind code. Why answers what forces led to its shape.
 
-Keep the investigation read-only, including external systems. It does not authorize implementation, a PR, or global configuration. Use host-configured roles/models, actual discovered tools, and [orchestration](../../references/orchestration.md) when independent bulky research or synthesis materially helps.
+Keep the investigation read-only, including external systems. It does not authorize implementation, a PR, or global configuration. Use configured agents/models, actual discovered tools, and [orchestration](../../references/orchestration.md) when independent bulky research or synthesis materially helps.
 
 ### Operating posture
 
@@ -63,7 +63,7 @@ Choose coverage from the question, the code anchor, and unresolved hypotheses. A
 
 #### Discovery
 
-Discover tools for the relevant sources through the actual host's exposed tool catalog. Use the available-tools map and, when present, `execute` with `search` to inspect deferred tools. A configured server or listed resource alone does not prove a query tool is available.
+Discover tools for the relevant sources through the available tool catalog. Use the available-tools map and, when present, `execute` with `search` to inspect deferred tools. A configured server or listed resource alone does not prove a query tool is available.
 
 Map available sources to the evidence categories below using MCP names, server instructions, tool names, and resource descriptors. If a source could fit more than one category, choose the one matching its primary evidence and record ambiguous cases in the coverage map. Search source control first; add other relevant records when they can resolve the question. For prior sessions, follow [history guidance](../../references/history.md), including user-authored evidence, project/date scope, and superseding decisions.
 

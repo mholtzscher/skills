@@ -22,7 +22,7 @@ Phase: CLARIFY | Waiting for: answers to questions 1-4
 **Hard rule:** No spec until user has responded to at least one round of questions. Read existing decisions first; an earlier clarification or grilling round in this conversation counts. Reuse settled answers rather than restarting the interview.
 
 1. Identify gaps in: scope, motivation, constraints, edge cases, success criteria, and expected implementation shape
-2. Ask 2-4 pointed questions that would change the approach. Use the host's structured question tool when available; otherwise ask in conversation.
+2. Ask 2-4 pointed questions that would change the approach. Use `question` when available; otherwise ask in conversation.
 3. **Wait for responses**
 
 | Category       | Example                                                  |
@@ -47,9 +47,9 @@ Phase: CLARIFY | Waiting for: answers to questions 1-4
 
 ### Phase 2: DISCOVER
 
-Explore directly by default using the host's file and search tools. Identify key files, abstractions, patterns, integration points, types, interfaces, and project-layout constraints.
+Explore directly by default using file and search tools. Identify key files, abstractions, patterns, integration points, types, interfaces, and project-layout constraints.
 
-For delegated discovery, check available agents and the actual tool schema. Use [orchestration](../../../references/orchestration.md) and the adapter for the current host, [OpenCode](../../../references/hosts/opencode.md) or [Pi](../../../references/hosts/pi.md). Assign bounded read-only discovery tasks. Launch independent tasks separately in the background where supported, wait for results before dependent steps, and consume results before drafting.
+For delegated discovery, check available agents and the actual tool schema. Use [orchestration](../../../references/orchestration.md). Assign bounded read-only discovery tasks. Launch independent tasks separately in the background, wait for results before dependent steps, and consume results before drafting.
 
 | Target             | What to Find                                       |
 | ------------------ | -------------------------------------------------- |

@@ -18,7 +18,7 @@ Mstack owns this repository's engineering workflow. Upstream parity and a workfl
 
 Shared rules, the principle index, host selection, investigation guidance, and PR intent routing live in the main skill. Load only the selected playbooks and relevant principle leaves. Consolidation changed headings, links, and agreed terminology, not substantive instructions.
 
-The shared-rule organization is superseded by [D47](#d47-keep-the-entry-contract-separate-from-procedures), and entry-level PR intent routing by [D48](#d48-remove-duplicate-entry-routers). The single-entry design remains accepted.
+The shared-rule organization is superseded by [D47](#d47-keep-the-entry-contract-separate-from-procedures), entry-level PR intent routing by [D48](#d48-remove-duplicate-entry-routers), and host selection by [D88](#d88-make-opencode-implicit-and-remove-host-adapters). The single-entry design remains accepted.
 
 ### D04: Approve both planning paths
 
@@ -212,7 +212,7 @@ Accepted 2026-10-21. Delete `docs/mstack/SOURCE-AUDIT.md`. The per-source retain
 
 Accepted 2026-10-20. Keep shared rules in `SKILL.md` focused on scope, approval, delivery authority, and evidence-backed completion. Replace procedural summaries with conditional routes to planning, coding standards, orchestration, verification, and cleanup. Principle selection and host selection are peer routing sections; question-tool policy sits with host selection. Remove generic response-style advice already supplied by the host or task procedures. This supersedes D03's shared-rule organization, preserving approval and delivery boundaries, mandatory cleanup, selective delegation and its failure handling, and D08's material principle citations. Approval: the user accepted the structural review and directed `i like this. implement it` in this session. The aim is one owner for procedural detail rather than several abbreviated versions.
 
-The separate procedural-table organization is superseded by [D48](#d48-remove-duplicate-entry-routers); the compact shared contract remains accepted.
+The separate procedural-table organization is superseded by [D48](#d48-remove-duplicate-entry-routers), and host-selection routing by [D88](#d88-make-opencode-implicit-and-remove-host-adapters); the compact shared contract remains accepted.
 
 ### D48: Remove duplicate entry routers
 
@@ -227,6 +227,8 @@ Accepted 2026-10-20. Move the playbook/principle/role explanation and unmatched-
 Accepted 2026-10-20. Replace the expanded introduction with four short paragraphs covering playbook selection and conditional loading, completion checklists and unmatched requests, orchestration, and missing-entry handling. Remove repeated identity, terminology, and scope exposition; the shared contract and glossary retain those responsibilities. This refines D49's orientation wording without changing its placement. Approval: the user directed `do that` after reviewing the exact proposed introduction.
 
 ### D51: Tighten host selection
+
+Superseded 2026-10-25 by [D88](#d88-make-opencode-implicit-and-remove-host-adapters).
 
 Accepted 2026-10-20. Keep host selection focused on identifying the host from available tools, reading its adapter, and using structured questions with conversational fallback. Remove generic tooling advice, shared-policy exposition, and execution-machine detail from the entry. Approval: the user directed `do that` after reviewing the exact proposed Host selection section. Adapter links and D12's question-tool policy remain intact.
 
@@ -384,11 +386,19 @@ Accepted 2026-10-22. Require the decision trail's Attention section when complet
 
 Accepted 2026-10-23. Make discovery of applicable project verification skills and feature-map recipes an explicit step in the shared verification reference. Follow the selected skill's setup, driving, evidence, and cleanup instructions for affected paths and material regressions. Record the skill and recipes used, or that none applies, along with evidence locations. Keep discovery at the verification stage rather than adding an entry-level preflight. Report-only review identifies recipes and missing evidence without execution authority. Missing coverage or drift does not authorize skill creation, maintenance, or a full-map audit. This strengthens D14's usage path while preserving D47's shared procedure ownership and D60's single Finish delivery route. Approval: after reviewing the exact proposed diff, the user directed `@mstack implement that` in this session.
 
+### D88: Make OpenCode implicit and remove host adapters
+
+Accepted 2026-10-25. Support OpenCode V2 only and remove both host adapters and all runtime platform-selection branches. Put `question` and deferred-tool discovery guidance in the entry, delegation mechanics in orchestration, session/API retrieval in history, invocation and installation in README and Help, and scheduling limits in Autonomous run and PR Watch. Callers link directly to the relevant procedure. Generated verification skills use OpenCode discovery and `@verify-<app>` invocation. Preserve actual-schema checks, configured-agent/model selection, permission boundaries, and honest reporting of unavailable capabilities. This supersedes D51 and the host-selection portions of D03 and D47. Historical Pi validation remains dated evidence, not a current support commitment. Approval: the user requested removing the Pi/OpenCode distinction because they only use OpenCode, then answered `approved` to the complete OpenCode-only sketch in this session. The rationale is to remove repeated platform choices and an adapter layer with no remaining variation.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
 
 ## Validation and cutover snapshot
+
+2026-10-25, D88 working-tree review against `226b9e5`: bundle validation passed with one skill and 97 Markdown files; bundle/docs/root README formatting, diff checks, tooling typechecking, and all 94 tooling tests passed. Inspected the full diff, accounted for the removed OpenCode adapter's instructions in their new owners, and checked all 34 added or changed local links and fragments. No applicable project verification skill was found; behavioral evaluation followed `skill-creator` guidance. Two isolated OpenCode evaluation sessions exercised parent-side background launch/completion, same-session continuation, scoped API retrieval of the evaluator's actual opening assignment, and generation/discovery/use of a fixture verification skill. Parent inspection confirmed the exact registered skill path/body, surviving CLI output, unchanged fixture source hash, and byte-identical evaluated entry and affected workflow references. Evidence is under `/tmp/opencode/mstack-opencode-only-LPYP1u/`, with `structural-review.md`, `evidence/report.md`, `evidence/continuation.md`, and `creation-evidence/REPORT.md`.
+
+The evaluator's configured role denied nested delegation, so that path was reported unavailable rather than bypassed. Generated-skill discovery succeeded from native `.opencode/skills`; the fixture's initial `.agents/skills` path was not discovered despite current documentation listing it as supported. This remains a compatibility-discovery gap, not a change to D14's default destination. The external `skill-creator` validator remains unavailable because PyYAML is missing; repository validation passed and no frontmatter changed. Live watcher cancellation, restart persistence, and real-app verification remain untested. Historical Pi observations below are outside the current OpenCode-only support scope.
 
 2026-10-23, D87 working-tree review against `cd73fa4`: bundle validation passed with one skill and 99 Markdown files; full bundle/docs formatting, diff checks, tooling typechecking, and all 94 tooling tests passed. Independent OpenCode subagent forward-tests discovered and followed a non-`verify-*` project-local skill for an affected CLI recipe, used existing checks and direct CLI proof in a separate project without a skill, and identified recipes and missing evidence without execution in report-only review. Parent inspection confirmed exact command outputs, persisted JSON, surviving evidence, cleanup, and unchanged hashes for all 126 snapshot/fixture files. The evaluated verification reference matched the deliverable byte for byte. Evidence remains under `/tmp/opencode/mstack-verification-usage-X3YrTC/`, in `execution-output/report.md` and `review-result.md`. This exercises filesystem discovery and use in isolated fixtures, not automatic host registration, real-app coverage, Pi behavior, or ambiguous-candidate selection. The external skill-creator validator remains unavailable because its Python environment lacks PyYAML; no frontmatter changed.
 

@@ -2,7 +2,7 @@
 
 A collection of reusable agent skills for coding and research workflows.
 
-Skills live in their own directories with a `SKILL.md` entry point and supporting resources. Mstack provides one entry point, task playbooks and principles, and executable helpers for OpenCode V2 and Pi.
+Skills live in their own directories with a `SKILL.md` entry point and supporting resources. Mstack provides one entry point, task playbooks and principles, and executable helpers for OpenCode V2.
 
 ## Included skills
 

@@ -22,9 +22,9 @@ If the checkout cannot build or reach a usable state, report the exact blocker. 
 
 ### Write the skill
 
-Default to `<project>/.agents/skills/verify-<app>/SKILL.md`, a project-local source supported by OpenCode V2 and Pi. Honor an explicit destination or established project layout and verify its discovery on the intended hosts. Keep a unique lowercase kebab-case directory/name of at most 64 characters. Include YAML `name` and a `description` naming the app, surface, and when to use it. Leave the generated skill discoverable unless the user requests explicit-only invocation; mstack itself remains explicit-only.
+Default to `<project>/.agents/skills/verify-<app>/SKILL.md`, a project-local source supported by OpenCode V2. Honor an explicit destination or established project layout and verify its discovery in OpenCode. Keep a unique lowercase kebab-case directory/name of at most 64 characters. Include YAML `name` and a `description` naming the app, surface, and when to use it. Leave the generated skill discoverable unless the user requests explicit-only invocation; mstack itself remains explicit-only.
 
-Keep owned helpers and the feature map beside the generated `SKILL.md`, using relative links. Show invocation as `@verify-<app>` for OpenCode or `/skill:verify-<app>` for Pi. Ground each section in observed repository behavior, with no placeholder commands:
+Keep owned helpers and the feature map beside the generated `SKILL.md`, using relative links. Show invocation as `@verify-<app>`. Ground each section in observed repository behavior, with no placeholder commands:
 
 - **Launch:** exact commands and a usable-state readiness check, including migrations, seed data, and auth from an empty data directory. A responding database or process is not necessarily ready. For short-lived CLIs/TUIs, build once and launch each drive in its own isolated session. Name teardown and instance ownership.
 - **Doctor:** a read-only check of process health, expected build/version, owned port/session, data location, and valid auth. State when to rerun it after surprising behavior.
@@ -41,11 +41,11 @@ Each feature file describes the user-visible behavior and uses four H2s: `Sub-fe
 
 ### Prove and deliver
 
-Validate the generated frontmatter, relative links, helper invocations/permissions, and actual discovery on each intended host. Then follow the generated instructions end to end: launch, doctor, drive one mapped feature, capture proof, clean up, and confirm the evidence still exists at its named location. One feature proves this initial path, not the entire map.
+Validate the generated frontmatter, relative links, helper invocations/permissions, and actual discovery in OpenCode. Then follow the generated instructions end to end: launch, doctor, drive one mapped feature, capture proof, clean up, and confirm the evidence still exists at its named location. One feature proves this initial path, not the entire map.
 
 Fix in-scope failures and run cleanup after every failed iteration so attempts do not strand processes, ports, or state. A generated skill that has not completed this proof is a draft, not a verified deliverable. If a stand-in differs from the real target, list the setup steps it supplied and the checks still unverified on the target.
 
-For proven, approved creation, [finish delivery](../finish-delivery/PLAYBOOK.md) within the agreed skill/helper scope. Report the skill path, host discovery, feature actually exercised, surviving evidence, and coverage gaps. Point to [Maintain](#maintain) for later upkeep; suggest a cadence only if asked.
+For proven, approved creation, [finish delivery](../finish-delivery/PLAYBOOK.md) within the agreed skill/helper scope. Report the skill path, OpenCode discovery, feature actually exercised, surviving evidence, and coverage gaps. Point to [Maintain](#maintain) for later upkeep; suggest a cadence only if asked.
 
 ## Maintain
 

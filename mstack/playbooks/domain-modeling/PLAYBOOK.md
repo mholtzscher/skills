@@ -2,7 +2,7 @@
 
 Actively build and sharpen the project's domain model as you design. This is the _active_ discipline: challenging terms, inventing edge-case scenarios, and writing the glossary and decisions down the moment they crystallise.
 
-Use the host's question tool for genuine domain decisions, with conversational fallback. Read the adapter for the current host, [OpenCode](../../references/hosts/opencode.md) or [Pi](../../references/hosts/pi.md). Reuse settled answers from planning. The inline documentation updates below apply when the requested work includes modeling; in a read-only investigation, propose them instead. Preserve established repository organization and numbering, and record the decision's actual status.
+Use `question` for genuine domain decisions, with conversational fallback. Reuse settled answers from planning. The inline documentation updates below apply when the requested work includes modeling; in a read-only investigation, propose them instead. Preserve established repository organization and numbering, and record the decision's actual status.
 
 ## File structure
 
