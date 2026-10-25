@@ -49,7 +49,7 @@ export async function validateBundle(root: string) {
       const data = parsed as Record<string, unknown>;
       const name = data.name;
       if (typeof name !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(name) || name.length > 64) throw new Error("invalid skill name");
-      if (name !== basename(dirname(path))) errors.push(`${label}: name must match directory for both hosts`);
+      if (name !== basename(dirname(path))) errors.push(`${label}: name must match directory`);
       if (typeof data.description !== "string" || !data.description.trim() || data.description.length > 1024) errors.push(`${label}: invalid description`);
       if (data["disable-model-invocation"] !== true) errors.push(`${label}: must be explicit-only`);
     } catch (error) {

@@ -110,7 +110,7 @@ Resolve exceptions by correcting the implementation, assigning the missing depen
 
 ## Execution and parallelism
 
-Use `background: true` for independent work.
+Use background execution by default for independent work.
 
 Launch separate children for independent tasks and wait for results before launching dependent steps. Never batch dependent tasks or writers with overlapping ownership. Inspect results before starting dependent implementation; schedule ready work by actual dependencies.
 

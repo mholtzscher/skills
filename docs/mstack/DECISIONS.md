@@ -68,6 +68,8 @@ Building, deprecating the standalone orchestrator, and publishing are authorized
 
 Keep one verification-skill playbook with Create and Maintain sections. Generated skills default to project-local `.agents/skills/verify-<app>/`. Creation proves one mapped feature end to end. Maintenance covers every mapped feature, confines corrections to the target skill directory, and retains evidence through cleanup. Implementation changes require approval.
 
+[D89](#d89-close-opencode-only-review-gaps) adds a verified native-path fallback when the default is not discovered, preserving explicit destinations and established project layouts.
+
 ### D15: Commit maintenance context
 
 Keep this decision record and a short maintainer `AGENTS.md`, linked from the development guide. D29 moved them to `docs/mstack/`, reached through repository-root `AGENTS.md`.
@@ -222,6 +224,8 @@ Accepted 2026-10-20. Route PR requests directly from the main playbook table to 
 
 Accepted 2026-10-20. Move the playbook/principle/role explanation and unmatched-request fallback before the playbook table. Place the orchestration pointer beside roles rather than under Host selection, superseding that placement in D48. Remove the Plannotator/Inbox recommendation from `SKILL.md`, partially superseding D12; task-specific procedures and host adapters are outside this edit. Approval: annotations 1 through 3 in Plannotator review `pn-4e2169`, including the explicit request to remove the recommendation from this file. This keeps orientation ahead of selection and separates orchestration policy from host mechanics.
 
+[D89](#d89-close-opencode-only-review-gaps) places the requested-artifact-review tool instruction in the entry. It does not restore an unsolicited Plannotator or Inbox recommendation.
+
 ### D50: Tighten the entry introduction
 
 Accepted 2026-10-20. Replace the expanded introduction with four short paragraphs covering playbook selection and conditional loading, completion checklists and unmatched requests, orchestration, and missing-entry handling. Remove repeated identity, terminology, and scope exposition; the shared contract and glossary retain those responsibilities. This refines D49's orientation wording without changing its placement. Approval: the user directed `do that` after reviewing the exact proposed introduction.
@@ -301,6 +305,8 @@ Accepted 2026-10-22. Remove the sentence beside the full-spec link restating the
 ### D67: Remove Reflect's legacy transcript-listing recipe
 
 Accepted 2026-10-22. Remove the optional filesystem listing example and its introductory paragraph from Reflect. Keep host-adapter discovery, actual-schema inspection, active-session identity checks, scoped evidence, and the incomplete-digest fallback. This supersedes the legacy recipe retained under D24 and D53; reflection's review and approval boundaries remain unchanged. Approval: the user selected all five cleanup suggestions with `apply each as their own commit`.
+
+Host-adapter discovery is superseded by [D88](#d88-make-opencode-implicit-and-remove-host-adapters). Reflect reads history guidance directly; its remaining evidence requirements are unchanged.
 
 ### D68: Remove Recall's universal-preflight framing
 
@@ -390,11 +396,17 @@ Accepted 2026-10-23. Make discovery of applicable project verification skills an
 
 Accepted 2026-10-25. Support OpenCode V2 only and remove both host adapters and all runtime platform-selection branches. Put `question` and deferred-tool discovery guidance in the entry, delegation mechanics in orchestration, session/API retrieval in history, invocation and installation in README and Help, and scheduling limits in Autonomous run and PR Watch. Callers link directly to the relevant procedure. Generated verification skills use OpenCode discovery and `@verify-<app>` invocation. Preserve actual-schema checks, configured-agent/model selection, permission boundaries, and honest reporting of unavailable capabilities. This supersedes D51 and the host-selection portions of D03 and D47. Historical Pi validation remains dated evidence, not a current support commitment. Approval: the user requested removing the Pi/OpenCode distinction because they only use OpenCode, then answered `approved` to the complete OpenCode-only sketch in this session. The rationale is to remove repeated platform choices and an adapter layer with no remaining variation.
 
+### D89: Close OpenCode-only review gaps
+
+Accepted 2026-10-25. After the independent Opus 5.5 critique of PR 12, replace the reviewer template's stale host-adapter placeholder with orchestration, qualify `.agents/skills` as a documented compatibility source, and verify native `.opencode/skills` as a fallback when the default is not registered. Preserve explicit destinations and established project layouts. Move requested-artifact-review guidance from Planning to the entry's Tools section so it applies across workflows. This refines D49's placement without restoring an unsolicited tool recommendation, and supersedes D88's initial Planning-only placement. Keep literal background-call syntax in the orchestration example and use procedural wording elsewhere. Remove dual-host wording from validator diagnostics and test names without changing validation rules. Correct D67's supersession record under D88. Approval: the user directed `fix those` after the six-item critique summary. The changes close missed callers and align runtime claims with observed discovery evidence.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and dedicated worktree and simulator-cleanup workflows. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
 
 ## Validation and cutover snapshot
+
+2026-10-25, D89 review fixes against `1ca3606`: bundle validation passed with one entry and 97 Markdown files; bundle/docs/changed-TypeScript formatting, diff checks, tooling typechecking, and all 94 tests with 310 assertions passed. Independent Opus 5.5 re-review of all nine changed files found no unresolved findings across the six approved corrections. The parent reviewed the complete diff and the code, prose, and comment cleanup passes. Checked the D89 anchor and its D14/D49 references, confirmed no stale reviewer placeholder or dual-host validator wording remains, and confirmed literal `background: true` appears only in the orchestration example. Discovery fallback uses the native-path success already observed in the D88 fixture; this follow-up did not repeat live discovery or exercise a newly generated skill. D88's remaining capability and external-validator limitations still apply. Reviewer session `ses_e8c83d7ecffeX2XW45QAVlnR43` contains the original critique and targeted re-review.
 
 2026-10-25, D88 working-tree review against `226b9e5`: bundle validation passed with one skill and 97 Markdown files; bundle/docs/root README formatting, diff checks, tooling typechecking, and all 94 tooling tests passed. Inspected the full diff, accounted for the removed OpenCode adapter's instructions in their new owners, and checked all 34 added or changed local links and fragments. No applicable project verification skill was found; behavioral evaluation followed `skill-creator` guidance. Two isolated OpenCode evaluation sessions exercised parent-side background launch/completion, same-session continuation, scoped API retrieval of the evaluator's actual opening assignment, and generation/discovery/use of a fixture verification skill. Parent inspection confirmed the exact registered skill path/body, surviving CLI output, unchanged fixture source hash, and byte-identical evaluated entry and affected workflow references. Evidence is under `/tmp/opencode/mstack-opencode-only-LPYP1u/`, with `structural-review.md`, `evidence/report.md`, `evidence/continuation.md`, and `creation-evidence/REPORT.md`.
 

@@ -31,7 +31,7 @@ test("one root entry point resolves composed playbooks from its installed locati
   expect(await validateBundle(root)).toEqual({ skills: 1, markdownFiles: 3, errors: [] });
 });
 
-test("rejects extra entry points that hosts would discover differently", async () => {
+test("rejects extra entry points inside the bundle", async () => {
   const root = await fixture();
   await skill(root, ".", "mstack");
   await skill(root, "skills/mstack-review", "mstack-review");
@@ -61,10 +61,10 @@ test("detects missing shared files instead of shipping a broken skill", async ()
   expect((await validateBundle(root)).errors).toEqual(["SKILL.md: broken link references/missing.md"]);
 });
 
-test("rejects a root name that would resolve differently across hosts", async () => {
+test("rejects a root name that does not match its directory", async () => {
   const root = await fixture();
   await skill(root, ".", "another-name");
-  expect((await validateBundle(root)).errors).toEqual(["SKILL.md: name must match directory for both hosts"]);
+  expect((await validateBundle(root)).errors).toEqual(["SKILL.md: name must match directory"]);
 });
 
 test.each([
