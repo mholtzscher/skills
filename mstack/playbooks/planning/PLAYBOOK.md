@@ -29,8 +29,6 @@ Read and follow the [full-spec procedure](references/spec.md) only when the spec
 
 Present the complete proposal and ask for approval. **Stop before implementation on both paths.** A request to plan or create a spec ends here. For an ongoing coding task, resume its selected playbook after approval.
 
-Use the available Plannotator tools when the user requests artifact review.
-
 Done means the proposal is understandable, acceptance is testable, material unknowns are explicit, and the approval state is accurately reported.
 
 ## Refine

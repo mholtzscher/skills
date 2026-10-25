@@ -22,7 +22,9 @@ If the checkout cannot build or reach a usable state, report the exact blocker. 
 
 ### Write the skill
 
-Default to `<project>/.agents/skills/verify-<app>/SKILL.md`, a project-local source supported by OpenCode V2. Honor an explicit destination or established project layout and verify its discovery in OpenCode. Keep a unique lowercase kebab-case directory/name of at most 64 characters. Include YAML `name` and a `description` naming the app, surface, and when to use it. Leave the generated skill discoverable unless the user requests explicit-only invocation; mstack itself remains explicit-only.
+Default to `<project>/.agents/skills/verify-<app>/SKILL.md`, a compatibility source documented by OpenCode V2. Confirm actual discovery. If that default is not registered, move the generated skill to native `<project>/.opencode/skills/verify-<app>/SKILL.md` and verify discovery again. Honor an explicit destination or established project layout; report a discovery failure there rather than silently moving the skill.
+
+Keep a unique lowercase kebab-case directory/name of at most 64 characters. Include YAML `name` and a `description` naming the app, surface, and when to use it. Leave the generated skill discoverable unless the user requests explicit-only invocation; mstack itself remains explicit-only.
 
 Keep owned helpers and the feature map beside the generated `SKILL.md`, using relative links. Show invocation as `@verify-<app>`. Ground each section in observed repository behavior, with no placeholder commands:
 

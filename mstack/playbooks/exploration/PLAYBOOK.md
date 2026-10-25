@@ -109,7 +109,7 @@ Define the race rule precisely:
 
 ### Phase B: Fan out
 
-Launch all N workers with `subagent` and `background: true`, concurrently when their prerequisites and available capacity permit. Use separate worktrees or genuinely isolated output directories for writers. Read-only workers may share the immutable snapshot. Sequential direct analysis is not independent parallel execution.
+Launch all N workers in the background, concurrently when their prerequisites and available capacity permit. Use separate worktrees or genuinely isolated output directories for writers. Read-only workers may share the immutable snapshot. Sequential direct analysis is not independent parallel execution.
 
 Every brief stands alone. Include the goal, scope, exact slice or race arm, immutable evidence and criteria, absolute cwd/output paths, actual base revision, ownership, allowed side effects, verification, budget, and report contract. Include exact SHAs and measurement method when applicable. Keep shared acceptance criteria outside worker write ownership.
 

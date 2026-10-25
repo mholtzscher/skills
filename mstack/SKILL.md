@@ -101,3 +101,5 @@ Read relevant principles before applying them within the task's scope. Cite each
 Use `question` for consequential decisions, with a recommendation and meaningful alternatives; fall back to conversation when unavailable. Look up facts rather than asking the user to supply them.
 
 Discover deferred tools through the available catalog rather than guessing tool names.
+
+Use the available Plannotator tools when the user requests artifact review.
