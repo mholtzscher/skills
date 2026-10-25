@@ -45,7 +45,7 @@ For each launch:
 4. Launch with `subagent`; compose multi-step or parallel work as described below.
 5. Retain the returned `sessionID` and output and inspect the result before integrating it or starting dependent work.
 
-Keep one writer per cwd/worktree; give concurrent writers separate worktrees or genuinely isolated output targets. Do not create or switch to additional worktrees unless isolation is necessary; explain that need first. Do not assign competing fixes unless the root explicitly requests alternative approaches. Read-only reviewers may inspect the same immutable snapshot. Do not dispatch a replacement writer until the previous writer's state is known.
+Keep one writer per cwd/worktree; give concurrent writers separate worktrees or genuinely isolated output targets. An approved coding task's own worktree is its prepared workspace, not an additional one. Do not create or switch to additional worktrees unless isolation is necessary; explain that need first. Do not assign competing fixes unless the root explicitly requests alternative approaches. Read-only reviewers may inspect the same immutable snapshot. Do not dispatch a replacement writer until the previous writer's state is known.
 
 Use the available worktree tools or Git for isolated writers. A worktree is filesystem isolation, not a remote machine or a security sandbox.
 

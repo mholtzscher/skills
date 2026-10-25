@@ -12,4 +12,6 @@ Mstack organizes engineering work through a single requested workflow.
 
 **Tour:** An ordered walkthrough of a change or data model for a reader outside the current chat or needing more depth, with each stop led by a visual and anchored to source. A single in-chat view is Show me, not a tour.
 
+**Prepared workspace:** The worktree an approved coding task works in. It holds the task's own topic branch from a fresh base and is set up and baseline-verified before the first write.
+
 **Standards:** A project's documented judgment rules for how code is written, citable in review. Mechanical rules belong in **checks**: linter rules, hooks, or CI jobs.

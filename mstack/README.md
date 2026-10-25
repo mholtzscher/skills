@@ -39,7 +39,7 @@ See [SKILL.md](SKILL.md#playbooks) for the full routing table. General skill aut
 
 ## Working style
 
-Implementation starts from an approved sketch or spec. Approved coding work includes verification, code/prose/comment cleanup, one PR, and in-scope required-CI repair. Ordinary delivery stops before merging; stacks and merging require explicit requests.
+Implementation starts from an approved sketch or spec, in its own worktree on a fresh topic branch. Approved coding work includes verification, code/prose/comment cleanup, one PR, and in-scope required-CI repair. Ordinary delivery stops before merging; stacks and merging require explicit requests.
 
 Focused requests keep their own stopping points. Planning produces a proposal, review produces findings, and a checks request reports current CI. [PR operations](playbooks/pull-requests/PLAYBOOK.md) are independently selectable.
 
@@ -49,6 +49,7 @@ Delegation is selective, with one writer for coupled implementation and OpenCode
 
 - OpenCode V2 with file-reading tools; decisions use `question` and delegation uses `subagent` when available.
 - Git, authenticated `gh`, and repository permissions for publication.
+- The `wt` command from [Worktrunk](https://worktrunk.dev) for task worktrees and branch cleanup. Without it, task worktrees fall back to OpenCode's worktree tool and branch cleanup is unavailable.
 - Bun for the bundled PR and decision-log helpers. See [script usage](scripts/README.md).
 - Project tools for verification, plus browser or terminal tools when the behavior needs them.
 
