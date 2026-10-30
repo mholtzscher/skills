@@ -17,6 +17,8 @@ For a new proposal, choose its depth, follow the sketch or spec section, then se
 
 ## Sketch
 
+Before drafting the sketch, read and apply the [technical-writing standard](../../references/technical-writing.md). Preserve the sketch's structure and distinguish proposed behavior from current behavior.
+
 For a sketch, show the intended behavior and a focused code/data/file diff, decisive tradeoff, and verification. Use one view from [visual components](../../references/visual-components.md) where it clarifies the change. Label the view as proposed and anchor it to source `file:line`. Resolve consequential unknowns through `question`. Keep the sketch in conversation unless a file is useful or requested.
 
 ## Spec
@@ -34,6 +36,8 @@ Done means the proposal is understandable, acceptance is testable, material unkn
 ## Refine
 
 Accept an explicit path; use the current known spec when unambiguous. Read the whole spec, relevant source/history, and any recorded approvals.
+
+Before drafting refinement proposals, read and apply the [technical-writing standard](../../references/technical-writing.md). Preserve the spec's template, technical requirements, uncertainty, and open decisions.
 
 1. Identify required behavior, compatibility, security, error invariants, ownership, and implementation contracts before proposing cuts.
 2. Use [prose cleanup](../cleanup/PLAYBOOK.md#prose-cleanup) in proposal-only mode for prose and [show-complexity](../show-complexity/PLAYBOOK.md) for design burden. This workflow's approval boundary controls both procedures.

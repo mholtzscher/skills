@@ -10,6 +10,7 @@ Load applicable guidance together; defer conditional reads until their condition
 
 - [PR targeting](references/pr-targeting.md) for every publication.
 - [Visual metadata format](references/pr-metadata.md) and [visual components](../../references/visual-components.md) when creating or updating metadata.
+- [Technical-writing standard](../../references/technical-writing.md) before drafting metadata, applying its sentence-level layers while preserving the required PR format.
 
 1. Inspect Git status, the intended base, complete scoped diff, and existing PR identity. Discover the default branch rather than assuming `main`. Preserve the current appropriate delivery branch and unrelated staged/unstaged/untracked work. If on the base branch, create a topic branch named as in [Prepare](../workspace/PLAYBOOK.md#prepare) without discarding edits.
 2. Confirm the branch can still deliver. List its PRs with `gh pr list --head <branch> --state all` and inspect its upstream tracking. After a merged or closed PR, or a gone upstream, the branch can no longer deliver, so stop before committing. Move this task's unpublished work to a new topic branch from the updated base by carrying uncommitted edits with `git switch -c <new-branch> origin/<base>` and cherry-picking task commits the base lacks. If either step does not apply cleanly, report and ask.
@@ -25,7 +26,7 @@ Report the verified PR URL and published head.
 Read [PR targeting](references/pr-targeting.md).
 
 1. Resolve the requested PR and inspect its full diff, current title/body, base/head, and relevant context. Use the PR snapshot, not unrelated local edits. If review is incomplete, report the unreviewed scope and stop before editing the title or body.
-2. Write both title and body using [visual metadata](references/pr-metadata.md) and [visual components](../../references/visual-components.md) for the change outline, correcting misleading scope rather than merely noting it.
+2. Before drafting, read and apply the sentence-level layers of the [technical-writing standard](../../references/technical-writing.md). Write both title and body using [visual metadata](references/pr-metadata.md) and [visual components](../../references/visual-components.md) for the change outline, correcting misleading scope rather than merely noting it. Preserve the required PR format.
 3. Run the [prose cleanup pass](../cleanup/PLAYBOOK.md#prose-cleanup) and verify any substantive claims against the diff and observed checks.
 4. Edit only the PR title/body, then verify both parsed published values.
 

@@ -24,9 +24,7 @@ When called during approved implementation/publication cleanup, apply accepted b
 
 ## Prose cleanup
 
-Edit text to remove AI patterns. Read the complete text and establish its intended audience. For every prose-cleanup invocation, read the [complete prose-pattern catalog](references/prose-patterns.md), scan the selected text against all 28 entries, then rewrite within the caller's authority. Preserve meaning and match the intended tone.
-
-Apply the catalog's strict punctuation and style rules to selected editable prose. Rule 13 excludes em dashes and punctuation substitutes, including parentheses. Rule 14 permits colons before lists or examples, not as mid-sentence connectors. These are editing rules, not permission to alter exact quotations, code, commands, citations, catalog examples, or structured technical notation. Keep those literal. Rule 33 does not remove syntax arrows in genuine diagrams or code. Preserve requirements, technical contracts, confidence, legitimate epistemic hedges, and the author's meaning. Keep tables and diagrams when they explain something rather than decorate it. Report substantive ambiguity instead of silently choosing a new requirement.
+Read the complete text and establish its intended audience. For every prose-cleanup invocation, read and apply the [technical-writing standard](../../references/technical-writing.md), including all of its prose diagnostics. Rewrite within the caller's authority and match the intended tone. Retain required document templates; PR descriptions and commit messages use the sentence-level layers.
 
 Honor proposal-only and review-only scope. Present proposed wording and wait when the caller requires agreement, including spec refinement. During approved implementation or publication cleanup, apply accepted in-scope prose edits without changing technical meaning. Check scoped PR titles, bodies, and commit prose before remote writes, but cleanup itself grants no permission to edit PR metadata, publish, or modify other files.
 

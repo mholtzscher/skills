@@ -34,6 +34,7 @@ Other requests include:
 - Measure performance, diagnose a trace, or refactor code.
 - Resume work, summarize progress, or reflect on session lessons.
 - Create or maintain a project verification skill.
+- Write or review technical documentation.
 
 See [SKILL.md](SKILL.md#playbooks) for the full routing table. General skill authoring and evaluation use the separate `skill-creator` and `writing-for-agents` skills; [Reflect](playbooks/reflect/PLAYBOOK.md) extracts durable lessons from a session.
 

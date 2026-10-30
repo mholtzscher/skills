@@ -70,6 +70,8 @@ For delegated discovery, check available agents and the actual tool schema. Use 
 
 ### Phase 3: DRAFT
 
+Before drafting, read and apply the [technical-writing standard](../../../references/technical-writing.md). Preserve the selected template, use consistent terms and explicit conditions, and distinguish proposed behavior from current behavior. Keep uncertainty and open decisions visible.
+
 Apply planning framework from [decision-frameworks.md](decision-frameworks.md):
 
 1. **Problem Definition** — What are we solving? For whom? Cost of not solving?
