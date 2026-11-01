@@ -22,9 +22,15 @@ A compact visual outline of the change, using the requirements below.
 ## Verification
 
 - Actual command or exercised behavior and observed result.
+
+### Visual evidence
+
+[Captured media and any evidence gaps, following the visual-evidence guidance.]
 ```
 
 Use `- None.` under Special things to note when appropriate.
+
+For visible output or interaction changes, read [visual evidence](../../../references/visual-evidence.md) for the required media and publication checks. Omit the Visual evidence subsection when no such behavior changes.
 
 ## Change outline requirements
 

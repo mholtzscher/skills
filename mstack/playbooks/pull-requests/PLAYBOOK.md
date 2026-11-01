@@ -10,16 +10,17 @@ Load applicable guidance together; defer conditional reads until their condition
 
 - [PR targeting](references/pr-targeting.md) for every publication.
 - [Visual metadata format](references/pr-metadata.md) and [visual components](../../references/visual-components.md) when creating or updating metadata.
+- [Visual evidence](../../references/visual-evidence.md) when the scoped change affects visible output or interaction, including when preserving existing metadata.
 - [Technical-writing standard](../../references/technical-writing.md) before drafting metadata, applying its sentence-level layers while preserving the required PR format.
 
 1. Inspect Git status, the intended base, complete scoped diff, and existing PR identity. Discover the default branch rather than assuming `main`. Preserve the current appropriate delivery branch and unrelated staged/unstaged/untracked work. If on the base branch, create a topic branch named as in [Prepare](../workspace/PLAYBOOK.md#prepare) without discarding edits.
 2. Confirm the branch can still deliver. List its PRs with `gh pr list --head <branch> --state all` and inspect its upstream tracking. After a merged or closed PR, or a gone upstream, the branch can no longer deliver, so stop before committing. Move this task's unpublished work to a new topic branch from the updated base by carrying uncommitted edits with `git switch -c <new-branch> origin/<base>` and cherry-picking task commits the base lacks. If either step does not apply cleanly, report and ask.
-3. Account for every scoped changed path, reading surrounding code where ownership or behavior needs context. A diff stat is not a review. If review is incomplete, report the unreviewed scope and stop before committing, pushing, or creating/updating the PR.
+3. Account for every scoped changed path, reading surrounding code where ownership or behavior needs context. A diff stat is not a review. If review is incomplete, report the unreviewed scope and stop before committing, pushing, or creating/updating the PR. Check prepared visual evidence against the scoped snapshot; report missing or stale captures.
 4. Commit only the relevant paths with truthful Conventional Commit subjects. Use coherent commits; avoid empty commits or broad staging that includes unrelated work. Push the intended topic branch without rewriting shared history.
-5. Update the unambiguous existing PR for this repository/head/base or create one. When writing metadata, use the visual metadata format and visual components for the change outline. Preserve existing title/body unless rewriting was requested or the calling coding task authorizes an accurate update. Do not create duplicate PRs.
-6. Verify the published PR URL, head SHA, and any metadata written. If already published with no changes, verify rather than repeating writes.
+5. Update the unambiguous existing PR for this repository/head/base or create one. When writing metadata, use the visual metadata format and visual components for the change outline. Include applicable visual evidence and its gaps. Preserve existing title/body unless rewriting was requested or the calling coding task authorizes an accurate update. When visual evidence applies and the body must be preserved, add or update a task-owned evidence comment if comments are permitted. Do not create duplicate PRs or evidence comments.
+6. Verify the published PR URL, head SHA, any metadata or evidence comment written, and attached media access. If already published with no changes, verify rather than repeating writes.
 
-Report the verified PR URL and published head.
+Report the verified PR URL, published head, and any visual-evidence gaps.
 
 ## Rewrite metadata
 
@@ -50,8 +51,8 @@ Read [PR targeting](references/pr-targeting.md).
 
 1. Reuse the current conversation's agreed verdicts, evidence, thread/comment IDs, and PR identity. Process the entire agreed report, leaving unclear/unapproved outcomes pending. Do not silently re-triage or reinterpret agreement. Missing discussion/IDs or a mismatched PR requires triage and agreement first.
 2. Work in the PR's [prepared workspace](../workspace/PLAYBOOK.md#prepare) and confirm it matches the discussed target. Apply the smallest agreed fixes. The approved feedback proposal satisfies the implementation gate; materially different fixes need renewed agreement.
-3. Validate, run [cleanup](../cleanup/PLAYBOOK.md#before-publication), commit relevant changes, and push to the discussed PR. Preserve its metadata unless instructed otherwise. Confirm published head. For already-addressed items, verify the fix exists in the published revision. Avoid empty commits when no code change is needed.
-4. Only after successful validation and delivery, update settled outcomes:
+3. Run affected [verification](../../references/verification.md) and [cleanup](../cleanup/PLAYBOOK.md#before-publication). Rerun affected checks after cleanup, commit relevant changes, and push to the discussed PR. Preserve its metadata unless instructed otherwise; publish new or refreshed media and any evidence gaps in a task-owned PR comment where permitted. Confirm published head and media access. For already-addressed items, verify the fix exists in the published revision. Avoid empty commits and duplicate evidence comments when no update is needed.
+4. Until required media is linked from the PR and accessible to reviewers, delivery is incomplete, even when attaching evidence is prohibited. Only after successful validation and delivery, update settled outcomes:
    - Fixed and published: react `+1` to evaluated comments and resolve the thread.
    - Agreed invalid: react `-1` and resolve.
    - Already addressed in the published revision: react `+1` and resolve.
@@ -90,9 +91,9 @@ Read [PR targeting](references/pr-targeting.md). Run on request, or within a cod
 1. Resolve the PR, its head branch, and its base. Confirm the current worktree is on that head with a clean tree; uncommitted work is committed within the task or left for the user to decide.
 2. Fetch and record the remote head SHA. The branch is shared when it has commits from authors other than the configured Git user, the remote has commits missing locally, or open PRs use it as their base, as `gh pr list --base <branch>` shows. For a shared branch, stop and ask whether to merge the base in instead.
 3. Run `git rebase origin/<base>`. Resolve conflicts within the approved scope; a resolution that changes the agreed design returns to approval. When a conflict cannot be resolved with confidence, run `git rebase --abort` and report.
-4. Rerun affected verification, and the cleanup passes when a resolution changed code.
+4. Rerun affected [verification](../../references/verification.md), and the cleanup passes when a resolution changed code.
 5. Push with `git push --force-with-lease=<branch>:<recorded remote SHA>`, always naming the recorded SHA. A rejected push means the remote moved, so stop and inspect it again.
-6. Verify the published head. Within a coding task, return to its required-CI loop for the new head.
+6. Verify the published head. If visual evidence changed or became inapplicable, update the task-owned evidence section or comment and verify media access, respecting explicit metadata and comment restrictions. Within a coding task, return to its required-CI loop for the new head.
 
 Report the old and new heads, base revision, resolved conflicts, and verification.
 
