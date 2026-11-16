@@ -35,12 +35,15 @@ Other requests include:
 - Resume work, summarize progress, or reflect on session lessons.
 - Create or maintain a project verification skill.
 - Write or review technical documentation.
+- Audit and prune a project's docs and specs.
 
 See [SKILL.md](SKILL.md#playbooks) for the full routing table. General skill authoring and evaluation use the separate `skill-creator` and `writing-for-agents` skills; [Reflect](playbooks/reflect/PLAYBOOK.md) extracts durable lessons from a session.
 
 ## Working style
 
 Implementation starts from an approved sketch or spec, in its own worktree on a fresh topic branch. Approved coding work includes verification, code/prose/comment cleanup, one PR, and in-scope required-CI repair. Ordinary delivery stops before merging; stacks and merging require explicit requests.
+
+Agents do not add doc files on their own. A new doc needs an approved proposal that names it, a change that makes a doc false fixes that doc in the same PR, and an implemented spec is deleted. The [Docs playbook](playbooks/docs/PLAYBOOK.md) defines the layout, the quality tests, and the audit.
 
 Focused requests keep their own stopping points. Planning produces a proposal, review produces findings, and a checks request reports current CI. [PR operations](playbooks/pull-requests/PLAYBOOK.md) are independently selectable.
 
@@ -51,7 +54,7 @@ Delegation is selective, with one writer for coupled implementation and OpenCode
 - OpenCode V2 with file-reading tools; decisions use `question` and delegation uses `subagent` when available.
 - Git, authenticated `gh`, and repository permissions for publication.
 - The `wt` command from [Worktrunk](https://worktrunk.dev) for task worktrees and branch cleanup. Without it, task worktrees fall back to OpenCode's worktree tool and branch cleanup is unavailable.
-- Bun for the bundled PR and decision-log helpers. See [script usage](scripts/README.md).
+- Bun for the bundled PR, decision-log, and docs-audit helpers. See [script usage](scripts/README.md).
 - Project tools for verification, plus browser or terminal tools when the behavior needs them.
 
 Read [orchestration](references/orchestration.md) for delegation and [history](references/history.md) for session retrieval. External specialist skills remain separate installations. Mstack has no workflow-tools dependency and supplies no durable scheduler.

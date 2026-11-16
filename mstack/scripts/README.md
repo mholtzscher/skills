@@ -71,3 +71,35 @@ An existing nonempty file must begin with the exact template bytes and end with 
 All writes use append semantics, even on first use, rather than truncating a file after an existence check. One named caller must serialize appends. There is no lock, concurrent-writer guarantee, transaction, crash-atomicity guarantee, redaction service, permission enforcement, or restart scheduler. Header and final-byte checks are not a concurrency protocol. The helper neither edits ignore rules nor stages, commits, or publishes anything.
 
 Exit 0 means the append completed, not that the evidence or task passed. Exit 1 means invalid usage, an incompatible or unterminated existing file, or a filesystem/template failure. Errors are plain text on stderr; success emits no stdout. Invalid usage makes no filesystem changes. A later I/O failure can leave created directories, a new file, or a partial write, so inspect the actual artifact before retrying. The subprocess tests cover sequential CLI behavior, not concurrency or recovery after crashes.
+
+## Docs audit helper
+
+Requires Bun and Git, with no production package dependencies or `gh`. The helper reads the working tree and Git history and writes nothing. The calling workflow decides what each finding means.
+
+```sh
+bun /absolute/path/to/mstack/scripts/docs.ts [--root DIR] [--since REVISION] [--check]
+```
+
+Without `--root`, the helper uses the Git work tree that contains the working directory. It reads every Markdown file under `docs/` and `specs/`, plus the root `README.md` and `GLOSSARY.md`. It skips dot-directories and `node_modules`.
+
+Successful stdout is one JSON document:
+
+| Field            | Content                                                                                                                                                            |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `indexes`        | `docs/README.md` and each `docs/<product>/README.md`. A folder directly under `docs/` is a product when it has a `README.md` and is not one of the layout folders. |
+| `records`        | Docs under an `adr/` folder.                                                                                                                                       |
+| `living`         | Every other doc that is not an index.                                                                                                                              |
+| `unlisted`       | Docs and product indexes that no index links to.                                                                                                                   |
+| `outsideLayout`  | Docs that are not under `adr/`, `architecture/`, `guides/`, `reference/`, or `tutorials/`.                                                                         |
+| `brokenLinks`    | `{file, line, target}` for each relative Markdown link whose file does not exist. Fragments are not checked.                                                       |
+| `pathCandidates` | `{file, line, path}` for each inline code span that looks like a repository path and does not exist.                                                               |
+| `specs`          | `{path, lastCommit, ageDays}` for each spec, oldest first. Both values are null for a spec with no commit.                                                         |
+| `counts`         | `{docs, records, specs}`. `docs` counts records and living docs, not indexes.                                                                                      |
+| `baseline`       | Present with `--since`: `{revision, docs, records, specs}` counted the same way at that commit.                                                                    |
+| `limitations`    | What the helper could not establish, such as a missing `docs/README.md` or a directory that is not a Git work tree.                                                |
+
+Links and code spans inside fenced code blocks are ignored. A code span is a path candidate only when it has at least two segments and its first segment exists at the repository root, which excludes most media types and `owner/repo` names. Spans that start with `./` or `../` are skipped as import strings. A trailing `:line` or `#fragment` is removed before the check. Candidates still include examples and deliberate mentions of removed files, so read each one before treating it as a false claim. Paths written relative to a doc's own folder are found only when they resolve from that doc.
+
+The helper does not judge whether a spec was implemented, whether a doc is true, or whether a doc is worth keeping. It does not query pull requests.
+
+Exit 0 means the report was produced, not that the docs passed. With `--check`, the helper exits 2 when `unlisted`, `outsideLayout`, or `brokenLinks` is nonempty, and still prints the report; path candidates and specs never change the exit code. Exit 1 means invalid arguments, an unresolvable `--since` revision, a missing directory, or no Git work tree to infer the root from. Exit 1 prints nothing on stdout and a plain-text message on stderr.

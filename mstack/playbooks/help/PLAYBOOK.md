@@ -11,7 +11,7 @@ Mstack has one explicit entry point. Describe the task after its name; these are
 @mstack triage PR 123
 ```
 
-Explicit spec paths and PR URLs or numbers are accepted. Planning, investigation, review, and checks retain their own completion conditions. Implementation requires an approved sketch or spec. Ordinary approved coding works in its own worktree and continues through one unmerged PR and scoped required-CI repair.
+Explicit spec paths and PR URLs or numbers are accepted. Planning, investigation, review, and checks retain their own completion conditions. Implementation requires an approved sketch or spec. A new doc file needs the same approval, and an implemented spec is deleted. Ordinary approved coding works in its own worktree and continues through one unmerged PR and scoped required-CI repair.
 
 ## Dependencies
 
@@ -20,6 +20,7 @@ Explicit spec paths and PR URLs or numbers are accepted. Planning, investigation
 | Skills and planning           | File-reading tools and `question` when available                    |
 | PR evidence scripts           | Bun and authenticated `gh` on the execution machine                 |
 | Decision-log append helper    | Bun and an explicitly selected writable local path                  |
+| Docs audit helper             | Bun and Git                                                         |
 | Publication                   | Git, `gh`, repository permissions, and project development tools    |
 | Task worktrees and Tidy       | Worktrunk's `wt`, or OpenCode `worktree_create` for worktrees only  |
 | Delegation                    | Available `subagent` tool and configured agents                     |

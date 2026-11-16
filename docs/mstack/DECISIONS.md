@@ -479,11 +479,54 @@ Approval: the user requested updating mstack PR workflows so agents include scre
 
 Wording tightened on the same date at the user's request to remove no-op fluff: removed repeated scope, generic presentation advice, and duplicate requirements from callers and the metadata template. Capture requirements, completion gates, and authority boundaries are unchanged.
 
+### D100: Bound project docs through admission and upkeep
+
+Accepted 2026-11-16. Add a shared Docs rule to the entry: the PR description and commits record a change, a doc file is created only when an approved proposal names it or the user agrees, and a change that makes a doc false fixes that doc in the same PR. Work summaries, plans, and status notes are never docs. The Docs playbook's admission order prefers writing nothing, then editing an existing doc, then a dated record, then a proposed new living doc that names its reader and question. Finish delivery runs docs upkeep before cleanup, so feature, bug-fix, refactoring, and spec work share it. Upkeep edits existing docs and never creates one. Review checks changed docs and reports an unapproved new doc file. Technical writing follows Docs for files under `docs/`.
+
+The rule lives in mstack only. A project `AGENTS.md` section for sessions that do not run mstack was offered and declined; the audit is what catches their output. There is no size limit; the audit reports the count trend.
+
+Approval: the user reported a huge `specs/` folder and a `docs/` folder growing from agents adding files on their own, and asked for guardrails against unbounded growth and decayed docs. Through `question` they chose "Named in an approved proposal", "mstack shared rules only", "Check in coding playbooks", and "No limit; audit reports the trend", then "Approve as a sketch". The rationale is that agents add these files during ordinary tasks, so a procedure reached only through docs requests would not see them.
+
+### D101: Specs name their doc changes and are deleted when implemented
+
+Accepted 2026-11-16. A sketch names each doc it will edit or create, or states that it changes none. A full spec lists doc changes as deliverables with a path, reader, and question, and the completeness check requires them. The four spec templates gain a Docs entry. Approving a proposal approves the doc files it names. Spec implementation edits those docs in the present tense, checked against the code, and deletes the tracked spec file in the PR that completes its last deliverable, naming the deleted path in the PR description. A spec with no doc changes is deleted the same way. Specs stay in `specs/`, which therefore holds open work only. This extends D04's planning paths and D05's delivery without changing approval.
+
+Approval: the user chose "Delete it", "In the implementing PR", "Stay in specs/", and "Delete and say so" for a spec with nothing durable. The rationale is that a spec describes a change and has no remaining content once the change and its docs have merged. Git history keeps the text.
+
+### D102: Add a Docs playbook with a canonical layout, quality tests, and an audit
+
+Accepted 2026-11-16. Add `playbooks/docs/PLAYBOOK.md`, routed from the entry for auditing, pruning, or organizing project docs and specs. It covers `docs/`, `specs/`, the root `README.md`, and `GLOSSARY.md`; agent instruction files and package READMEs are out of scope.
+
+- **Layout.** `docs/README.md` is an index with one line per doc naming its reader and question. Docs live under `architecture/`, `guides/`, `reference/`, and `adr/`, one Diátaxis mode each, with `tutorials/` and every other folder created when first needed. A multi-product repository repeats the folders under `docs/<product>/`. When `GLOSSARY-MAP.md` exists, domain modeling's per-context placement of glossaries and records still applies. A project with a different structure keeps it until the user approves a migration, which the audit proposes as one separate change.
+- **Quality.** Four pass-or-fail tests in order: necessary, true, usable, durable. The first failed test decides the action, and a doc that fails the first is deleted or merged, not improved. Records are exempt. The technical-writing standard applies after the four tests.
+- **Audit.** Read-only until the user selects findings. It runs the helper, confirms mechanical findings by reading, judges each living doc, runs an independent reader check on guides by default and on other docs on request, sorts specs into implemented, open, and quiet, and asks before deleting a quiet spec. Selected findings are delivered as approved coding work.
+
+Approval: the user chose "Canonical layout", "architecture, guides, reference, adr", "Audit proposes a migration", "Canonical layout per product folder", "Root README and GLOSSARY only", "Pass or fail per test", "Guides by default, others on request", and "Report it and ask" for quiet specs. This repository's own `docs/mstack/` does not match the layout and is deliberately left unmigrated in this change.
+
+### D103: Add a read-only docs audit helper
+
+Accepted 2026-11-16. Add `mstack/scripts/docs.ts`, which needs Bun and Git only. It reports indexes, records, living docs, unlisted docs, docs outside the layout, broken relative links, inline-code path candidates, specs with their last commit date and age, and counts, with an optional `--since` baseline and a `--check` exit code for projects that add it to CI. It writes nothing and makes no judgment about truth, value, or whether a spec was implemented. Approval: the user chose "Script, run by the audit".
+
+The approved sketch said the helper would report whether a merged PR touched each spec. That signal was not implemented: it needs `gh`, and a PR that edited a spec did not necessarily implement it. The audit instead reads each spec against the code and merged PRs. The count trend uses a Git revision as its baseline instead of stored state from a previous run.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and a simulator-cleanup workflow. D91 through D94 add worktree workflows independently. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
 
 ## Validation and cutover snapshot
+
+2026-11-16, D100–D103 working-tree review against `5e47ab2`: bundle validation passed with one skill and 101 Markdown files; bundle/docs/root README formatting, `git diff --check`, tooling typechecking, and all 103 tests with 351 assertions passed, including 9 new tests for the docs helper. Checked 185 local links and fragments in changed Markdown; the one unresolved target is the index-line example inside a code fence. Running the helper on this repository reported `docs/mstack/` as unlisted and outside the layout, as D102 expects, and five path candidates in this record that are deliberate mentions of removed files.
+
+Four independent evaluators used the working-tree bundle on fixture repositories under `/tmp/opencode/mstack-docs-eval-1794861238/`, with workspace preparation waived and publication unavailable:
+
+- `ses_e19ee9113ffeBxIHj9f5VQoS4N` implemented an approved sketch that renamed a CLI flag. It created no doc file, fixed the stale flag in the guide and root README through upkeep, and left the ADR unedited.
+- `ses_e19ee7f90ffe0FmC3JWmec1Pgb` implemented a spec that named one guide edit. It edited that guide only, deleted the spec in the same commit, and named the deleted path in its PR body.
+- `ses_e19ee6e71ffesP3DBtFTl4CIyG` implemented a spec that stated no doc changes. It deleted the spec, found no false claims, and created no docs. The environment variable it added is therefore undocumented, which follows from D101: doc additions are decided in the proposal.
+- `ses_e19ee594dffeCdVni7EutssoYN` audited a fixture with a false guide, a code walkthrough, a session summary outside the layout, a dead index line, an implemented spec, a quiet spec, and an open spec. It gave each the intended verdict, stopped at the question, and left the fixture unchanged.
+
+The audit evaluation exposed four gaps, fixed afterward: no verdict for a quiet spec (now "ask"), a migration that would move a doc due for deletion, index lines for records, and the verdict for a doc with unchecked claims. Two implementation evaluators treated the guide reader check as owed during ordinary delivery; it is now scoped to the audit or an explicit request. The fixture run also exposed a helper false positive on `./` import strings, fixed with a test. These fixes were inspected directly and not independently re-evaluated.
+
+Not exercised: applying audit findings through a real PR, the independent reader check, a multi-product or non-conforming layout migration, a `GLOSSARY-MAP.md` repository, Review's new doc check, full-spec drafting with the new Docs entry, `--check` in a CI job, and live PR publication of a spec deletion. The external skill-creator validator remains blocked by missing PyYAML as recorded for D95.
 
 2026-11-01, D99 wording trim: compared the instruction bodies before and after, preserving shared-reference routing and substantive requirements. Evaluator `ses_e68088514ffeXqqXq595xwnOf9` repeated the static CLI, stale TUI, and comment-restricted mobile scenarios against the shortened text. It retained screenshot-only static evidence, required refreshed TUI captures, and left mobile reactions and resolution pending. It identified that uploaded media could be mistaken for media included in the PR; the gate now explicitly requires a PR link and reviewer access. That final clarification was inspected directly, not independently re-evaluated. Bundle validation, full bundle/docs formatting, and `git diff --check` passed. Live media integrations and the missing-PyYAML limitation below remain unchanged.
 
