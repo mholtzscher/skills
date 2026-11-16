@@ -57,7 +57,7 @@ export async function validateBundle(root: string) {
     }
   }
   for (const path of files) {
-    const text = (await readFile(path, "utf8")).replace(/^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\1\s*$/gmu, "");
+    const text = (await readFile(path, "utf8")).replace(/^[ \t]*(`{3,}|~{3,})[^\n]*\n[\s\S]*?^[ \t]*\1[ \t]*$/gmu, "");
     for (const match of text.matchAll(/\]\(([^\s)]+)(?:\s+"[^"]*")?\)/gu)) {
       const target = match[1];
       if (/^(?:[a-z][a-z0-9+.-]*:|#)/iu.test(target)) continue;

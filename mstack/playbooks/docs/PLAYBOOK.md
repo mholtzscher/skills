@@ -22,8 +22,8 @@ The playbook covers `docs/`, `specs/`, the root `README.md`, and `GLOSSARY.md`. 
 
 Before writing about a change, take the first option that works:
 
-1. Write nothing. The PR description and commit messages record what changed and why.
-2. Edit an existing doc.
+1. Write nothing, when no doc's reader needs the change. The PR description and commit messages record what changed and why.
+2. Edit an existing doc, when its reader needs the new behavior to answer the doc's question.
 3. Add a record, when the decision passes the [ADR test](../domain-modeling/PLAYBOOK.md#offer-adrs-sparingly).
 4. Propose a new living doc. Name its reader, the question it answers, and why no existing doc can hold the answer.
 

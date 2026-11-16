@@ -117,6 +117,12 @@ test("allows composed playbooks and shared resources even when relative paths as
   expect(await validateBundle(root)).toEqual({ skills: 1, markdownFiles: 8, errors: [] });
 });
 
+test("ignores links in fenced blocks indented inside a list, and still checks the prose after them", async () => {
+  const root = await fixture();
+  await skill(root, ".", "mstack", "- Step:\n\n  ```md\n  [Example](not-a-real-file.md)\n  ```\n\n  [Missing](references/missing.md)");
+  expect((await validateBundle(root)).errors).toEqual(["SKILL.md: broken link references/missing.md"]);
+});
+
 test("rejects the old flat playbook layout", async () => {
   const root = await fixture();
   await skill(root, ".", "mstack");
