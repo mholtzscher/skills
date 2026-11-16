@@ -55,6 +55,11 @@ path/
 
 [Map each new type and interface to its owning path and deliverable.]
 
+### Docs
+| Doc | Change | Reader | Question it answers |
+|-----|--------|--------|---------------------|
+| [path, or "No doc changes"] | edit/new/record | [who reads it] | [what they need answered] |
+
 ### Alternatives Considered
 | Option | Pros | Cons | Why Not |
 |--------|------|------|---------|

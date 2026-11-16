@@ -13,4 +13,5 @@ For scoped technical choices with clear options.
 - **Types:** [changes, or "No change" with reason]
 - **Interfaces:** [changes, or "No change" with reason]
 - **Project layout:** [changes, or "No change" with reason]
+- **Docs:** [docs to edit or create with reader and question, or "No doc changes"]
 ```

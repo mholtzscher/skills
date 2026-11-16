@@ -25,6 +25,9 @@ For significant architecture decisions that need documentation.
 #### Project Layout
 [Proposed paths and module responsibilities, or "No change" with reason]
 
+#### Docs
+[Docs to edit or create with reader and question, or "No doc changes"]
+
 ### Consequences
 - [+] [Benefit]
 - [-] [Drawback]

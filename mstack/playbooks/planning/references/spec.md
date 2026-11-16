@@ -107,6 +107,8 @@ src/
 
 Define each deliverable with a stable ID, a concrete outcome, owning file/package paths, dependencies, and references to its testable acceptance criteria. Include shared infrastructure and integration checks in those mappings so delegation does not leave required work unowned. Keep this information in the existing spec; the execution orchestrator decides agent assignments and scheduling, not the planner.
 
+Name the doc changes as deliverables. Take the first option that works: no doc change, an edit to an existing doc, a dated record such as an ADR, or a new doc. For each doc to edit or create, give its path, its reader, and the question it answers; for a new doc, say why no existing doc can hold the answer. State "No doc changes" when none are needed. Approving the spec approves the files it names. Implementation deletes the spec once its last deliverable is complete, so content that must outlive the work belongs in those docs.
+
 For each acceptance criterion, specify how an implementer can check it: the behavior or boundary to exercise, the expected result, and a concrete command or manual procedure when known. Cover the main success path and material failure or regression paths. Distinguish checks the implementer can run locally from those requiring external access or a deployed environment. Do not invent commands; mark unknown commands for discovery during implementation and explain what must be checked.
 
 #### Select the output template
@@ -140,6 +142,7 @@ Run completeness check:
 | Interfaces concrete    | Inputs, outputs, errors, and side effects defined                                    |
 | Layout explicit        | Proposed paths and module responsibilities shown                                     |
 | Shape traceable        | Types/interfaces map to paths and deliverables                                       |
+| Docs named             | Each doc to edit or create has a path, reader, and question, or the spec states none |
 | Effort estimated       | Each deliverable has S/M/L/XL                                                        |
 | Risks identified       | At least 2 risks with mitigations                                                    |
 | Open questions         | Resolved OR assigned owner                                                           |
