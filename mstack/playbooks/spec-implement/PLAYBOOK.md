@@ -6,8 +6,8 @@ Resolve the supplied spec path relative to the user's working directory, or hono
 2. Map each deliverable to owned paths, dependencies, and checks. Resolve missing shared infrastructure rather than assigning it to nobody. Use [orchestration](../../references/orchestration.md) for independent work, retaining one writer for coupled changes.
 3. Implement every agreed deliverable. Track assumptions concisely. Reuse the spec as the progress record when useful instead of creating a parallel task database.
 4. Verify each acceptance criterion and the integrated result. Account for checks requiring external access separately.
-5. Edit or create the docs the spec names, following [Docs](../docs/PLAYBOOK.md#admission). Describe the behavior as implemented, in the present tense, and check each claim against the code. A spec written before doc changes were required names none: propose them through `question` before creating a file.
-6. Delete the spec file in the PR that completes its last deliverable, when the repository tracks it. Name the deleted path in the PR description so that readers can find it in history. A spec with no doc changes is deleted the same way.
+5. Decide the doc changes now that the code is written, following [Docs admission](../docs/PLAYBOOK.md#admission). Edit the existing docs whose readers need the new behavior, and ask through `question` before creating a doc file. Describe the behavior as implemented, in the present tense, and check each claim against the code.
+6. Delete the spec file in the PR that completes its last deliverable, when the repository tracks it. Name the deleted path in the PR description so that readers can find it in history.
 7. [Finish delivery](../finish-delivery/PLAYBOOK.md) as one PR unless a stack was explicitly requested.
 
 Report deliverable coverage, the docs changed, the deleted spec path, actual verification, the PR URL, required-check status, and remaining gaps. An unavailable acceptance check or unknown required-CI state is incomplete evidence, not success.

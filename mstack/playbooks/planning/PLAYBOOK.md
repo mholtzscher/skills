@@ -8,7 +8,7 @@ For a new proposal, choose its depth, follow the sketch or spec section, then se
 
 - **Proposal** is the umbrella output: either depth below, before approval.
 - **Sketch** is the lightweight depth: intended behavior, focused diff, tradeoff, and verification; it stays in conversation unless a file is useful or requested.
-- **Spec** is the file-backed depth: concrete Types, Interfaces, and Layout plus deliverables, acceptance checks, risks, and estimates, written to `specs/<name>.md` via the selected template. It names its doc changes and is deleted when implemented.
+- **Spec** is the file-backed depth: concrete Types, Interfaces, and Layout plus deliverables, acceptance checks, risks, and estimates, written to `specs/<name>.md` via the selected template.
 
 ## Choose depth
 
@@ -19,7 +19,7 @@ For a new proposal, choose its depth, follow the sketch or spec section, then se
 
 Before drafting the sketch, read and apply the [technical-writing standard](../../references/technical-writing.md). Preserve the sketch's structure and distinguish proposed behavior from current behavior.
 
-For a sketch, show the intended behavior and a focused code/data/file diff, decisive tradeoff, and verification. Name each doc the change will edit or create, following [Docs admission](../docs/PLAYBOOK.md#admission), or state that it changes none. Use one view from [visual components](../../references/visual-components.md) where it clarifies the change. Label the view as proposed and anchor it to source `file:line`. Resolve consequential unknowns through `question`. Keep the sketch in conversation unless a file is useful or requested.
+For a sketch, show the intended behavior and a focused code/data/file diff, decisive tradeoff, and verification. Use one view from [visual components](../../references/visual-components.md) where it clarifies the change. Label the view as proposed and anchor it to source `file:line`. Resolve consequential unknowns through `question`. Keep the sketch in conversation unless a file is useful or requested.
 
 ## Spec
 

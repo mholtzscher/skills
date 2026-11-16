@@ -5,6 +5,8 @@ import { dirname, join, relative, resolve, sep } from "node:path";
 
 const FOLDERS = ["adr", "architecture", "guides", "reference", "tutorials"];
 const USAGE = "usage: bun docs.ts [--root DIR] [--since REVISION] [--check]";
+// Inline links, then reference definitions such as "[deploy]: guides/deploy.md". Footnote definitions are not links.
+const LINKS = [/\]\(([^\s)]+)(?:\s+"[^"]*")?\)/gu, /^ {0,3}\[(?!\^)[^\]]+\]:\s*<?([^\s>]+)>?/gu];
 
 export class DocsError extends Error {}
 
@@ -49,7 +51,7 @@ async function markdownFiles(directory: string): Promise<string[]> {
 /** Yields each regex match outside fenced code blocks with its 1-based line number. */
 function* matches(text: string, pattern: RegExp) {
   // Blank fenced blocks but keep their newlines, so reported line numbers match the file.
-  const prose = text.replace(/^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\1\s*$/gmu, (block) => block.replace(/[^\n]/gu, ""));
+  const prose = text.replace(/^[ \t]*(`{3,}|~{3,})[^\n]*\n[\s\S]*?^[ \t]*\1[ \t]*$/gmu, (block) => block.replace(/[^\n]/gu, ""));
   for (const [index, line] of prose.split("\n").entries()) for (const match of line.matchAll(pattern)) yield { line: index + 1, value: match[1] };
 }
 
@@ -75,11 +77,13 @@ export async function report(root: string, options: { since?: string; now?: Date
   for (const path of checked) {
     const text = await readFile(path, "utf8");
     const file = repoPath(path);
-    for (const { line, value } of matches(text, /\]\(([^\s)]+)(?:\s+"[^"]*")?\)/gu)) {
-      if (/^(?:[a-z][a-z0-9+.-]*:|#)/iu.test(value)) continue;
-      const target = resolve(dirname(path), decodeURIComponent(value.split("#")[0]));
-      if (!existsSync(target)) brokenLinks.push({ file, line, target: value });
-      else if (indexes.has(file)) listed.add(repoPath(target));
+    for (const pattern of LINKS) {
+      for (const { line, value } of matches(text, pattern)) {
+        if (/^(?:[a-z][a-z0-9+.-]*:|#)/iu.test(value)) continue;
+        const target = resolve(dirname(path), decodeURIComponent(value.split("#")[0]));
+        if (!existsSync(target)) brokenLinks.push({ file, line, target: value });
+        else if (indexes.has(file)) listed.add(repoPath(target));
+      }
     }
     for (const { line, value } of matches(text, /`([^`\n]+)`/gu)) {
       const candidate = value.replace(/(?::\d+(?:-\d+)?|#[\w-]+)$/u, "");
@@ -124,7 +128,10 @@ export async function report(root: string, options: { since?: string; now?: Date
     brokenLinks,
     pathCandidates,
     specs,
-    counts: counts([...sorted.indexes, ...sorted.records, ...sorted.living], specs.map((spec) => spec.path)),
+    counts: counts(
+      [...sorted.indexes, ...sorted.records, ...sorted.living],
+      specs.map((spec) => spec.path),
+    ),
     ...(baseline ? { baseline } : {}),
     limitations,
   };

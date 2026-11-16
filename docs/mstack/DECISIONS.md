@@ -481,13 +481,15 @@ Wording tightened on the same date at the user's request to remove no-op fluff: 
 
 ### D100: Bound project docs through admission and upkeep
 
-Accepted 2026-11-16. Add a shared Docs rule to the entry: the PR description and commits record a change, a doc file is created only when an approved proposal names it or the user agrees, and a change that makes a doc false fixes that doc in the same PR. Work summaries, plans, and status notes are never docs. The Docs playbook's admission order prefers writing nothing, then editing an existing doc, then a dated record, then a proposed new living doc that names its reader and question. Finish delivery runs docs upkeep before cleanup, so feature, bug-fix, refactoring, and spec work share it. Upkeep edits existing docs and never creates one. Review checks changed docs and reports an unapproved new doc file. Technical writing follows Docs for files under `docs/`.
+Accepted 2026-11-16. Add a shared Docs rule to the entry: the PR description and commits record a change, a doc file is created only when an approved proposal names it or the user agrees, and a change that makes a doc false fixes that doc in the same PR. Work summaries, plans, and status notes are never docs. The Docs playbook's admission order prefers writing nothing, then editing an existing doc, then a dated record, then a proposed new living doc that names its reader and question. Finish delivery runs docs upkeep before cleanup, so feature, bug-fix, refactoring, and spec work share it. Upkeep edits existing docs and never creates one. Review checks changed docs and reports an unapproved new doc file. Technical writing follows Docs for files under `docs/`; that link is removed by [D104](#d104-decide-doc-changes-at-implementation-not-in-planning).
 
 The rule lives in mstack only. A project `AGENTS.md` section for sessions that do not run mstack was offered and declined; the audit is what catches their output. There is no size limit; the audit reports the count trend.
 
 Approval: the user reported a huge `specs/` folder and a `docs/` folder growing from agents adding files on their own, and asked for guardrails against unbounded growth and decayed docs. Through `question` they chose "Named in an approved proposal", "mstack shared rules only", "Check in coding playbooks", and "No limit; audit reports the trend", then "Approve as a sketch". The rationale is that agents add these files during ordinary tasks, so a procedure reached only through docs requests would not see them.
 
 ### D101: Specs name their doc changes and are deleted when implemented
+
+The planning requirements below are superseded by [D104](#d104-decide-doc-changes-at-implementation-not-in-planning). Deleting the implemented spec remains accepted.
 
 Accepted 2026-11-16. A sketch names each doc it will edit or create, or states that it changes none. A full spec lists doc changes as deliverables with a path, reader, and question, and the completeness check requires them. The four spec templates gain a Docs entry. Approving a proposal approves the doc files it names. Spec implementation edits those docs in the present tense, checked against the code, and deletes the tracked spec file in the PR that completes its last deliverable, naming the deleted path in the PR description. A spec with no doc changes is deleted the same way. Specs stay in `specs/`, which therefore holds open work only. This extends D04's planning paths and D05's delivery without changing approval.
 
@@ -509,11 +511,21 @@ Accepted 2026-11-16. Add `mstack/scripts/docs.ts`, which needs Bun and Git only.
 
 The approved sketch said the helper would report whether a merged PR touched each spec. That signal was not implemented: it needs `gh`, and a PR that edited a spec did not necessarily implement it. The audit instead reads each spec against the code and merged PRs. The count trend uses a Git revision as its baseline instead of stored state from a previous run.
 
+### D104: Decide doc changes at implementation, not in planning
+
+Accepted 2026-11-16. Revert every planning change from D101: the sketch sentence, the full-spec paragraph, the "Docs named" completeness row, and the Docs entry in the four templates. Planning is byte-identical to its state before D101. Spec implementation now decides doc changes after the code is written: it edits the existing docs whose readers need the new behavior and asks through `question` before creating a doc file. Deleting the tracked spec in the completing PR, and naming the deleted path, are unchanged. The shared Docs rule is unchanged: a doc file still needs an approved proposal that names it or the user's agreement, and a proposal may still name one. The audit no longer checks an implemented spec for named docs.
+
+Also remove Technical writing's link to the Docs playbook. The Docs playbook links to the technical-writing standard, and the shared Docs rule already routes any new doc file to admission, so the reverse link was redundant.
+
+Approval: PR 15 review threads from the user, "Planning may not know what needs to be changed until after impl." and "Shouldn't the docs playbook reference the technical writing standard and not the other way around", followed by "Revert planning, decide at implementation" and "3: remove the Technical writing link" through `question`. Evidence: in the D101 evaluation, a spec stated no doc changes and its implementation left a new environment variable undocumented, while the guardrails that held ran at implementation time. The cost is one question during implementation when a new doc file is warranted.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and a simulator-cleanup workflow. D91 through D94 add worktree workflows independently. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
 
 ## Validation and cutover snapshot
+
+2026-11-16, D104 and PR 15 feedback fixes against `3e7dbbf`: `git diff origin/main -- mstack/playbooks/planning` is empty. Bundle validation passed with one skill and 101 Markdown files; formatting, `git diff --check`, typechecking, and all 105 tests with 355 assertions passed. Two new tests cover the reviewer-reported helper defects, both reproduced first on a throwaway fixture where `--check` exited 2: reference-style links were ignored, so a listed guide was reported as unlisted, and a fenced block indented inside a list was scanned as prose. `tooling/mstack/validate.ts` has the same column-zero fence pattern and is unchanged. The reworded spec-implementation step was inspected directly and not behaviorally re-evaluated; the two spec evaluations below ran against the D101 wording.
 
 2026-11-16, D100–D103 working-tree review against `5e47ab2`: bundle validation passed with one skill and 101 Markdown files; bundle/docs/root README formatting, `git diff --check`, tooling typechecking, and all 103 tests with 351 assertions passed, including 9 new tests for the docs helper. Checked 185 local links and fragments in changed Markdown; the one unresolved target is the index-line example inside a code fence. Running the helper on this repository reported `docs/mstack/` as unlisted and outside the layout, as D102 expects, and five path candidates in this record that are deliberate mentions of removed files.
 

@@ -61,11 +61,6 @@ path/
 
 [Explain package ownership and how each new type and interface maps to a path.]
 
-### Docs
-| Doc | Change | Reader | Question it answers |
-|-----|--------|--------|---------------------|
-| [path, or "No doc changes"] | edit/new/record | [who reads it] | [what they need answered] |
-
 ### Acceptance Criteria
 - [ ] **A1:** [Testable statement 1]
 - [ ] **A2:** [Testable statement 2]
