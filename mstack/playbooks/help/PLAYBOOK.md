@@ -11,7 +11,7 @@ Mstack has one explicit entry point. Describe the task after its name; these are
 @mstack triage PR 123
 ```
 
-Explicit spec paths and PR URLs or numbers are accepted. Planning, investigation, review, and checks retain their own completion conditions. Implementation requires an approved sketch or spec. A new doc file needs the same approval, and an implemented spec is deleted. Ordinary approved coding works in its own worktree and continues through one unmerged PR and scoped required-CI repair.
+Explicit spec paths and PR URLs or numbers are accepted. Planning, investigation, review, and checks retain their own completion conditions. Implementation requires an approved sketch or spec. A new doc file needs the user's approval, and an implemented spec is deleted. Ordinary approved coding works in its own worktree and continues through one unmerged PR and scoped required-CI repair.
 
 ## Dependencies
 

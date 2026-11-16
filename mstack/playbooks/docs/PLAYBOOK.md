@@ -69,7 +69,7 @@ A doc that the index does not link is a finding. A line that cannot name a reade
 
 ### Specs hold open work only
 
-A spec names the docs it will change. [Spec implementation](../spec-implement/PLAYBOOK.md) edits those docs and deletes the spec in the PR that completes it. Git history keeps the text. `specs/` therefore lists work that is proposed or in progress, and nothing else.
+[Spec implementation](../spec-implement/PLAYBOOK.md) updates the docs for the behavior it delivers and deletes the spec in the PR that completes it. Git history keeps the text. `specs/` therefore lists work that is proposed or in progress, and nothing else.
 
 ### Existing projects keep their structure until a migration is approved
 
@@ -125,7 +125,7 @@ The audit reads and reports. It edits nothing until the user selects findings.
 3. **Judge each living doc** against the [quality](#quality) tests, in order. Include docs outside the layout. For the root `README.md` and `GLOSSARY.md`, apply the True test only. For many docs, delegate independent groups through [orchestration](../../references/orchestration.md) and verify each returned verdict.
 4. **Run the reader check** on every guide that passed tests 1 and 2. Run it on explanation and reference docs only when the user asks.
 5. **Sort each spec.** Read it and compare its deliverables with the code and merged PRs.
-   - _Implemented_: the deliverables exist. Propose deleting the spec, and list any doc it named that was never written or edited.
+   - _Implemented_: the deliverables exist. Propose deleting the spec.
    - _Open_: work is planned or in progress. Keep it.
    - _Quiet_: not implemented, with no recent change. Give it the verdict "ask", with its last commit date, and let the user choose to keep or delete it.
 6. **Check the layout.** When docs that passed test 1 sit outside the [layout](#layout), propose one migration that lists every move. Keep it apart from the other findings. A doc that failed test 1 is deleted or merged, not moved.

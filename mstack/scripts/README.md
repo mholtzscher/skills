@@ -91,14 +91,14 @@ Successful stdout is one JSON document:
 | `living`         | Every other doc that is not an index.                                                                                                                              |
 | `unlisted`       | Docs and product indexes that no index links to.                                                                                                                   |
 | `outsideLayout`  | Docs that are not under `adr/`, `architecture/`, `guides/`, `reference/`, or `tutorials/`.                                                                         |
-| `brokenLinks`    | `{file, line, target}` for each relative Markdown link whose file does not exist. Fragments are not checked.                                                       |
+| `brokenLinks`    | `{file, line, target}` for each relative Markdown link, inline or reference-style, whose file does not exist. Fragments are not checked.                           |
 | `pathCandidates` | `{file, line, path}` for each inline code span that looks like a repository path and does not exist.                                                               |
 | `specs`          | `{path, lastCommit, ageDays}` for each spec, oldest first. Both values are null for a spec with no commit.                                                         |
 | `counts`         | `{docs, records, specs}`. `docs` counts records and living docs, not indexes.                                                                                      |
 | `baseline`       | Present with `--since`: `{revision, docs, records, specs}` counted the same way at that commit.                                                                    |
 | `limitations`    | What the helper could not establish, such as a missing `docs/README.md` or a directory that is not a Git work tree.                                                |
 
-Links and code spans inside fenced code blocks are ignored. A code span is a path candidate only when it has at least two segments and its first segment exists at the repository root, which excludes most media types and `owner/repo` names. Spans that start with `./` or `../` are skipped as import strings. A trailing `:line` or `#fragment` is removed before the check. Candidates still include examples and deliberate mentions of removed files, so read each one before treating it as a false claim. Paths written relative to a doc's own folder are found only when they resolve from that doc.
+Links and code spans inside fenced code blocks, including indented ones, are ignored. A code span is a path candidate only when it has at least two segments and its first segment exists at the repository root, which excludes most media types and `owner/repo` names. Spans that start with `./` or `../` are skipped as import strings. A trailing `:line` or `#fragment` is removed before the check. Candidates still include examples and deliberate mentions of removed files, so read each one before treating it as a false claim. Paths written relative to a doc's own folder are found only when they resolve from that doc.
 
 The helper does not judge whether a spec was implemented, whether a doc is true, or whether a doc is worth keeping. It does not query pull requests.
 

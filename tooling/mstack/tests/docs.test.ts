@@ -109,6 +109,29 @@ test("reports unlisted docs, files outside the layout, broken links, and missing
   expect(result.pathCandidates).toEqual([{ file: "docs/guides/deploy.md", line: 7, path: "src/worker.ts" }]);
 });
 
+test("reference-style links list docs and are checked, and footnotes are not links", async () => {
+  const root = await repository({
+    "docs/README.md":
+      "# Docs\n\n- [Deploy][deploy]\n- [Gone][gone]\n- A note.[^1]\n\n[deploy]: guides/deploy.md\n[gone]: <guides/gone.md>\n[site]: https://example.com\n[^1]: not/a-link.md\n",
+    "docs/guides/deploy.md": "# How to deploy\n",
+  });
+  const result = await report(root);
+  expect(result.unlisted).toEqual([]);
+  expect(result.brokenLinks).toEqual([{ file: "docs/README.md", line: 8, target: "guides/gone.md" }]);
+});
+
+test("fenced blocks indented inside a list are ignored", async () => {
+  const root = await repository({
+    "src/server.ts": "",
+    "docs/README.md": "# Docs\n\n- [Deploy](guides/deploy.md)\n",
+    "docs/guides/deploy.md":
+      "# How to deploy\n\n- Step:\n\n  ```md\n  [Example](not-a-real-file.md) and `src/absent.ts`\n  ```\n\n  Then read [the missing page](missing.md).\n",
+  });
+  const result = await report(root);
+  expect(result.brokenLinks).toEqual([{ file: "docs/guides/deploy.md", line: 9, target: "missing.md" }]);
+  expect(result.pathCandidates).toEqual([]);
+});
+
 test("without a root index every doc is unlisted and the limitation is named", async () => {
   const root = await repository({ "docs/guides/deploy.md": "# How to deploy\n" });
   const result = await report(root);

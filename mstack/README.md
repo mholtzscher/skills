@@ -43,7 +43,7 @@ See [SKILL.md](SKILL.md#playbooks) for the full routing table. General skill aut
 
 Implementation starts from an approved sketch or spec, in its own worktree on a fresh topic branch. Approved coding work includes verification, code/prose/comment cleanup, one PR, and in-scope required-CI repair. Ordinary delivery stops before merging; stacks and merging require explicit requests.
 
-Agents do not add doc files on their own. A new doc needs an approved proposal that names it, a change that makes a doc false fixes that doc in the same PR, and an implemented spec is deleted. The [Docs playbook](playbooks/docs/PLAYBOOK.md) defines the layout, the quality tests, and the audit.
+Agents do not add doc files on their own. A new doc needs your approval, a change that makes a doc false fixes that doc in the same PR, and an implemented spec is deleted. The [Docs playbook](playbooks/docs/PLAYBOOK.md) defines the layout, the quality tests, and the audit.
 
 Focused requests keep their own stopping points. Planning produces a proposal, review produces findings, and a checks request reports current CI. [PR operations](playbooks/pull-requests/PLAYBOOK.md) are independently selectable.
 
