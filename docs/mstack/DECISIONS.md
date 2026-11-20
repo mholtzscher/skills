@@ -90,6 +90,8 @@ Accepted 2026-10-15. Restore show-complexity, grilling, and domain-modeling in f
 
 Accepted 2026-10-15. Restore orchestration roles, briefs, ownership, handoff, and escalation guidance, plus the complete How and Why procedures with their references. Keep selective delegation, host-owned models, bounded read-only investigation, and citation discipline. Restore the PR incomplete-review stop rule: publication and metadata rewrites stop before writes when the scoped diff review is incomplete.
 
+[D105](#d105-inline-narrow-how-and-why-investigations) changes when How and Why load their detailed guidance. The full procedures and evidence boundaries remain available.
+
 ### D20: Restore review and blast-radius evidence
 
 Accepted 2026-10-15. Restore Review and Interrogate with all four references and the Blast-radius proof ladder with dependency, timing, and local-patch checks. Review stays report-only. The user chose evidence-led structural review: keep every diagnostic, including the 1,000-line threshold, but require a concrete maintainability problem to block. Requested model diversity must be real or reported unmet.
@@ -519,11 +521,23 @@ Also remove Technical writing's link to the Docs playbook. The Docs playbook lin
 
 Approval: PR 15 review threads from the user, "Planning may not know what needs to be changed until after impl." and "Shouldn't the docs playbook reference the technical writing standard and not the other way around", followed by "Revert planning, decide at implementation" and "3: remove the Technical writing link" through `question`. Evidence: in the D101 evaluation, a spec stated no doc changes and its implementation left a new environment variable undocumented, while the guardrails that held ran at implementation time. The cost is one question during implementation when a new doc file is warranted.
 
+### D105: Inline narrow How and Why investigations
+
+Accepted 2026-11-20. Put the narrow How path in the Explanation playbook. Trace and cite the relevant code directly without the explorer or explainer templates. Keep the full exploration and synthesis steps for complex traces.
+
+Start Why with the code anchor. When the historical record answers the question directly, cite the record, distinguish inference, and name material limits without loading the full confidence framework or synthesis template. Move the multi-source procedure into a reference. Read it when the record is thin, sources disagree, or the question needs broader coverage. Keep the evidence and access rules, read-only scope, and planning handoff. Recall still uses the full investigation methods for a named topic. Blast radius still uses the code anchor.
+
+Approval: the user selected recommendation 1 with "Let's do #1" after reviewing the comparison with pstack. The shorter paths reduce required reading without removing the detailed guidance restored under D19. Reflect, model routing, and delegation policy stay unchanged.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and a simulator-cleanup workflow. D91 through D94 add worktree workflows independently. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
 
 ## Validation and cutover snapshot
+
+2026-11-20, D105 against `16bd476`: the bundle validator found one skill and 102 Markdown files. Formatting, `git diff --check`, and local link-fragment checks passed. Compared the extracted Why text with the original and confirmed that only its heading and link placement changed, apart from moving the planning handoff into the playbook. The external skill-creator validator could not run without PyYAML. Skill frontmatter is unchanged.
+
+Fresh OpenCode subagents ran the same three questions on the baseline and candidate. The How trace kept the exit 1 and exit 2 distinctions and source citations without reading the explainer template (`ses_e05e6d65fffeptDLiFL0PKTIL4`, `ses_e05df36caffe5v6x6TZeo7wH1q`). The PR #14 rationale kept its cited reasons without the full confidence and synthesis references (`ses_e05e6d63affeBibhchG2CXUD3k`, `ses_e05df36c4ffevoEF0SP2ZzAsBW`). The disputed fixture reached the extracted procedure, kept the conflicting accounts separate, and identified the unavailable production trace (`ses_e05e6d632ffeqDc29D1bkZofdm`, `ses_e05df36c0ffeFF94m7CBi83uDX`). The disputed case used supplied records rather than live integrations. Complex How, Recall, and Blast radius routing was inspected, not replayed.
 
 2026-11-16, D104 and PR 15 feedback fixes against `3e7dbbf`: `git diff origin/main -- mstack/playbooks/planning` is empty. Bundle validation passed with one skill and 101 Markdown files; formatting, `git diff --check`, typechecking, and all 105 tests with 355 assertions passed. Two new tests cover the reviewer-reported helper defects, both reproduced first on a throwaway fixture where `--check` exited 2: reference-style links were ignored, so a listed guide was reported as unlisted, and a fenced block indented inside a list was scanned as prose. `tooling/mstack/validate.ts` had the same column-zero fence pattern. At the user's request it now ignores indented fences too, with a test that failed first by reporting the link inside the fence; this brought the suite to 106 tests with 356 assertions. `mstack/scripts/docs.ts` was not Prettier-formatted in `3e7dbbf` because the documented checks cover Markdown only; it and its test are formatted now. `tooling/mstack/tests/pr.test.ts` was already unformatted on `main` and is unchanged.
 

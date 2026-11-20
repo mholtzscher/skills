@@ -1,6 +1,6 @@
 # Explainer Prompt Template
 
-Use these instructions for direct explanation or build a delegated explainer's prompt from this template. Fill in the placeholders. On the simple path, omit Explorer Findings and explore and explain in one pass. When delegating, add the bounded read-only contract required by [orchestration](../../../../references/orchestration.md).
+Use this template to synthesize a complex trace directly or to brief a delegated explainer. Fill in the placeholders with findings from both direct and delegated research. When delegating, add the bounded read-only contract required by [orchestration](../../../../references/orchestration.md).
 
 ---
 
