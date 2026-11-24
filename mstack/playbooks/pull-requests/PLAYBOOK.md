@@ -78,11 +78,13 @@ When called by a coding playbook, return this evidence to its authorized CI-repa
 
 Read [orchestration](../../references/orchestration.md).
 
-Launch one background investigator with an exact repository, PR number, published head SHA, start time, and deadline 30 minutes later unless the user selected another budget. Include the absolute mstack paths in its contract. It observes checks and investigates completed failures; it cannot edit, commit, push, react, resolve, or merge.
+Watch an exact repository, PR number, and published head SHA from a start time until a deadline 30 minutes later, unless the user selected another budget. Watch is read-only: it cannot edit, commit, push, react, resolve, or merge.
 
-Use available wait/background tools with bounded waits. Recheck PR identity/head between observations. Stop and report **superseded** if the head changes, **complete** when the relevant check outcome is established, **expired/pending** at the deadline, or **blocked** when access/capability prevents observation. Missing required-check knowledge is a limitation, not a successful gate.
+Schedule the observations through [scheduled checks](../../references/orchestration.md#scheduled-checks). Each check runs the `checks` command from the [helpers](../../scripts/README.md) and rechecks PR identity and head. To investigate a completed failure, launch one background investigator with the absolute mstack paths and the same read-only limits.
 
-Deliver the result through the subagent completion notification. If launch fails or durable continuation is unavailable, report that separately and offer an immediate checks snapshot. Do not claim monitoring started merely because instructions or a status file were written. A session restart may end monitoring; this skill supplies no scheduler.
+Stop, delete the automation, and report **superseded** if the head changes, **complete** when the relevant check outcome is established, **expired/pending** at the deadline, or **blocked** when access/capability prevents observation. Missing required-check knowledge is a limitation, not a successful gate.
+
+If automations are unavailable, launch one background investigator instead, with the same target, deadline, and limits and the absolute mstack paths in its contract. It waits with bounded waits and delivers the result through its completion notification. If neither is available, report that and offer an immediate checks snapshot. Do not claim monitoring started merely because instructions or a status file were written.
 
 ## Sync with base
 
