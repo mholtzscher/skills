@@ -529,11 +529,27 @@ Start Why with the code anchor. When the historical record answers the question 
 
 Approval: the user selected recommendation 1 with "Let's do #1" after reviewing the comparison with pstack. The shorter paths reduce required reading without removing the detailed guidance restored under D19. Reflect, model routing, and delegation policy stay unchanged.
 
+### D106: Wait for CI through OpenCode automations
+
+Accepted 2026-11-23. Add a Scheduled checks section to orchestration. A repeating `every` automation with `expires` sends a self-contained prompt to the current session, each check runs the compact `checks` helper, and the session deletes the automation by name when the outcome is established, the head changes, or the deadline passes. A check runs once before scheduling, so an outcome that is already established is reported without an automation. PR Watch and Finish delivery both wait this way. Finish delivery gives each head its own deadline, from the repository's usual CI duration or 30 minutes when that is unknown. Watch stays read-only and runs only on explicit request, as D58 requires; failure-log investigation still goes to a background subagent. Finish delivery's checks carry its CI-repair authority. The previous background investigator with bounded waits remains the fallback when automations are unavailable. This refines D88's placement of scheduling limits in PR Watch. Autonomous run, Advanced delivery, Help, README, and the principles keep their scheduler wording.
+
+A repeating automation was chosen over a one-shot automation that schedules the next check. It has one name to delete, and OpenCode enforces the deadline, while a chain depends on the model scheduling every next check. Each check costs one model turn in the session: Code Mode has no shell or GitHub tool, so a model-free script cannot read CI.
+
+Watch no longer says that a session restart may end monitoring. Restart survival was assumed at the user's direction, not observed; see the validation snapshot.
+
+Approval: after a spike in this session, the user approved the sketch through `question` with "Approve", chose "Drop caveat" for the restart wording, and chose "Use another repo PR" for the host-level check.
+
 ## Upstream differences that are not new commitments
 
 The original adaptation condensed the upstream principle set and omitted full Orchestrate and Autopilot protocols and a simulator-cleanup workflow. D91 through D94 add worktree workflows independently. Those are observed coverage differences, not prohibitions or promises to port them later. Review upstream additions against the decisions above instead of treating parity as the acceptance criterion. Arena is explicitly deferred.
 
 ## Validation and cutover snapshot
+
+2026-11-23, D106 against `7ebd732`: the bundle validator found one skill and 102 Markdown files. Formatting, `git diff --check`, and the `#scheduled-checks` fragment from both callers passed. Before the change, a spike in session `ses_df53b66ebffeRCb7khyNP7fZfY` created, listed, and deleted an automation. A model-free `every` script kept its state across two runs, stopped itself, and prompted the idle creating session on schedule. A one-shot `prompt` arrived in the idle session on time and ran `scripts/pr.ts checks` without a permission prompt. PR #16 in this repository has no CI, so that check never saw a pending result. Restart survival was not observed: the user directed "assume it worked" before the test automation was due, and it was deleted unfired.
+
+Two fresh OpenCode evaluators dry-ran the working-tree text without creating automations. `ses_df50735c8ffeoKldUTKNgx1AhU` routed a Watch request for hearth PR #432 through the entry to Watch and Scheduled checks, and wrote a correct `create` call with a reused-name check and a read-only prompt. `ses_df5071f1cffeTUev1MAH66gGZy` waited for CI in Finish delivery, carried repair authority into step 6, deleted the old head's automation by name before watching a new head, and kept the read-only fallback when automations were missing. Their findings added the check before scheduling, the absolute UTC deadline, the command directory, the one-line reply when nothing changed, the default `to` target, and Finish delivery's deadline per head. These fixes were inspected directly and not re-evaluated.
+
+Not exercised: a live Watch that sees CI move from pending to settled, failure-log delegation from a scheduled check, and restart survival.
 
 2026-11-20, D105 against `16bd476`: the bundle validator found one skill and 102 Markdown files. Formatting, `git diff --check`, and local link-fragment checks passed. Compared the extracted Why text with the original and confirmed that only its heading and link placement changed, apart from moving the planning handoff into the playbook. The external skill-creator validator could not run without PyYAML. Skill frontmatter is unchanged.
 

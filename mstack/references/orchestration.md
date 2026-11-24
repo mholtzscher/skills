@@ -118,6 +118,19 @@ Do useful independent root work without duplicating assignments, then yield for 
 
 Continue a completed child with its returned `sessionID` when its retained context is useful. Otherwise supply a fresh child with the consolidated brief and prior evidence. The standard `subagent` tool has no list, cancel, or steer-running action. Use only advertised operations for state, waiting, or stopping. Cancellation is not success: inspect partial changes and resolve any remaining scope. Never infer that a child stopped because a status file changed.
 
+## Scheduled checks
+
+To wait for an external result such as CI, schedule checks with OpenCode automations instead of a waiting subagent. Find `automation.create`, `automation.list`, and `automation.delete` in the tool catalog. If they are unavailable, the caller's fallback applies.
+
+1. Run the check once now. If it already establishes the outcome, report it without scheduling.
+2. Name the automation after its target, such as `watch-pr17-5c66d59`. Call `automation.list` first. If an active automation has that name, reuse it instead of creating another.
+3. Create an `every` trigger with a 5-minute interval unless the caller sets another. Set `expires` to one interval after the deadline, so one check runs after the deadline passes. Send a `prompt` action to the current session, which is the default when `to` is omitted.
+4. Write a prompt that stands alone, because compaction may remove this context before a check arrives. Include the automation name, repository, PR number, head SHA, the deadline as an absolute UTC time, the command with the absolute directory to run it in, the possible outcomes, and the authority the caller grants. Tell a check that finds nothing new to reply in one line. Each check costs one model turn.
+5. Delete the automation, found by name through `automation.list`, when the outcome is established, when the head changes, or when the deadline has passed. A finished automation stays listed until you delete it.
+6. Keep large evidence out of the session. Run the compact check in each turn and give log investigation to a background subagent.
+
+Monitoring starts when `automation.create` returns an active automation, not when the prompt is written.
+
 ## Shared-worktree validation
 
 During concurrent implementation in isolated writer targets, workers run focused checks and limit formatting or other mutations to owned files. When checks encounter shared state or a sibling's intermediate changes, report those failures rather than repairing that scope or repeatedly rerunning the whole suite. This does not authorize multiple active writers in one worktree.
